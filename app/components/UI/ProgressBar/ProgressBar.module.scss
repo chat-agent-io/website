@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.track {
+  flex: 1;
+  background-color: #e9ecef;
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.fill {
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.3s ease;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+    animation: shimmer 2s infinite;
+  }
+}
+
+// Variants
+.default {
+  background-color: #3214f0;
+}
+
+.gradient {
+  background: linear-gradient(135deg, #3214f0 0%, #9b46eb 100%);
+}
+
+.success {
+  background-color: #28a745;
+}
+
+.warning {
+  background-color: #ffc107;
+}
+
+.error {
+  background-color: #dc3545;
+}
+
+// Sizes
+.sm {
+  height: 4px;
+}
+
+.md {
+  height: 6px;
+}
+
+.lg {
+  height: 8px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #495057;
+  min-width: 40px;
+  text-align: right;
+}
+
+// Step Progress
+.stepContainer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.step {
+  flex: 1;
+  height: 4px;
+  background-color: #e9ecef;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+
+  &.completed {
+    background: linear-gradient(135deg, #3214f0 0%, #9b46eb 100%);
+  }
+
+  &.current {
+    background: linear-gradient(135deg, #3214f0 0%, #9b46eb 100%);
+    animation: pulse 2s infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
