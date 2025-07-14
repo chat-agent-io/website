@@ -9,7 +9,7 @@ import { InstagramIcon } from '@/app/assets/icons/InstagramIcon';
 import { YoutubeIcon } from '@/app/assets/icons/YoutubeIcon';
 import { TranslateIcon } from '@/app/assets/icons/TranslateIcon';
 
-export const Footer = (): JSX.Element => {
+export const Footer = (): React.ReactElement => {
   const footerNavigation = [
     {
       title: 'Company',

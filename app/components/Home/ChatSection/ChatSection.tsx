@@ -8,7 +8,7 @@ import { ChatIcon } from '@/app/assets/icons/ChatIcon';
 import { ChatAttachmentIcon } from '@/app/assets/icons/ChatAttachmentIcon';
 import { ChatSendIcon } from '@/app/assets/icons/ChatSendIcon';
 
-export const ChatSetupSection = (): JSX.Element => {
+export const ChatSetupSection = (): React.ReactElement => {
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   const [currentStep, setCurrentStep] = useState(1);
   const [inputValue, setInputValue] = useState('');

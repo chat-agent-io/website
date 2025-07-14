@@ -4,7 +4,7 @@ import { Navigation } from '../../Navigation';
 import styles from './Header.module.scss';
 import { Logo } from '@/app/assets/icons/Logo';
 
-export const Header = (): JSX.Element => {
+export const Header = (): React.ReactElement => {
   const navItems = [
     { label: 'Home', href: '#' },
     { label: 'Pricing', href: '#' },
