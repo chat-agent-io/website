@@ -1,8 +1,6 @@
 'use client';
 
-import { ImageIcon, SendIcon } from 'lucide-react';
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { Card, CardContent } from '../../UI/Card';
 import { StepProgress } from '../../UI/ProgressBar';
 import styles from './ChatSection.module.scss';
@@ -11,6 +9,7 @@ import { ChatAttachmentIcon } from '@/app/assets/icons/ChatAttachmentIcon';
 import { ChatSendIcon } from '@/app/assets/icons/ChatSendIcon';
 
 export const ChatSetupSection = (): JSX.Element => {
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   const [currentStep, setCurrentStep] = useState(1);
   const [inputValue, setInputValue] = useState('');
 

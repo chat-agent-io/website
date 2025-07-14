@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { Button } from '../../Button';
 import { Navigation } from '../../Navigation';
 import styles from './Header.module.scss';

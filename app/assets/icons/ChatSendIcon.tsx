@@ -5,10 +5,7 @@ interface ChatSendIconProps extends ComponentPropsWithoutRef<'svg'> {
   color?: string;
 }
 
-export function ChatSendIcon({
-  className,
-  color = '#FBB03B',
-}: ChatSendIconProps) {
+export function ChatSendIcon({}: ChatSendIconProps) {
   return (
     <svg
       width="21"
