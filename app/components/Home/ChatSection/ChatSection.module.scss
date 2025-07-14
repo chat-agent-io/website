@@ -3,8 +3,9 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 80px 32px;
-  background: linear-gradient(135deg, #f8f9ff 0%, #fff 50%, #f0f8ff 100%);
+  padding: 30px 32px;
+  background: #f1f2f2;
+  height: 90vh;
 }
 
 .headerSection {
@@ -13,13 +14,13 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
-  margin-bottom: 64px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
 .mainHeading {
-  font-size: 48px;
-  font-weight: 700;
+  font-size: 40px;
+  font-weight: 600;
   line-height: 1.2;
   color: #1a1a1a;
   margin: 0;
@@ -33,8 +34,8 @@
 }
 
 .subHeading {
-  font-size: 20px;
-  color: #6c757d;
+  font-size: 16px;
+  color: #4e4d54;
   line-height: 1.5;
   max-width: 600px;
   margin: 0;
@@ -42,7 +43,27 @@
 
 .contentWrapper {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
+}
+
+.cardWrapper {
+  position: relative;
+  border-radius: 12px;
+  padding: 30px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px; // This creates the border width
+    background: linear-gradient(180deg, #d9d8da 0%, #f2f2f2 90.13%);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+  }
 }
 
 .mainCard {
@@ -74,82 +95,52 @@
   font-size: 36px;
   font-weight: 700;
   line-height: 1.2;
-  color: #1a1a1a;
-  margin: 0;
-}
-
-.gradientText {
   background: linear-gradient(135deg, #3214f0 0%, #9b46eb 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  margin: 0;
 }
 
 .setupDescription {
   font-size: 18px;
-  color: #6c757d;
+  color: #4e4d54;
   line-height: 1.6;
   margin: 0;
 }
 
 .helpLink {
-  background: none;
-  border: none;
-  color: #3214f0;
-  font-size: 14px;
+  text-align: left;
+  color: #b3b2b6;
   text-decoration: underline;
-  cursor: pointer;
-  padding: 0;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: #9b46eb;
-  }
 }
 
 .stepsList {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 4px;
 }
 
 .stepItem {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 16px;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-
-  &.active {
-    background: rgba(50, 20, 240, 0.05);
-    border: 1px solid rgba(50, 20, 240, 0.2);
-  }
 }
 
 .stepIndicator {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
-  border: 2px solid #e9ecef;
-  background: white;
+  border: 2px solid #818085;
+  background: transparent;
   transition: all 0.3s ease;
 
   .stepItem.active & {
     border-color: #3214f0;
-    background: #3214f0;
   }
-}
-
-.activeIndicator {
-  width: 12px;
-  height: 12px;
-  background: white;
-  border-radius: 50%;
-  animation: pulse 2s infinite;
 }
 
 .stepNumber {
@@ -164,7 +155,7 @@
 
 .stepText {
   font-size: 16px;
-  color: #6c757d;
+  color: #818085;
   line-height: 1.4;
 
   .stepItem.active & {
@@ -177,6 +168,7 @@
   width: 400px;
   flex-shrink: 0;
   overflow: hidden;
+  z-index: 400;
 }
 
 .chatHeader {
@@ -185,7 +177,7 @@
   justify-content: space-between;
   padding: 16px 20px;
   background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
-  border-bottom: 1px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .avatarContainer {
@@ -194,13 +186,17 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, #3214f0 0%, #9b46eb 100%);
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(50, 20, 240, 0.3);
+  border: 1px solid #d9d8da;
 }
 
 .avatar {
   filter: brightness(0) invert(1);
+}
+
+.headerContent {
+  display: flex;
+  gap: 15px;
 }
 
 .stepProgress {
@@ -210,7 +206,7 @@
 }
 
 .progressBars {
-  width: 80px;
+  width: 100px;
 }
 
 .chatMessages {
@@ -235,9 +231,9 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, #3214f0 0%, #9b46eb 100%);
   border-radius: 50%;
   flex-shrink: 0;
+  border: 1px solid #d9d8da;
 }
 
 .messageBubble {
@@ -266,44 +262,19 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 16px;
   margin-left: 44px;
-}
-
-.typingDots {
-  display: flex;
-  gap: 4px;
-
-  span {
-    width: 6px;
-    height: 6px;
-    background: #3214f0;
-    border-radius: 50%;
-    animation: typing 1.4s infinite ease-in-out;
-
-    &:nth-child(1) {
-      animation-delay: 0s;
-    }
-    &:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-    &:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-  }
 }
 
 .typingText {
   font-size: 12px;
-  color: #6c757d;
-  font-style: italic;
+  color: #b3b2b6;
 }
 
 .chatInput {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 20px;
+  padding: 5px;
   background: white;
   border-top: 1px solid #e9ecef;
 }
@@ -316,13 +287,8 @@
   height: 36px;
   background: none;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: #f8f9fa;
-  }
 }
 
 .inputIcon {
@@ -334,19 +300,13 @@
 .inputField {
   flex: 1;
   padding: 12px 16px;
-  border: 1px solid #e9ecef;
-  border-radius: 24px;
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s ease;
-
-  &:focus {
-    border-color: #3214f0;
-    box-shadow: 0 0 0 3px rgba(50, 20, 240, 0.1);
-  }
+  color: #000;
 
   &::placeholder {
-    color: #adb5bd;
+    color: #818085;
   }
 }
 
@@ -356,22 +316,9 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, #3214f0 0%, #9b46eb 100%);
   border: none;
-  border-radius: 50%;
   cursor: pointer;
   transition: all 0.2s ease;
-
-  &:hover:not(:disabled) {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(50, 20, 240, 0.3);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-  }
 }
 
 .sendIcon {

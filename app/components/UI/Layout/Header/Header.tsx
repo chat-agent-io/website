@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Button } from '../../Button';
 import { Navigation } from '../../Navigation';
 import styles from './Header.module.scss';
+import { Logo } from '@/app/assets/icons/Logo';
 
 export const Header = (): JSX.Element => {
   const navItems = [
@@ -13,19 +14,14 @@ export const Header = (): JSX.Element => {
   return (
     <header className={styles.header}>
       <div className={styles.logoContainer}>
-        <Image
-          src="/logo-frame.svg"
-          alt="ChatAgent Logo"
-          width={120}
-          height={32}
-          className={styles.logo}
-        />
+        <Logo />
+        <span>ChatAgent</span>
       </div>
 
       <Navigation items={navItems} className={styles.navigation} />
 
       <div className={styles.buttonContainer}>
-        <Button variant="primary" size="md">
+        <Button variant="black" size="sm">
           Sign in
         </Button>
       </div>

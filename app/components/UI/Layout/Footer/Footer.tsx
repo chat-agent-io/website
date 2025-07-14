@@ -2,6 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import { Accordion } from '../../Accordion';
 import styles from './Footer.module.scss';
+import { DarkLogo } from '@/app/assets/icons/DarkLogo';
+import { LinkedInIcon } from '@/app/assets/icons/LinkedInIcon';
+import { FacebookIcon } from '@/app/assets/icons/FacebookIcon';
+import { InstagramIcon } from '@/app/assets/icons/InstagramIcon';
+import { YoutubeIcon } from '@/app/assets/icons/YoutubeIcon';
+import { TranslateIcon } from '@/app/assets/icons/TranslateIcon';
 
 export const Footer = (): JSX.Element => {
   const footerNavigation = [
@@ -51,13 +57,8 @@ export const Footer = (): JSX.Element => {
       {/* Desktop Navigation */}
       <div className={styles.desktopNav}>
         <div className={styles.logoSection}>
-          <Image
-            src="/logo-button.svg"
-            alt="ChatAgent Logo"
-            width={80}
-            height={32}
-            className={styles.logo}
-          />
+          <DarkLogo />
+          <span>ChatAgent</span>
         </div>
 
         <div className={styles.navCategories}>
@@ -82,20 +83,13 @@ export const Footer = (): JSX.Element => {
 
         <div className={styles.socialSection}>
           <div className={styles.socialIcons}>
-            <Image
-              src="/icons.svg"
-              alt="Social media icons"
-              width={120}
-              height={32}
-            />
+            <LinkedInIcon />
+            <FacebookIcon />
+            <InstagramIcon />
+            <YoutubeIcon />
           </div>
           <div className={styles.translateButton}>
-            <Image
-              src="/translate-button.svg"
-              alt="Language selector"
-              width={100}
-              height={32}
-            />
+            <TranslateIcon />
           </div>
         </div>
       </div>

@@ -68,6 +68,15 @@
   }
 }
 
+.black {
+  background-color: black;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: #1a1a1a;
+  }
+}
+
 // Sizes
 .sm {
   padding: 8px 16px;

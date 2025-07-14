@@ -6,6 +6,10 @@ const onest = Onest({
   subsets: ['latin'],
 });
 
+export const metadata: Metadata = {
+  title: 'ChatAgent - Start replying smarter',
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

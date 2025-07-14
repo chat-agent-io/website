@@ -41,7 +41,7 @@
 }
 
 .gradient {
-  background: linear-gradient(135deg, #3214f0 0%, #9b46eb 100%);
+  background-color: #3214f0;
 }
 
 .success {
@@ -92,11 +92,11 @@
   transition: all 0.3s ease;
 
   &.completed {
-    background: linear-gradient(135deg, #3214f0 0%, #9b46eb 100%);
+    background-color: #3214f0;
   }
 
   &.current {
-    background: linear-gradient(135deg, #3214f0 0%, #9b46eb 100%);
+    background-color: #3214f0;
     animation: pulse 2s infinite;
   }
 }

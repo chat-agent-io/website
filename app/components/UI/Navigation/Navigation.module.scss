@@ -26,26 +26,10 @@
   border-radius: 8px;
   transition: all 0.2s ease;
   position: relative;
+  transition: all 0.2s ease;
 
   &:hover {
     color: #3214f0;
-    background-color: rgba(50, 20, 240, 0.05);
-  }
-
-  &.active {
-    color: #3214f0;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20px;
-      height: 2px;
-      background: linear-gradient(135deg, #3214f0 0%, #9b46eb 100%);
-      border-radius: 1px;
-    }
   }
 }
 

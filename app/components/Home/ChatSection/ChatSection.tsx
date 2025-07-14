@@ -6,6 +6,9 @@ import Image from 'next/image';
 import { Card, CardContent } from '../../UI/Card';
 import { StepProgress } from '../../UI/ProgressBar';
 import styles from './ChatSection.module.scss';
+import { ChatIcon } from '@/app/assets/icons/ChatIcon';
+import { ChatAttachmentIcon } from '@/app/assets/icons/ChatAttachmentIcon';
+import { ChatSendIcon } from '@/app/assets/icons/ChatSendIcon';
 
 export const ChatSetupSection = (): JSX.Element => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -31,7 +34,7 @@ export const ChatSetupSection = (): JSX.Element => {
 
   const chatMessages = [
     {
-      message: "👋 Hi there!\nLet's setup your AI agent together...",
+      message: "👋🏻 Hi there!\nLet's setup your AI agent together...",
       timestamp: '2:30 PM',
     },
     {
@@ -60,7 +63,7 @@ export const ChatSetupSection = (): JSX.Element => {
         <h1 className={styles.mainHeading}>
           Effortless replies.
           <br />
-          <span className={styles.highlight}>Always on.</span>
+          Always on.
         </h1>
 
         <p className={styles.subHeading}>
@@ -69,14 +72,14 @@ export const ChatSetupSection = (): JSX.Element => {
       </div>
 
       <div className={styles.contentWrapper}>
-        <Card className={styles.mainCard} variant="elevated">
+        <div className={styles.cardWrapper}>
           <div className={styles.cardContent}>
             <div className={styles.leftColumn}>
               <div className={styles.setupInfo}>
                 <h2 className={styles.setupHeading}>
                   Let&apos;s get your
                   <br />
-                  <span className={styles.gradientText}>AI agent set up.</span>
+                  AI agent set up.
                 </h2>
 
                 <p className={styles.setupDescription}>
@@ -85,9 +88,7 @@ export const ChatSetupSection = (): JSX.Element => {
                   We&apos;ll guide you through each step.
                 </p>
 
-                <button className={styles.helpLink}>
-                  Need Help? Contact Support
-                </button>
+                <button className={styles.helpLink}>Need Help?</button>
               </div>
 
               <div className={styles.stepsList}>
@@ -98,13 +99,7 @@ export const ChatSetupSection = (): JSX.Element => {
                       step.active ? styles.active : ''
                     }`}
                   >
-                    <div className={styles.stepIndicator}>
-                      {step.active ? (
-                        <div className={styles.activeIndicator} />
-                      ) : (
-                        <span className={styles.stepNumber}>{step.number}</span>
-                      )}
-                    </div>
+                    <div className={styles.stepIndicator}></div>
                     <span className={styles.stepText}>
                       Step {step.number} - {step.text}
                     </span>
@@ -113,40 +108,30 @@ export const ChatSetupSection = (): JSX.Element => {
               </div>
             </div>
 
-            <Card className={styles.chatCard} variant="outlined">
+            <Card className={styles.chatCard}>
               <div className={styles.chatHeader}>
                 <div className={styles.avatarContainer}>
-                  <Image
-                    src="/union.svg"
-                    alt="AI Assistant"
-                    width={16}
-                    height={14}
-                    className={styles.avatar}
+                  <ChatIcon />
+                </div>
+
+                <div className={styles.headerContent}>
+                  <div className={styles.stepProgress}>
+                    Step {currentStep} of 3
+                  </div>
+
+                  <StepProgress
+                    currentStep={currentStep - 1}
+                    totalSteps={3}
+                    className={styles.progressBars}
                   />
                 </div>
-
-                <div className={styles.stepProgress}>
-                  Step {currentStep} of 3
-                </div>
-
-                <StepProgress
-                  currentStep={currentStep}
-                  totalSteps={3}
-                  className={styles.progressBars}
-                />
               </div>
 
               <CardContent className={styles.chatMessages}>
                 {chatMessages.map((chat, index) => (
                   <div key={index} className={styles.messageContainer}>
                     <div className={styles.messageAvatar}>
-                      <Image
-                        src="/union.svg"
-                        alt="AI Assistant"
-                        width={16}
-                        height={14}
-                        className={styles.avatar}
-                      />
+                      <ChatIcon />
                     </div>
                     <div className={styles.messageBubble}>
                       <p className={styles.messageText}>{chat.message}</p>
@@ -156,11 +141,6 @@ export const ChatSetupSection = (): JSX.Element => {
                 ))}
 
                 <div className={styles.typingIndicator}>
-                  <div className={styles.typingDots}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
                   <span className={styles.typingText}>
                     ChatAgent is typing...
                   </span>
@@ -169,7 +149,7 @@ export const ChatSetupSection = (): JSX.Element => {
 
               <div className={styles.chatInput}>
                 <button className={styles.attachButton}>
-                  <ImageIcon className={styles.inputIcon} />
+                  <ChatAttachmentIcon />
                 </button>
 
                 <input
@@ -177,7 +157,7 @@ export const ChatSetupSection = (): JSX.Element => {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Type your business name here..."
+                  placeholder="Type here..."
                   className={styles.inputField}
                 />
 
@@ -186,12 +166,12 @@ export const ChatSetupSection = (): JSX.Element => {
                   onClick={handleSendMessage}
                   disabled={!inputValue.trim()}
                 >
-                  <SendIcon className={styles.sendIcon} />
+                  <ChatSendIcon />
                 </button>
               </div>
             </Card>
           </div>
-        </Card>
+        </div>
       </div>
     </section>
   );
