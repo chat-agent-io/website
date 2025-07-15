@@ -3,6 +3,7 @@ import { Button } from '../../Button';
 import { Navigation } from '../../Navigation';
 import styles from './Header.module.scss';
 import { Logo } from '@/app/assets/icons/Logo';
+import Link from 'next/link';
 
 export const Header = (): React.ReactElement => {
   const navItems = [
@@ -12,10 +13,10 @@ export const Header = (): React.ReactElement => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.logoContainer}>
+      <Link href="/" className={styles.logoContainer}>
         <Logo />
         <span>ChatAgent</span>
-      </div>
+      </Link>
 
       <Navigation items={navItems} className={styles.navigation} />
 
