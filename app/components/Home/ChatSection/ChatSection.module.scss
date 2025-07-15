@@ -74,6 +74,7 @@
 }
 
 .cardContent {
+  position: relative;
   display: flex;
   align-items: flex-start;
   gap: 48px;
@@ -366,6 +367,7 @@
 @media (max-width: 768px) {
   .section {
     padding: 40px 16px;
+    height: fit-content;
   }
 
   .mainHeading {
