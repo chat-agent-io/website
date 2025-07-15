@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { Accordion } from '../../Accordion';
 import styles from './Footer.module.scss';
@@ -8,8 +10,18 @@ import { FacebookIcon } from '@/app/assets/icons/FacebookIcon';
 import { InstagramIcon } from '@/app/assets/icons/InstagramIcon';
 import { YoutubeIcon } from '@/app/assets/icons/YoutubeIcon';
 import { TranslateIcon } from '@/app/assets/icons/TranslateIcon';
+import { UpArrowIcon } from '@/app/assets/icons/UpArrowIcon';
+import { LanguageDropdown } from '../../LanguageSelection';
+import { DownArrowIcon } from '@/app/assets/icons/DownArrowIcon';
 
 export const Footer = (): React.ReactElement => {
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState('en');
+  const [collapsedCategories, setCollapsedCategories] = useState<Set<number>>(
+    new Set()
+  );
+  const translateButtonRef = useRef<HTMLButtonElement>(null);
+
   const footerNavigation = [
     {
       title: 'Company',
@@ -52,6 +64,25 @@ export const Footer = (): React.ReactElement => {
     ),
   }));
 
+  const handleLanguageSelect = (languageCode: string) => {
+    setSelectedLanguage(languageCode);
+    console.log('Selected language:', languageCode);
+  };
+
+  const toggleLanguageDropdown = () => {
+    setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+  };
+
+  const toggleCategory = (categoryIndex: number) => {
+    const newCollapsedCategories = new Set(collapsedCategories);
+    if (newCollapsedCategories.has(categoryIndex)) {
+      newCollapsedCategories.delete(categoryIndex);
+    } else {
+      newCollapsedCategories.add(categoryIndex);
+    }
+    setCollapsedCategories(newCollapsedCategories);
+  };
+
   return (
     <footer className={styles.footer}>
       {/* Desktop Navigation */}
@@ -62,23 +93,43 @@ export const Footer = (): React.ReactElement => {
         </div>
 
         <div className={styles.navCategories}>
-          {footerNavigation.map((category, index) => (
-            <div key={`footer-category-${index}`} className={styles.category}>
-              <h4 className={styles.categoryTitle}>{category.title}</h4>
+          {footerNavigation.map((category, index) => {
+            const isCollapsed = collapsedCategories.has(index);
 
-              <div className={styles.categoryLinks}>
-                {category.links.map((link, linkIndex) => (
-                  <a
-                    key={`footer-link-${index}-${linkIndex}`}
-                    href="#"
-                    className={styles.categoryLink}
+            return (
+              <div key={`footer-category-${index}`} className={styles.category}>
+                <div
+                  className={styles.categoryHeader}
+                  onClick={() => toggleCategory(index)}
+                >
+                  <h4 className={styles.categoryTitle}>{category.title}</h4>
+                  <div
+                    className={`${styles.arrowIcon} ${
+                      isCollapsed ? styles.collapsed : ''
+                    }`}
                   >
-                    {link}
-                  </a>
-                ))}
+                    {isCollapsed ? <DownArrowIcon /> : <UpArrowIcon />}
+                  </div>
+                </div>
+
+                <div
+                  className={`${styles.categoryLinks} ${
+                    isCollapsed ? styles.collapsed : styles.expanded
+                  }`}
+                >
+                  {category.links.map((link, linkIndex) => (
+                    <a
+                      key={`footer-link-${index}-${linkIndex}`}
+                      href="#"
+                      className={styles.categoryLink}
+                    >
+                      {link}
+                    </a>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className={styles.socialSection}>
@@ -88,8 +139,20 @@ export const Footer = (): React.ReactElement => {
             <InstagramIcon />
             <YoutubeIcon />
           </div>
-          <div className={styles.translateButton}>
-            <TranslateIcon />
+          <div style={{ position: 'relative' }}>
+            <button
+              ref={translateButtonRef}
+              className={styles.translateButton}
+              onClick={toggleLanguageDropdown}
+            >
+              <TranslateIcon />
+            </button>
+            <LanguageDropdown
+              isOpen={isLanguageDropdownOpen}
+              onClose={() => setIsLanguageDropdownOpen(false)}
+              selectedLanguage={selectedLanguage}
+              onLanguageSelect={handleLanguageSelect}
+            />
           </div>
         </div>
       </div>
@@ -119,12 +182,20 @@ export const Footer = (): React.ReactElement => {
             width={120}
             height={32}
           />
-          <Image
-            src="/translate-button.svg"
-            alt="Language selector"
-            width={100}
-            height={32}
-          />
+          <div style={{ position: 'relative' }}>
+            <button
+              className={styles.translateButton}
+              onClick={toggleLanguageDropdown}
+            >
+              <TranslateIcon />
+            </button>
+            <LanguageDropdown
+              isOpen={isLanguageDropdownOpen}
+              onClose={() => setIsLanguageDropdownOpen(false)}
+              selectedLanguage={selectedLanguage}
+              onLanguageSelect={handleLanguageSelect}
+            />
+          </div>
         </div>
       </div>
 

@@ -6,8 +6,8 @@ import { Logo } from '@/app/assets/icons/Logo';
 
 export const Header = (): React.ReactElement => {
   const navItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Pricing', href: '#' },
+    { label: 'Home', href: '/' },
+    { label: 'Pricing', href: '/pricing' },
   ];
 
   return (
