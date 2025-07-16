@@ -50,6 +50,12 @@
   }
 }
 
+.toggleSection {
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
 .breadcrumb {
   font-family: inherit;
   color: #818085;

@@ -95,9 +95,13 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
   ];
 
   const AnnualPlansToggle = () => (
-    <div className={styles.annualPlans} onClick={onSwitchToAnnual}>
-      <span className={styles.annualText}>Save 2 Months with Annual Plans</span>
-      <ChevronIcon color="#2d11df" className={styles.chevronIcon} />
+    <div>
+      <div className={styles.annualPlans} onClick={onSwitchToAnnual}>
+        <span className={styles.annualText}>
+          Save 2 Months with Annual Plans
+        </span>
+        <ChevronIcon color="#2d11df" className={styles.chevronIcon} />
+      </div>
     </div>
   );
 
@@ -109,7 +113,10 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
             <span className={styles.breadcrumb}>Pricing\</span>
             <h2 className={styles.title}>Monthly Plans</h2>
           </div>
-          {!isTablet && <AnnualPlansToggle />}
+          <span className={styles.subtitle}>
+            Choose a plan to unlock your Free Trial
+          </span>
+          <AnnualPlansToggle />
         </div>
 
         <section className={styles.section}>

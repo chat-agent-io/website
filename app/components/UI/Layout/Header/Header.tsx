@@ -6,20 +6,17 @@ import { Navigation } from '../../Navigation';
 import styles from './Header.module.scss';
 import { Logo } from '@/app/assets/icons/Logo';
 import Link from 'next/link';
-import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import { HamburgerIcon } from '@/app/assets/icons/HamburgerIcon';
 import { MobileMenu } from '../MobileMenu';
 
 export const Header = (): React.ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
-  const isTablet = useMediaQuery('900');
 
   const navItems = [
     { label: 'Home', href: '/' },
     { label: 'Pricing', href: '/pricing' },
   ];
 
-  // Extended nav items for mobile menu with descriptions
   const mobileNavItems = [
     {
       label: 'Home',
@@ -55,32 +52,27 @@ export const Header = (): React.ReactElement => {
         <span>ChatAgent</span>
       </Link>
 
-      {isTablet ? (
-        <>
-          <button
-            className={styles.hamburgerButton}
-            onClick={() => setIsOpen(true)}
-            aria-label="Open menu"
-          >
-            <HamburgerIcon />
-          </button>
-          <MobileMenu
-            navItems={mobileNavItems}
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-          />
-        </>
-      ) : (
-        <>
-          <Navigation items={navItems} className={styles.navigation} />
+      <Navigation items={navItems} className={styles.navigation} />
 
-          <div className={styles.buttonContainer}>
-            <Button variant="black" size="sm">
-              Sign in
-            </Button>
-          </div>
-        </>
-      )}
+      <div className={styles.buttonContainer}>
+        <Button variant="black" size="sm">
+          Sign in
+        </Button>
+      </div>
+
+      <button
+        className={styles.hamburgerButton}
+        onClick={() => setIsOpen(true)}
+        aria-label="Open menu"
+      >
+        <HamburgerIcon />
+      </button>
+
+      <MobileMenu
+        navItems={mobileNavItems}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      />
     </header>
   );
 };

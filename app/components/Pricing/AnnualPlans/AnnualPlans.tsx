@@ -117,7 +117,9 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
             <span className={styles.breadcrumb}>Pricing\</span>
             <h2 className={styles.title}>Annual Plans</h2>
           </div>
-          {!isTablet && <MonthlyPlansToggle />}
+          <div className={styles.toggleSection}>
+            <MonthlyPlansToggle />
+          </div>
         </div>
 
         <section className={styles.section}>
