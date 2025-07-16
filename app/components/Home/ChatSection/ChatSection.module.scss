@@ -135,6 +135,7 @@
   align-items: center;
   justify-content: center;
   width: 25px;
+  min-width: 25px;
   height: 25px;
   border-radius: 50%;
   border: 2px solid #818085;
@@ -364,14 +365,10 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .section {
     padding: 40px 16px;
     height: fit-content;
-  }
-
-  .mainHeading {
-    font-size: 36px;
   }
 
   .subHeading {
@@ -384,5 +381,24 @@
 
   .setupHeading {
     font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardWrapper {
+    padding: 20px;
+  }
+  .stepIndicator {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+  }
+
+  .subHeading {
+    max-width: 300px;
+  }
+
+  .stepText {
+    font-size: 11px;
   }
 }

@@ -66,7 +66,6 @@ export const Footer = (): React.ReactElement => {
 
   const handleLanguageSelect = (languageCode: string) => {
     setSelectedLanguage(languageCode);
-    console.log('Selected language:', languageCode);
   };
 
   const toggleLanguageDropdown = () => {
@@ -142,48 +141,6 @@ export const Footer = (): React.ReactElement => {
           <div style={{ position: 'relative' }}>
             <button
               ref={translateButtonRef}
-              className={styles.translateButton}
-              onClick={toggleLanguageDropdown}
-            >
-              <TranslateIcon />
-            </button>
-            <LanguageDropdown
-              isOpen={isLanguageDropdownOpen}
-              onClose={() => setIsLanguageDropdownOpen(false)}
-              selectedLanguage={selectedLanguage}
-              onLanguageSelect={handleLanguageSelect}
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      <div className={styles.mobileNav}>
-        <div className={styles.mobileLogoContainer}>
-          <Image
-            src="/logo-button.svg"
-            alt="ChatAgent Logo"
-            width={80}
-            height={32}
-            className={styles.logo}
-          />
-        </div>
-
-        <Accordion
-          items={accordionItems}
-          type="multiple"
-          className={styles.accordion}
-        />
-
-        <div className={styles.mobileSocialSection}>
-          <Image
-            src="/icons.svg"
-            alt="Social media icons"
-            width={120}
-            height={32}
-          />
-          <div style={{ position: 'relative' }}>
-            <button
               className={styles.translateButton}
               onClick={toggleLanguageDropdown}
             >

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Button } from '../../UI/Button';
 import { Card, CardContent } from '../../UI/Card';
@@ -5,6 +7,7 @@ import { Separator } from '../../UI/Separator/Separator';
 import { CheckIcon } from '@/app/assets/icons/CheckIcon';
 import { ChevronIcon } from '@/app/assets/icons/ChevronIcon';
 import styles from './AnnualPlans.module.scss';
+import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 
 interface AnnualPlansProps {
   onSwitchToMonthly: () => void;
@@ -13,6 +16,8 @@ interface AnnualPlansProps {
 export const AnnualPlans: React.FC<AnnualPlansProps> = ({
   onSwitchToMonthly,
 }) => {
+  const isTablet = useMediaQuery('900');
+
   const plans = [
     {
       title: 'Starter',
@@ -105,10 +110,12 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
             <span className={styles.breadcrumb}>Pricing\</span>
             <h2 className={styles.title}>Annual Plans</h2>
           </div>
-          <div className={styles.monthlyPlans} onClick={onSwitchToMonthly}>
-            <span className={styles.monthlyText}>Monthly Plans</span>
-            <ChevronIcon className={styles.chevronIcon} />
-          </div>
+          {!isTablet && (
+            <div className={styles.monthlyPlans} onClick={onSwitchToMonthly}>
+              <span className={styles.monthlyText}>Monthly Plans</span>
+              <ChevronIcon className={styles.chevronIcon} />
+            </div>
+          )}
         </div>
 
         <section className={styles.section}>
@@ -171,6 +178,13 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
               </CardContent>
             </Card>
           ))}
+
+          {isTablet && (
+            <div className={styles.monthlyPlans} onClick={onSwitchToMonthly}>
+              <span className={styles.monthlyText}>Monthly Plans</span>
+              <ChevronIcon className={styles.chevronIcon} />
+            </div>
+          )}
         </section>
       </div>
     </div>

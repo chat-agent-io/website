@@ -5,7 +5,10 @@ interface ChevronIconProps extends ComponentPropsWithoutRef<'svg'> {
   color?: string;
 }
 
-export function ChevronIcon({ className }: ChevronIconProps) {
+export function ChevronIcon({
+  className,
+  color = '#818085',
+}: ChevronIconProps) {
   return (
     <svg
       width="8"
@@ -17,7 +20,7 @@ export function ChevronIcon({ className }: ChevronIconProps) {
     >
       <path
         d="M1.84883 13L8 6.5L1.84883 0L0 1.95341L4.30407 6.5L0 11.0466L1.84883 13Z"
-        fill="#818085"
+        fill={color}
       />
     </svg>
   );

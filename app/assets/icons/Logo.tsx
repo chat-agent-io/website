@@ -28,8 +28,8 @@ export function Logo({}: LogoProps) {
           gradientUnits="userSpaceOnUse"
         >
           <stop stopColor="#07A5EB" />
-          <stop offset="0.5" stop-color="#3214F0" />
-          <stop offset="1" stop-color="#9B46EB" />
+          <stop offset="0.5" stopColor="#3214F0" />
+          <stop offset="1" stopColor="#9B46EB" />
         </linearGradient>
       </defs>
     </svg>

@@ -7,11 +7,13 @@ import styles from './ChatSection.module.scss';
 import { ChatIcon } from '@/app/assets/icons/ChatIcon';
 import { ChatAttachmentIcon } from '@/app/assets/icons/ChatAttachmentIcon';
 import { ChatSendIcon } from '@/app/assets/icons/ChatSendIcon';
+import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 
 export const ChatSetupSection = (): React.ReactElement => {
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   const [currentStep, setCurrentStep] = useState(1);
   const [inputValue, setInputValue] = useState('');
+  const isTablet = useMediaQuery('900');
 
   const steps = [
     {
@@ -90,21 +92,23 @@ export const ChatSetupSection = (): React.ReactElement => {
                 <button className={styles.helpLink}>Need Help?</button>
               </div>
 
-              <div className={styles.stepsList}>
-                {steps.map((step, index) => (
-                  <div
-                    key={index}
-                    className={`${styles.stepItem} ${
-                      step.active ? styles.active : ''
-                    }`}
-                  >
-                    <div className={styles.stepIndicator}></div>
-                    <span className={styles.stepText}>
-                      Step {step.number} - {step.text}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              {!isTablet && (
+                <div className={styles.stepsList}>
+                  {steps.map((step, index) => (
+                    <div
+                      key={index}
+                      className={`${styles.stepItem} ${
+                        step.active ? styles.active : ''
+                      }`}
+                    >
+                      <div className={styles.stepIndicator}></div>
+                      <span className={styles.stepText}>
+                        Step {step.number} - {step.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             <Card className={styles.chatCard}>
@@ -170,6 +174,23 @@ export const ChatSetupSection = (): React.ReactElement => {
               </div>
             </Card>
           </div>
+          {isTablet && (
+            <div className={styles.stepsList} style={{ marginTop: '40px' }}>
+              {steps.map((step, index) => (
+                <div
+                  key={index}
+                  className={`${styles.stepItem} ${
+                    step.active ? styles.active : ''
+                  }`}
+                >
+                  <div className={styles.stepIndicator}></div>
+                  <span className={styles.stepText}>
+                    Step {step.number} - {step.text}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
