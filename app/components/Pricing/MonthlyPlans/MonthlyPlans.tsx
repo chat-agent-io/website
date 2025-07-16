@@ -94,6 +94,13 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
     },
   ];
 
+  const AnnualPlansToggle = () => (
+    <div className={styles.annualPlans} onClick={onSwitchToAnnual}>
+      <span className={styles.annualText}>Save 2 Months with Annual Plans</span>
+      <ChevronIcon color="#2d11df" className={styles.chevronIcon} />
+    </div>
+  );
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -102,12 +109,7 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
             <span className={styles.breadcrumb}>Pricing\</span>
             <h2 className={styles.title}>Monthly Plans</h2>
           </div>
-          <div className={styles.annualPlans} onClick={onSwitchToAnnual}>
-            <span className={styles.annualText}>
-              Save 2 Months with Annual Plans
-            </span>
-            <ChevronIcon color="#2d11df" className={styles.chevronIcon} />
-          </div>
+          {!isTablet && <AnnualPlansToggle />}
         </div>
 
         <section className={styles.section}>
@@ -163,15 +165,8 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
             </Card>
           ))}
           {isTablet && (
-            <div
-              className={styles.annualPlans}
-              onClick={onSwitchToAnnual}
-              style={{ marginTop: '10px' }}
-            >
-              <span className={styles.annualText}>
-                Save 2 Months with Annual Plans
-              </span>
-              <ChevronIcon color="#2d11df" className={styles.chevronIcon} />
+            <div className={styles.annualPlansBottom}>
+              <AnnualPlansToggle />
             </div>
           )}
         </section>

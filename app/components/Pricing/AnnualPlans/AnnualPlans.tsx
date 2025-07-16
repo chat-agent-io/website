@@ -102,6 +102,13 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
     },
   ];
 
+  const MonthlyPlansToggle = () => (
+    <div className={styles.monthlyPlans} onClick={onSwitchToMonthly}>
+      <span className={styles.monthlyText}>Monthly Plans</span>
+      <ChevronIcon className={styles.chevronIcon} />
+    </div>
+  );
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -110,12 +117,7 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
             <span className={styles.breadcrumb}>Pricing\</span>
             <h2 className={styles.title}>Annual Plans</h2>
           </div>
-          {!isTablet && (
-            <div className={styles.monthlyPlans} onClick={onSwitchToMonthly}>
-              <span className={styles.monthlyText}>Monthly Plans</span>
-              <ChevronIcon className={styles.chevronIcon} />
-            </div>
-          )}
+          {!isTablet && <MonthlyPlansToggle />}
         </div>
 
         <section className={styles.section}>
@@ -124,7 +126,7 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
               <CardContent className={styles.cardContent}>
                 <div className={styles.planHeader}>
                   <div className={styles.titleContainer}>
-                    <span className={styles.planTitle}>{plan.title} </span>
+                    <span className={styles.planTitle}>{plan.title}</span>
                     {plan.savings && (
                       <span className={styles.savings}>{plan.savings}</span>
                     )}
@@ -180,9 +182,8 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
           ))}
 
           {isTablet && (
-            <div className={styles.monthlyPlans} onClick={onSwitchToMonthly}>
-              <span className={styles.monthlyText}>Monthly Plans</span>
-              <ChevronIcon className={styles.chevronIcon} />
+            <div className={styles.monthlyPlansBottom}>
+              <MonthlyPlansToggle />
             </div>
           )}
         </section>

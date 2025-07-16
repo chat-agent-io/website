@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '../../Button';
 import { Navigation } from '../../Navigation';
 import styles from './Header.module.scss';
@@ -8,13 +8,44 @@ import { Logo } from '@/app/assets/icons/Logo';
 import Link from 'next/link';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import { HamburgerIcon } from '@/app/assets/icons/HamburgerIcon';
+import { MobileMenu } from '../MobileMenu';
 
 export const Header = (): React.ReactElement => {
+  const [isOpen, setIsOpen] = useState(false);
   const isTablet = useMediaQuery('900');
 
   const navItems = [
     { label: 'Home', href: '/' },
     { label: 'Pricing', href: '/pricing' },
+  ];
+
+  // Extended nav items for mobile menu with descriptions
+  const mobileNavItems = [
+    {
+      label: 'Home',
+      href: '/',
+      description: 'AI-powered customer service solutions',
+    },
+    {
+      label: 'Pricing',
+      href: '/pricing',
+      description: 'Flexible plans for every business size',
+    },
+    {
+      label: 'How it Works',
+      href: '/how-it-works',
+      description: 'Learn about our AI technology',
+    },
+    {
+      label: 'Customer Stories',
+      href: '/customers',
+      description: 'Success stories from our clients',
+    },
+    {
+      label: 'Support',
+      href: '/support',
+      description: 'Get help when you need it',
+    },
   ];
 
   return (
@@ -25,7 +56,20 @@ export const Header = (): React.ReactElement => {
       </Link>
 
       {isTablet ? (
-        <HamburgerIcon />
+        <>
+          <button
+            className={styles.hamburgerButton}
+            onClick={() => setIsOpen(true)}
+            aria-label="Open menu"
+          >
+            <HamburgerIcon />
+          </button>
+          <MobileMenu
+            navItems={mobileNavItems}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+          />
+        </>
       ) : (
         <>
           <Navigation items={navItems} className={styles.navigation} />
