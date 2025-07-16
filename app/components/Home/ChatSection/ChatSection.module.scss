@@ -44,7 +44,7 @@
 
 .contentWrapper {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1023px;
 }
 
 .cardWrapper {
@@ -365,7 +365,7 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1023px) {
   .section {
     padding: 40px 16px;
     height: fit-content;
