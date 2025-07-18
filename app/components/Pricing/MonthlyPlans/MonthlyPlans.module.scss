@@ -190,7 +190,6 @@
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 16px;
   min-height: 40px;
 
   @media (max-width: 1300px) {
@@ -206,7 +205,6 @@
   color: transparent;
   font-size: 28px;
   letter-spacing: 0;
-  line-height: 28px;
   flex: 1;
 
   @media (max-width: 1300px) {
@@ -247,11 +245,9 @@
   gap: 8px;
   position: relative;
   width: 100%;
-  margin-bottom: 24px;
   min-height: 40px;
 
   @media (max-width: 1300px) {
-    margin-bottom: 20px;
     min-height: 36px;
   }
 }
@@ -366,7 +362,6 @@
   padding: 8px 0 16px 0;
   position: relative;
   width: 100%;
-  margin-top: auto;
 }
 
 .separatorContainer {

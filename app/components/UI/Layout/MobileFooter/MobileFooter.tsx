@@ -7,6 +7,7 @@ import { FacebookIcon } from '@/app/assets/icons/FacebookIcon';
 import { InstagramIcon } from '@/app/assets/icons/InstagramIcon';
 import { YoutubeIcon } from '@/app/assets/icons/YoutubeIcon';
 import { LanguageDropdown } from '../../LanguageSelection';
+import { UpArrowIcon } from '@/app/assets/icons/UpArrowIcon';
 
 const footerSections = [
   {
@@ -57,22 +58,9 @@ const Accordion: React.FC<AccordionProps> = ({ title, children }) => {
           aria-expanded={isOpen}
         >
           <span className={styles.accordionTitle}>{title}</span>
-          <svg
+          <UpArrowIcon
             className={`${styles.chevron} ${isOpen ? styles.open : ''}`}
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M3 4.5L6 7.5L9 4.5"
-              stroke="#818085"
-              strokeWidth="1"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          />
         </button>
         <div
           className={`${styles.accordionContent} ${

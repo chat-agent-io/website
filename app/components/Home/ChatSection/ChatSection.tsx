@@ -46,7 +46,6 @@ export const ChatSetupSection = (): React.ReactElement => {
 
   const handleSendMessage = () => {
     if (inputValue.trim()) {
-      // Handle message sending logic here
       setInputValue('');
     }
   };

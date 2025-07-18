@@ -4,6 +4,7 @@ import styles from './LanguageDropdown.module.scss';
 interface Language {
   code: string;
   name: string;
+  flagCode: string;
 }
 
 interface LanguageDropdownProps {
@@ -14,20 +15,36 @@ interface LanguageDropdownProps {
 }
 
 const languages: Language[] = [
-  { code: 'ar', name: 'Arabic' },
-  { code: 'en', name: 'English' },
-  { code: 'fr', name: 'French' },
-  { code: 'it', name: 'Italian' },
-  { code: 'ru', name: 'Russian' },
-  { code: 'es', name: 'Spanish' },
-  { code: 'de', name: 'German' },
-  { code: 'pt', name: 'Portuguese' },
-  { code: 'zh', name: 'Chinese' },
-  { code: 'ja', name: 'Japanese' },
-  { code: 'ko', name: 'Korean' },
-  { code: 'hi', name: 'Hindi' },
+  { code: 'ar', name: 'Arabic', flagCode: 'sa' },
+  { code: 'en', name: 'English', flagCode: 'gb' },
+  { code: 'fr', name: 'French', flagCode: 'fr' },
+  { code: 'it', name: 'Italian', flagCode: 'it' },
+  { code: 'ru', name: 'Russian', flagCode: 'ru' },
+  { code: 'es', name: 'Spanish', flagCode: 'es' },
+  { code: 'de', name: 'German', flagCode: 'de' },
+  { code: 'pt', name: 'Portuguese', flagCode: 'pt' },
+  { code: 'zh', name: 'Chinese', flagCode: 'cn' },
+  { code: 'ja', name: 'Japanese', flagCode: 'jp' },
+  { code: 'ko', name: 'Korean', flagCode: 'kr' },
+  { code: 'hi', name: 'Hindi', flagCode: 'in' },
 ];
 
+const FlagIcon: React.FC<{ countryCode: string; alt: string }> = ({
+  countryCode,
+  alt,
+}) => {
+  return (
+    <img
+      src={`https://flagcdn.com/w20/${countryCode}.png`}
+      srcSet={`https://flagcdn.com/w40/${countryCode}.png 2x`}
+      width="20"
+      height="15"
+      alt={alt}
+      className={styles.flagIcon}
+      loading="lazy"
+    />
+  );
+};
 export const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
   isOpen,
   onClose,
@@ -71,6 +88,10 @@ export const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
               onClick={() => handleLanguageSelect(language.code)}
             >
               <div className={styles.languageInfo}>
+                <FlagIcon
+                  countryCode={language.flagCode}
+                  alt={`${language.name} flag`}
+                />
                 <span className={styles.languageName}>{language.name}</span>
               </div>
               <div

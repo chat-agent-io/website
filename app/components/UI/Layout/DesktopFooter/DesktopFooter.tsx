@@ -80,6 +80,7 @@ export const DesktopFooter = (): React.ReactElement => {
                 <div
                   className={styles.categoryHeader}
                   onClick={() => toggleCategory(index)}
+                  style={{ border: !isCollapsed ? 'none' : '' }}
                 >
                   <h4 className={styles.categoryTitle}>{category.title}</h4>
                   <div
@@ -87,7 +88,7 @@ export const DesktopFooter = (): React.ReactElement => {
                       isCollapsed ? styles.collapsed : ''
                     }`}
                   >
-                    {isCollapsed ? <DownArrowIcon /> : <UpArrowIcon />}
+                    <UpArrowIcon />
                   </div>
                 </div>
 
