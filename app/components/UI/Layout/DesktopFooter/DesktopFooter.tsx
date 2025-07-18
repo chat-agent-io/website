@@ -7,14 +7,13 @@ import { InstagramIcon } from '@/app/assets/icons/InstagramIcon';
 import { YoutubeIcon } from '@/app/assets/icons/YoutubeIcon';
 import { TranslateIcon } from '@/app/assets/icons/TranslateIcon';
 import { UpArrowIcon } from '@/app/assets/icons/UpArrowIcon';
-import { DownArrowIcon } from '@/app/assets/icons/DownArrowIcon';
 import { LanguageDropdown } from '../../LanguageSelection';
 
 export const DesktopFooter = (): React.ReactElement => {
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
   const [collapsedCategories, setCollapsedCategories] = useState<Set<number>>(
-    new Set()
+    new Set([0, 1, 2, 3, 4])
   );
 
   const footerNavigation = [
