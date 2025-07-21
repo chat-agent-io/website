@@ -1,3 +1,5 @@
+@use '../../styles/colors' as colors;
+
 .container {
   display: flex;
   align-items: center;
@@ -6,7 +8,7 @@
 
 .track {
   flex: 1;
-  background-color: #e9ecef;
+  background-color: colors.$gray-200;
   border-radius: 100px;
   overflow: hidden;
   position: relative;
@@ -25,35 +27,30 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.2) 0%,
-      transparent 50%,
-      rgba(255, 255, 255, 0.2) 100%
-    );
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%, rgba(255, 255, 255, 0.2) 100%);
     animation: shimmer 2s infinite;
   }
 }
 
 // Variants
 .default {
-  background-color: #3214f0;
+  background-color: colors.$primary-purple;
 }
 
 .gradient {
-  background-color: #3214f0;
+  background-color: colors.$primary-purple;
 }
 
 .success {
-  background-color: #28a745;
+  background-color: colors.$success;
 }
 
 .warning {
-  background-color: #ffc107;
+  background-color: colors.$warning;
 }
 
 .error {
-  background-color: #dc3545;
+  background-color: colors.$error;
 }
 
 // Sizes
@@ -72,7 +69,7 @@
 .label {
   font-size: 14px;
   font-weight: 500;
-  color: #495057;
+  color: colors.$gray-700;
   min-width: 40px;
   text-align: right;
 }
@@ -87,16 +84,16 @@
 .step {
   flex: 1;
   height: 4px;
-  background-color: #e9ecef;
+  background-color: colors.$gray-200;
   border-radius: 2px;
   transition: all 0.3s ease;
 
   &.completed {
-    background-color: #3214f0;
+    background-color: colors.$primary-purple;
   }
 
   &.current {
-    background-color: #3214f0;
+    background-color: colors.$primary-purple;
     animation: pulse 2s infinite;
   }
 }

@@ -1,3 +1,5 @@
+@use '../../styles/colors' as colors;
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -18,49 +20,49 @@
 
 // Variants
 .primary {
-  background: #07a5eb;
-  color: white;
+  background: colors.$primary-blue;
+  color: colors.$white;
 
   &:hover:not(:disabled) {
-    background: #0699d8;
+    background: colors.$primary-blue-hover;
   }
 }
 
 .secondary {
-  background-color: #f2f2f2;
-  color: #495057;
+  background-color: colors.$gray-100;
+  color: colors.$gray-700;
 
   &:hover:not(:disabled) {
-    background-color: #e9ecef;
+    background-color: colors.$gray-200;
   }
 }
 
 .outline {
-  background-color: transparent;
-  color: #3214f0;
-  border: 2px solid #3214f0;
+  background-color: colors.$transparent;
+  color: colors.$primary-purple;
+  border: 2px solid colors.$primary-purple;
 
   &:hover:not(:disabled) {
-    background-color: #3214f0;
-    color: white;
+    background-color: colors.$primary-purple;
+    color: colors.$white;
   }
 }
 
 .ghost {
-  background-color: #f2f2f2;
-  color: #4e4d54;
+  background-color: colors.$gray-100;
+  color: colors.$gray-800;
 
   &:hover:not(:disabled) {
-    background-color: #e8e8e8;
+    background-color: colors.$gray-200;
   }
 }
 
 .black {
-  background-color: black;
-  color: white;
+  background-color: colors.$black;
+  color: colors.$white;
 
   &:hover:not(:disabled) {
-    background-color: #1a1a1a;
+    background-color: colors.$black-light;
   }
 }
 

@@ -1,3 +1,5 @@
+@use '../../../styles/colors' as colors;
+
 .header {
   display: flex;
   align-items: center;
@@ -8,7 +10,7 @@
   width: 100%;
   z-index: 10;
   backdrop-filter: blur(20px);
-  background: #f1f2f2;
+  background: colors.$background-section;
   height: 10vh;
   min-height: 60px;
 }
@@ -21,7 +23,7 @@
 
   span {
     font-size: 30px;
-    color: #03010c;
+    color: colors.$black-dark;
     font-weight: 600;
   }
 }

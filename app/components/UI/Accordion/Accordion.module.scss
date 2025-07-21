@@ -1,9 +1,11 @@
+@use '../../styles/colors' as colors;
+
 .accordion {
   width: 100%;
 }
 
 .item {
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid colors.$gray-200;
 
   &:last-child {
     border-bottom: none;
@@ -24,12 +26,12 @@
   transition: all 0.2s ease;
 
   &:hover {
-    color: #3214f0;
+    color: colors.$primary-purple;
   }
 
   &:focus {
     outline: none;
-    color: #3214f0;
+    color: colors.$primary-purple;
   }
 }
 
@@ -43,7 +45,7 @@
   width: 20px;
   height: 20px;
   transition: transform 0.2s ease;
-  color: #6c757d;
+  color: colors.$text-muted;
 
   &.rotated {
     transform: rotate(180deg);
@@ -64,7 +66,7 @@
 
 .contentInner {
   padding-bottom: 16px;
-  color: #6c757d;
+  color: colors.$text-muted;
   line-height: 1.6;
 }
 
