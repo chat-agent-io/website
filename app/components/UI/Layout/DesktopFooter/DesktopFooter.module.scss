@@ -1,3 +1,5 @@
+@use '../../../../styles/colors' as colors;
+
 .footer {
   display: flex;
   flex-direction: column;
@@ -5,8 +7,8 @@
   align-items: center;
   gap: 24px;
   padding: 64px 32px 32px;
-  background: #f1f2f2;
-  border-top: 1px solid #b3b2b6;
+  background: colors.$background-section;
+  border-top: 1px solid colors.$gray-400;
 }
 
 .desktopNav {
@@ -40,7 +42,7 @@
 
   span {
     font-size: 20px;
-    color: #03010c;
+    color: colors.$black-dark;
     font-weight: 600;
 
     @media (min-width: 1024px) and (max-width: 1300px) {
@@ -93,7 +95,7 @@
 .categoryTitle {
   font-size: 18px;
   font-weight: 600;
-  color: #4e4d54;
+  color: colors.$gray-800;
   margin: 0;
   position: relative;
 
@@ -108,7 +110,7 @@
   gap: 5px;
   cursor: pointer;
   transition: all 0.2s ease;
-  border-bottom: 1px solid #d9d8da;
+  border-bottom: 1px solid colors.$gray-300;
   width: fit-content;
 }
 
@@ -129,19 +131,19 @@
   &.collapsed {
     max-height: 0;
     opacity: 0;
-    border-bottom: 1px solid #d9d8da;
+    border-bottom: 1px solid colors.$gray-300;
   }
 
   &.expanded {
     max-height: 200px;
     opacity: 1;
-    border-bottom: 1px solid #d9d8da;
+    border-bottom: 1px solid colors.$gray-300;
   }
 }
 
 .categoryLink {
   font-size: 14px;
-  color: #6c757d;
+  color: colors.$text-muted;
   text-decoration: none;
   transition: all 0.2s ease;
   word-wrap: break-word;
@@ -153,7 +155,7 @@
   }
 
   &:hover {
-    color: #1a1a1a;
+    color: colors.$text-primary;
   }
 }
 
@@ -197,7 +199,7 @@
 .translateButton {
   transition: transform 0.2s ease;
   cursor: pointer;
-  border: 1px solid #d9d8da;
+  border: 1px solid colors.$gray-300;
   border-radius: 5px;
   padding: 6px;
   background: none;
@@ -225,13 +227,13 @@
 
 .copyrightText {
   font-size: 14px;
-  color: #6c757d;
+  color: colors.$text-muted;
   font-weight: 500;
   margin: 0;
 }
 
 .poweredBy {
   font-size: 12px;
-  color: #adb5bd;
+  color: colors.$gray-400;
   margin: 0;
 }

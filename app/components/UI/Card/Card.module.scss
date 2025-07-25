@@ -1,5 +1,7 @@
+@use '../../../styles/colors' as colors;
+
 .card {
-  background-color: white;
+  background-color: colors.$white;
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -7,26 +9,26 @@
 
 .default {
   &:hover {
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 12px colors.$shadow-light;
   }
 }
 
 .elevated {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 32px colors.$shadow-dark;
 
   &:hover {
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 12px 40px colors.$shadow-darker;
     transform: translateY(-2px);
   }
 }
 
 .outlined {
-  border: 2px solid #e9ecef;
+  border: 2px solid colors.$gray-200;
   box-shadow: none;
 
   &:hover {
-    border-color: #3214f0;
-    box-shadow: 0 0 0 1px rgba(50, 20, 240, 0.1);
+    border-color: colors.$primary-purple;
+    box-shadow: 0 0 0 1px colors.$hover-primary;
   }
 }
 

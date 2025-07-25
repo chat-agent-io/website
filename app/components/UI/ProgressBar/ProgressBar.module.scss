@@ -1,3 +1,5 @@
+@use '../../../styles/colors' as colors;
+
 .container {
   display: flex;
   align-items: center;
@@ -6,7 +8,7 @@
 
 .track {
   flex: 1;
-  background-color: #e9ecef;
+  background-color: colors.$gray-200;
   border-radius: 100px;
   overflow: hidden;
   position: relative;
@@ -37,23 +39,23 @@
 
 // Variants
 .default {
-  background-color: #3214f0;
+  background-color: colors.$primary-purple;
 }
 
 .gradient {
-  background-color: #3214f0;
+  background-color: colors.$primary-purple;
 }
 
 .success {
-  background-color: #28a745;
+  background-color: colors.$success;
 }
 
 .warning {
-  background-color: #ffc107;
+  background-color: colors.$warning;
 }
 
 .error {
-  background-color: #dc3545;
+  background-color: colors.$error;
 }
 
 // Sizes
@@ -72,7 +74,7 @@
 .label {
   font-size: 14px;
   font-weight: 500;
-  color: #495057;
+  color: colors.$gray-700;
   min-width: 40px;
   text-align: right;
 }
@@ -87,16 +89,16 @@
 .step {
   flex: 1;
   height: 4px;
-  background-color: #e9ecef;
+  background-color: colors.$gray-200;
   border-radius: 2px;
   transition: all 0.3s ease;
 
   &.completed {
-    background-color: #3214f0;
+    background-color: colors.$primary-purple;
   }
 
   &.current {
-    background-color: #3214f0;
+    background-color: colors.$primary-purple;
     animation: pulse 2s infinite;
   }
 }

@@ -1,3 +1,5 @@
+@use '../../../styles/colors' as colors;
+
 .dropdown {
   position: absolute;
   bottom: 38px;
@@ -5,9 +7,9 @@
   margin-bottom: 8px;
   width: 250px;
   height: 240px;
-  background: white;
+  background: colors.$white;
   border-radius: 12px;
-  border: 1px solid #b3b2b6;
+  border: 1px solid colors.$gray-400;
   overflow: hidden;
   z-index: 9999;
   animation: slideUp 0.2s ease-out;
@@ -33,7 +35,7 @@
   transition: background-color 0.15s ease;
   font-family: inherit;
   font-size: 14px;
-  color: #495057;
+  color: colors.$gray-700;
 
   &:not(:last-child)::after {
     content: '';
@@ -42,16 +44,16 @@
     left: 5%;
     width: 90%;
     height: 1px;
-    background-color: #b3b2b6;
+    background-color: colors.$gray-400;
   }
 
   &:hover {
-    background-color: #f8f9fa;
+    background-color: colors.$gray-50;
   }
 
   &:focus {
     outline: none;
-    background-color: #f8f9fa;
+    background-color: colors.$gray-50;
   }
 }
 
@@ -79,15 +81,15 @@
 .radioButton {
   width: 18px;
   height: 18px;
-  border: 2px solid #d1d5db;
+  border: 2px solid colors.$border-medium;
   border-radius: 50%;
   position: relative;
   transition: all 0.2s ease;
   flex-shrink: 0;
 
   &.selected {
-    border-color: #3214f0;
-    background-color: #3214f0;
+    border-color: colors.$primary-purple;
+    background-color: colors.$primary-purple;
   }
 }
 
@@ -118,29 +120,29 @@
 
 .languageList {
   scrollbar-width: thin;
-  scrollbar-color: #6c757d #fff;
+  scrollbar-color: colors.$text-muted colors.$white;
 
   &::-webkit-scrollbar {
     width: 8px;
   }
 
   &::-webkit-scrollbar-track {
-    background: #fff;
+    background: colors.$white;
     border-radius: 4px;
     margin: 4px 2px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #6c757d;
+    background-color: colors.$text-muted;
     border-radius: 4px;
-    border: 1px solid #fff;
+    border: 1px solid colors.$white;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background-color: #495057;
+    background-color: colors.$gray-700;
   }
 
   &::-webkit-scrollbar-corner {
-    background: #f8f9fa;
+    background: colors.$gray-50;
   }
 }
