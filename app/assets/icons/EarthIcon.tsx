@@ -12,6 +12,7 @@ export function EarthIcon({ className }: EarthIconProps) {
       viewBox="0 0 35 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <g clip-path="url(#clip0_1014_3401)">
         <path
