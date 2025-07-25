@@ -1,0 +1,59 @@
+.ctaSection {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: 9.5px;
+  overflow: hidden;
+  background: linear-gradient(
+    151deg,
+    rgba(7, 165, 235, 1) 0%,
+    rgba(50, 20, 240, 1) 100%
+  );
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  span {
+    position: relative;
+    width: fit-content;
+    margin-top: -2px;
+
+    font-weight: 500;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0px;
+    line-height: 120%;
+    white-space: nowrap;
+    font-style: normal;
+  }
+}
+
+.disclaimer {
+  position: relative;
+  width: fit-content;
+  font-weight: 400;
+  color: #818085;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: 0px;
+  line-height: 120%;
+  white-space: nowrap;
+  font-style: normal;
+}

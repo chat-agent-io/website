@@ -5,7 +5,6 @@
   width: 100%;
   padding: 30px 32px;
   background: #f1f2f2;
-  height: 90vh;
   min-height: 700px;
 }
 
@@ -17,6 +16,29 @@
   gap: 24px;
   margin-bottom: 30px;
   text-align: center;
+}
+
+.dmsContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+
+  .dmsImages {
+    display: flex;
+    gap: 20px;
+  }
+
+  p {
+    color: #4e4d54;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+  }
 }
 
 .mainHeading {
@@ -56,7 +78,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    padding: 2px; // This creates the border width
+    padding: 2px;
     background: linear-gradient(180deg, #d9d8da 0%, #f2f2f2 90.13%);
     border-radius: inherit;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

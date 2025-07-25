@@ -55,6 +55,10 @@ export const Header = (): React.ReactElement => {
       <Navigation items={navItems} className={styles.navigation} />
 
       <div className={styles.buttonContainer}>
+        <Button variant="gradient" size="sm">
+          Start Free Trial
+        </Button>
+
         <Button variant="black" size="sm">
           Sign in
         </Button>

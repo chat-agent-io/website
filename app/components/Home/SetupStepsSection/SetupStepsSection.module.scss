@@ -1,0 +1,280 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 0;
+  position: relative;
+  background: #f1f2f2;
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 48px 0;
+  position: relative;
+  flex: 0 0 auto;
+  text-align: center;
+  gap: 16px;
+}
+
+.title {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-weight: 600;
+  color: #03010c;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0px;
+  line-height: 120%;
+  font-style: normal;
+  margin: 0;
+}
+
+.subtitle {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-weight: 400;
+  color: #4e4d54;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0px;
+  line-height: 150%;
+  font-style: normal;
+  margin: 0;
+}
+
+.stepsSection {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+  align-self: stretch;
+  width: 100%;
+  position: relative;
+  flex: 0 0 auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.stepCard {
+  width: 200px;
+  border-radius: 9.5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: none;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(242, 242, 242, 0) 0%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  border: 1px solid #fff;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  position: relative;
+  flex: 1;
+  padding: 16px;
+}
+
+.stepNumberContainer {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(96.54deg, #07a5eb -30.96%, #3214f0 107.21%);
+
+  border-radius: 50%;
+}
+
+.stepNumber {
+  font-weight: 600;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0px;
+  line-height: 100%;
+  font-style: normal;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 13px;
+  gap: 12px;
+  align-self: stretch;
+  width: 100%;
+  position: relative;
+}
+
+.stepTitle {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  font-weight: 600;
+  color: #03010c;
+  font-size: 20px;
+  text-align: left;
+  letter-spacing: 0px;
+  line-height: 120%;
+  font-style: normal;
+  margin: 0;
+}
+
+.stepDescription {
+  position: relative;
+  align-self: stretch;
+  font-weight: 400;
+  color: #4e4d54;
+  font-size: 14px;
+  text-align: left;
+  letter-spacing: 0px;
+  line-height: 140%;
+  font-style: normal;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .stepsSection {
+    gap: 16px;
+  }
+
+  .stepCard {
+    width: calc(33.333% - 11px);
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 48px 0;
+  }
+
+  .content {
+    padding: 0 16px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .header {
+    padding: 0 0 32px 0;
+  }
+
+  .stepsSection {
+    gap: 20px;
+  }
+
+  .stepCard {
+    min-height: 180px;
+  }
+
+  .cardContent {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .stepNumberContainer {
+    width: 40px;
+    height: 40px;
+  }
+
+  .stepNumber {
+    font-size: 18px;
+  }
+
+  .stepTitle {
+    font-size: 18px;
+  }
+
+  .stepDescription {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 32px 0;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .header {
+    padding: 0 0 24px 0;
+  }
+
+  .stepCard {
+    min-height: 160px;
+  }
+
+  .cardContent {
+    padding: 20px 16px;
+    gap: 14px;
+  }
+
+  .stepNumberContainer {
+    width: 36px;
+    height: 36px;
+  }
+
+  .stepNumber {
+    font-size: 16px;
+  }
+
+  .textContent {
+    gap: 10px;
+  }
+
+  .stepTitle {
+    font-size: 16px;
+  }
+
+  .stepDescription {
+    font-size: 12px;
+    line-height: 150%;
+  }
+}

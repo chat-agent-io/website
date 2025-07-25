@@ -8,6 +8,7 @@ import { ChatIcon } from '@/app/assets/icons/ChatIcon';
 import { ChatAttachmentIcon } from '@/app/assets/icons/ChatAttachmentIcon';
 import { ChatSendIcon } from '@/app/assets/icons/ChatSendIcon';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
+import { CtaButton } from '../CtaButton/CtaButton';
 
 export const ChatSetupSection = (): React.ReactElement => {
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
@@ -61,14 +62,21 @@ export const ChatSetupSection = (): React.ReactElement => {
     <section className={styles.section}>
       <div className={styles.headerSection}>
         <h1 className={styles.mainHeading}>
-          Effortless replies.
-          <br />
-          Always on.
+          Your DMs answered instantly. <br /> Without lifting a finger.
         </h1>
 
         <p className={styles.subHeading}>
-          Every DM, and chat, answered automatically, in your tone 24/7
+          ChatAgent replies to every Instagram, WhatsApp, <br />
+          or website message — so you don&apos;t have to.
         </p>
+        <CtaButton />
+      </div>
+      <div className={styles.dmsContent}>
+        <div className={styles.dmsImages}>
+          <img src="/imgs/instagram-dms.png" alt="Instagram DMs" />
+          <img src="/imgs/chatagent-dms.png" alt="Instagram DMs" />
+        </div>
+        <p>Stop losing customers just because you didn't see the message.</p>
       </div>
 
       <div className={styles.contentWrapper}>

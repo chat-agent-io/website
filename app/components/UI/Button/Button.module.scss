@@ -26,6 +26,15 @@
   }
 }
 
+.gradient {
+  background: linear-gradient(96.54deg, #07a5eb -30.96%, #3214f0 107.21%);
+  color: white;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(96.54deg, #0699d8 -30.96%, #2b12d8 107.21%);
+  }
+}
+
 .secondary {
   background-color: #f2f2f2;
   color: #495057;
