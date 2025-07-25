@@ -76,7 +76,9 @@ export const ChatSetupSection = (): React.ReactElement => {
           <img src="/imgs/instagram-dms.png" alt="Instagram DMs" />
           <img src="/imgs/chatagent-dms.png" alt="Instagram DMs" />
         </div>
-        <p>Stop losing customers just because you didn't see the message.</p>
+        <p>
+          Stop losing customers just because you didn&apos;t see the message.
+        </p>
       </div>
 
       <div className={styles.contentWrapper}>
