@@ -36,7 +36,7 @@ export const ChatSetupSection = (): React.ReactElement => {
 
   const chatMessages = [
     {
-      message: '👋🏻 Hi there!\nLet&apos;s setup your AI agent together...',
+      message: "👋🏻 Hi there!\nLet's setup your AI agent together...",
       timestamp: '2:30 PM',
     },
     {
