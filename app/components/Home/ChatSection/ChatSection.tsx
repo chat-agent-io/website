@@ -36,7 +36,7 @@ export const ChatSetupSection = (): React.ReactElement => {
 
   const chatMessages = [
     {
-      message: "👋🏻 Hi there!\nLet's setup your AI agent together...",
+      message: '👋🏻 Hi there!\nLet&apos;s setup your AI agent together...',
       timestamp: '2:30 PM',
     },
     {
@@ -67,7 +67,7 @@ export const ChatSetupSection = (): React.ReactElement => {
 
         <p className={styles.subHeading}>
           ChatAgent replies to every Instagram, WhatsApp, <br />
-          or website message — so you don&apos;t have to.
+          {"or website message — so you don't have to."}
         </p>
         <CtaButton />
       </div>
@@ -93,7 +93,7 @@ export const ChatSetupSection = (): React.ReactElement => {
                 <p className={styles.setupDescription}>
                   It only takes a few minutes.
                   <br />
-                  We&apos;ll guide you through each step.
+                  {"We'll guide you through each step."}
                 </p>
 
                 <button className={styles.helpLink}>Need Help?</button>
