@@ -85,7 +85,7 @@ export const ChatSetupSection = (): React.ReactElement => {
             <div className={styles.leftColumn}>
               <div className={styles.setupInfo}>
                 <h2 className={styles.setupHeading}>
-                  Let&apos;s get your
+                  {"Let's get your"}
                   <br />
                   AI agent set up.
                 </h2>
