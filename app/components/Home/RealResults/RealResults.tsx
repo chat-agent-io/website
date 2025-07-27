@@ -1,10 +1,6 @@
 'use client';
 
 import styles from './RealResults.module.scss';
-import { Clock2Icon } from '@/app/assets/icons/Clock2Icon';
-import { DollarIcon } from '@/app/assets/icons/DollarIcon';
-import { EarthIcon } from '@/app/assets/icons/EarthIcon';
-import { ChatBubblesIcon } from '@/app/assets/icons/ChatBubblesIcon';
 import animationData from '../../../../public/animations/phone/phone.json';
 import Lottie from 'lottie-react';
 
