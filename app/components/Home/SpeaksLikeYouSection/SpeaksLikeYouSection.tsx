@@ -1,5 +1,10 @@
+'use client';
+
 import styles from './SpeaksLikeYouSection.module.scss';
 import { CtaButton } from '../CtaButton/CtaButton';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import Lottie from 'lottie-react';
+import animationData from '../../../../public/animations/chat/chat.json';
 
 export const SpeaksLikeYouSection: React.FC = () => {
   return (
@@ -17,7 +22,7 @@ export const SpeaksLikeYouSection: React.FC = () => {
           </p>
         </div>
         <div className={styles.content}>
-          <img src="/imgs/speaks-like-you.png" alt="Speaks Like You" />
+          <Lottie animationData={animationData} loop={true} autoplay={true} />
         </div>
         <CtaButton />
       </div>

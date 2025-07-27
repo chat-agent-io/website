@@ -1,8 +1,12 @@
+'use client';
+
 import styles from './RealResults.module.scss';
 import { Clock2Icon } from '@/app/assets/icons/Clock2Icon';
 import { DollarIcon } from '@/app/assets/icons/DollarIcon';
 import { EarthIcon } from '@/app/assets/icons/EarthIcon';
 import { ChatBubblesIcon } from '@/app/assets/icons/ChatBubblesIcon';
+import animationData from '../../../../public/animations/phone/phone.json';
+import Lottie from 'lottie-react';
 
 export const RealResults = (): React.ReactElement => {
   const metrics = [
@@ -32,38 +36,10 @@ export const RealResults = (): React.ReactElement => {
 
   return (
     <section className={styles.section}>
-      <div className={styles.leftColumn}>
-        <div className={styles.headingContainer}>
-          <h2 className={styles.mainHeading}>
-            Real Results.
-            <br />
-            Real Speed.
-          </h2>
-        </div>
-
-        <div className={styles.subHeadingContainer}>
-          <p className={styles.subHeading}>
-            Give your customers answers.
-            <br />
-            Not waiting time.
-          </p>
-        </div>
-      </div>
-
       <div className={styles.phoneSection}>
         <div className={styles.phoneContainer}>
-          <img src="/imgs/phone-example.png" alt="test" />
+          <Lottie animationData={animationData} loop={true} autoplay={true} />
         </div>
-      </div>
-
-      <div className={styles.rightColumn}>
-        {metrics.map((metric, index) => (
-          <div key={index} className={styles.metricItem}>
-            <div className={styles.metricIcon}>{metric.icon}</div>
-
-            <div className={styles.metricText}>{metric.title}</div>
-          </div>
-        ))}
       </div>
     </section>
   );

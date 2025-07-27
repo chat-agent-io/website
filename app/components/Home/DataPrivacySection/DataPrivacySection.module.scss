@@ -62,7 +62,7 @@
   align-items: flex-start;
   justify-content: center;
   gap: 16px;
-  padding: 0 0 32px 0;
+  padding: 0 0 16px 0;
   align-self: stretch;
   width: 100%;
   position: relative;
@@ -75,8 +75,8 @@
 }
 
 .featureCard {
-  width: 220px;
-  height: 180px;
+  width: 200px;
+  height: 175px;
   border-radius: 9.5px;
   display: flex;
   flex-direction: column;
@@ -129,6 +129,7 @@
   position: relative;
   width: 40px;
   height: 40px;
+  color: #03010c;
 }
 
 .textContent {
@@ -146,7 +147,7 @@
 .cardTitle {
   position: relative;
   font-weight: 600;
-  color: #03010c;
+  color: #000000;
   font-size: 16px;
   text-align: center;
   font-style: normal;

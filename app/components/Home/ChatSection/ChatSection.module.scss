@@ -3,7 +3,8 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 30px 32px;
+  padding: 32px;
+  padding-bottom: 0;
   background: #f1f2f2;
   min-height: 700px;
 }
@@ -38,6 +39,7 @@
     letter-spacing: 0%;
     text-align: center;
     vertical-align: middle;
+    margin-top: 16px;
   }
 }
 
@@ -117,7 +119,7 @@
 .cardWrapper {
   position: relative;
   border-radius: 12px;
-  padding: 30px;
+  padding: 32px 64px;
 
   &::before {
     content: '';
@@ -158,11 +160,11 @@
 .setupInfo {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 
 .setupHeading {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 700;
   line-height: 1.2;
   background: linear-gradient(92.07deg, #3214f0 0.54%, #9b46eb 97.53%);
@@ -194,16 +196,16 @@
 .stepItem {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
 }
 
 .stepIndicator {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 25px;
-  min-width: 25px;
-  height: 25px;
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: 2px solid #818085;
   background: transparent;
@@ -277,7 +279,7 @@
 }
 
 .progressBars {
-  width: 100px;
+  width: 120px;
 }
 
 .chatMessages {

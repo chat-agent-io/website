@@ -105,7 +105,7 @@ export const ChatSetupSection = (): React.ReactElement => {
     <section className={styles.section}>
       <div className={styles.headerSection}>
         <h1 className={styles.mainHeading}>
-          Your DMs answered instantly. <br /> Without lifting a finger.
+          Your DMs Answered Instantly. <br /> Without Lifting a Finger.
         </h1>
 
         <p className={styles.subHeading}>
@@ -175,7 +175,7 @@ export const ChatSetupSection = (): React.ReactElement => {
                 <p className={styles.setupDescription}>
                   It only takes a few minutes.
                   <br />
-                  {"We'll guide you through each step."}
+                  We’ll guide you.
                 </p>
 
                 <button className={styles.helpLink}>Need Help?</button>

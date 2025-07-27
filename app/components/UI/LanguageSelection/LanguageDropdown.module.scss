@@ -5,11 +5,11 @@
   bottom: 38px;
   right: -35px;
   margin-bottom: 8px;
-  width: 250px;
-  height: 240px;
+  width: 200px;
+  height: 175px;
   background: colors.$white;
   border-radius: 12px;
-  border: 1px solid colors.$gray-400;
+  border: 1px solid #d9d8da;
   overflow: hidden;
   z-index: 9999;
   animation: slideUp 0.2s ease-out;
@@ -44,7 +44,7 @@
     left: 5%;
     width: 90%;
     height: 1px;
-    background-color: colors.$gray-400;
+    background-color: #d9d8da;
   }
 
   &:hover {
@@ -61,7 +61,7 @@
   display: flex;
   align-items: center;
   flex: 1;
-  gap: 12px; /* Space between flag and text */
+  gap: 12px;
 }
 
 .flagIcon {
@@ -81,7 +81,7 @@
 .radioButton {
   width: 18px;
   height: 18px;
-  border: 2px solid colors.$border-medium;
+  border: 3px solid colors.$border-medium;
   border-radius: 50%;
   position: relative;
   transition: all 0.2s ease;

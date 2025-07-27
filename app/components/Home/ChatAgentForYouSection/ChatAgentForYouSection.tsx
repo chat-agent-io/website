@@ -9,23 +9,28 @@ import { TwentyFourSevenIcon } from '@/app/assets/icons/TwentyFourSevenIcon';
 export const ChatAgentForYouSection: React.FC = () => {
   const scenarios = [
     {
-      title: 'You get too many DMs to reply manually',
-      icon: <ChatBubblesIcon className={styles.icon} />,
+      header: 'You get too many',
+      title: 'DMs to reply manually',
+      icon: <ChatBubblesIcon className={styles.icon} color="#7C38BC" />,
     },
     {
-      title: "You've missed messages and lost customers",
+      header: "You've missed",
+      title: 'messages and lost customers',
       icon: <MissedMessagesIcon className={styles.icon} />,
     },
     {
-      title: "You don't want to hire extra staff just to answer Instagram",
+      header: "You don't want to",
+      title: 'hire extra staff just to answer Instagram',
       icon: <HireStaffIcon className={styles.icon} />,
     },
     {
-      title: "You're tired of saying the same things over and over",
+      header: "You're tired of",
+      title: 'saying the same things over and over',
       icon: <RepetitiveIcon className={styles.icon} />,
     },
     {
-      title: 'You want every message answered even at 2 AM',
+      header: 'You want',
+      title: 'every message answered even at 2 AM',
       icon: <TwentyFourSevenIcon className={styles.icon} />,
     },
   ];
@@ -46,6 +51,7 @@ export const ChatAgentForYouSection: React.FC = () => {
                 </div>
 
                 <div className={styles.textContent}>
+                  <p className={styles.cardHeader}>{scenario.header}</p>
                   <p className={styles.cardTitle}>{scenario.title}</p>
                 </div>
               </CardContent>
