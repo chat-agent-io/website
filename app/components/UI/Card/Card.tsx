@@ -5,15 +5,20 @@ interface CardProps {
   children: React.ReactNode;
   className?: string;
   variant?: 'default' | 'elevated' | 'outlined';
+  radius?: string;
 }
 
 export const Card: React.FC<CardProps> = ({
   children,
   className,
   variant = 'default',
+  radius = '16px',
 }) => {
   return (
-    <div className={`${styles.card} ${styles[variant]} ${className || ''}`}>
+    <div
+      className={`${styles.card} ${styles[variant]} ${className || ''}`}
+      style={{ borderRadius: radius }}
+    >
       {children}
     </div>
   );

@@ -200,7 +200,7 @@ export const ChatSetupSection = (): React.ReactElement => {
               )}
             </div>
 
-            <Card className={styles.chatCard}>
+            <Card className={styles.chatCard} radius="9.5px">
               <div className={styles.chatHeader}>
                 <div className={styles.avatarContainer}>
                   <ChatIcon />
@@ -227,7 +227,6 @@ export const ChatSetupSection = (): React.ReactElement => {
                     </div>
                     <div className={styles.messageBubble}>
                       <p className={styles.messageText}>{chat.message}</p>
-                      <span className={styles.timestamp}>{chat.timestamp}</span>
                     </div>
                   </div>
                 ))}

@@ -112,8 +112,7 @@
 }
 
 .contentWrapper {
-  width: 100%;
-  max-width: 1023px;
+  width: fit-content;
 }
 
 .cardWrapper {
@@ -153,7 +152,7 @@
 .leftColumn {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
   flex: 1;
 }
 
@@ -175,9 +174,9 @@
 }
 
 .setupDescription {
-  font-size: 18px;
+  font-size: 16px;
   color: #4e4d54;
-  line-height: 1.6;
+  line-height: normal;
   margin: 0;
 }
 
@@ -185,6 +184,7 @@
   text-align: left;
   color: #b3b2b6;
   text-decoration: underline;
+  font-size: 11px;
 }
 
 .stepsList {
@@ -203,11 +203,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  min-width: 20px;
-  height: 20px;
+  width: 15px;
+  min-width: 15px;
+  height: 15px;
   border-radius: 50%;
-  border: 2px solid #818085;
+  border: 1px solid #818085;
   background: transparent;
   transition: all 0.3s ease;
 
@@ -227,7 +227,7 @@
 }
 
 .stepText {
-  font-size: 16px;
+  font-size: 11px;
   color: #818085;
   line-height: 1.4;
 
@@ -238,7 +238,7 @@
 }
 
 .chatCard {
-  width: 400px;
+  width: 300px;
   flex-shrink: 0;
   overflow: hidden;
   z-index: 5;
@@ -246,19 +246,20 @@
 
 .chatHeader {
   display: flex;
+  height: 40px;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 0 8px;
   background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.05);
 }
 
 .avatarContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   border: 1px solid #d9d8da;
 }
@@ -285,10 +286,9 @@
 .chatMessages {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 24px 20px;
-  min-height: 300px;
-  max-height: 400px;
+  gap: 8px;
+  padding: 16px;
+  height: 221px;
   overflow-y: auto;
 }
 
@@ -302,8 +302,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   flex-shrink: 0;
   border: 1px solid #d9d8da;
@@ -311,18 +311,19 @@
 
 .messageBubble {
   flex: 1;
-  padding: 16px;
+  padding: 12px;
   background: linear-gradient(180deg, #f2f2f2 0%, #ffffff 100%);
-  border-radius: 16px;
+  border-radius: 9.5px;
   border: 1px solid #e9ecef;
   position: relative;
+  max-width: 204px;
+  width: 100%;
 }
 
 .messageText {
-  font-size: 15px;
+  font-size: 13px;
   color: #1a1a1a;
   line-height: 1.5;
-  margin: 0 0 8px 0;
   white-space: pre-line;
 }
 
@@ -347,7 +348,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 5px;
+  padding: 8.5px 8px;
   background: white;
   border-top: 1px solid #e9ecef;
 }
@@ -356,8 +357,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
   background: none;
   border: none;
   cursor: pointer;
@@ -372,8 +371,7 @@
 
 .inputField {
   flex: 1;
-  padding: 12px 16px;
-  font-size: 14px;
+  font-size: 11px;
   outline: none;
   transition: border-color 0.2s ease;
   color: #000;
@@ -387,8 +385,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;

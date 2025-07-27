@@ -94,12 +94,11 @@
   transition: all 0.3s ease;
 
   &.completed {
-    background-color: colors.$primary-purple;
+    background-color: #3214f0;
   }
 
   &.current {
-    background-color: colors.$primary-purple;
-    animation: pulse 2s infinite;
+    background-color: #3214f0;
   }
 }
 
