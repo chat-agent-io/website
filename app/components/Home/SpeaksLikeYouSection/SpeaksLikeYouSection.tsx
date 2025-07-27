@@ -2,7 +2,6 @@
 
 import styles from './SpeaksLikeYouSection.module.scss';
 import { CtaButton } from '../CtaButton/CtaButton';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import Lottie from 'lottie-react';
 import animationData from '../../../../public/animations/chat/chat.json';
 
