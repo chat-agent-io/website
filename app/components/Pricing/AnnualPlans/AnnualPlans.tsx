@@ -23,15 +23,16 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
       title: 'Starter',
       savings: 'Save $598',
       description: 'For small venues with\nmoderate traffic.',
-      price: '$249',
+      price: '$274',
       period: '/mo.',
       annualBilling: '$2,990 Billed Annually',
-      buttonText: 'Select',
-      buttonVariant: 'secondary' as const,
+      buttonText: 'Subscribe',
+      buttonVariant: 'ghost' as const,
       popular: false,
       features: [
-        '30-Day Free Trial (live from day one)',
+        '14-Day Free Trial (live from day one)',
         'Up to 600 unique customer conversations/month',
+        'Supports 1 user',
         'Supports 2 languages',
         'Instagram & WhatsApp auto-reply',
         'Unlimited messages per conversation',
@@ -42,15 +43,16 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
       title: 'Growth',
       savings: 'Save $998',
       description: 'For busy venues like restaurants,\nbeach clubs, salons',
-      price: '$416',
+      price: '$457',
       period: '/mo.',
       annualBilling: '$4,990 Billed Annually',
-      buttonText: 'Select',
-      buttonVariant: 'secondary' as const,
+      buttonText: 'Subscribe',
+      buttonVariant: 'ghost' as const,
       popular: true,
       features: [
-        '30-Day Free Trial (live from day one)',
+        '14-Day Free Trial (live from day one)',
         'Up to 1,500 unique customer conversations/month',
+        'Supports up to 5 users',
         'Full multilingual support',
         'Instagram, WhatsApp & Facebook Messenger',
         'Priority onboarding',
@@ -62,15 +64,16 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
       title: 'Pro',
       savings: 'Save $1,598',
       description: 'For large venues, hotels, or\nmulti-location businesses',
-      price: '$666',
+      price: '$732',
       period: '/mo.',
       annualBilling: '$7,990 Billed Annually',
-      buttonText: 'Select',
-      buttonVariant: 'secondary' as const,
+      buttonText: 'Subscribe',
+      buttonVariant: 'ghost' as const,
       popular: false,
       features: [
-        '30-Day Free Trial (live from day one)',
+        '14-Day Free Trial (live from day one)',
         'Up to 3,000 unique customer conversations/month',
+        'Supports up to 10 users',
         'Full multilingual & dialect support',
         'All major messaging platforms',
         'Dedicated success manager',
@@ -83,17 +86,18 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
       savings: '',
       description:
         'For hotel groups, chains, or high-volume businesses. Tailored pricing based on usage',
-      pricePrefix: 'Starts at',
-      price: '$999',
-      period: '/mo.',
+      pricePrefix: '',
+      price: 'Custom quote',
+      period: '',
       annualBilling: '',
       buttonText: "Let's Talk",
       buttonVariant: 'primary' as const,
       popular: false,
       features: [
-        '30-Day Free Trial (live from day one)',
+        '14-Day Free Trial (live from day one)',
         'Up to 3,000 unique customer conversations/month',
         'Unlimited messaging platforms',
+        'Supports custom user limits',
         'POS, PMS, CRM & booking integrations',
         'Custom SLAs & onboarding',
         'Dedicated technical support',
@@ -104,8 +108,7 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
 
   const MonthlyPlansToggle = () => (
     <div className={styles.monthlyPlans} onClick={onSwitchToMonthly}>
-      <span className={styles.monthlyText}>Monthly Plans</span>
-      <ChevronIcon className={styles.chevronIcon} />
+      <span className={styles.monthlyText}>Monthly Plans ↗</span>
     </div>
   );
 
@@ -121,7 +124,9 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
             <MonthlyPlansToggle />
           </div>
         </div>
-
+        <div className={styles.headerSeparator}>
+          <Separator />
+        </div>
         <section className={styles.section}>
           {plans.map((plan, index) => (
             <Card key={index} className={styles.planCard}>
@@ -152,7 +157,13 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
                     <div className={styles.pricePrefix}>{plan.pricePrefix}</div>
                   )}
                   <div className={styles.priceContainer}>
-                    <div className={styles.price}>{plan.price}</div>
+                    <div
+                      className={`${styles.price} ${
+                        plan.title === 'Enterprise' ? styles.customQuote : ''
+                      }`}
+                    >
+                      {plan.price}
+                    </div>
                   </div>
                   <div className={styles.priceDetails}>
                     <div className={styles.period}>{plan.period}</div>

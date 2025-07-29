@@ -24,12 +24,14 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
       description: 'For small venues with\nmoderate traffic.',
       price: '$299',
       period: '/mo.',
-      buttonText: 'Select',
-      buttonVariant: 'secondary' as const,
+      buttonText: 'Subscribe',
+      annualBilling: 'Save with annual billing (1 month off) ↗',
+      buttonVariant: 'ghost' as const,
       popular: false,
       features: [
-        '30-Day Free Trial (live from day one)',
+        '14-Day Free Trial (live from day one)',
         'Up to 600 unique customer conversations/month',
+        'Supports 1 user',
         'Supports 2 languages',
         'Instagram & WhatsApp auto-reply',
         'Unlimited messages per conversation',
@@ -41,12 +43,14 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
       description: 'For busy venues like restaurants,\nbeach clubs, salons',
       price: '$499',
       period: '/mo.',
-      buttonText: 'Select',
-      buttonVariant: 'secondary' as const,
+      buttonText: 'Subscribe',
+      annualBilling: 'Save with annual billing (1 month off) ↗',
+      buttonVariant: 'ghost' as const,
       popular: true,
       features: [
-        '30-Day Free Trial (live from day one)',
+        '14-Day Free Trial (live from day one)',
         'Up to 1,500 unique customer conversations/month',
+        'Supports up to 5 users',
         'Full multilingual support',
         'Instagram, WhatsApp & Facebook Messenger',
         'Priority onboarding',
@@ -59,12 +63,14 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
       description: 'For large venues, hotels, or\nmulti-location businesses',
       price: '$799',
       period: '/mo.',
-      buttonText: 'Select',
-      buttonVariant: 'secondary' as const,
+      annualBilling: 'Save with annual billing (1 month off) ↗',
+      buttonText: 'Subscribe',
+      buttonVariant: 'ghost' as const,
       popular: false,
       features: [
-        '30-Day Free Trial (live from day one)',
+        '14-Day Free Trial (live from day one)',
         'Up to 3,000 unique customer conversations/month',
+        'Supports up to 10 users',
         'Full multilingual & dialect support',
         'All major messaging platforms',
         'Dedicated success manager',
@@ -77,15 +83,17 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
       description:
         'For hotel groups, chains, or high-volume businesses. Tailored pricing based on usage',
       pricePrefix: 'Starts at',
-      price: '$999',
+      price: '$1199',
       period: '/mo.',
+      annualBilling: 'Tailored annual discounts available ↗',
       buttonText: "Let's Talk",
       buttonVariant: 'primary' as const,
       popular: false,
       features: [
-        '30-Day Free Trial (live from day one)',
+        '14-Day Free Trial (live from day one)',
         'Up to 3,000 unique customer conversations/month',
         'Unlimited messaging platforms',
+        'Supports custom user limits',
         'POS, PMS, CRM & booking integrations',
         'Custom SLAs & onboarding',
         'Dedicated technical support',
@@ -98,9 +106,8 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
     <div>
       <div className={styles.annualPlans} onClick={onSwitchToAnnual}>
         <span className={styles.annualText}>
-          Save 2 Months with Annual Plans
+          Save 2 Months with Annual Plans ↗
         </span>
-        <ChevronIcon color="#2d11df" className={styles.chevronIcon} />
       </div>
     </div>
   );
@@ -118,7 +125,9 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
           </span>
           <AnnualPlansToggle />
         </div>
-
+        <div className={styles.headerSeparator}>
+          <Separator />
+        </div>
         <section className={styles.section}>
           {plans.map((plan, index) => (
             <Card key={index} className={styles.planCard}>
