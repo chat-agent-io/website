@@ -111,6 +111,14 @@ export const ChatSetupSection = (): React.ReactElement => {
           Your DMs Answered Instantly. <br /> Without Lifting a Finger.
         </h1>
 
+        <h1 className={styles.mainHeadingMobile}>
+          Your DMs
+          <br />
+          Answered Instantly.
+          <br />
+          Without Lifting a Finger.
+        </h1>
+
         <p className={styles.subHeading}>
           ChatAgent replies to every Instagram, WhatsApp, <br />
           {"or website message — so you don't have to."}

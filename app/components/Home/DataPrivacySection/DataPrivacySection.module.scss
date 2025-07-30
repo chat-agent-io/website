@@ -69,8 +69,11 @@
   flex: 0 0 auto;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    padding: 0 32px 16px 32px;
   }
 }
 
@@ -93,8 +96,8 @@
   border: 1px solid #fff;
 
   @media (max-width: 768px) {
-    width: 100%;
-    max-width: 400px;
+    width: 184px;
+    height: 111px;
   }
 }
 
@@ -109,11 +112,30 @@
   padding: 16px;
 }
 
+.cardContentDesktop {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.cardContentMobile {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
 .iconContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+
+  @media (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .iconBackground {
@@ -130,6 +152,11 @@
   width: 40px;
   height: 40px;
   color: #03010c;
+
+  @media (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .textContent {
@@ -142,6 +169,10 @@
   width: 100%;
   position: relative;
   flex: 1;
+
+  @media (max-width: 768px) {
+    gap: 4px;
+  }
 }
 
 .cardTitle {
@@ -153,6 +184,12 @@
   font-style: normal;
   margin: 0;
   text-wrap: nowrap;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    text-align: left;
+    text-wrap: auto;
+  }
 }
 
 .cardDescription {
@@ -166,6 +203,12 @@
   line-height: 140%;
   font-style: normal;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+    text-align: left;
+    line-height: 1.2;
+  }
 }
 
 .bottomSection {
@@ -178,6 +221,10 @@
   width: 100%;
   position: relative;
   flex: 0 0 auto;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -201,6 +248,17 @@
     padding: 0 16px;
   }
 
+  .iconBackground {
+    height: auto;
+    width: auto;
+  }
+
+  .titleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
   .title {
     font-size: 32px;
   }
@@ -218,6 +276,8 @@
   }
 
   .featureCard {
+    min-width: auto;
+    width: 40vw;
     height: 180px;
   }
 
@@ -245,16 +305,24 @@
 }
 
 @media (max-width: 480px) {
+  .titleWrapper {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
   .title {
     font-size: 28px;
   }
 
   .subtitle {
     font-size: 13px;
+    width: 302px;
   }
 
   .featureCard {
-    height: 160px;
+    min-width: auto;
+    height: 111px;
+    width: 184px;
   }
 
   .cardContent {
@@ -277,10 +345,11 @@
   }
 
   .cardTitle {
-    font-size: 15px;
+    font-size: 13px;
+    line-height: 1.1;
   }
 
   .cardDescription {
-    font-size: 12px;
+    font-size: 11px;
   }
 }

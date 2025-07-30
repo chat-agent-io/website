@@ -106,6 +106,24 @@
   line-height: 1.2;
   color: #1a1a1a;
   margin: 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.mainHeadingMobile {
+  display: none;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin: 0;
+  font-size: 28px;
+  max-width: 376px;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 }
 
 .highlight {
@@ -516,11 +534,6 @@
     width: 20px;
     min-width: 20px;
     height: 20px;
-  }
-
-  .mainHeading {
-    font-size: 28px;
-    max-width: 376px;
   }
 
   .subHeading {

@@ -53,15 +53,29 @@ export const DataPrivacySection: React.FC = () => {
           {privacyFeatures.map((feature, index) => (
             <Card key={index} className={styles.featureCard}>
               <CardContent className={styles.cardContent}>
-                <div className={styles.iconContainer}>
-                  <div className={styles.iconBackground}>{feature.icon}</div>
-                </div>
+                <div className={styles.cardContentDesktop}>
+                  <div className={styles.iconContainer}>
+                    <div className={styles.iconBackground}>{feature.icon}</div>
+                  </div>
 
-                <div className={styles.textContent}>
-                  <h3 className={styles.cardTitle}>{feature.title}</h3>
-                  <p className={styles.cardDescription}>
-                    {feature.description}
-                  </p>
+                  <div className={styles.textContent}>
+                    <h3 className={styles.cardTitle}>{feature.title}</h3>
+                    <p className={styles.cardDescription}>
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.cardContentMobile}>
+                  <div className={styles.titleWrapper}>
+                    <div className={styles.iconBackground}>{feature.icon}</div>
+                    <h3 className={styles.cardTitle}>{feature.title}</h3>
+                  </div>
+
+                  <div className={styles.textContent}>
+                    <p className={styles.cardDescription}>
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
               </CardContent>
             </Card>

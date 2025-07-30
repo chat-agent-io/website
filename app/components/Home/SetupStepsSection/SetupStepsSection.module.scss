@@ -250,6 +250,10 @@
     padding: 32px 0;
   }
 
+  .stepsSection {
+    gap: 8px;
+  }
+
   .title {
     font-size: 28px;
   }
@@ -268,10 +272,11 @@
     min-height: 171px;
     width: 120px;
     height: 171px;
+    max-height: 190px;
   }
 
   .cardContent {
-    padding: 20px 16px;
+    padding: 12px;
     gap: 8px;
   }
 
@@ -294,5 +299,13 @@
 
   .stepDescription {
     font-size: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .stepCard {
+    min-width: 100px;
+    width: 30vw;
+    height: auto;
   }
 }
