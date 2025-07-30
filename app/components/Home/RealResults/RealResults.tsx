@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import styles from './RealResults.module.scss';
 import animationData from '../../../../public/animations/phone/phone.json';
-import Lottie from 'lottie-react';
+import Lottie, { LottieRefCurrentProps } from 'lottie-react';
 import mobileHeadingAnimationData from '../../../../public/animations/phoneheadingmob/phoneheadingmob.json';
 import mobileAnimationData from '../../../../public/animations/phonemob/phonemob.json';
 import { useIntersectionObserver } from '@/app/hooks/useIntersectionObserver';
@@ -15,9 +15,9 @@ export const RealResults = (): React.ReactElement => {
     triggerOnce: true,
   });
 
-  const desktopLottieRef = useRef<any>(null);
-  const mobileHeadingLottieRef = useRef<any>(null);
-  const mobileLottieRef = useRef<any>(null);
+  const desktopLottieRef = useRef<LottieRefCurrentProps>(null);
+  const mobileHeadingLottieRef = useRef<LottieRefCurrentProps>(null);
+  const mobileLottieRef = useRef<LottieRefCurrentProps>(null);
 
   useEffect(() => {
     if (isIntersecting) {

@@ -9,10 +9,16 @@ import { RepetitiveIcon } from '@/app/assets/icons/RepetitiveIcon';
 import { TwentyFourSevenIcon } from '@/app/assets/icons/TwentyFourSevenIcon';
 import { useState } from 'react';
 
+interface Scenario {
+  header: string;
+  title: string;
+  icon: React.ReactNode;
+}
+
 export const ChatAgentForYouSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const scenarios = [
+  const scenarios: Scenario[] = [
     {
       header: 'You get too many',
       title: 'DMs to reply manually',
@@ -40,7 +46,7 @@ export const ChatAgentForYouSection: React.FC = () => {
     },
   ];
 
-  const renderScenarioCard = (scenario: any, index: number) => (
+  const renderScenarioCard = (scenario: Scenario, index: number) => (
     <Card key={index} className={styles.scenarioCard}>
       <CardContent className={styles.cardContent}>
         <div className={styles.iconContainer}>

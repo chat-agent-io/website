@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import styles from './SpeaksLikeYouSection.module.scss';
 import { CtaButton } from '../CtaButton/CtaButton';
-import Lottie from 'lottie-react';
+import Lottie, { LottieRefCurrentProps } from 'lottie-react';
 import animationData from '../../../../public/animations/chat/chat.json';
 import mobileAnimationData from '../../../../public/animations/chatmob/chatmob.json';
 import { useIntersectionObserver } from '@/app/hooks/useIntersectionObserver';
@@ -15,8 +15,8 @@ export const SpeaksLikeYouSection: React.FC = () => {
     triggerOnce: true,
   });
 
-  const desktopLottieRef = useRef<any>(null);
-  const mobileLottieRef = useRef<any>(null);
+  const desktopLottieRef = useRef<LottieRefCurrentProps>(null);
+  const mobileLottieRef = useRef<LottieRefCurrentProps>(null);
 
   useEffect(() => {
     if (isIntersecting) {
