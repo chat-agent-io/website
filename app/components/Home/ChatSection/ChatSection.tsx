@@ -11,6 +11,9 @@ import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import { CtaButton } from '../CtaButton/CtaButton';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import Lottie from 'lottie-react';
+import animationData from '../../../../public/animations/notifications/notifications.json';
+import mobileAnimationData from '../../../../public/animations/notificationsmob/notificationsmob.json';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -116,45 +119,14 @@ export const ChatSetupSection = (): React.ReactElement => {
       </div>
       <div className={styles.dmsContent}>
         <div className={styles.dmsImages}>
-          <div className={styles.sliderContainer}>
-            <Swiper
-              modules={[Autoplay]}
-              direction="vertical"
-              autoplay={{
-                delay: 4200,
-                disableOnInteraction: false,
-                reverseDirection: true,
-              }}
-              loop={true}
-              className={styles.instagramSwiper}
-            >
-              {instagramSliderImages.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <img src={image.src} alt={image.alt} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-
-          <div className={styles.sliderContainer}>
-            <Swiper
-              modules={[Autoplay]}
-              direction="vertical"
-              autoplay={{
-                delay: 4000,
-                disableOnInteraction: false,
-                reverseDirection: true,
-              }}
-              loop={true}
-              className={styles.chatagentSwiper}
-            >
-              {chatagentSliderImages.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <img src={image.src} alt={image.alt} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+          <Lottie animationData={animationData} loop={true} autoplay={true} />
+        </div>
+        <div className={styles.dmsImagesMobile}>
+          <Lottie
+            animationData={mobileAnimationData}
+            loop={true}
+            autoplay={true}
+          />
         </div>
         <p>
           Stop losing customers just because you didn&apos;t see the message.

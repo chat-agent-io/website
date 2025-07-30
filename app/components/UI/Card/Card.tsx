@@ -12,7 +12,7 @@ export const Card: React.FC<CardProps> = ({
   children,
   className,
   variant = 'default',
-  radius = '16px',
+  radius = '9.5px',
 }) => {
   return (
     <div

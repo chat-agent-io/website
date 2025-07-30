@@ -9,3 +9,21 @@
     }
   }
 }
+
+// Desktop Layout - visible on larger screens
+.desktopLayout {
+  display: block;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+// Mobile Layout - visible only on mobile
+.mobileLayout {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}

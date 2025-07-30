@@ -51,4 +51,16 @@
 .phoneContainer {
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.phoneMobile {
+  display: none;
+
+  @media (max-width: 480px) {
+    display: block;
+  }
 }

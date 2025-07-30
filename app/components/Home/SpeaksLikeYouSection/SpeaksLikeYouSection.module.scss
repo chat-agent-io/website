@@ -6,6 +6,10 @@
   padding-bottom: 32px;
   position: relative;
   background: #f1f2f2;
+
+  @media (max-width: 480px) {
+    padding-bottom: 16px;
+  }
 }
 
 .content {
@@ -15,6 +19,20 @@
   align-items: center;
   padding: 0 20px;
   max-width: 632px;
+}
+
+.animation {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.animationMobile {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 }
 
 .header {

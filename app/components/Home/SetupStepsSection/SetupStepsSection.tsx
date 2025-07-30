@@ -41,7 +41,7 @@ export const SetupStepsSection: React.FC = () => {
 
         <div className={styles.stepsSection}>
           {setupSteps.map((step, index) => (
-            <Card key={index} className={styles.stepCard}>
+            <Card key={index} className={styles.stepCard} radius="9.5px">
               <CardContent className={styles.cardContent}>
                 <div className={styles.stepNumberContainer}>
                   <div className={styles.stepNumber}>{step.stepNumber}</div>

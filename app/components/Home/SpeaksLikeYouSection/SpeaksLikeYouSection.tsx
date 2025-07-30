@@ -4,6 +4,7 @@ import styles from './SpeaksLikeYouSection.module.scss';
 import { CtaButton } from '../CtaButton/CtaButton';
 import Lottie from 'lottie-react';
 import animationData from '../../../../public/animations/chat/chat.json';
+import mobileAnimationData from '../../../../public/animations/chatmob/chatmob.json';
 
 export const SpeaksLikeYouSection: React.FC = () => {
   return (
@@ -20,8 +21,15 @@ export const SpeaksLikeYouSection: React.FC = () => {
             like you.
           </p>
         </div>
-        <div className={styles.content}>
+        <div className={styles.animation}>
           <Lottie animationData={animationData} loop={true} autoplay={true} />
+        </div>
+        <div className={styles.animationMobile}>
+          <Lottie
+            animationData={mobileAnimationData}
+            loop={true}
+            autoplay={true}
+          />
         </div>
         <CtaButton />
       </div>

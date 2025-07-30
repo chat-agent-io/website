@@ -37,6 +37,10 @@
   letter-spacing: 0px;
   line-height: 120%;
   font-style: normal;
+
+  @media (max-width: 480px) {
+    font-size: 19px;
+  }
 }
 
 .cardsSection {
@@ -50,9 +54,62 @@
   flex: 0 0 auto;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
+    display: none;
   }
+}
+
+// Mobile Custom Carousel
+.mobileSwiper {
+  display: none;
+  width: 100%;
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.carouselSlide {
+  flex: 0 0 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+// Custom pagination styles
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.paginationDot {
+  width: 8px;
+  height: 8px;
+  background: #d9d8da;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.paginationDotActive {
+  background: #3214f0;
+  transform: scale(1.2);
 }
 
 .featureCard {
@@ -75,7 +132,13 @@
 
   @media (max-width: 768px) {
     width: 100%;
-    max-width: 300px;
+    height: 102px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    gap: 32px;
+    max-width: 380px;
   }
 }
 
@@ -88,6 +151,13 @@
   position: relative;
   flex: 1;
   padding: 16px 8px;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+    padding: 0;
+  }
 }
 
 .iconContainer {
@@ -97,16 +167,31 @@
   align-items: center;
   justify-content: center;
   position: relative;
+
+  @media (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+  }
 }
 
 .iconBackground {
   border-radius: 20px;
+
+  @media (max-width: 768px) {
+    border-radius: 15px;
+  }
 }
 
 .icon {
   position: relative;
   width: 40px;
   height: 40px;
+
+  @media (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .textContent {
@@ -117,6 +202,11 @@
   padding: 0;
   position: relative;
   flex: 1;
+
+  @media (max-width: 768px) {
+    align-items: flex-start;
+    gap: 2px;
+  }
 }
 
 .cardTitle {
@@ -133,6 +223,13 @@
     font-size: 13px;
     font-weight: 600;
   }
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    text-align: left;
+    line-height: 1.2;
+    width: 100%;
+  }
 }
 
 .cardDescription {
@@ -143,11 +240,22 @@
   text-align: center;
   line-height: 120%;
   font-style: normal;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    text-align: left;
+    line-height: 1.2;
+  }
 }
 
 .cardTip {
   color: #818085;
   font-size: 11px;
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+    text-align: left;
+  }
 }
 
 .bottomSection {
@@ -158,6 +266,10 @@
   width: 100%;
   position: relative;
   flex: 0 0 auto;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .subtitle {

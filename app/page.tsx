@@ -10,18 +10,34 @@ import { SpeaksLikeYouSection } from './components/Home/SpeaksLikeYouSection/Spe
 import { WhatDoesntSection } from './components/Home/WhatDoesntSection/WhatDoesntSection';
 import { WhatDoesSection } from './components/Home/WhatDoesSection/WhatDoesSection';
 import { ChatAgentForYouSection } from './components/Home/ChatAgentForYouSection/ChatAgentForYouSection';
+
 export default function HomePage() {
   return (
     <div className={styles.homePage}>
       <Layout>
-        <ChatSetupSection />
-        <ChatAgentForYouSection />
-        <WhatDoesSection />
-        <WhatDoesntSection />
-        <SpeaksLikeYouSection />
-        <RealResults />
-        <SetupStepsSection />
-        <DataPrivacySection />
+        {/* Desktop Layout */}
+        <div className={styles.desktopLayout}>
+          <ChatSetupSection />
+          <ChatAgentForYouSection />
+          <WhatDoesSection />
+          <WhatDoesntSection />
+          <SpeaksLikeYouSection />
+          <RealResults />
+          <SetupStepsSection />
+          <DataPrivacySection />
+        </div>
+
+        {/* Mobile Layout - WhatDoesntSection moved to bottom of SetupStepsSection */}
+        <div className={styles.mobileLayout}>
+          <ChatSetupSection />
+          <ChatAgentForYouSection />
+          <WhatDoesSection />
+          <SpeaksLikeYouSection />
+          <RealResults />
+          <SetupStepsSection />
+          <WhatDoesntSection />
+          <DataPrivacySection />
+        </div>
       </Layout>
     </div>
   );

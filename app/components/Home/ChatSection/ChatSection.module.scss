@@ -29,6 +29,18 @@
   .dmsImages {
     display: flex;
     gap: 20px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .dmsImagesMobile {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
   }
 
   p {
