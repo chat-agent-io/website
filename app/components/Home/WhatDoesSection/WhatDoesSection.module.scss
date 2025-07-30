@@ -26,7 +26,7 @@
   }
 
   @media (max-width: 768px) {
-    gap: 24px;
+    gap: 16px;
   }
 }
 
@@ -49,7 +49,9 @@
   }
 
   @media (max-width: 480px) {
-    font-size: 24px;
+    color: #03010c;
+    background: none;
+    font-size: 19px;
   }
 }
 
@@ -63,11 +65,14 @@
 
   @media (max-width: 768px) {
     gap: 12px;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 400px;
   }
 
   @media (max-width: 480px) {
-    flex-direction: column;
-    align-items: center;
+    gap: 8px;
+    max-width: 380px;
   }
 }
 
@@ -89,9 +94,14 @@
   );
   border: 1px solid #fff;
 
+  @media (max-width: 768px) {
+    width: 120px;
+    height: 102px;
+  }
+
   @media (max-width: 480px) {
-    width: 100%;
-    max-width: 300px;
+    width: 120px;
+    height: 102px;
   }
 }
 
@@ -105,6 +115,16 @@
   height: 40px;
   flex: 1;
   object-fit: contain;
+
+  @media (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
+
+  @media (max-width: 480px) {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .cardFooter {
@@ -125,4 +145,16 @@
   width: 120px;
   text-align: center;
   vertical-align: middle;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    font-weight: 600;
+    width: 100px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 13px;
+    font-weight: 600;
+    width: 100px;
+  }
 }

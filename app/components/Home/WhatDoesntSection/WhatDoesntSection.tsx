@@ -1,30 +1,37 @@
 import { Card, CardContent } from '../../../components/UI/Card';
 import styles from './WhatDoesntSection.module.scss';
 import { YesIcon } from '@/app/assets/icons/YesIcon';
-import { NoIcon } from '@/app/assets/icons/NoIcon';
 import { CtaButton } from '../CtaButton/CtaButton';
+import { WontTakeBookingIcon } from '@/app/assets/icons/WontTakeBookingIcon';
+import { WontChargeCustomersIcon } from '@/app/assets/icons/WontChargeCustomersIcon';
+import { WontPretendIcon } from '@/app/assets/icons/WontPretendIcon';
 
 export const WhatDoesntSection: React.FC = () => {
   const featureCards = [
     {
       title: "It Won't Take Bookings",
-      description: 'Avoids liability, human error, or double-booking issues.',
-      isPositive: false,
+      byDesign: ' — By Design.',
+      description: 'Avoids liability, human error, or double-booking.',
+      tip: '(Pro & Enterprise support it.)',
+      icon: <WontTakeBookingIcon />,
     },
     {
       title: "It Won't Charge Customers",
       description: 'Keeps you in control of sales, not AI.',
-      isPositive: false,
+      tip: '(You decide when and how.)',
+      icon: <WontChargeCustomersIcon />,
     },
     {
       title: "It Won't Pretend To Be Human",
       description: 'Transparent by design. Customers trust clarity.',
-      isPositive: false,
+      tip: '(Customers trust clarity.)',
+      icon: <WontPretendIcon />,
     },
     {
       title: 'It Answers Instantly, In Your Tone',
       description: 'Using your content',
-      isPositive: true,
+      tip: '(Across channels.)',
+      icon: <YesIcon />,
     },
   ];
 
@@ -43,18 +50,15 @@ export const WhatDoesntSection: React.FC = () => {
             <Card key={index} className={styles.featureCard}>
               <CardContent className={styles.cardContent}>
                 <div className={styles.iconContainer}>
-                  <div className={styles.iconBackground}>
-                    {card.isPositive ? (
-                      <YesIcon className={styles.icon} />
-                    ) : (
-                      <NoIcon className={styles.icon} />
-                    )}
-                  </div>
+                  <div className={styles.iconBackground}>{card.icon}</div>
                 </div>
 
                 <div className={styles.textContent}>
-                  <h3 className={styles.cardTitle}>{card.title}</h3>
+                  <h3 className={styles.cardTitle}>
+                    {card.title} <b>{card.byDesign}</b>
+                  </h3>
                   <p className={styles.cardDescription}>{card.description}</p>
+                  <p className={styles.cardTip}>{card.tip}</p>
                 </div>
               </CardContent>
             </Card>

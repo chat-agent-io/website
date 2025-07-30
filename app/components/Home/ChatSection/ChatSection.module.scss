@@ -463,8 +463,42 @@
 }
 
 @media (max-width: 480px) {
+  .headerSection {
+    gap: 8px;
+    margin-bottom: 8px;
+
+    & > div {
+      padding-top: 8px;
+    }
+  }
+
+  .dmsContent {
+    margin-bottom: 12px;
+  }
+
+  .chatCard {
+    width: 312px;
+    max-width: 312px;
+  }
+
+  .cardContent {
+    gap: 16px;
+  }
+
+  .chatMessages {
+    height: 297px;
+  }
+
+  .stepsList {
+    display: none;
+  }
+
   .cardWrapper {
     padding: 20px;
+
+    &::before {
+      display: none;
+    }
   }
   .stepIndicator {
     width: 20px;
@@ -472,15 +506,35 @@
     height: 20px;
   }
 
+  .mainHeading {
+    font-size: 28px;
+    max-width: 376px;
+  }
+
   .subHeading {
-    max-width: 300px;
+    font-size: 13px;
+  }
+
+  .leftColumn {
+    width: 100%;
+    .setupInfo {
+      width: 100%;
+      text-align: center;
+
+      button {
+        text-align: center;
+      }
+    }
+  }
+
+  .dmsContent > p {
+    display: none;
   }
 
   .stepText {
     font-size: 11px;
   }
 
-  // Mobile slider adjustments
   .sliderContainer {
     width: 100%;
     max-width: 280px;

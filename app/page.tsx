@@ -15,15 +15,13 @@ export default function HomePage() {
     <div className={styles.homePage}>
       <Layout>
         <ChatSetupSection />
-        <div className={styles.homeContent}>
-          <ChatAgentForYouSection />
-          <WhatDoesSection />
-          <WhatDoesntSection />
-          <SpeaksLikeYouSection />
-          <RealResults />
-          <SetupStepsSection />
-          <DataPrivacySection />
-        </div>
+        <ChatAgentForYouSection />
+        <WhatDoesSection />
+        <WhatDoesntSection />
+        <SpeaksLikeYouSection />
+        <RealResults />
+        <SetupStepsSection />
+        <DataPrivacySection />
       </Layout>
     </div>
   );

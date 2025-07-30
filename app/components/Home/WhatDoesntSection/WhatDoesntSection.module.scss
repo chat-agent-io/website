@@ -128,6 +128,11 @@
   text-align: center;
   line-height: 120%;
   font-style: normal;
+
+  b {
+    font-size: 13px;
+    font-weight: 600;
+  }
 }
 
 .cardDescription {
@@ -138,6 +143,11 @@
   text-align: center;
   line-height: 120%;
   font-style: normal;
+}
+
+.cardTip {
+  color: #818085;
+  font-size: 11px;
 }
 
 .bottomSection {

@@ -1,3 +1,5 @@
+'use client';
+
 import { Card, CardContent } from '../../../components/UI/Card';
 import styles from './ChatAgentForYouSection.module.scss';
 import { ChatBubblesIcon } from '@/app/assets/icons/ChatBubblesIcon';
@@ -5,8 +7,11 @@ import { MissedMessagesIcon } from '@/app/assets/icons/MissedMessagesIcon';
 import { HireStaffIcon } from '@/app/assets/icons/HireStaffIcon';
 import { RepetitiveIcon } from '@/app/assets/icons/RepetitiveIcon';
 import { TwentyFourSevenIcon } from '@/app/assets/icons/TwentyFourSevenIcon';
+import { useState } from 'react';
 
 export const ChatAgentForYouSection: React.FC = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const scenarios = [
     {
       header: 'You get too many',
@@ -35,6 +40,33 @@ export const ChatAgentForYouSection: React.FC = () => {
     },
   ];
 
+  const renderScenarioCard = (scenario: any, index: number) => (
+    <Card key={index} className={styles.scenarioCard}>
+      <CardContent className={styles.cardContent}>
+        <div className={styles.iconContainer}>
+          <div className={styles.iconBackground}>{scenario.icon}</div>
+        </div>
+
+        <div className={styles.textContent}>
+          <p className={styles.cardHeader}>{scenario.header}</p>
+          <p className={styles.cardTitle}>{scenario.title}</p>
+        </div>
+      </CardContent>
+    </Card>
+  );
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % scenarios.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + scenarios.length) % scenarios.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
   return (
     <section className={styles.container}>
       <div className={styles.content}>
@@ -42,21 +74,42 @@ export const ChatAgentForYouSection: React.FC = () => {
           <h2 className={styles.title}>ChatAgent Is For You If...</h2>
         </div>
 
+        {/* Desktop Layout */}
         <div className={styles.cardsSection}>
-          {scenarios.map((scenario, index) => (
-            <Card key={index} className={styles.scenarioCard}>
-              <CardContent className={styles.cardContent}>
-                <div className={styles.iconContainer}>
-                  <div className={styles.iconBackground}>{scenario.icon}</div>
-                </div>
+          {scenarios.map((scenario, index) =>
+            renderScenarioCard(scenario, index)
+          )}
+        </div>
 
-                <div className={styles.textContent}>
-                  <p className={styles.cardHeader}>{scenario.header}</p>
-                  <p className={styles.cardTitle}>{scenario.title}</p>
+        {/* Mobile Custom Carousel */}
+        <div className={styles.mobileSwiper}>
+          <div className={styles.carouselContainer}>
+            <div
+              className={styles.carouselTrack}
+              style={{
+                transform: `translateX(-${currentSlide * 100}%)`,
+              }}
+            >
+              {scenarios.map((scenario, index) => (
+                <div key={index} className={styles.carouselSlide}>
+                  {renderScenarioCard(scenario, index)}
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Pagination Dots */}
+          <div className={styles.pagination}>
+            {scenarios.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.paginationDot} ${
+                  index === currentSlide ? styles.paginationDotActive : ''
+                }`}
+                onClick={() => goToSlide(index)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
