@@ -5,7 +5,6 @@ import { Button } from '../../UI/Button';
 import { Card, CardContent } from '../../UI/Card';
 import { Separator } from '../../UI/Separator/Separator';
 import { CheckIcon } from '@/app/assets/icons/CheckIcon';
-import { ChevronIcon } from '@/app/assets/icons/ChevronIcon';
 import styles from './MonthlyPlans.module.scss';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 

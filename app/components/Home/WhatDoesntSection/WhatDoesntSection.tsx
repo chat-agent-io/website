@@ -9,10 +9,18 @@ import { WontChargeCustomersIcon } from '@/app/assets/icons/WontChargeCustomersI
 import { WontPretendIcon } from '@/app/assets/icons/WontPretendIcon';
 import { useState } from 'react';
 
+interface FeatureCard {
+  title: string;
+  byDesign?: string;
+  description: string;
+  tip: string;
+  icon: React.ReactNode;
+}
+
 export const WhatDoesntSection: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const featureCards = [
+  const featureCards: FeatureCard[] = [
     {
       title: "It Won't Take Bookings",
       byDesign: ' — By Design.',
@@ -40,7 +48,7 @@ export const WhatDoesntSection: React.FC = () => {
     },
   ];
 
-  const renderFeatureCard = (card: any, index: number) => (
+  const renderFeatureCard = (card: FeatureCard, index: number) => (
     <Card key={index} className={styles.featureCard}>
       <CardContent className={styles.cardContent}>
         <div className={styles.iconContainer}>
@@ -49,7 +57,7 @@ export const WhatDoesntSection: React.FC = () => {
 
         <div className={styles.textContent}>
           <h3 className={styles.cardTitle}>
-            {card.title} <b>{card.byDesign}</b>
+            {card.title} {card.byDesign && <b>{card.byDesign}</b>}
           </h3>
           <p className={styles.cardDescription}>{card.description}</p>
           <p className={styles.cardTip}>{card.tip}</p>

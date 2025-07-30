@@ -69,11 +69,8 @@
   flex: 0 0 auto;
 
   @media (max-width: 768px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
     gap: 8px;
-    padding: 0 32px 16px 32px;
   }
 }
 
@@ -272,7 +269,7 @@
   }
 
   .cardsSection {
-    padding: 0 0 24px 0;
+    padding: 0;
   }
 
   .featureCard {

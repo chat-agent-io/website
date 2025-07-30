@@ -9,58 +9,15 @@ import { ChatAttachmentIcon } from '@/app/assets/icons/ChatAttachmentIcon';
 import { ChatSendIcon } from '@/app/assets/icons/ChatSendIcon';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import { CtaButton } from '../CtaButton/CtaButton';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
 import Lottie from 'lottie-react';
 import animationData from '../../../../public/animations/notifications/notifications.json';
 import mobileAnimationData from '../../../../public/animations/notificationsmob/notificationsmob.json';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/effect-fade';
 
 export const ChatSetupSection = (): React.ReactElement => {
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   const [currentStep, setCurrentStep] = useState(1);
   const [inputValue, setInputValue] = useState('');
   const isTablet = useMediaQuery('900');
-
-  // Slider data - you can replace these images later
-  const instagramSliderImages = [
-    {
-      src: '/imgs/instagram-dms.png',
-      alt: 'Instagram DMs - Benefit 1',
-      title: 'Instant Response',
-    },
-    {
-      src: '/imgs/instagram-dms1.png',
-      alt: 'Instagram DMs - Benefit 2',
-      title: '24/7 Availability',
-    },
-    {
-      src: '/imgs/instagram-dms2.png',
-      alt: 'Instagram DMs - Benefit 3',
-      title: 'Customer Satisfaction',
-    },
-  ];
-
-  const chatagentSliderImages = [
-    {
-      src: '/imgs/chatagent-dms.png',
-      alt: 'ChatAgent DMs - Benefit 1',
-      title: 'Smart Replies',
-    },
-    {
-      src: '/imgs/chatagent-dms1.png',
-      alt: 'ChatAgent DMs - Benefit 2',
-      title: 'Context Aware',
-    },
-    {
-      src: '/imgs/chatagent-dms2.png',
-      alt: 'ChatAgent DMs - Benefit 3',
-      title: 'Seamless Integration',
-    },
-  ];
 
   const steps = [
     {
@@ -127,13 +84,13 @@ export const ChatSetupSection = (): React.ReactElement => {
       </div>
       <div className={styles.dmsContent}>
         <div className={styles.dmsImages}>
-          <Lottie animationData={animationData} loop={true} autoplay={true} />
+          <Lottie animationData={animationData} autoplay={true} loop={false} />
         </div>
         <div className={styles.dmsImagesMobile}>
           <Lottie
             animationData={mobileAnimationData}
-            loop={true}
             autoplay={true}
+            loop={false}
           />
         </div>
         <p>

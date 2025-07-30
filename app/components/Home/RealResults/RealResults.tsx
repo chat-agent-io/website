@@ -1,28 +1,61 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import styles from './RealResults.module.scss';
 import animationData from '../../../../public/animations/phone/phone.json';
 import Lottie from 'lottie-react';
 import mobileHeadingAnimationData from '../../../../public/animations/phoneheadingmob/phoneheadingmob.json';
 import mobileAnimationData from '../../../../public/animations/phonemob/phonemob.json';
+import { useIntersectionObserver } from '@/app/hooks/useIntersectionObserver';
 
 export const RealResults = (): React.ReactElement => {
+  const { ref, isIntersecting } = useIntersectionObserver({
+    threshold: 0.3,
+    rootMargin: '0px',
+    triggerOnce: true,
+  });
+
+  const desktopLottieRef = useRef<any>(null);
+  const mobileHeadingLottieRef = useRef<any>(null);
+  const mobileLottieRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (isIntersecting) {
+      if (desktopLottieRef.current) {
+        desktopLottieRef.current.play();
+      }
+      if (mobileHeadingLottieRef.current) {
+        mobileHeadingLottieRef.current.play();
+      }
+      if (mobileLottieRef.current) {
+        mobileLottieRef.current.play();
+      }
+    }
+  }, [isIntersecting]);
+
   return (
-    <section className={styles.section}>
+    <section ref={ref} className={styles.section}>
       <div className={styles.phoneSection}>
         <div className={styles.phoneContainer}>
-          <Lottie animationData={animationData} loop={true} autoplay={true} />
+          <Lottie
+            lottieRef={desktopLottieRef}
+            animationData={animationData}
+            loop={false}
+            autoplay={false}
+          />
         </div>
         <div className={styles.phoneMobile}>
           <Lottie
+            lottieRef={mobileHeadingLottieRef}
             animationData={mobileHeadingAnimationData}
-            loop={true}
-            autoplay={true}
+            loop={false}
+            autoplay={false}
           />
           <Lottie
+            lottieRef={mobileLottieRef}
             animationData={mobileAnimationData}
-            loop={true}
-            autoplay={true}
+            loop={false}
+            autoplay={false}
           />
         </div>
       </div>

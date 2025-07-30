@@ -55,14 +55,6 @@ export const ChatAgentForYouSection: React.FC = () => {
     </Card>
   );
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % scenarios.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + scenarios.length) % scenarios.length);
-  };
-
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
