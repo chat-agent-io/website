@@ -84,13 +84,13 @@ export const ChatSetupSection = (): React.ReactElement => {
       </div>
       <div className={styles.dmsContent}>
         <div className={styles.dmsImages}>
-          <Lottie animationData={animationData} autoplay={true} loop={false} />
+          <Lottie animationData={animationData} autoplay={true} loop={true} />
         </div>
         <div className={styles.dmsImagesMobile}>
           <Lottie
             animationData={mobileAnimationData}
             autoplay={true}
-            loop={false}
+            loop={true}
           />
         </div>
         <p>

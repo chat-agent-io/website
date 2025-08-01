@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react';
 
 interface BrainIconProps extends ComponentPropsWithoutRef<'svg'> {
-  size?: number | string;
+  className?: string;
   color?: string;
 }
 
