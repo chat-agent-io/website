@@ -5,8 +5,12 @@ import { ChevronDown } from 'lucide-react';
 import styles from './FAQQuestion.module.scss';
 import { FAQQuestionData } from '../FAQData';
 
+interface ExtendedFAQQuestionData extends FAQQuestionData {
+  category?: string;
+}
+
 interface FAQQuestionProps {
-  question: FAQQuestionData;
+  question: ExtendedFAQQuestionData;
 }
 
 export const FAQQuestion: React.FC<FAQQuestionProps> = ({ question }) => {
@@ -20,9 +24,14 @@ export const FAQQuestion: React.FC<FAQQuestionProps> = ({ question }) => {
           <IconComponent />
         </div>
       </div>
-      <div className={styles.questionFrame}>
+      <div className={styles.questionFrame} onClick={() => setIsOpen(!isOpen)}>
         <div className={styles.questionContent}>
           <div className={styles.questionHeader}>
+            {question.category && (
+              <div className={styles.categoryTag}>
+                {question.category}
+              </div>
+            )}
             <h3 className={styles.questionText}>{question.question}</h3>
           </div>
           <div

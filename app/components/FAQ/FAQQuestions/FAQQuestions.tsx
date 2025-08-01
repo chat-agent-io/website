@@ -5,8 +5,12 @@ import { FAQQuestion } from '../FAQQuestion/FAQQuestion';
 import styles from './FAQQuestions.module.scss';
 import { FAQQuestionData } from '../FAQData';
 
+interface ExtendedFAQQuestionData extends FAQQuestionData {
+  category?: string;
+}
+
 interface FAQQuestionsProps {
-  questions: FAQQuestionData[];
+  questions: ExtendedFAQQuestionData[];
 }
 
 export const FAQQuestions: React.FC<FAQQuestionsProps> = ({ questions }) => {

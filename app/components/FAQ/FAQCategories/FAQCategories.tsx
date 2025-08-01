@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import styles from './FAQCategories.module.scss';
 
@@ -18,7 +18,7 @@ const categories = [
   'Features & Capabilities',
   'Security & Privacy',
   'Support & Troubleshooting',
-  'Multi-Location & Partnerships'
+  'Multi-Location & Partnerships',
 ];
 
 export const FAQCategories: React.FC<FAQCategoriesProps> = ({
@@ -28,6 +28,13 @@ export const FAQCategories: React.FC<FAQCategoriesProps> = ({
   onSearchChange,
 }) => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
+
+  // Clear selected category when search query is entered
+  useEffect(() => {
+    if (searchQuery.trim() && selectedCategory !== '') {
+      onCategoryChange('');
+    }
+  }, [searchQuery, selectedCategory, onCategoryChange]);
 
   const handleSearchClick = () => {
     setIsSearchVisible(true);
@@ -43,12 +50,22 @@ export const FAQCategories: React.FC<FAQCategoriesProps> = ({
     setIsSearchVisible(true);
   };
 
+  const handleCategoryClick = (category: string) => {
+    onSearchChange(''); // Clear search when selecting a category
+    onCategoryChange(category);
+  };
+
   return (
     <div className={styles.categoriesContainer}>
       <div className={styles.searchAndCategories}>
         <div className={styles.categoriesRow}>
-          <div className={`${styles.searchBox} ${isSearchVisible ? styles.visible : ''}`}>
-            <Search className={styles.searchIcon} onClick={handleSearchClick} />
+          <div
+            className={`${styles.searchBox} ${
+              isSearchVisible ? styles.visible : ''
+            }`}
+            onClick={handleSearchClick}
+          >
+            <Search className={styles.searchIcon} />
             <input
               type="text"
               placeholder="Search questions..."
@@ -65,7 +82,7 @@ export const FAQCategories: React.FC<FAQCategoriesProps> = ({
               className={`${styles.categoryButton} ${
                 selectedCategory === category ? styles.selected : ''
               }`}
-              onClick={() => onCategoryChange(category)}
+              onClick={() => handleCategoryClick(category)}
             >
               {category}
             </button>
@@ -78,7 +95,7 @@ export const FAQCategories: React.FC<FAQCategoriesProps> = ({
               className={`${styles.categoryButton} ${
                 selectedCategory === category ? styles.selected : ''
               }`}
-              onClick={() => onCategoryChange(category)}
+              onClick={() => handleCategoryClick(category)}
             >
               {category}
             </button>
@@ -87,4 +104,4 @@ export const FAQCategories: React.FC<FAQCategoriesProps> = ({
       </div>
     </div>
   );
-}; 
+};
