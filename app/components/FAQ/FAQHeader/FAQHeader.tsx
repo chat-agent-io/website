@@ -10,10 +10,9 @@ export const FAQHeader: React.FC = () => {
       <div className={styles.content}>
         <h1 className={styles.title}>Frequently Asked Questions</h1>
         <p className={styles.description}>
-          These are the most asked questions about ChatAgent. Can't find what
-          you're looking for?
+          These are the most asked questions about ChatAgent. Can&apos;t find
+          what you&apos;re looking for?
           <a href="#" className={styles.link}>
-            {' '}
             Chat with our friendly team ↗
           </a>
         </p>
