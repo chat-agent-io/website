@@ -71,6 +71,8 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  user-select: none;
+  touch-action: pan-y;
 }
 
 .carouselTrack {
@@ -84,6 +86,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  user-select: none;
 }
 
 // Custom pagination styles

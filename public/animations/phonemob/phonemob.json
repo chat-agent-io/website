@@ -24908,7 +24908,7 @@
       "w": 1081,
       "h": 955,
       "p": "5.png",
-      "u": "/animations/phone/images/"
+      "u": "/animations/phonemob/images/"
     },
     {
       "id": "6",
@@ -24916,7 +24916,7 @@
       "w": 256,
       "h": 366,
       "p": "6.png",
-      "u": "/animations/phone/images/"
+      "u": "/animations/phonemob/images/"
     }
   ]
 }

@@ -7,7 +7,7 @@ import { MissedMessagesIcon } from '@/app/assets/icons/MissedMessagesIcon';
 import { HireStaffIcon } from '@/app/assets/icons/HireStaffIcon';
 import { RepetitiveIcon } from '@/app/assets/icons/RepetitiveIcon';
 import { TwentyFourSevenIcon } from '@/app/assets/icons/TwentyFourSevenIcon';
-import { useState } from 'react';
+import { useAutoSwipe } from '@/app/hooks/useAutoSwipe';
 
 interface Scenario {
   header: string;
@@ -16,8 +16,6 @@ interface Scenario {
 }
 
 export const ChatAgentForYouSection: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
   const scenarios: Scenario[] = [
     {
       header: 'You get too many',
@@ -46,6 +44,24 @@ export const ChatAgentForYouSection: React.FC = () => {
     },
   ];
 
+  const {
+    currentSlide,
+    goToSlide,
+    isDragging,
+    dragOffset,
+    containerRef,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+    handleMouseDown,
+    handleMouseMove,
+    handleMouseUp,
+    handleMouseLeave,
+  } = useAutoSwipe({
+    totalSlides: scenarios.length,
+    autoSwipeInterval: 5000,
+  });
+
   const renderScenarioCard = (scenario: Scenario, index: number) => (
     <Card key={index} className={styles.scenarioCard}>
       <CardContent className={styles.cardContent}>
@@ -60,10 +76,6 @@ export const ChatAgentForYouSection: React.FC = () => {
       </CardContent>
     </Card>
   );
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
 
   return (
     <section className={styles.container}>
@@ -81,11 +93,25 @@ export const ChatAgentForYouSection: React.FC = () => {
 
         {/* Mobile Custom Carousel */}
         <div className={styles.mobileSwiper}>
-          <div className={styles.carouselContainer}>
+          <div
+            className={styles.carouselContainer}
+            ref={containerRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
+            style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+          >
             <div
               className={styles.carouselTrack}
               style={{
-                transform: `translateX(-${currentSlide * 100}%)`,
+                transform: `translateX(calc(-${
+                  currentSlide * 100
+                }% + ${dragOffset}px))`,
+                transition: isDragging ? 'none' : 'transform 0.3s ease-out',
               }}
             >
               {scenarios.map((scenario, index) => (

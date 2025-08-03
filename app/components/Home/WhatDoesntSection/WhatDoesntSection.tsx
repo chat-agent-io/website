@@ -7,7 +7,7 @@ import { CtaButton } from '../CtaButton/CtaButton';
 import { WontTakeBookingIcon } from '@/app/assets/icons/WontTakeBookingIcon';
 import { WontChargeCustomersIcon } from '@/app/assets/icons/WontChargeCustomersIcon';
 import { WontPretendIcon } from '@/app/assets/icons/WontPretendIcon';
-import { useState } from 'react';
+import { useAutoSwipe } from '@/app/hooks/useAutoSwipe';
 
 interface FeatureCard {
   title: string;
@@ -18,8 +18,6 @@ interface FeatureCard {
 }
 
 export const WhatDoesntSection: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
   const featureCards: FeatureCard[] = [
     {
       title: "It Won't Take Bookings",
@@ -48,6 +46,24 @@ export const WhatDoesntSection: React.FC = () => {
     },
   ];
 
+  const {
+    currentSlide,
+    goToSlide,
+    isDragging,
+    dragOffset,
+    containerRef,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+    handleMouseDown,
+    handleMouseMove,
+    handleMouseUp,
+    handleMouseLeave,
+  } = useAutoSwipe({
+    totalSlides: featureCards.length,
+    autoSwipeInterval: 5000,
+  });
+
   const renderFeatureCard = (card: FeatureCard, index: number) => (
     <Card key={index} className={styles.featureCard}>
       <CardContent className={styles.cardContent}>
@@ -66,10 +82,6 @@ export const WhatDoesntSection: React.FC = () => {
     </Card>
   );
 
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-
   return (
     <section className={styles.container}>
       <div className={styles.content}>
@@ -87,11 +99,25 @@ export const WhatDoesntSection: React.FC = () => {
 
         {/* Mobile Custom Carousel */}
         <div className={styles.mobileSwiper}>
-          <div className={styles.carouselContainer}>
+          <div
+            className={styles.carouselContainer}
+            ref={containerRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
+            style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+          >
             <div
               className={styles.carouselTrack}
               style={{
-                transform: `translateX(-${currentSlide * 100}%)`,
+                transform: `translateX(calc(-${
+                  currentSlide * 100
+                }% + ${dragOffset}px))`,
+                transition: isDragging ? 'none' : 'transform 0.3s ease-out',
               }}
             >
               {featureCards.map((card, index) => (
