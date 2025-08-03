@@ -28,12 +28,12 @@
   padding: 16px 0;
   border-bottom: 1px solid #d9d8da;
   flex: 1;
-  cursor: pointer;
 }
 
 .questionContent {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   flex: 1;
 }
 

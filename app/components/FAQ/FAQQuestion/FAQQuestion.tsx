@@ -24,13 +24,11 @@ export const FAQQuestion: React.FC<FAQQuestionProps> = ({ question }) => {
           <IconComponent />
         </div>
       </div>
-      <div className={styles.questionFrame} onClick={() => setIsOpen(!isOpen)}>
+      <div className={styles.questionFrame}>
         <div className={styles.questionContent}>
           <div className={styles.questionHeader}>
             {question.category && (
-              <div className={styles.categoryTag}>
-                {question.category}
-              </div>
+              <div className={styles.categoryTag}>{question.category}</div>
             )}
             <h3 className={styles.questionText}>{question.question}</h3>
           </div>
