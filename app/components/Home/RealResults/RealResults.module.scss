@@ -61,6 +61,165 @@
   display: none;
 
   @media (max-width: 480px) {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.mobileLottieContainer {
+  width: fit-content;
+}
+
+.mobileBoxes {
+  display: none;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  width: 100%;
+  padding: 0 20px;
+  justify-content: center;
+
+  @media (max-width: 480px) {
+    display: flex;
+  }
+}
+
+.mobileBox {
+  width: 184px;
+  height: 80px;
+  border-radius: 9.5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: none;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(242, 242, 242, 0) 0%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  border: 1px solid #fff;
+
+  @media (max-width: 400px) {
+    width: calc(50% - 4px);
+    height: 70px;
+  }
+
+  @media (max-width: 320px) {
+    width: calc(50% - 4px);
+    height: 60px;
+  }
+}
+
+.boxContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  position: relative;
+  flex: 1;
+  padding: 12px 16px;
+
+  @media (max-width: 400px) {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  @media (max-width: 320px) {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+
+  @media (max-width: 400px) {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media (max-width: 320px) {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.iconBackground {
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+
+  @media (max-width: 400px) {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+  }
+
+  @media (max-width: 320px) {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+  }
+}
+
+.icon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  color: #03010c;
+
+  @media (max-width: 400px) {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media (max-width: 320px) {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+  flex: 1;
+}
+
+.boxTitle {
+  position: relative;
+  align-self: stretch;
+  font-weight: 400;
+  color: #4e4d54;
+  font-size: 13px;
+  text-align: left;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  font-style: normal;
+  margin: 0;
+
+  @media (max-width: 400px) {
+    font-size: 10px;
+    line-height: 1.1;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 9px;
+    line-height: 1.1;
   }
 }
