@@ -44,6 +44,16 @@
   width: 100%;
   padding: 0 24px;
   margin-bottom: 48px;
+
+  @media (max-width: 480px) {
+    width: 100vw;
+    padding: 0;
+    margin-bottom: 0;
+
+    div {
+      background-color: #fff !important;
+    }
+  }
 }
 
 .titleSection {
@@ -54,6 +64,12 @@
   @media (max-width: 900px) {
     justify-content: center;
     flex: none;
+  }
+}
+
+.subtitleContainer {
+  @media (max-width: 480px) {
+    display: none;
   }
 }
 
@@ -118,34 +134,46 @@
 }
 
 .section {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
   width: 100%;
+}
+
+.plansWrapper {
+  display: flex;
   max-width: 1360px;
-  padding: 0 20px;
+  gap: 20px;
 
   @media (max-width: 1400px) {
-    max-width: 1200px;
     gap: 16px;
   }
 
   @media (max-width: 1300px) {
-    max-width: 1000px;
     gap: 12px;
   }
 
   @media (max-width: 1100px) {
-    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    max-width: 700px;
   }
 
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
+  @media (max-width: 1024px) {
+    flex-direction: column;
     gap: 24px;
-    max-width: 400px;
     padding: 0;
+    max-width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    position: relative;
+    gap: 8px;
+    height: 520px;
+    max-height: 520px;
+    overflow-y: auto;
+    padding: 32px 0 16px 0;
+    transition: max-height 0.3s ease;
+
+    &.expanded {
+      max-height: none;
+      height: auto;
+    }
   }
 }
 
@@ -171,6 +199,25 @@
 
   @media (max-width: 900px) {
     min-height: auto;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 155px;
+
+    &:last-child {
+      min-height: 170px;
+    }
+  }
+
+  &.mobileCard {
+    background: white;
+    border: 1px solid #d9d8da;
+    border-radius: 8px;
+    transition: border-color 0.2s ease;
+
+    &.selected {
+      border: 2px solid #000000;
+    }
   }
 }
 
@@ -226,6 +273,10 @@
   font-weight: 600;
   color: colors.$black-dark;
   line-height: 1.2;
+
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
 }
 
 .popularBadge {
@@ -439,6 +490,129 @@
   }
 }
 
+// Mobile-specific styles
+.mobilePlanHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.mobilePlanInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobileRightSection {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.mobileCheckbox {
+  flex-shrink: 0;
+  cursor: pointer;
+  height: 33.6px;
+}
+
+.selectedCheckbox {
+  width: 20px;
+  height: 20px;
+  background: #000000;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .checkIcon {
+    width: 12px;
+    height: 12px;
+    color: white;
+    margin: 0;
+  }
+}
+
+.unselectedCheckbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #d9d8da;
+  border-radius: 4px;
+  background: white;
+}
+
+.mobilePrice {
+  flex-shrink: 0;
+  text-align: right;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  .price {
+    font-size: 33px;
+    font-weight: 600;
+    color: colors.$black-dark;
+  }
+
+  .period {
+    font-size: 12px;
+    color: colors.$gray-600;
+  }
+}
+
+.mobileFeaturesSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  width: 100%;
+  padding-top: 16px;
+  border-top: 1px solid #d9d8da;
+  margin-top: 16px;
+}
+
+.viewBenefitsText {
+  color: colors.$black-dark;
+  font-size: 11px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.chevronIcon {
+  width: 16px;
+  height: 16px;
+  color: colors.$gray-600;
+  transition: transform 0.2s ease;
+
+  &.rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.mobileFeaturesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+
+  .feature {
+    gap: 8px;
+  }
+
+  .checkIcon {
+    width: 16px;
+    height: 12px;
+  }
+
+  .featureText {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+}
+
 @media (min-width: 901px) and (max-width: 1100px) {
   .planCard {
     &:nth-child(odd) {
@@ -456,8 +630,28 @@
 
   @media (max-width: 900px) {
     display: flex;
-    margin-top: 20px;
+    margin-top: 24px;
     width: 100%;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -22px;
+      left: -20px;
+      width: 100vw;
+      height: 1px;
+      background: #fff;
+    }
+
+    button {
+      width: 312px;
+      height: 51px;
+      font-size: 16px;
+    }
   }
 }

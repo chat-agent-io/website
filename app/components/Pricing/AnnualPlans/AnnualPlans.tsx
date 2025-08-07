@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '../../UI/Button';
 import { Card, CardContent } from '../../UI/Card';
 import { Separator } from '../../UI/Separator/Separator';
 import { CheckIcon } from '@/app/assets/icons/CheckIcon';
+import { ChevronDown } from 'lucide-react';
 import styles from './AnnualPlans.module.scss';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 
@@ -16,6 +17,9 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
   onSwitchToMonthly,
 }) => {
   const isTablet = useMediaQuery('900');
+  const isMobile = useMediaQuery('768');
+  const [expandedPlans, setExpandedPlans] = useState<number[]>([]);
+  const [selectedPlan, setSelectedPlan] = useState<number | null>(null);
 
   const plans = [
     {
@@ -111,6 +115,18 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
     </div>
   );
 
+  const togglePlanExpansion = (planIndex: number) => {
+    setExpandedPlans((prev) =>
+      prev.includes(planIndex)
+        ? prev.filter((index) => index !== planIndex)
+        : [...prev, planIndex]
+    );
+  };
+
+  const handlePlanSelection = (planIndex: number) => {
+    setSelectedPlan(planIndex);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -127,77 +143,180 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
           <Separator />
         </div>
         <section className={styles.section}>
-          {plans.map((plan, index) => (
-            <Card key={index} className={styles.planCard}>
-              <CardContent className={styles.cardContent}>
-                <div className={styles.planHeader}>
-                  <div className={styles.titleContainer}>
-                    <span className={styles.planTitle}>{plan.title}</span>
-                    {plan.savings && (
-                      <span className={styles.savings}>{plan.savings}</span>
-                    )}
-                  </div>
-                  {plan.popular && (
-                    <div className={styles.popularBadge}>Popular</div>
-                  )}
-                </div>
-                <div className={styles.descriptionContainer}>
-                  <div className={styles.description}>
-                    {plan.description.split('\n').map((line, i) => (
-                      <React.Fragment key={i}>
-                        {line}
-                        {i < plan.description.split('\n').length - 1 && <br />}
-                      </React.Fragment>
-                    ))}
-                  </div>
-                </div>
-                <div className={styles.priceSection}>
-                  {plan.pricePrefix && (
-                    <div className={styles.pricePrefix}>{plan.pricePrefix}</div>
-                  )}
-                  <div className={styles.priceContainer}>
-                    <div
-                      className={`${styles.price} ${
-                        plan.title === 'Enterprise' ? styles.customQuote : ''
-                      }`}
-                    >
-                      {plan.price}
-                    </div>
-                  </div>
-                  <div className={styles.priceDetails}>
-                    <div className={styles.period}>{plan.period}</div>
-                    {plan.annualBilling && (
-                      <div className={styles.annualBilling}>
-                        {plan.annualBilling}
+          <div
+            className={`${styles.plansWrapper} ${
+              expandedPlans.length > 0 ? styles.expanded : ''
+            }`}
+          >
+            {plans.map((plan, index) => (
+              <Card
+                key={index}
+                className={`${styles.planCard} ${
+                  isMobile ? styles.mobileCard : ''
+                } ${selectedPlan === index ? styles.selected : ''}`}
+              >
+                <CardContent className={styles.cardContent}>
+                  {isMobile ? (
+                    <>
+                      <div className={styles.mobilePlanHeader}>
+                        <div className={styles.mobilePlanInfo}>
+                          <div className={styles.mobilePlanTitle}>
+                            <div className={styles.planTitle}>{plan.title}</div>
+                            {plan.savings && (
+                              <div className={styles.mobileSavings}>
+                                {plan.savings}
+                              </div>
+                            )}
+                          </div>
+                          <div className={styles.description}>
+                            {plan.description.split('\n').map((line, i) => (
+                              <React.Fragment key={i}>
+                                {line}
+                                {i <
+                                  plan.description.split('\n').length - 1 && (
+                                  <br />
+                                )}
+                              </React.Fragment>
+                            ))}
+                          </div>
+                        </div>
+                        <div className={styles.mobileRightSection}>
+                          {plan.popular && (
+                            <span className={styles.popularBadge}>Popular</span>
+                          )}
+                          <div
+                            className={styles.mobileCheckbox}
+                            onClick={() => handlePlanSelection(index)}
+                          >
+                            {selectedPlan === index ? (
+                              <div className={styles.selectedCheckbox}>
+                                <CheckIcon className={styles.checkIcon} />
+                              </div>
+                            ) : (
+                              <div className={styles.unselectedCheckbox}></div>
+                            )}
+                          </div>
+                          <div className={styles.mobilePrice}>
+                            <div
+                              className={`${styles.price} ${
+                                plan.title === 'Enterprise'
+                                  ? styles.customQuote
+                                  : ''
+                              }`}
+                            >
+                              {plan.price}
+                            </div>
+                            <div className={styles.period}>{plan.period}</div>
+                          </div>
+                        </div>
                       </div>
-                    )}
-                  </div>
-                </div>
-                <div className={styles.buttonSection}>
-                  <Button full variant={plan.buttonVariant}>
-                    {plan.buttonText}
-                  </Button>
-                  <div className={styles.separatorContainer}>
-                    <Separator />
-                  </div>
-                </div>
-                <div className={styles.featuresSection}>
-                  {plan.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className={styles.feature}>
-                      <CheckIcon className={styles.checkIcon} />
-                      <div className={styles.featureText}>{feature}</div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-
-          {isTablet && (
-            <div className={styles.monthlyPlansBottom}>
-              <MonthlyPlansToggle />
-            </div>
-          )}
+                      <div className={styles.mobileFeaturesSection}>
+                        {!expandedPlans.includes(index) && (
+                          <div
+                            className={styles.viewBenefitsText}
+                            onClick={() => togglePlanExpansion(index)}
+                          >
+                            <span>View benefits ↓</span>
+                          </div>
+                        )}
+                        {expandedPlans.includes(index) && (
+                          <div className={styles.mobileFeaturesList}>
+                            {plan.features.map((feature, featureIndex) => (
+                              <div
+                                key={featureIndex}
+                                className={styles.feature}
+                              >
+                                <CheckIcon className={styles.checkIcon} />
+                                <div className={styles.featureText}>
+                                  {feature}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className={styles.planHeader}>
+                        <div className={styles.titleContainer}>
+                          <span className={styles.planTitle}>{plan.title}</span>
+                          {plan.savings && (
+                            <span className={styles.savings}>
+                              {plan.savings}
+                            </span>
+                          )}
+                        </div>
+                        {plan.popular && (
+                          <div className={styles.popularBadge}>Popular</div>
+                        )}
+                      </div>
+                      <div className={styles.descriptionContainer}>
+                        <div className={styles.description}>
+                          {plan.description.split('\n').map((line, i) => (
+                            <React.Fragment key={i}>
+                              {line}
+                              {i < plan.description.split('\n').length - 1 && (
+                                <br />
+                              )}
+                            </React.Fragment>
+                          ))}
+                        </div>
+                      </div>
+                      <div className={styles.priceSection}>
+                        {plan.pricePrefix && (
+                          <div className={styles.pricePrefix}>
+                            {plan.pricePrefix}
+                          </div>
+                        )}
+                        <div className={styles.priceContainer}>
+                          <div
+                            className={`${styles.price} ${
+                              plan.title === 'Enterprise'
+                                ? styles.customQuote
+                                : ''
+                            }`}
+                          >
+                            {plan.price}
+                          </div>
+                        </div>
+                        <div className={styles.priceDetails}>
+                          <div className={styles.period}>{plan.period}</div>
+                          {plan.annualBilling && (
+                            <div className={styles.annualBilling}>
+                              {plan.annualBilling}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div className={styles.buttonSection}>
+                        <Button full variant={plan.buttonVariant}>
+                          {plan.buttonText}
+                        </Button>
+                        <div className={styles.separatorContainer}>
+                          <Separator />
+                        </div>
+                      </div>
+                      <div className={styles.featuresSection}>
+                        {plan.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className={styles.feature}>
+                            <CheckIcon className={styles.checkIcon} />
+                            <div className={styles.featureText}>{feature}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className={styles.annualPlansBottom}>
+            <Button variant="gradient" size="lg" full>
+              Subscribe
+            </Button>
+            <MonthlyPlansToggle />
+          </div>
         </section>
       </div>
     </div>
