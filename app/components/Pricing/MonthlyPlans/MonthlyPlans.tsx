@@ -177,6 +177,9 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
                           </div>
                         </div>
                         <div className={styles.mobileRightSection}>
+                          {plan.popular && (
+                            <span className={styles.popularBadge}>Popular</span>
+                          )}
                           <div
                             className={styles.mobileCheckbox}
                             onClick={() => handlePlanSelection(index)}
@@ -260,6 +263,9 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
                         <Button full variant={plan.buttonVariant} size="md">
                           {plan.buttonText}
                         </Button>
+                        <a href="#" className={styles.annualBilling}>
+                          {plan.annualBilling}
+                        </a>
                         <div className={styles.separatorContainer}>
                           <Separator />
                         </div>

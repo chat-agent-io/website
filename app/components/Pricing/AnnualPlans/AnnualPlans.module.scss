@@ -542,6 +542,7 @@
   align-items: flex-start;
   gap: 12px;
   width: 100%;
+  position: relative;
 }
 
 .mobilePlanInfo {
@@ -559,15 +560,18 @@
   .mobileSavings {
     font-size: 13px;
     color: #818085;
+    position: absolute;
+    top: 15px;
+    right: 100px;
   }
 }
 
 .mobileRightSection {
+  position: relative;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  position: relative;
 
   .popularBadge {
     color: #07a5eb;
