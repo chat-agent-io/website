@@ -5,7 +5,6 @@ import { Button } from '../../UI/Button';
 import { Card, CardContent } from '../../UI/Card';
 import { Separator } from '../../UI/Separator/Separator';
 import { CheckIcon } from '@/app/assets/icons/CheckIcon';
-import { ChevronDown } from 'lucide-react';
 import styles from './AnnualPlans.module.scss';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 
@@ -16,7 +15,6 @@ interface AnnualPlansProps {
 export const AnnualPlans: React.FC<AnnualPlansProps> = ({
   onSwitchToMonthly,
 }) => {
-  const isTablet = useMediaQuery('900');
   const isMobile = useMediaQuery('768');
   const [expandedPlans, setExpandedPlans] = useState<number[]>([]);
   const [selectedPlan, setSelectedPlan] = useState<number | null>(null);
