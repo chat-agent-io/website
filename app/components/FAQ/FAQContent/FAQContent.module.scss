@@ -6,6 +6,10 @@
   width: 100%;
   padding: 0 20px;
   min-height: 90vh;
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 }
 
 .faqBody {
@@ -15,4 +19,140 @@
   width: 100%;
   gap: 32px;
   padding: 32px 0;
+}
+
+/* Mobile styles */
+.faqMobileBody {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+}
+
+.mobileSearchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 32px 32px;
+}
+
+.mobileSearchBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  padding: 8px 16px;
+  width: 100%;
+  border: 1px solid #818085;
+  border-radius: 100px;
+}
+
+.mobileSearchIcon {
+  width: 13.33px;
+  height: 13.33px;
+  color: #818085;
+  flex-shrink: 0;
+}
+
+.mobileSearchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: 'Onest', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2;
+  color: #03010c;
+
+  &::placeholder {
+    color: #818085;
+  }
+}
+
+.mobileCategoriesContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 32px 32px;
+  gap: 10px;
+}
+
+.mobileCategoryItem {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #d9d8da;
+}
+
+.mobileCategoryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.mobileCategoryTitle {
+  font-family: 'Onest', sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.2;
+  color: #03010c;
+}
+
+.mobileCategoryArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px 0 0;
+  transition: transform 0.3s ease;
+
+  &.expanded {
+    transform: rotate(180deg);
+  }
+
+  svg {
+    width: 13px;
+    height: 8px;
+  }
+}
+
+.mobileCategoryQuestions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 16px;
+}
+
+.mobileQuestionAnswer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 0;
+}
+
+.mobileQuestion {
+  font-family: 'Onest', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #03010c;
+}
+
+.mobileAnswer {
+  font-family: 'Onest', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #4e4d54;
+}
+
+.mobileSeparator {
+  height: 1px;
+  background-color: #d9d8da;
+  margin: 8px 0;
+}
+
+.mobileSearchResults {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
 }

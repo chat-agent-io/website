@@ -2,12 +2,13 @@
 
 import { Card, CardContent } from '../../../components/UI/Card';
 import styles from './ChatAgentForYouSection.module.scss';
-import { ChatBubblesIcon } from '@/app/assets/icons/ChatBubblesIcon';
-import { MissedMessagesIcon } from '@/app/assets/icons/MissedMessagesIcon';
-import { HireStaffIcon } from '@/app/assets/icons/HireStaffIcon';
-import { RepetitiveIcon } from '@/app/assets/icons/RepetitiveIcon';
-import { TwentyFourSevenIcon } from '@/app/assets/icons/TwentyFourSevenIcon';
 import { useAutoSwipe } from '@/app/hooks/useAutoSwipe';
+import Lottie from 'lottie-react';
+import tooManyMessagesAnimation from '../../../../public/animations/icons/toomanymessages/toomanymessages.json';
+import missedMessagesAnimation from '../../../../public/animations/icons/missedmessages/missedmessages.json';
+import youDontWantToAnimation from '../../../../public/animations/icons/youdontwantto/youdontwantto.json';
+import youTiredOfAnimation from '../../../../public/animations/icons/youretiredof/youretiredof.json';
+import youWantAnimation from '../../../../public/animations/icons/youwant/youwant.json';
 
 interface Scenario {
   header: string;
@@ -20,27 +21,62 @@ export const ChatAgentForYouSection: React.FC = () => {
     {
       header: 'You get too many',
       title: 'DMs to reply manually',
-      icon: <ChatBubblesIcon className={styles.icon} color="#7C38BC" />,
+      icon: (
+        <Lottie
+          animationData={tooManyMessagesAnimation}
+          autoplay={true}
+          loop={true}
+          className={styles.icon}
+        />
+      ),
     },
     {
       header: "You've missed",
       title: 'messages and lost customers',
-      icon: <MissedMessagesIcon className={styles.icon} />,
+      icon: (
+        <Lottie
+          animationData={missedMessagesAnimation}
+          autoplay={true}
+          loop={true}
+          className={styles.icon}
+        />
+      ),
     },
     {
       header: "You don't want to",
       title: 'hire extra staff just to answer Instagram',
-      icon: <HireStaffIcon className={styles.icon} />,
+      icon: (
+        <Lottie
+          animationData={youDontWantToAnimation}
+          autoplay={true}
+          loop={true}
+          className={styles.icon}
+        />
+      ),
     },
     {
       header: "You're tired of",
       title: 'saying the same things over and over',
-      icon: <RepetitiveIcon className={styles.icon} />,
+      icon: (
+        <Lottie
+          animationData={youTiredOfAnimation}
+          autoplay={true}
+          loop={true}
+          className={styles.icon}
+        />
+      ),
     },
     {
       header: 'You want',
       title: 'every message answered even at 2 AM',
-      icon: <TwentyFourSevenIcon className={styles.icon} />,
+      icon: (
+        <Lottie
+          animationData={youWantAnimation}
+          autoplay={true}
+          loop={true}
+          className={styles.icon}
+        />
+      ),
     },
   ];
 

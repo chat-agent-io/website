@@ -1,12 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Card, CardContent } from '../../UI/Card';
-import { StepProgress } from '../../UI/ProgressBar';
 import styles from './ChatSection.module.scss';
 import { ChatIcon } from '@/app/assets/icons/ChatIcon';
-import { ChatAttachmentIcon } from '@/app/assets/icons/ChatAttachmentIcon';
-import { ChatSendIcon } from '@/app/assets/icons/ChatSendIcon';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import { CtaButton } from '../CtaButton/CtaButton';
 import Lottie from 'lottie-react';
@@ -14,52 +10,19 @@ import animationData from '../../../../public/animations/notifications/notificat
 import mobileAnimationData from '../../../../public/animations/notificationsmob/notificationsmob.json';
 
 export const ChatSetupSection = (): React.ReactElement => {
-  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-  const [currentStep, setCurrentStep] = useState(1);
-  const [inputValue, setInputValue] = useState('');
+  const [currentStep, setCurrentStep] = useState(0);
   const isTablet = useMediaQuery('900');
-
-  const steps = [
-    {
-      number: 1,
-      text: 'Gathering your basic information...',
-      active: currentStep === 1,
-    },
-    {
-      number: 2,
-      text: 'Share some documents to train your agent...',
-      active: currentStep === 2,
-    },
-    {
-      number: 3,
-      text: 'Connect your channels...',
-      active: currentStep === 3,
-    },
-  ];
 
   const chatMessages = [
     {
-      message: "👋🏻 Hi there!\nLet's setup your AI agent together...",
-      timestamp: '2:30 PM',
+      message: "👋🏻 Hi there!... Let's setup your AI agent together...",
+      timestamp: '1m ago',
     },
     {
-      message: 'Step 1 - Could you please tell me your business name?',
-      timestamp: '2:31 PM',
+      message: "It only takes a few minutes. We'll guide you.",
+      timestamp: '1m ago',
     },
   ];
-
-  const handleSendMessage = () => {
-    if (inputValue.trim()) {
-      setInputValue('');
-    }
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSendMessage();
-    }
-  };
 
   return (
     <section className={styles.section}>
@@ -100,122 +63,64 @@ export const ChatSetupSection = (): React.ReactElement => {
 
       <div className={styles.contentWrapper}>
         <div className={styles.cardWrapper}>
-          <div className={styles.cardContent}>
-            <div className={styles.leftColumn}>
-              <div className={styles.setupInfo}>
-                <h2 className={styles.setupHeading}>
-                  Let&apos;s Get Your
-                  <br />
-                  AI Agent Set Up.
-                </h2>
-
-                <p className={styles.setupDescription}>
-                  It only takes a few minutes.
-                  <br />
-                  We’ll guide you.
-                </p>
-
-                <button className={styles.helpLink}>Need Help?</button>
-              </div>
-
-              {!isTablet && (
-                <div className={styles.stepsList}>
-                  {steps.map((step, index) => (
-                    <div
-                      key={index}
-                      className={`${styles.stepItem} ${
-                        step.active ? styles.active : ''
-                      }`}
-                    >
-                      <div className={styles.stepIndicator}></div>
-                      <span className={styles.stepText}>
-                        Step {step.number} - {step.text}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
+          {/* Onboarding Header */}
+          <div className={styles.onboardingHeader}>
+            <div className={styles.headerPart}>
+              <h2 className={styles.onboardingTitle}>
+                Let&apos;s Get Your
+                <br />
+                AI Agent Set Up.
+              </h2>
             </div>
-
-            <Card className={styles.chatCard} radius="9.5px">
-              <div className={styles.chatHeader}>
-                <div className={styles.avatarContainer}>
-                  <ChatIcon />
-                </div>
-
-                <div className={styles.headerContent}>
-                  <div className={styles.stepProgress}>
-                    Step {currentStep} of 3
-                  </div>
-
-                  <StepProgress
-                    currentStep={currentStep - 1}
-                    totalSteps={3}
-                    className={styles.progressBars}
-                  />
-                </div>
-              </div>
-
-              <CardContent className={styles.chatMessages}>
-                {chatMessages.map((chat, index) => (
-                  <div key={index} className={styles.messageContainer}>
-                    <div className={styles.messageAvatar}>
-                      <ChatIcon />
-                    </div>
-                    <div className={styles.messageBubble}>
-                      <p className={styles.messageText}>{chat.message}</p>
-                    </div>
-                  </div>
-                ))}
-
-                <div className={styles.typingIndicator}>
-                  <span className={styles.typingText}>
-                    ChatAgent is typing...
-                  </span>
-                </div>
-              </CardContent>
-
-              <div className={styles.chatInput}>
-                <button className={styles.attachButton}>
-                  <ChatAttachmentIcon />
-                </button>
-
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Type here..."
-                  className={styles.inputField}
-                />
-
-                <button
-                  className={styles.sendButton}
-                  onClick={handleSendMessage}
-                  disabled={!inputValue.trim()}
-                >
-                  <ChatSendIcon />
-                </button>
-              </div>
-            </Card>
           </div>
-          {isTablet && (
-            <div className={styles.stepsList} style={{ marginTop: '40px' }}>
-              {steps.map((step, index) => (
-                <div
-                  key={index}
-                  className={`${styles.stepItem} ${
-                    step.active ? styles.active : ''
-                  }`}
-                >
-                  <div className={styles.stepIndicator}></div>
-                  <span className={styles.stepText}>
-                    Step {step.number} - {step.text}
-                  </span>
+
+          {/* Steps Indicator */}
+          <div className={styles.stepsIndicator}>
+            <div className={styles.stepCount}>{currentStep}/3</div>
+            <div className={styles.progressDots}>
+              <div className={styles.progressDot}></div>
+              <div className={styles.progressDot}></div>
+              <div className={styles.progressDot}></div>
+            </div>
+          </div>
+
+          {/* New Onboarding Chat */}
+          <div className={styles.newOnboardingChat}>
+            {/* Messages Container */}
+            <div className={styles.messagesContainer}>
+              {chatMessages.map((chat, index) => (
+                <div key={index} className={styles.chatAgentMessageContainer}>
+                  <div className={styles.messageContainer}>
+                    {/* Profile Image Container */}
+                    <div className={styles.profileImageContainer}>
+                      <div className={styles.profileImage}>
+                        <ChatIcon />
+                      </div>
+                    </div>
+
+                    {/* Pill and Time */}
+                    <div className={styles.pillAndTime}>
+                      <div className={styles.textPill}>
+                        <div className={styles.messageText}>{chat.message}</div>
+                      </div>
+                      <div className={styles.timeContainer}>
+                        <div className={styles.timestamp}>{chat.timestamp}</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
-          )}
+
+            {/* Container Text Box */}
+            <div className={styles.containerTextBox}>
+              <div className={styles.textBox}>
+                <div className={styles.stepsContainer}>
+                  <div className={styles.letStart}>Let&apos;s Start</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

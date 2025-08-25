@@ -1,24 +1,46 @@
 import styles from './WhatDoesSection.module.scss';
-import { BrainIcon } from '@/app/assets/icons/BrainIcon';
-import { ClockIcon } from '@/app/assets/icons/ClockIcon';
-import { ChatBubblesIcon } from '@/app/assets/icons/ChatBubblesIcon';
+import Lottie from 'lottie-react';
+import brainAnimation from '../../../../public/animations/icons/brain/brain.json';
+import alwaysAvailableAnimation from '../../../../public/animations/icons/alwaysavailable/alwaysavailable.json';
+import worksEverywhereAnimation from '../../../../public/animations/icons/workseverywhere/workseverywhere.json';
 
 export const WhatDoesSection: React.FC = () => {
   const features = [
     {
-      icon: <BrainIcon className={styles.featureIcon} />,
+      icon: (
+        <Lottie
+          animationData={brainAnimation}
+          autoplay={true}
+          loop={true}
+          className={styles.featureIcon}
+        />
+      ),
       title: 'Learns your business',
-      alt: 'Brain icon',
+      alt: 'Brain animation',
     },
     {
-      icon: <ChatBubblesIcon className={styles.featureIcon} />,
+      icon: (
+        <Lottie
+          animationData={worksEverywhereAnimation}
+          autoplay={true}
+          loop={true}
+          className={styles.featureIcon}
+        />
+      ),
       title: 'Works everywhere',
-      alt: 'Chat icon',
+      alt: 'Works everywhere animation',
     },
     {
-      icon: <ClockIcon className={styles.featureIcon} />,
+      icon: (
+        <Lottie
+          animationData={alwaysAvailableAnimation}
+          autoplay={true}
+          loop={true}
+          className={styles.featureIcon}
+        />
+      ),
       title: 'Always available',
-      alt: 'Clock icon',
+      alt: 'Always available animation',
     },
   ];
 

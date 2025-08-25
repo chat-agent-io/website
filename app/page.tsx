@@ -1,3 +1,5 @@
+'use client';
+
 import Layout from './components/UI/Layout/Layout';
 import styles from './page.module.scss';
 
