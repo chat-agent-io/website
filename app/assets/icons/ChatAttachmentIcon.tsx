@@ -8,17 +8,16 @@ interface ChatAttachmentIconProps extends ComponentPropsWithoutRef<'svg'> {
 export function ChatAttachmentIcon({ className }: ChatAttachmentIconProps) {
   return (
     <svg
-      width="21"
-      height="21"
-      viewBox="0 0 21 21"
+      width="28"
+      height="28"
+      viewBox="0 0 28 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
     >
-      <rect x="1" y="1" width="19" height="19" rx="9.5" stroke="#818085" />
+      <rect x="0.5" y="0.5" width="27" height="27" rx="4.25" stroke="#03010C" />
       <path
-        d="M15.5 11.1429H11.2143V15H9.78571V11.1429H5.5V9.85714H9.78571V6H11.2143V9.85714H15.5V11.1429Z"
-        fill="#818085"
+        d="M20 14.7715H14.8571V19.4001H13.1429V14.7715H8V13.2287H13.1429V8.6001H14.8571V13.2287H20V14.7715Z"
+        fill="#03010C"
       />
     </svg>
   );

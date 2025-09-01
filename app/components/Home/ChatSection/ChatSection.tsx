@@ -3,17 +3,24 @@
 import React, { useState } from 'react';
 import styles from './ChatSection.module.scss';
 import { ChatIcon } from '@/app/assets/icons/ChatIcon';
-import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 import { CtaButton } from '../CtaButton/CtaButton';
+import { ChatAttachmentIcon } from '@/app/assets/icons/ChatAttachmentIcon';
+import { ChatSendIcon } from '@/app/assets/icons/ChatSendIcon';
 import Lottie from 'lottie-react';
 import animationData from '../../../../public/animations/notifications/notifications.json';
 import mobileAnimationData from '../../../../public/animations/notificationsmob/notificationsmob.json';
+import { StartOverIcon } from '@/app/assets/icons/StartOverIcon';
+import { NeedHelpIcon } from '@/app/assets/icons/NeedHelpIcon';
+
+interface Message {
+  message: string;
+  timestamp: string;
+  isUser?: boolean;
+}
 
 export const ChatSetupSection = (): React.ReactElement => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const isTablet = useMediaQuery('900');
-
-  const chatMessages = [
+  const [isStarted, setIsStarted] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([
     {
       message: "👋🏻 Hi there!... Let's setup your AI agent together...",
       timestamp: '1m ago',
@@ -22,7 +29,18 @@ export const ChatSetupSection = (): React.ReactElement => {
       message: "It only takes a few minutes. We'll guide you.",
       timestamp: '1m ago',
     },
-  ];
+  ]);
+
+  const handleStartClick = () => {
+    console.log("Let's Start button clicked!"); // Debug log
+    const userMessage: Message = {
+      message: "Let's go! 🔥",
+      timestamp: 'now',
+      isUser: true,
+    };
+    setMessages((prev) => [...prev, userMessage]);
+    setIsStarted(true);
+  };
 
   return (
     <section className={styles.section}>
@@ -76,7 +94,7 @@ export const ChatSetupSection = (): React.ReactElement => {
 
           {/* Steps Indicator */}
           <div className={styles.stepsIndicator}>
-            <div className={styles.stepCount}>{currentStep}/3</div>
+            <div className={styles.stepCount}>0/3</div>
             <div className={styles.progressDots}>
               <div className={styles.progressDot}></div>
               <div className={styles.progressDot}></div>
@@ -88,20 +106,37 @@ export const ChatSetupSection = (): React.ReactElement => {
           <div className={styles.newOnboardingChat}>
             {/* Messages Container */}
             <div className={styles.messagesContainer}>
-              {chatMessages.map((chat, index) => (
-                <div key={index} className={styles.chatAgentMessageContainer}>
+              {messages.map((chat, index) => (
+                <div
+                  key={index}
+                  className={
+                    chat.isUser
+                      ? styles.userMessageContainer
+                      : styles.chatAgentMessageContainer
+                  }
+                >
                   <div className={styles.messageContainer}>
-                    {/* Profile Image Container */}
-                    <div className={styles.profileImageContainer}>
-                      <div className={styles.profileImage}>
-                        <ChatIcon />
+                    {!chat.isUser && (
+                      /* Profile Image Container */
+                      <div className={styles.profileImageContainer}>
+                        <div className={styles.profileImage}>
+                          <ChatIcon />
+                        </div>
                       </div>
-                    </div>
+                    )}
 
                     {/* Pill and Time */}
                     <div className={styles.pillAndTime}>
                       <div className={styles.textPill}>
-                        <div className={styles.messageText}>{chat.message}</div>
+                        <div
+                          className={
+                            chat.isUser
+                              ? styles.userMessageText
+                              : styles.messageText
+                          }
+                        >
+                          {chat.message}
+                        </div>
                       </div>
                       <div className={styles.timeContainer}>
                         <div className={styles.timestamp}>{chat.timestamp}</div>
@@ -114,11 +149,39 @@ export const ChatSetupSection = (): React.ReactElement => {
 
             {/* Container Text Box */}
             <div className={styles.containerTextBox}>
-              <div className={styles.textBox}>
-                <div className={styles.stepsContainer}>
-                  <div className={styles.letStart}>Let&apos;s Start</div>
+              {!isStarted ? (
+                <div className={styles.textBox} onClick={handleStartClick}>
+                  <div className={styles.stepsContainer}>
+                    <div className={styles.letStart}>Let&apos;s Start</div>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className={styles.inputContainer}>
+                  <button className={styles.startOverButton}>
+                    <StartOverIcon />
+                    Start Over
+                  </button>
+                  <div className={styles.chatInputBox}>
+                    <div className={styles.chatInput}>
+                      <div className={styles.attachmentIcon}>
+                        <ChatAttachmentIcon />
+                      </div>
+                      <input
+                        type="text"
+                        placeholder="Write a message..."
+                        className={styles.messageInput}
+                      />
+                      <button className={styles.sendButton}>
+                        Send <ChatSendIcon />
+                      </button>
+                    </div>
+                  </div>
+                  <button className={styles.needHelpButton}>
+                    <NeedHelpIcon />
+                    Need Help?
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
