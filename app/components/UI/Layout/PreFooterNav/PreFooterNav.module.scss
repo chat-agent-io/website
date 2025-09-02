@@ -1,0 +1,116 @@
+@use '../../../../styles/colors' as colors;
+
+.preFooterNavWrapper {
+  width: 100%;
+  background: #f1f2f2;
+  position: relative;
+  z-index: 10;
+}
+
+.preFooterNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  padding: 24px 64px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  backdrop-filter: blur(20px);
+  background: #f1f2f2 !important;
+  height: 10vh;
+  min-height: 60px;
+
+  // Reset any inherited styles
+  color: inherit;
+  font-family: inherit;
+}
+
+.logoContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  span {
+    font-size: 30px;
+    color: #03010c !important;
+    font-weight: 600;
+  }
+}
+
+.logo {
+  height: auto;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.navigation {
+  flex: none;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  gap: 16px;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.hamburgerButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 4px;
+
+  @media (max-width: 900px) {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .preFooterNav {
+    padding: 16px 24px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .preFooterNav {
+    padding: 12px 20px;
+    gap: 16px;
+  }
+
+  .logoContainer {
+    span {
+      font-size: 25px;
+    }
+
+    svg {
+      width: 30px;
+    }
+  }
+}

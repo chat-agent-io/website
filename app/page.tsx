@@ -16,7 +16,7 @@ import { ChatAgentForYouSection } from './components/Home/ChatAgentForYouSection
 export default function HomePage() {
   return (
     <div className={styles.homePage}>
-      <Layout>
+      <Layout showPreFooterNav={true}>
         {/* Desktop Layout */}
         <div className={styles.desktopLayout}>
           <ChatSetupSection />

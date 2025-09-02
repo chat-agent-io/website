@@ -3,13 +3,13 @@
 import React, { useState } from 'react';
 import { Button } from '../../Button';
 import { Navigation } from '../../Navigation';
-import styles from './Header.module.scss';
+import styles from './PreFooterNav.module.scss';
 import { Logo } from '@/app/assets/icons/Logo';
 import Link from 'next/link';
 import { HamburgerIcon } from '@/app/assets/icons/HamburgerIcon';
 import { MobileMenu } from '../MobileMenu';
 
-export const Header = (): React.ReactElement => {
+export const PreFooterNav = (): React.ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
@@ -47,37 +47,39 @@ export const Header = (): React.ReactElement => {
   ];
 
   return (
-    <header className={styles.header}>
-      <Link href="/" className={styles.logoContainer}>
-        <Logo />
-        <span>ChatAgent</span>
-      </Link>
+    <div className={styles.preFooterNavWrapper}>
+      <nav className={styles.preFooterNav}>
+        <Link href="/" className={styles.logoContainer}>
+          <Logo />
+          <span>ChatAgent</span>
+        </Link>
 
-      <Navigation items={navItems} className={styles.navigation} />
+        <Navigation items={navItems} className={styles.navigation} />
 
-      <div className={styles.buttonContainer}>
-        <Button variant="gradient" size="sm">
-          Start Free Trial
-        </Button>
+        <div className={styles.buttonContainer}>
+          <Button variant="gradient" size="sm">
+            Start Free Trial
+          </Button>
 
-        <Button variant="black" size="sm">
-          Sign in
-        </Button>
-      </div>
+          <Button variant="black" size="sm">
+            Sign in
+          </Button>
+        </div>
 
-      <button
-        className={styles.hamburgerButton}
-        onClick={() => setIsOpen(true)}
-        aria-label="Open menu"
-      >
-        <HamburgerIcon />
-      </button>
+        <button
+          className={styles.hamburgerButton}
+          onClick={() => setIsOpen(true)}
+          aria-label="Open menu"
+        >
+          <HamburgerIcon />
+        </button>
 
-      <MobileMenu
-        navItems={mobileNavItems}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-      />
-    </header>
+        <MobileMenu
+          navItems={mobileNavItems}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
+      </nav>
+    </div>
   );
 };

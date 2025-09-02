@@ -29,9 +29,9 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
       description: 'Flexible plans for every business size',
     },
     {
-      label: 'How it Works',
-      href: '/how-it-works',
-      description: 'Learn about our AI technology',
+      label: 'FAQ',
+      href: '/faq',
+      description: 'Frequently asked questions about our service',
     },
     {
       label: 'Customer Stories',

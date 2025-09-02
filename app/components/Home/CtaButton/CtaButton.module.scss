@@ -46,6 +46,7 @@
 }
 
 .disclaimer {
+  display: none;
   position: relative;
   width: fit-content;
   font-weight: 400;
@@ -56,4 +57,8 @@
   line-height: 120%;
   white-space: nowrap;
   font-style: normal;
+
+  @media (max-width: 480px) {
+    display: block;
+  }
 }
