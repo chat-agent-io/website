@@ -49,7 +49,21 @@
     font-size: 16px;
     text-align: center;
     margin-bottom: 32px;
-    width: 270px;
+    width: 632px;
+  }
+
+  @media (max-width: 768px) {
+    p {
+      width: 500;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    p {
+      width: 247px;
+      font-size: 13px;
+    }
   }
 }
 
