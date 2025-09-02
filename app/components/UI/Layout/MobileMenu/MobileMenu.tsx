@@ -97,7 +97,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
     return () => {
       document.removeEventListener('keydown', handleEscape);
     };
-  }, [isOpen]);
+  }, [isOpen, closeMenu]);
 
   if (!shouldRender) return null;
 

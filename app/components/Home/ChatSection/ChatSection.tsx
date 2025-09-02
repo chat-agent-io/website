@@ -11,6 +11,7 @@ import animationData from '../../../../public/animations/notifications/notificat
 import mobileAnimationData from '../../../../public/animations/notificationsmob/notificationsmob.json';
 import { StartOverIcon } from '@/app/assets/icons/StartOverIcon';
 import { NeedHelpIcon } from '@/app/assets/icons/NeedHelpIcon';
+import Image from 'next/image';
 
 interface Message {
   message: string;
@@ -19,6 +20,7 @@ interface Message {
 }
 
 export const ChatSetupSection = (): React.ReactElement => {
+  const [isMobile, setIsMobile] = useState(false);
   const [isStarted, setIsStarted] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -30,6 +32,20 @@ export const ChatSetupSection = (): React.ReactElement => {
       timestamp: '1m ago',
     },
   ]);
+
+  // Check if mobile on mount
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 900);
+      if (window.innerWidth <= 900) {
+        setIsStarted(true); // Start mobile in input state
+      }
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleStartClick = () => {
     console.log("Let's Start button clicked!"); // Debug log
@@ -120,7 +136,16 @@ export const ChatSetupSection = (): React.ReactElement => {
                       /* Profile Image Container */
                       <div className={styles.profileImageContainer}>
                         <div className={styles.profileImage}>
-                          <ChatIcon />
+                          {isMobile ? (
+                            <Image
+                              src="/imgs/chat-icon.png"
+                              alt="Chat Icon"
+                              width={24}
+                              height={21}
+                            />
+                          ) : (
+                            <ChatIcon />
+                          )}
                         </div>
                       </div>
                     )}
@@ -157,10 +182,12 @@ export const ChatSetupSection = (): React.ReactElement => {
                 </div>
               ) : (
                 <div className={styles.inputContainer}>
-                  <button className={styles.startOverButton}>
-                    <StartOverIcon />
-                    Start Over
-                  </button>
+                  {!isMobile && (
+                    <button className={styles.startOverButton}>
+                      <StartOverIcon />
+                      Start Over
+                    </button>
+                  )}
                   <div className={styles.chatInputBox}>
                     <div className={styles.chatInput}>
                       <div className={styles.attachmentIcon}>
@@ -172,18 +199,35 @@ export const ChatSetupSection = (): React.ReactElement => {
                         className={styles.messageInput}
                       />
                       <button className={styles.sendButton}>
-                        Send <ChatSendIcon />
+                        <span className={styles.sendButtonText}>Send</span>
+                        <ChatSendIcon />
                       </button>
                     </div>
                   </div>
-                  <button className={styles.needHelpButton}>
-                    <NeedHelpIcon />
-                    Need Help?
-                  </button>
+                  {!isMobile && (
+                    <button className={styles.needHelpButton}>
+                      <NeedHelpIcon />
+                      Need Help?
+                    </button>
+                  )}
                 </div>
               )}
             </div>
           </div>
+
+          {/* Mobile Buttons Outside Chat */}
+          {isMobile && isStarted && (
+            <div className={styles.mobileButtonsContainer}>
+              <button className={styles.startOverButton}>
+                <StartOverIcon />
+                Start Over
+              </button>
+              <button className={styles.needHelpButton}>
+                <NeedHelpIcon />
+                Need Help?
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>

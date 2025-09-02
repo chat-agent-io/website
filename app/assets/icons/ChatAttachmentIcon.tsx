@@ -13,6 +13,7 @@ export function ChatAttachmentIcon({ className }: ChatAttachmentIconProps) {
       viewBox="0 0 28 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <rect x="0.5" y="0.5" width="27" height="27" rx="4.25" stroke="#03010C" />
       <path

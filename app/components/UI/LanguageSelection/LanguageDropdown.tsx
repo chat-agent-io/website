@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import Image from 'next/image';
 import styles from './LanguageDropdown.module.scss';
 
 interface Language {
@@ -34,14 +35,12 @@ const FlagIcon: React.FC<{ countryCode: string; alt: string }> = ({
   alt,
 }) => {
   return (
-    <img
+    <Image
       src={`https://flagcdn.com/w20/${countryCode}.png`}
-      srcSet={`https://flagcdn.com/w40/${countryCode}.png 2x`}
-      width="20"
-      height="15"
+      width={20}
+      height={15}
       alt={alt}
       className={styles.flagIcon}
-      loading="lazy"
     />
   );
 };

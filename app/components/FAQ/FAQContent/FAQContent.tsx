@@ -65,14 +65,6 @@ export const FAQContent: React.FC = () => {
     );
   };
 
-  const handleCategoryClick = (category: string) => {
-    setSearchQuery(''); // Clear search when selecting a category
-    setSelectedCategory(category);
-    if (isMobile && !expandedCategories.includes(category)) {
-      toggleCategory(category);
-    }
-  };
-
   const renderMobileCategories = () => (
     <div className={styles.mobileCategoriesContainer}>
       {categories.map((category) => {
