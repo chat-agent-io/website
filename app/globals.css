@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
 
 *,
 *::after,
@@ -32,10 +31,13 @@
   }
 }
 
+html {
+  font-family: 'Onest', sans-serif;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Onest', sans-serif;
   box-sizing: border-box;
   touch-action: pan-y;
   user-select: none;
