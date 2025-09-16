@@ -1,12 +1,6 @@
 import type {Metadata} from 'next';
-import {Onest} from 'next/font/google';
 import './globals.css';
 import {FaviconSwitcher} from './utils/FaviconSwitcher';
-
-const onest = Onest({
-    subsets: ['latin'],
-    fallback: ['sans-serif']
-});
 
 export const metadata: Metadata = {
     title: 'ChatAgent - Start replying smarter',
@@ -19,7 +13,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <body className={onest.className}>
+        <body>
         <FaviconSwitcher/>
         {children}
         </body>
