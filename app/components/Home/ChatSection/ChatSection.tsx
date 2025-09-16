@@ -33,12 +33,11 @@ export const ChatSetupSection = (): React.ReactElement => {
     },
   ]);
 
-  // Check if mobile on mount
   React.useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 900);
       if (window.innerWidth <= 900) {
-        setIsStarted(true); // Start mobile in input state
+        setIsStarted(true);
       }
     };
 

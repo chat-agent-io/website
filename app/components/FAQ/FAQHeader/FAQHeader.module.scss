@@ -1,3 +1,5 @@
+@use '../../../styles/colors' as colors;
+
 .faqHeader {
   display: flex;
   flex-direction: column;
@@ -27,7 +29,7 @@
   font-size: 40px;
   line-height: 1.2em;
   text-align: center;
-  color: #03010c;
+  color: colors.$black-dark;
   margin: 0;
 }
 
@@ -37,7 +39,7 @@
   font-size: 13px;
   line-height: 1.2em;
   text-align: center;
-  color: #4e4d54;
+  color: colors.$gray-800;
   margin: 0;
   max-width: 400px;
   display: block;
@@ -57,7 +59,7 @@
   font-size: 13px;
   line-height: 1.2em;
   text-align: center;
-  color: #1c1a24;
+  color: colors.$text-dark;
   margin: 0;
   max-width: 90%;
 }
@@ -68,13 +70,13 @@
   font-size: 13px;
   line-height: 1.2em;
   text-align: center;
-  color: #6c757d;
+  color: colors.$text-muted;
   margin: 0;
   max-width: 90%;
 }
 
 .link {
-  color: #4e4d54;
+  color: colors.$gray-800;
   text-decoration: none;
   font-weight: 500;
   text-decoration: underline;
@@ -103,7 +105,7 @@
 
   .subtitle {
     font-size: 13px;
-    color: #1c1a24;
+    color: colors.$text-dark;
     max-width: 90%;
   }
 

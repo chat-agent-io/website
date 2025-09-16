@@ -29,11 +29,11 @@
 }
 
 .gradient {
-  background: linear-gradient(96.54deg, #07a5eb -30.96%, #3214f0 107.21%);
+  background: colors.$gradient-primary-angled;
   color: white;
 
   &:hover:not(:disabled) {
-    background: linear-gradient(96.54deg, #0699d8 -30.96%, #2b12d8 107.21%);
+    background: linear-gradient(96.54deg, colors.$primary-blue-hover -30.96%, colors.$primary-purple-dark 107.21%);
   }
 }
 
@@ -59,8 +59,8 @@
 
 .ghost {
   background-color: transaprent;
-  color: #4e4d54;
-  border: 1px solid #d9d8da;
+  color: colors.$gray-800;
+  border: 1px solid colors.$gray-300;
 
   &:hover:not(:disabled) {
     background-color: colors.$gray-200;

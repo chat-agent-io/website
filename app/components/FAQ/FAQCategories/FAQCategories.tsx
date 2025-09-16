@@ -29,7 +29,6 @@ export const FAQCategories: React.FC<FAQCategoriesProps> = ({
 }) => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
 
-  // Clear selected category when search query is entered
   useEffect(() => {
     if (searchQuery.trim() && selectedCategory !== '') {
       onCategoryChange('');
@@ -51,7 +50,7 @@ export const FAQCategories: React.FC<FAQCategoriesProps> = ({
   };
 
   const handleCategoryClick = (category: string) => {
-    onSearchChange(''); // Clear search when selecting a category
+    onSearchChange('');
     onCategoryChange(category);
   };
 

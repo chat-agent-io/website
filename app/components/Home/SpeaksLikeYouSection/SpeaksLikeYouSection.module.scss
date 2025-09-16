@@ -1,3 +1,5 @@
+@use '../../../styles/colors' as colors;
+
 .container {
   display: flex;
   flex-direction: column;
@@ -5,7 +7,7 @@
   justify-content: center;
   padding-bottom: 32px;
   position: relative;
-  background: #f1f2f2;
+  background: colors.$background-section;
 
   @media (max-width: 480px) {
     padding-bottom: 16px;
@@ -44,7 +46,7 @@
   flex: 0 0 auto;
 
   p {
-    color: #4e4d54;
+    color: colors.$gray-800;
     font-weight: 400;
     font-size: 16px;
     text-align: center;
@@ -72,7 +74,7 @@
   width: fit-content;
   margin-top: -1px;
   font-weight: 600;
-  color: #03010c;
+  color: colors.$black-dark;
   font-size: 33px;
   text-align: center;
   letter-spacing: 0px;

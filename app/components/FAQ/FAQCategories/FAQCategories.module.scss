@@ -1,3 +1,5 @@
+@use '../../../styles/colors' as colors;
+
 .categoriesContainer {
   display: flex;
   flex-direction: column;
@@ -19,7 +21,7 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  border: 1px solid #818085;
+  border: 1px solid colors.$gray-500;
   border-radius: 100px;
   height: 35px;
   width: 45px;
@@ -28,11 +30,11 @@
   cursor: pointer;
 
   &:hover:not(.visible) {
-    background: #03010c;
-    border-color: #03010c;
+    background: colors.$black-dark;
+    border-color: colors.$black-dark;
 
     .searchIcon {
-      color: #ffffff;
+      color: colors.$white;
     }
   }
 
@@ -44,7 +46,7 @@
 .searchIcon {
   width: 13.33px;
   height: 13.33px;
-  color: #818085;
+  color: colors.$gray-500;
   cursor: pointer;
   flex-shrink: 0;
   transition: color 0.3s ease;
@@ -56,13 +58,13 @@
   background: transparent;
   font-family: 'Onest', sans-serif;
   font-size: 14px;
-  color: #03010c;
+  color: colors.$black-dark;
   width: 100%;
   opacity: 0;
   transition: opacity 0.2s ease;
 
   &::placeholder {
-    color: #818085;
+    color: colors.$gray-500;
   }
 
   .visible & {
@@ -87,25 +89,25 @@
   justify-content: center;
   align-items: center;
   padding: 8px 16px;
-  border: 1px solid #03010c;
+  border: 1px solid colors.$black-dark;
   border-radius: 100px;
   background: transparent;
   font-family: 'Onest', sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2em;
-  color: #03010c;
+  color: colors.$black-dark;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
-    background: #03010c;
-    color: #ffffff;
+    background: colors.$black-dark;
+    color: colors.$white;
   }
 
   &.selected {
-    background: #03010c;
-    color: #ffffff;
+    background: colors.$black-dark;
+    color: colors.$white;
   }
 }
 

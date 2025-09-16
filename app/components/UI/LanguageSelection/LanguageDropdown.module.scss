@@ -9,7 +9,7 @@
   height: 175px;
   background: colors.$white;
   border-radius: 12px;
-  border: 1px solid #d9d8da;
+  border: 1px solid colors.$gray-300;
   overflow: hidden;
   z-index: 9999;
   animation: slideUp 0.2s ease-out;
@@ -44,7 +44,7 @@
     left: 5%;
     width: 90%;
     height: 1px;
-    background-color: #d9d8da;
+    background-color: colors.$gray-300;
   }
 
   &:hover {

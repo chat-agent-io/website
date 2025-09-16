@@ -51,7 +51,7 @@
     margin-bottom: 0;
 
     div {
-      background-color: #fff !important;
+      background-color: colors.$white !important;
     }
   }
 }
@@ -181,11 +181,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(242, 242, 242, 0) 100%
-  );
+  background: colors.$gradient-section-fade-reverse;
   border-radius: 9.5px;
   border: 1px solid white;
 
@@ -211,12 +207,12 @@
 
   &.mobileCard {
     background: white;
-    border: 1px solid #d9d8da;
+    border: 1px solid colors.$gray-300;
     border-radius: 8px;
     transition: border-color 0.2s ease;
 
     &.selected {
-      border: 2px solid #000000;
+      border: 2px solid colors.$black;
     }
   }
 }
@@ -420,7 +416,7 @@
   .annualBilling {
     font-family: inherit;
     text-decoration: underline;
-    color: #4e4d54;
+    color: colors.$gray-800;
     font-size: 11px;
     margin-top: 8px;
   }
@@ -521,7 +517,7 @@
   align-items: flex-end;
 
   .popularBadge {
-    color: #07a5eb;
+    color: colors.$primary-blue;
     font-size: 16px;
     position: absolute;
     left: 28px;
@@ -538,7 +534,7 @@
 .selectedCheckbox {
   width: 20px;
   height: 20px;
-  background: #000000;
+  background: colors.$black;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -555,7 +551,7 @@
 .unselectedCheckbox {
   width: 20px;
   height: 20px;
-  border: 1px solid #d9d8da;
+  border: 1px solid colors.$gray-300;
   border-radius: 4px;
   background: white;
 }
@@ -587,7 +583,7 @@
   position: relative;
   width: 100%;
   padding-top: 16px;
-  border-top: 1px solid #d9d8da;
+  border-top: 1px solid colors.$gray-300;
   margin-top: 16px;
 }
 
@@ -662,7 +658,7 @@
       left: -20px;
       width: 100vw;
       height: 1px;
-      background: #fff;
+      background: colors.$white;
     }
 
     button {

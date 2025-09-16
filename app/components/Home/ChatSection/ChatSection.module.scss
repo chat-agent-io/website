@@ -7,7 +7,7 @@
   width: 100%;
   padding: 32px;
   padding-bottom: 0;
-  background: #f1f2f2;
+  background: colors.$background-section;
   min-height: 700px;
 }
 
@@ -46,7 +46,7 @@
   }
 
   p {
-    color: #4e4d54;
+    color: colors.$gray-800;
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
@@ -61,7 +61,7 @@
   font-size: 40px;
   font-weight: 600;
   line-height: 1.2;
-  color: #1a1a1a;
+  color: colors.$black-light;
   margin: 0;
 
   @media (max-width: 768px) {
@@ -73,7 +73,7 @@
   display: none;
   font-weight: 600;
   line-height: 1.2;
-  color: #1a1a1a;
+  color: colors.$black-light;
   margin: 0;
   font-size: 28px;
   max-width: 376px;
@@ -85,7 +85,7 @@
 
 .subHeading {
   font-size: 16px;
-  color: #4e4d54;
+  color: colors.$gray-800;
   line-height: 1.5;
   max-width: 600px;
   margin: 0;
@@ -124,7 +124,7 @@
   font-size: 40px;
   line-height: 1.2em;
   text-align: center;
-  color: #3214f0;
+  color: colors.$primary-purple;
   margin: 0;
 }
 
@@ -144,7 +144,7 @@
   font-size: 11px;
   line-height: 1.2em;
   text-align: right;
-  color: #4e4d54;
+  color: colors.$gray-800;
 }
 
 .progressDots {
@@ -156,7 +156,7 @@
 .progressDot {
   width: 50px;
   height: 2px;
-  background: #b3b2b6;
+  background: colors.$gray-400;
   border-radius: 100px;
 }
 
@@ -170,7 +170,7 @@
   border-radius: 9.5px;
   z-index: 5;
   overflow: hidden;
-  border: 3px solid #ffffff94;
+  border: 3px solid rgba(colors.$white, 0.58);
 }
 
 /* Messages Container */
@@ -185,8 +185,8 @@
   justify-content: flex-end;
   background: linear-gradient(
     180deg,
-    rgba(242, 242, 242, 0) 0%,
-    rgba(255, 255, 255, 1) 100%
+    colors.$rgba-section-transparent 0%,
+    colors.$rgba-white-100 100%
   );
 }
 
@@ -214,8 +214,8 @@
 .profileImage {
   width: 40px;
   height: 40px;
-  background: #ffffff;
-  border: 1px solid #d9d8da;
+  background: colors.$white;
+  border: 1px solid colors.$gray-300;
   border-radius: 150px;
   display: flex;
   align-items: center;
@@ -246,8 +246,8 @@
   width: 300px;
   background: linear-gradient(
     90deg,
-    rgba(242, 242, 242, 1) 0%,
-    rgba(255, 255, 255, 0.5) 100%
+    colors.$rgba-section-transparent 0%,
+    colors.$rgba-white-50 100%
   );
   border-radius: 9.5px;
 
@@ -258,14 +258,14 @@
     padding: 1px;
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(217, 216, 218, 1) 100%
+      colors.$rgba-white-100 0%,
+      colors.$rgba-gray-300 100%
     );
     border-radius: inherit;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(colors.$white 0 0) content-box, linear-gradient(colors.$white 0 0);
     mask-composite: xor;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(colors.$white 0 0) content-box,
+      linear-gradient(colors.$white 0 0);
     -webkit-mask-composite: xor;
   }
 }
@@ -276,7 +276,7 @@
   font-size: 16px;
   line-height: 1.2em;
   text-align: left;
-  color: #03010c;
+  color: colors.$black-dark;
   flex: 1;
   margin: 0;
   position: relative;
@@ -298,7 +298,7 @@
   font-size: 11px;
   line-height: 1.2em;
   text-align: left;
-  color: #b3b2b6;
+  color: colors.$gray-400;
   flex: 1;
 }
 
@@ -311,8 +311,8 @@
   padding: 16px 0;
   background: linear-gradient(
     0deg,
-    rgba(242, 242, 242, 1) 0%,
-    rgba(255, 255, 255, 0.7) 100%
+    colors.$rgba-section-transparent 0%,
+    colors.$rgba-white-70 100%
   );
   position: relative;
   z-index: 10;
@@ -341,7 +341,7 @@
   font-family: 'Onest', sans-serif;
   font-weight: 400;
   font-size: 13px;
-  color: #b3b2b6;
+  color: colors.$gray-400;
   cursor: pointer;
   transition: opacity 0.2s ease;
   text-decoration: underline;
@@ -365,7 +365,7 @@
   border: none;
   font-weight: 400;
   font-size: 13px;
-  color: #b3b2b6;
+  color: colors.$gray-400;
   cursor: pointer;
   transition: opacity 0.2s ease;
   text-decoration: underline;
@@ -390,8 +390,8 @@
   height: 56px;
   background: linear-gradient(
     151deg,
-    rgba(7, 165, 235, 1) 0%,
-    rgba(50, 20, 240, 1) 100%
+    colors.$rgba-primary-blue 0%,
+    colors.$rgba-primary-purple 100%
   );
   border-radius: 9.5px;
   cursor: pointer;
@@ -417,7 +417,7 @@
   font-size: 23px;
   line-height: 1.2em;
   text-align: center;
-  color: #ffffff;
+  color: colors.$white;
   cursor: pointer;
 }
 
@@ -436,8 +436,8 @@
   .textPill {
     background: linear-gradient(
       90deg,
-      rgba(242, 242, 242, 1) 0%,
-      rgba(255, 255, 255, 0.5) 100%
+      colors.$rgba-section-transparent 0%,
+      colors.$rgba-white-50 100%
     );
 
     &::before {
@@ -447,14 +447,14 @@
       padding: 1px;
       background: linear-gradient(
         180deg,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(217, 216, 218, 1) 100%
+        colors.$rgba-white-100 0%,
+        colors.$rgba-gray-300 100%
       );
       border-radius: inherit;
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(colors.$white 0 0) content-box, linear-gradient(colors.$white 0 0);
       mask-composite: xor;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(colors.$white 0 0) content-box,
+        linear-gradient(colors.$white 0 0);
       -webkit-mask-composite: xor;
     }
   }
@@ -470,7 +470,7 @@
   font-size: 16px;
   line-height: 1.2em;
   text-align: left;
-  color: #03010c;
+  color: colors.$black-dark;
   flex: 1;
   margin: 0;
   position: relative;
@@ -485,7 +485,7 @@
   align-items: center;
   width: 512px;
   height: 56px;
-  background: #ffffff;
+  background: colors.$white;
   border-radius: 9.5px;
 
   &::before {
@@ -495,14 +495,14 @@
     padding: 1px;
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(217, 216, 218, 1) 100%
+      colors.$rgba-white-100 0%,
+      colors.$rgba-gray-300 100%
     );
     border-radius: inherit;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(colors.$white 0 0) content-box, linear-gradient(colors.$white 0 0);
     mask-composite: xor;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(colors.$white 0 0) content-box,
+      linear-gradient(colors.$white 0 0);
     -webkit-mask-composite: xor;
   }
 }
@@ -526,7 +526,7 @@
 }
 
 .sendButton {
-  background: #3214f0;
+  background: colors.$primary-purple;
   font-size: 13px;
   border-radius: 9.5px;
   border: none;
@@ -534,7 +534,7 @@
   align-items: center;
   gap: 10px;
   padding: 10px 16px;
-  color: #ffffff;
+  color: colors.$white;
   cursor: pointer;
   transition: opacity 0.2s ease;
 
@@ -549,7 +549,7 @@
 
 .iconPlaceholder {
   font-size: 16px;
-  color: #b3b2b6;
+  color: colors.$gray-400;
 }
 
 .messageInput {
@@ -559,11 +559,11 @@
   font-family: 'Onest', sans-serif;
   font-size: 13px;
   line-height: 1.2em;
-  color: #03010c;
+  color: colors.$black-dark;
   background: transparent;
 
   &::placeholder {
-    color: #b3b2b6;
+    color: colors.$gray-400;
   }
 }
 
@@ -658,8 +658,8 @@
   .profileImage {
     width: 32px;
     height: 32px;
-    background: #ffffff;
-    border: 1px solid #d9d8da;
+    background: colors.$white;
+    border: 1px solid colors.$gray-300;
     border-radius: 150px;
     display: flex;
     align-items: center;
@@ -731,8 +731,8 @@
     border-radius: 4.75px;
     background: linear-gradient(
       151deg,
-      rgba(7, 165, 235, 1) 0%,
-      rgba(50, 20, 240, 1) 100%
+      colors.$rgba-primary-blue 0%,
+      colors.$rgba-primary-purple 100%
     );
     gap: 6px;
 

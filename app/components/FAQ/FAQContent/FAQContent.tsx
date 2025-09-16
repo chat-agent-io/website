@@ -45,7 +45,6 @@ export const FAQContent: React.FC = () => {
           question.answer.toLowerCase().includes(searchLower)
       );
 
-      // Add category information to each matching question
       matchingQuestions.forEach((question) => {
         allMatchingQuestions.push({
           ...question,

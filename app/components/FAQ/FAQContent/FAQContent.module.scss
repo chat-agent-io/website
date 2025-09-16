@@ -1,6 +1,8 @@
+@use '../../../styles/colors' as colors;
+
 .faqContent {
   display: flex;
-  background-color: #f1f2f2;
+  background-color: colors.$background-section;
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -43,14 +45,14 @@
   margin-top: 32px;
   padding: 8px 16px;
   width: 100%;
-  border: 1px solid #818085;
+  border: 1px solid colors.$gray-500;
   border-radius: 100px;
 }
 
 .mobileSearchIcon {
   width: 13.33px;
   height: 13.33px;
-  color: #818085;
+  color: colors.$gray-500;
   flex-shrink: 0;
 }
 
@@ -62,10 +64,10 @@
   font-weight: 400;
   font-size: 11px;
   line-height: 1.2;
-  color: #03010c;
+  color: colors.$black-dark;
 
   &::placeholder {
-    color: #818085;
+    color: colors.$gray-500;
   }
 }
 
@@ -79,7 +81,7 @@
 .mobileCategoryItem {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid #d9d8da;
+  border-bottom: 1px solid colors.$gray-300;
 }
 
 .mobileCategoryHeader {
@@ -95,7 +97,7 @@
   font-weight: 600;
   font-size: 19px;
   line-height: 1.2;
-  color: #03010c;
+  color: colors.$black-dark;
 }
 
 .mobileCategoryArrow {
@@ -134,7 +136,7 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 1.4;
-  color: #03010c;
+  color: colors.$black-dark;
 }
 
 .mobileAnswer {
@@ -142,12 +144,12 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.4;
-  color: #4e4d54;
+  color: colors.$gray-800;
 }
 
 .mobileSeparator {
   height: 1px;
-  background-color: #d9d8da;
+  background-color: colors.$gray-300;
   margin: 8px 0;
 }
 
