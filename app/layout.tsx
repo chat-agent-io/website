@@ -5,7 +5,6 @@ import {FaviconSwitcher} from './utils/FaviconSwitcher';
 
 const onest = Onest({
     subsets: ['latin'],
-    adjustFontFallback: true,
     fallback: ['sans-serif']
 });
 
