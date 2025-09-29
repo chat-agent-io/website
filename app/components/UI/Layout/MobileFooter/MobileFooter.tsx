@@ -110,7 +110,7 @@ export const MobileFooter = (): React.ReactElement => {
                   {section.links.map((link, linkIndex) => (
                     <a
                       key={`link-${linkIndex}`}
-                      href="#"
+                      href={link === 'Careers' ? '/careers' : '#'}
                       className={styles.link}
                     >
                       {link}
@@ -126,7 +126,7 @@ export const MobileFooter = (): React.ReactElement => {
                   {section.links.map((link, linkIndex) => (
                     <a
                       key={`link-${linkIndex}`}
-                      href="#"
+                      href={link === 'Careers' ? '/careers' : '#'}
                       className={styles.link}
                     >
                       {link}
