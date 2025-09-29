@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+'use client';
+
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '../../Button';
 import styles from './MobileMenu.module.scss';
@@ -49,13 +51,20 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const closeMenu = () => {
+  const closeMenu = useCallback(() => {
     setIsAnimating(false);
-    setTimeout(() => {
+
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+    }
+
+    closeTimeoutRef.current = setTimeout(() => {
       setIsOpen(false);
+      closeTimeoutRef.current = null;
     }, 300);
-  };
+  }, [setIsOpen]);
 
   useEffect(() => {
     if (isOpen) {
@@ -98,6 +107,15 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
       document.removeEventListener('keydown', handleEscape);
     };
   }, [isOpen, closeMenu]);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+        closeTimeoutRef.current = null;
+      }
+    };
+  }, []);
 
   if (!shouldRender) return null;
 
