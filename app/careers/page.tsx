@@ -1,28 +1,17 @@
+'use client';
+
 import React from 'react';
+
 import Layout from '../components/UI/Layout/Layout';
 import { Button } from '../components/UI/Button/Button';
 import styles from './careers.module.scss';
-
-interface Job {
-  title: string;
-  type: string;
-  location: string;
-}
-
-const jobs: Job[] = [
-  { title: 'Junior Data Analyst', type: 'Part Time', location: 'On-site' },
-  { title: 'Product Manager', type: 'Full Time', location: 'Remote' },
-  { title: 'UX Designer', type: 'Full Time', location: 'Hybrid' },
-  { title: 'Software Engineer', type: 'Contract', location: 'Remote' },
-  { title: 'Marketing Specialist', type: 'Part Time', location: 'On-site' },
-  { title: 'Systems Analyst', type: 'Full Time', location: 'Remote' },
-  { title: 'Web Developer', type: 'Full Time', location: 'Hybrid' },
-  { title: 'Data Scientist', type: 'Full Time', location: 'Remote' },
-  { title: 'Graphic Designer', type: 'Contract', location: 'On-site' },
-  { title: 'HR Coordinator', type: 'Part Time', location: 'Hybrid' },
-];
+import { useCareers } from '../services/careers/useCareers';
 
 export default function CareersPage() {
+  const { data, isLoading, isError } = useCareers();
+
+  const careers = data?.list ?? [];
+
   return (
     <Layout>
       <main className={styles.page}>
@@ -39,21 +28,35 @@ export default function CareersPage() {
               </div>
             </div>
           </div>
-          
+
           <div className={styles.jobsContainer}>
-            {jobs.map((job, index) => (
-              <div key={index} className={styles.jobItem}>
+            {isLoading && (
+              <p className={styles.statusMessage}>Loading open positions…</p>
+            )}
+
+            {isError && !isLoading && (
+              <p className={styles.statusMessage}>
+                We couldn&apos;t load open roles right now. Please try again later.
+              </p>
+            )}
+
+            {!isLoading && !isError && careers.length === 0 && (
+              <p className={styles.statusMessage}>No open positions at the moment.</p>
+            )}
+
+            {careers.map((job) => (
+              <div key={job.Id} className={styles.jobItem}>
                 <div className={styles.jobContent}>
                   <div className={styles.jobTitle}>
-                    <h3 className={styles.jobName}>{job.title}</h3>
+                    <h3 className={styles.jobName}>{job.Title}</h3>
                   </div>
                   <div className={styles.jobDetails}>
                     <div className={styles.jobInfo}>
                       <div className={styles.jobType}>
-                        <span className={styles.jobTypeText}>{job.type}</span>
+                        <span className={styles.jobTypeText}>{job.Time}</span>
                       </div>
                       <div className={styles.jobLocation}>
-                        <span className={styles.jobLocationText}>{job.location}</span>
+                        <span className={styles.jobLocationText}>{job.Location}</span>
                       </div>
                     </div>
                     <Button variant="black" size="sm">
