@@ -151,13 +151,6 @@ export const PrivacyPolicyContent: React.FC = () => {
 
   return (
     <div className={styles.privacyPolicyContainer}>
-      {/* Header Bar */}
-      <div className={styles.headerBar}>
-        <div className={styles.breadcrumb}>
-          <span>Privacy Policy</span>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <div className={styles.heroSection}>
         <div className={styles.heroContent}>
