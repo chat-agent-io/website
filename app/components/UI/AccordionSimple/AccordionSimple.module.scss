@@ -11,14 +11,14 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  border-bottom: 1px solid $gray-400;
+  border-bottom: 1px solid colors.$gray-400;
 
   &:first-child {
-    border-top: 1px solid $gray-400;
+    border-top: 1px solid colors.$gray-400;
   }
 
   &.isOpen .accordionButton {
-    color: $black-dark;
+    color: colors.$black-dark;
   }
 }
 
@@ -34,11 +34,11 @@
   text-align: left;
 
   &:hover .accordionTitle {
-    color: $primary-purple;
+    color: colors.$primary-purple;
   }
 
   &:focus-visible {
-    outline: 2px solid $primary-blue;
+    outline: 2px solid colors.$primary-blue;
     outline-offset: 2px;
     border-radius: 0.25rem;
   }
@@ -47,7 +47,7 @@
 .accordionTitle {
   flex: 1 0 0;
   margin: 0;
-  color: $black-dark;
+  color: colors.$black-dark;
   font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 500;
@@ -65,7 +65,7 @@
 }
 
 .iconSymbol {
-  color: $black-dark;
+  color: colors.$black-dark;
   font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
@@ -96,7 +96,7 @@
 
 .contentParagraph {
   margin: 0 0 1rem 0;
-  color: $text-secondary;
+  color: colors.$text-secondary;
   font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 400;
