@@ -13,6 +13,7 @@ const linkRoutes: Record<string, string> = {
   Careers: '/careers',
   FAQs: '/faq',
   Pricing: '/pricing',
+  'Privacy Policy': '/legal/privacy-policy',
 };
 
 const footerSections = [
