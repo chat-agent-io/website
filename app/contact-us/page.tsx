@@ -38,7 +38,7 @@ export default function ContactUsPage() {
               <h1 className={styles.title}>Contact ChatAgent</h1>
               <div className={styles.subtitleContainer}>
                 <p className={styles.subtitle}>
-                  Tell us what you need and we'll get back within one business day.
+                  Tell us what you need and we&apos;ll get back within one business day.
                 </p>
                 <p className={styles.emailLine}>
                   Prefer email? <a href="mailto:hello@chatagent.io" className={styles.emailLink}>hello@chatagent.io</a>
