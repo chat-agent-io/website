@@ -1,0 +1,321 @@
+@use '../styles/colors' as colors;
+
+.contactPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 4rem 4rem 4rem;
+  gap: 2rem;
+  width: 100%;
+  min-height: 50vh;
+  background: colors.$background-light;
+
+  @media (max-width: 768px) {
+    padding: 1rem 1rem 4rem 1rem;
+    gap: 1rem;
+  }
+}
+
+.container {
+  display: flex;
+  max-width: 845px;
+  width: 100%;
+  justify-content: center;
+}
+
+.formCard {
+  display: flex;
+  max-width: 845px;
+  width: 100%;
+  padding: 2rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  border-radius: 12px;
+  background: colors.$white;
+  box-shadow: 0 4px 24px colors.$shadow-light;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    gap: 1rem;
+  }
+}
+
+.header {
+  display: flex;
+  max-width: 628px;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: colors.$black-dark;
+  font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+  }
+}
+
+.subtitleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: colors.$gray-800;
+  font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+  text-align: center;
+}
+
+.emailLine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: colors.$gray-400;
+  font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+  text-align: center;
+}
+
+.emailLink {
+  color: colors.$gray-400;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+
+  &:hover {
+    color: colors.$primary-blue;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.fieldRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .field {
+    flex: 1 0 0;
+  }
+}
+
+.label {
+  width: 100%;
+  color: colors.$black-dark;
+  font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+}
+
+.input,
+.textarea {
+  display: flex;
+  padding: 0.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid colors.$gray-300;
+  background: colors.$white;
+  color: colors.$black-dark;
+  font-family: 'SF Pro', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &::placeholder {
+    color: colors.$gray-400;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: colors.$primary-blue;
+    box-shadow: 0 0 0 3px rgba(7, 165, 235, 0.1);
+  }
+
+  &:hover {
+    border-color: colors.$gray-500;
+  }
+}
+
+.textarea {
+  align-items: flex-start;
+  min-height: 192px;
+  resize: vertical;
+}
+
+.selectContainer {
+  position: relative;
+  width: 100%;
+}
+
+.select {
+  display: flex;
+  padding: 0.75rem;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid colors.$gray-300;
+  background: colors.$white;
+  color: colors.$black-dark;
+  font-family: 'SF Pro', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  box-sizing: border-box;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: colors.$primary-blue;
+    box-shadow: 0 0 0 3px rgba(7, 165, 235, 0.1);
+  }
+
+  &:hover {
+    border-color: colors.$gray-500;
+  }
+
+  // Placeholder styling for disabled option
+  option[disabled] {
+    color: colors.$gray-400;
+  }
+}
+
+.selectIcon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+
+  .select:focus + & {
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+
+.privacyText {
+  display: flex;
+  padding-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: colors.$gray-500;
+  font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-align: center;
+  margin: 0;
+
+  @media (max-width: 480px) {
+    font-size: 0.875rem;
+  }
+}
+
+.privacyLink {
+  color: colors.$gray-500;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+
+  &:hover {
+    color: colors.$primary-blue;
+  }
+}
+
+.submitButton {
+  display: flex;
+  min-height: 48px;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 8px;
+  font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  border: none;
+  cursor: pointer;
+}
