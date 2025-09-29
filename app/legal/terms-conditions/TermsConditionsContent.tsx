@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
+import { AccordionSimple } from '../../components/UI/AccordionSimple';
 import styles from './TermsConditionsContent.module.scss';
 
 interface TermsSection {
@@ -139,52 +140,7 @@ const termsSections: TermsSection[] = [
   }
 ];
 
-interface AccordionItemProps {
-  title: string;
-  content: string;
-  isOpen: boolean;
-  onToggle: () => void;
-}
-
-const AccordionItem: React.FC<AccordionItemProps> = ({ title, content, isOpen, onToggle }) => {
-  return (
-    <div className={styles.accordionItem}>
-      <button className={styles.accordionHeader} onClick={onToggle} aria-expanded={isOpen}>
-        <h3 className={styles.accordionTitle}>{title}</h3>
-        <div className={`${styles.accordionIcon} ${isOpen ? styles.open : ''}`}>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19.9064 12.5939L19.9064 9.40639L12.4866 9.40714L12.4873 1.98732H9.29979L9.30054 9.40714L1.88072 9.40639L1.88072 12.5939L9.30054 12.5932L9.29978 20.013H12.4873L12.4866 12.5932L19.9064 12.5939Z" fill="#03010C"/>
-          </svg>
-        </div>
-      </button>
-      {isOpen && (
-        <div className={styles.accordionContent}>
-          <div className={styles.accordionContentInner}>
-            {content.split('\n').map((paragraph, index) => (
-              <p key={index} className={styles.contentParagraph}>
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
 export const TermsConditionsContent: React.FC = () => {
-  const [openSections, setOpenSections] = useState<Set<number>>(new Set());
-
-  const toggleSection = (index: number) => {
-    const newOpenSections = new Set(openSections);
-    if (newOpenSections.has(index)) {
-      newOpenSections.delete(index);
-    } else {
-      newOpenSections.add(index);
-    }
-    setOpenSections(newOpenSections);
-  };
-
   return (
     <div className={styles.termsConditionsContainer}>
       {/* Hero Section */}
@@ -222,15 +178,7 @@ export const TermsConditionsContent: React.FC = () => {
 
       {/* Terms & Conditions Accordion */}
       <div className={styles.accordionContainer}>
-        {termsSections.map((section, index) => (
-          <AccordionItem
-            key={index}
-            title={section.title}
-            content={section.content}
-            isOpen={openSections.has(index)}
-            onToggle={() => toggleSection(index)}
-          />
-        ))}
+        <AccordionSimple items={termsSections} />
       </div>
     </div>
   );
