@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { CAREERS_ENDPOINT } from '@/app/config/api';
+import { CAREERS_ENDPOINT, API_TOKEN } from '@/app/config/api';
 import { httpClient } from '../httpClient';
 
 const CAREERS_QUERY_KEY = ['careers'] as const;
@@ -39,6 +39,7 @@ const defaultParams = {
 const fetchCareers = async (): Promise<CareersResponse> => {
   const { data } = await httpClient.get<CareersResponse>(CAREERS_ENDPOINT, {
     params: defaultParams,
+    headers: API_TOKEN ? { 'xc-token': API_TOKEN } : undefined,
   });
 
   return data;
