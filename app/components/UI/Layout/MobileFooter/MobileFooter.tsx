@@ -9,6 +9,12 @@ import { YoutubeIcon } from '@/app/assets/icons/YoutubeIcon';
 import { LanguageDropdown } from '../../LanguageSelection';
 import { UpArrowIcon } from '@/app/assets/icons/UpArrowIcon';
 
+const linkRoutes: Record<string, string> = {
+  Careers: '/careers',
+  FAQs: '/faq',
+  Pricing: '/pricing',
+};
+
 const footerSections = [
   {
     title: 'Company',
@@ -110,7 +116,7 @@ export const MobileFooter = (): React.ReactElement => {
                   {section.links.map((link, linkIndex) => (
                     <a
                       key={`link-${linkIndex}`}
-                      href={link === 'Careers' ? '/careers' : '#'}
+                      href={linkRoutes[link] ?? '#'}
                       className={styles.link}
                     >
                       {link}
@@ -126,7 +132,7 @@ export const MobileFooter = (): React.ReactElement => {
                   {section.links.map((link, linkIndex) => (
                     <a
                       key={`link-${linkIndex}`}
-                      href={link === 'Careers' ? '/careers' : '#'}
+                      href={linkRoutes[link] ?? '#'}
                       className={styles.link}
                     >
                       {link}
