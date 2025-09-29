@@ -2,6 +2,7 @@ import type {ReactNode} from 'react'
 import type {Metadata} from 'next';
 
 import {FaviconSwitcher} from './utils/FaviconSwitcher';
+import {QueryProvider} from './providers/QueryProvider';
 
 //Styles
 import './globals.css';
@@ -23,7 +24,9 @@ export default function RootLayout({children}: Readonly<{
         </head>
         <body>
         <FaviconSwitcher/>
-        {children}
+        <QueryProvider>
+            {children}
+        </QueryProvider>
         </body>
         </html>
     );
