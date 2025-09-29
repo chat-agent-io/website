@@ -12,28 +12,19 @@ import { UpArrowIcon } from '@/app/assets/icons/UpArrowIcon';
 const footerSections = [
   {
     title: 'Company',
-    links: ['About Us', 'Careers', 'Blog', 'Contact Us'],
+    links: ['About Us', 'Careers'],
   },
   {
     title: 'Product',
-    links: [
-      'How it Works',
-      'Customer Stories',
-      'Pricing Plans',
-      'Integrations (soon)',
-    ],
+    links: ['FAQs', 'Industries', 'Pricing'],
   },
   {
     title: 'Legal',
-    links: ['Privacy Policy', 'Terms of Service'],
-  },
-  {
-    title: 'Support',
-    links: ['WhatsApp Support'],
+    links: ['Privacy Policy', 'Terms & Conditions'],
   },
   {
     title: 'Contact',
-    links: ['support@chatagent.io'],
+    links: ['Contact Us'],
   },
 ];
 
@@ -119,7 +110,7 @@ export const MobileFooter = (): React.ReactElement => {
                   {section.links.map((link, linkIndex) => (
                     <a
                       key={`link-${linkIndex}`}
-                      href="#"
+                      href={link === 'Careers' ? '/careers' : '#'}
                       className={styles.link}
                     >
                       {link}
@@ -130,28 +121,12 @@ export const MobileFooter = (): React.ReactElement => {
             </div>
 
             <div className={styles.column}>
-              {footerSections.slice(2, 4).map((section, index) => (
+              {footerSections.slice(2).map((section, index) => (
                 <Accordion key={`section-${index + 2}`} title={section.title}>
                   {section.links.map((link, linkIndex) => (
                     <a
                       key={`link-${linkIndex}`}
-                      href="#"
-                      className={styles.link}
-                    >
-                      {link}
-                    </a>
-                  ))}
-                </Accordion>
-              ))}
-            </div>
-
-            <div className={styles.column}>
-              {footerSections.slice(4).map((section, index) => (
-                <Accordion key={`section-${index + 4}`} title={section.title}>
-                  {section.links.map((link, linkIndex) => (
-                    <a
-                      key={`link-${linkIndex}`}
-                      href="#"
+                      href={link === 'Careers' ? '/careers' : '#'}
                       className={styles.link}
                     >
                       {link}

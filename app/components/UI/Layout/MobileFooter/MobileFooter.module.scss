@@ -4,13 +4,13 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 32px;
+  align-items: center;
+  gap: 32px;
+  padding: 64px 32px 32px 32px;
   position: relative;
   background: colors.$background-section;
   border-top: 1px solid colors.$gray-400;
-  margin: 0 auto;
+  align-self: stretch;
 }
 
 .container {
@@ -24,19 +24,24 @@
 .content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
+  align-items: center;
+  gap: 32px;
   position: relative;
-  flex: 1;
   width: 100%;
 }
 
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 48px;
   position: relative;
   width: 100%;
+
+  @media (max-width: 480px) {
+    justify-content: space-between;
+    gap: 24px;
+  }
 }
 
 .logoContainer {
@@ -46,7 +51,7 @@
 
   span {
     font-size: 20px;
-    color: colors.$black-dark;
+    color: colors.$gray-800;
     font-weight: 600;
   }
 }
@@ -79,24 +84,33 @@
 
 .linksContainer {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   align-items: flex-start;
-  gap: 16px;
+  gap: 48px;
   position: relative;
   width: 100%;
+
+  @media (max-width: 768px) {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
 }
 
 .column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
-  flex: 1;
+  gap: 4px;
+
+  @media (max-width: 768px) {
+    flex: 1;
+  }
 }
 
 .accordion {
   width: 100%;
   border-bottom: 1px solid colors.$gray-300;
+  padding: 4px 0;
 }
 
 .accordionItem {
@@ -125,11 +139,11 @@
 }
 
 .accordionTitle {
-  font-family: inherit;
-  font-size: 11px;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
   font-weight: 600;
   line-height: 120%;
-  color: colors.$gray-500;
+  color: colors.$gray-800;
 }
 
 .chevron {
@@ -165,36 +179,43 @@
 }
 
 .link {
-  font-family: inherit;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 11px;
   font-weight: 400;
   line-height: 120%;
-  color: colors.$gray-500;
+  color: colors.$gray-800;
   text-decoration: none;
   transition: color 0.2s ease;
 
   &:hover {
-    color: colors.$gray-800;
+    color: colors.$text-primary;
   }
 }
 
 .bottomSection {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 16px 0;
+  gap: 48px;
   position: relative;
   width: 100%;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 24px;
+  }
 }
 
 .socialIcons {
   display: flex;
-  gap: 12px;
+  justify-content: flex-end;
   align-items: center;
+  gap: 16px;
+  position: relative;
 
   svg {
     height: 20px;
-    width: auto;
+    width: 20px;
     transition: transform 0.2s ease;
     cursor: pointer;
 
@@ -208,13 +229,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 4px;
+  gap: 2px;
+  align-self: stretch;
+  position: relative;
 }
 
 .copyrightText {
-  font-family: inherit;
-  font-size: 11px;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
   font-weight: 400;
   line-height: 120%;
   color: colors.$gray-800;
@@ -223,7 +245,7 @@
 }
 
 .poweredByText {
-  font-family: inherit;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 11px;
   font-weight: 400;
   line-height: 120%;

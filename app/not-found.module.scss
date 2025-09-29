@@ -1,0 +1,140 @@
+@use './styles/colors' as colors;
+
+.page {
+  width: 100%;
+  background: colors.$gray-100;
+  display: flex;
+  justify-content: center;
+  padding: 96px 0 80px;
+
+  @media (max-width: 1024px) {
+    padding: 80px 0 64px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 64px 0 48px;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 64px 32px 64px;
+
+  @media (max-width: 768px) {
+    padding: 0 32px 32px 32px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 16px 32px 16px;
+  }
+}
+
+.card {
+  display: flex;
+  max-width: 1023px;
+  padding: 80px 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+  border-radius: 12px;
+  background: colors.$white;
+  position: relative;
+  width: 100%;
+  
+  @media (max-width: 768px) {
+    padding: 60px 24px;
+    gap: 24px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 40px 16px;
+    gap: 20px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  text-align: center;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.errorCode {
+  color: colors.$black-dark;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 128px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 85%; /* 108.8px */
+  margin: 0;
+  position: relative;
+  
+  @media (max-width: 768px) {
+    font-size: 96px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 72px;
+  }
+}
+
+.title {
+  color: colors.$black-dark;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 57.6px */
+  margin: 0;
+  position: relative;
+  
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
+}
+
+.description {
+  color: colors.$black-dark;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 22.8px */
+  margin: 0;
+  position: relative;
+  max-width: 600px;
+  
+  @media (max-width: 768px) {
+    font-size: 17px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
+}
+
+.buttonLink {
+  text-decoration: none;
+  color: inherit;
+}
