@@ -90,7 +90,7 @@ export const DesktopFooter = (): React.ReactElement => {
                   {category.links.map((link, linkIndex) => (
                     <a
                       key={`footer-link-${index}-${linkIndex}`}
-                      href="#"
+                      href={link === 'Careers' ? '/careers' : '#'}
                       className={styles.categoryLink}
                     >
                       {link}
