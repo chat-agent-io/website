@@ -2,7 +2,7 @@
 
 .privacyPolicyContainer {
   min-height: 100vh;
-  background: $gray-100;
+  background: colors.$gray-100;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +36,7 @@
 }
 
 .heroTitle {
-  color: $black-dark;
+  color: colors.$black-dark;
   text-align: center;
   font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 2.5rem;
@@ -54,7 +54,7 @@
 }
 
 .heroSubtitle {
-  color: $black-dark;
+  color: colors.$black-dark;
   text-align: center;
   font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 1.1875rem;
@@ -83,7 +83,7 @@
   }
 
   p {
-    color: $text-secondary;
+    color: colors.$text-secondary;
     text-align: center;
     font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
     font-size: 1.1875rem;
@@ -137,7 +137,7 @@
   }
 
   p {
-    color: $text-secondary;
+    color: colors.$text-secondary;
     text-align: center;
     font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
     font-size: 1.1875rem;
@@ -198,7 +198,7 @@
 
 // Focus states for accessibility
 .accordionHeader:focus-visible {
-  outline: 2px solid $primary-blue;
+  outline: 2px solid colors.$primary-blue;
   outline-offset: 2px;
   border-radius: 0.25rem;
 }
