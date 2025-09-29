@@ -1,0 +1,118 @@
+.accordionSimple {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.accordionItem {
+  display: flex;
+  width: 100%;
+  padding: 1rem 0;
+  flex-direction: column;
+  border-bottom: 1px solid $gray-400;
+
+  &:first-child {
+    border-top: 1px solid $gray-400;
+  }
+
+  &.isOpen .accordionButton {
+    color: $black-dark;
+  }
+}
+
+.accordionButton {
+  display: flex;
+  width: 100%;
+  padding: 0 0.5rem;
+  align-items: center;
+  gap: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+
+  &:hover .accordionTitle {
+    color: $primary-purple;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary-blue;
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+}
+
+.accordionTitle {
+  flex: 1 0 0;
+  margin: 0;
+  color: $black-dark;
+  font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 120%;
+  transition: color 0.2s ease;
+}
+
+.iconContainer {
+  display: flex;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.125rem;
+}
+
+.iconSymbol {
+  color: $black-dark;
+  font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.accordionContent {
+  width: 100%;
+  overflow: hidden;
+  animation: slideDown 0.3s ease-out;
+}
+
+.contentInner {
+  padding: 0 0.5rem 1rem;
+}
+
+.contentParagraph {
+  margin: 0 0 1rem 0;
+  color: $text-secondary;
+  font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 140%;
+  white-space: pre-wrap;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
