@@ -22,6 +22,7 @@ export const DesktopFooter = (): React.ReactElement => {
     Pricing: '/pricing',
     'Privacy Policy': '/legal/privacy-policy',
     'Terms & Conditions': '/legal/terms-conditions',
+    'Contact Us': '/contact-us',
   };
 
   const footerNavigation = [
