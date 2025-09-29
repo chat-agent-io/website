@@ -264,8 +264,20 @@
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  
+
   @media (max-width: 480px) {
     font-size: 14px;
   }
+}
+
+.statusMessage {
+  width: 100%;
+  padding: 24px 0;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  color: colors.$gray-800;
 }
