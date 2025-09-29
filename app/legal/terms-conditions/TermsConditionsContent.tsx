@@ -151,7 +151,7 @@ export const TermsConditionsContent: React.FC = () => {
           
           <div className={styles.heroDescription}>
             <p>
-              These Terms & Conditions ("Terms") govern your access to and use of Chat Agent and all related websites, dashboards, APIs, SDKs, plugins, and support channels (collectively referred to as the "Service") provided by InstaReply W.L.L., a company based in the Kingdom of Bahrain ("InstaReply," "we," "us," or "our").
+              These Terms &amp; Conditions (&quot;Terms&quot;) govern your access to and use of Chat Agent and all related websites, dashboards, APIs, SDKs, plugins, and support channels (collectively referred to as the &quot;Service&quot;) provided by InstaReply W.L.L., a company based in the Kingdom of Bahrain (&quot;InstaReply,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;).
             </p>
           </div>
 
@@ -170,7 +170,7 @@ export const TermsConditionsContent: React.FC = () => {
 
           <div className={styles.heroSubDescription}>
             <p>
-              By creating an account, starting a free trial, clicking to accept, or using the Service, you ("Customer," "you," or "your") agree to these Terms. If you are accepting on behalf of an organization, you confirm that you have the authority to bind that organization. If you do not agree, please refrain from using the Service.
+              By creating an account, starting a free trial, clicking to accept, or using the Service, you (&quot;Customer,&quot; &quot;you,&quot; or &quot;your&quot;) agree to these Terms. If you are accepting on behalf of an organization, you confirm that you have the authority to bind that organization. If you do not agree, please refrain from using the Service.
             </p>
           </div>
         </div>
