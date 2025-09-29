@@ -20,6 +20,7 @@ export const DesktopFooter = (): React.ReactElement => {
     Careers: '/careers',
     FAQs: '/faq',
     Pricing: '/pricing',
+    'Privacy Policy': '/legal/privacy-policy',
   };
 
   const footerNavigation = [
