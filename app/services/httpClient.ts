@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { API_BASE_URL } from '@/app/config/api';
+import { Config } from '@/app/config/api';
 
 export const httpClient = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: Config.noco.config.url,
   headers: {
     'Content-Type': 'application/json',
   },
