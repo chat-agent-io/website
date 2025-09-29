@@ -115,7 +115,7 @@ export const PrivacyPolicyContent: React.FC = () => {
           
           <div className={styles.heroDescription}>
             <p>
-              This Privacy Policy explains how InstaReply W.L.L. ("InstaReply," "we," "us," or "our") collects, uses, discloses, and protects personal information in connection with the Chat Agent service and related websites, dashboards, APIs, plugins, and support channels (collectively, the "Service").
+              This Privacy Policy explains how InstaReply W.L.L. (&quot;InstaReply,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, discloses, and protects personal information in connection with the Chat Agent service and related websites, dashboards, APIs, plugins, and support channels (collectively, the &quot;Service&quot;).
             </p>
           </div>
 
