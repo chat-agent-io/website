@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { CAREERS_ENDPOINT, API_TOKEN } from '@/app/config/api';
+import { Config } from '@/app/config/api';
 import { httpClient } from '../httpClient';
 
 const CAREERS_QUERY_KEY = ['careers'] as const;
@@ -37,10 +37,15 @@ const defaultParams = {
 };
 
 const fetchCareers = async (): Promise<CareersResponse> => {
-  const { data } = await httpClient.get<CareersResponse>(CAREERS_ENDPOINT, {
-    params: defaultParams,
-    headers: API_TOKEN ? { 'xc-token': API_TOKEN } : undefined,
-  });
+  const { data } = await httpClient.get<CareersResponse>(
+    Config.noco.resources.careers,
+    {
+      params: defaultParams,
+      headers: Config.noco.config.key
+        ? { 'xc-token': Config.noco.config.key }
+        : undefined,
+    }
+  );
 
   return data;
 };
