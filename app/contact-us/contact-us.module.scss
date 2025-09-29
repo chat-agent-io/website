@@ -269,10 +269,7 @@
 }
 
 .privacyText {
-  display: flex;
   padding-bottom: 1rem;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   color: colors.$gray-500;
   font-family: 'Onest', -apple-system, Roboto, Helvetica, sans-serif;
@@ -282,6 +279,7 @@
   line-height: 120%;
   text-align: center;
   margin: 0;
+  white-space: pre-line;
 
   @media (max-width: 480px) {
     font-size: 0.875rem;
