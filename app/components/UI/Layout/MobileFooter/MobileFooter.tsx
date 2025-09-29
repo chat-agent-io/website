@@ -14,6 +14,7 @@ const linkRoutes: Record<string, string> = {
   FAQs: '/faq',
   Pricing: '/pricing',
   'Privacy Policy': '/legal/privacy-policy',
+  'Terms & Conditions': '/legal/terms-conditions',
 };
 
 const footerSections = [
