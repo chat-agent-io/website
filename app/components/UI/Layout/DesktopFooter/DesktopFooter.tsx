@@ -13,34 +13,25 @@ export const DesktopFooter = (): React.ReactElement => {
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
   const [collapsedCategories, setCollapsedCategories] = useState<Set<number>>(
-    new Set([0, 1, 2, 3, 4])
+    new Set([])
   );
 
   const footerNavigation = [
     {
       title: 'Company',
-      links: ['About Us', 'Careers', 'Blog', 'Contact Us'],
+      links: ['About Us', 'Careers'],
     },
     {
       title: 'Product',
-      links: [
-        'How it Works',
-        'Customer Stories',
-        'Pricing Plans',
-        'Integrations (soon)',
-      ],
-    },
-    {
-      title: 'Support',
-      links: ['WhatsApp Support'],
+      links: ['FAQs', 'Industries', 'Pricing'],
     },
     {
       title: 'Legal',
-      links: ['Privacy Policy', 'Terms of Service'],
+      links: ['Privacy Policy', 'Terms & Conditions'],
     },
     {
       title: 'Contact',
-      links: ['support@chatagent.io'],
+      links: ['Contact Us'],
     },
   ];
 
