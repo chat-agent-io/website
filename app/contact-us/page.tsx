@@ -162,8 +162,7 @@ export default function ContactUsPage() {
                 and{' '}
                 <a href="/legal/terms-conditions" className={styles.privacyLink}>
                   Terms
-                </a>
-                .
+                </a>.
               </p>
 
               <Button
