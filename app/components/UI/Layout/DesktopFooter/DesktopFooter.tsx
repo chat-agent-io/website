@@ -16,6 +16,12 @@ export const DesktopFooter = (): React.ReactElement => {
     new Set([])
   );
 
+  const linkRoutes: Record<string, string> = {
+    Careers: '/careers',
+    FAQs: '/faq',
+    Pricing: '/pricing',
+  };
+
   const footerNavigation = [
     {
       title: 'Company',
@@ -90,7 +96,7 @@ export const DesktopFooter = (): React.ReactElement => {
                   {category.links.map((link, linkIndex) => (
                     <a
                       key={`footer-link-${index}-${linkIndex}`}
-                      href={link === 'Careers' ? '/careers' : '#'}
+                      href={linkRoutes[link] ?? '#'}
                       className={styles.categoryLink}
                     >
                       {link}
