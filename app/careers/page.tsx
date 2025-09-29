@@ -12,6 +12,14 @@ export default function CareersPage() {
 
   const careers = data?.list ?? [];
 
+  const handleApplyClick = (url: string | null) => {
+    if (!url) {
+      return;
+    }
+
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <Layout>
       <main className={styles.page}>
@@ -59,7 +67,12 @@ export default function CareersPage() {
                         <span className={styles.jobLocationText}>{job.Location}</span>
                       </div>
                     </div>
-                    <Button variant="black" size="sm">
+                    <Button
+                      variant="black"
+                      size="sm"
+                      onClick={() => handleApplyClick(job.Apply)}
+                      disabled={!job.Apply}
+                    >
                       Apply
                     </Button>
                   </div>
