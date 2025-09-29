@@ -11,6 +11,7 @@ export interface CareerRecord {
   Time: string;
   Location: string;
   Status: string;
+  Apply: string | null;
 }
 
 interface PageInfo {
