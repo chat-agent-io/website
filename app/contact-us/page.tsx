@@ -154,7 +154,7 @@ export default function ContactUsPage() {
                 />
               </div>
 
-              <div className={styles.privacyText}>
+              <p className={styles.privacyText}>
                 By submitting, you agree to our{' '}
                 <a href="/legal/privacy-policy" className={styles.privacyLink}>
                   Privacy Policy
@@ -164,7 +164,7 @@ export default function ContactUsPage() {
                   Terms
                 </a>
                 .
-              </div>
+              </p>
 
               <Button
                 type="submit"
