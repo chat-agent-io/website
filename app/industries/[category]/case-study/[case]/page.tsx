@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useParams } from 'next/navigation';
+import Image from 'next/image';
 import Layout from '../../../../components/UI/Layout/Layout';
 import styles from './case.module.scss';
 
