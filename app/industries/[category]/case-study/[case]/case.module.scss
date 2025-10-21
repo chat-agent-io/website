@@ -26,7 +26,7 @@
   }
 }
 
-// Breadcrumb
+// Breadcrumb / Header Bar
 .headerBar {
   display: flex;
   flex-direction: column;
@@ -35,13 +35,22 @@
   position: relative;
 }
 
-.breadcrumb {
+.heroSection {
   display: flex;
   padding: 16px 0;
   align-items: center;
-  gap: 4px;
+  gap: 32px;
   align-self: stretch;
   border-bottom: 1px solid colors.$gray-300;
+  position: relative;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+  color: colors.$black-dark;
   font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -68,11 +77,24 @@
   position: relative;
 }
 
-.heroContent {
+.containerText {
   display: flex;
+  max-width: 628px;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   align-self: stretch;
   position: relative;
 }
@@ -83,7 +105,6 @@
   text-align: center;
   font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 40px;
-  font-style: normal;
   font-weight: 600;
   line-height: 120%;
   margin: 0;
@@ -97,64 +118,82 @@
   }
 }
 
+.subheading {
+  display: flex;
+  padding: 0 32px;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 480px) {
+    padding: 0 16px;
+  }
+}
+
 .heroSubtitle {
   flex: 1 0 0;
   color: colors.$gray-800;
   text-align: center;
   font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
   line-height: 120%;
   margin: 0;
-  padding: 0 32px;
-  
+
   @media (max-width: 480px) {
-    padding: 0 16px;
     font-size: 14px;
   }
 }
 
-.statsCards {
+.cards {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
-  
+  position: relative;
+
   @media (max-width: 768px) {
     flex-wrap: wrap;
   }
 }
 
-.statCard {
+.card {
   display: flex;
   width: 200px;
+  height: 117px;
   padding: 16px;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   border-radius: 9.5px;
   background: #fff;
-  
+  position: relative;
+
   @media (max-width: 768px) {
     width: calc(50% - 8px);
     min-width: 180px;
   }
-  
+
   @media (max-width: 480px) {
     width: 100%;
   }
 }
 
-.statValue {
+.statIconContainer {
   display: flex;
   align-items: center;
   gap: 8px;
+  position: relative;
 }
 
-.statIcon {
-  font-size: 25px;
+.statIconImg {
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+  position: relative;
 }
 
 .statNumber {
@@ -164,6 +203,14 @@
   font-size: 28px;
   font-weight: 400;
   line-height: 120%;
+}
+
+.titleSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
 }
 
 .statLabel {
@@ -177,9 +224,22 @@
   margin: 0;
 }
 
+.captionSection {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+}
+
 .statCaption {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  flex: 1 0 0;
+  overflow: hidden;
   color: colors.$gray-800;
   text-align: center;
+  text-overflow: ellipsis;
   font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -187,19 +247,20 @@
   margin: 0;
 }
 
-.ctaButtons {
+.containerCta {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 8px;
-  
+  position: relative;
+
   @media (max-width: 480px) {
     flex-direction: column;
     width: 100%;
   }
 }
 
-.primaryBtn {
+.buttonPrimary {
   display: flex;
   padding: 8px 16px;
   justify-content: center;
@@ -211,54 +272,66 @@
   text-align: center;
   font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 120%;
   cursor: pointer;
   transition: opacity 0.2s;
-  
+
   &:hover {
     opacity: 0.9;
   }
-  
+
   @media (max-width: 480px) {
     width: 100%;
   }
 }
 
-.secondaryBtn {
+.buttonSecondary {
   display: flex;
   padding: 8px 16px;
   justify-content: center;
   align-items: center;
   border-radius: 9.5px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(217, 216, 218, 0);
   background: #fff;
   color: colors.$black-dark;
   text-align: center;
   font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 120%;
   cursor: pointer;
   transition: background-color 0.2s;
-  
+
   &:hover {
     background: colors.$gray-100;
   }
-  
+
   @media (max-width: 480px) {
     width: 100%;
   }
 }
 
 // Problem Section
-.problemSection {
+.problem {
   display: flex;
   padding: 32px 0;
   flex-direction: column;
   align-items: center;
   gap: 32px;
   align-self: stretch;
+  position: relative;
+}
+
+.problemHeading,
+.timelineHeading,
+.benefitsHeading,
+.faqsHeading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
 }
 
 .sectionTitle {
@@ -270,6 +343,7 @@
   font-weight: 600;
   line-height: 120%;
   margin: 0;
+  white-space: pre-line;
 
   @media (max-width: 768px) {
     font-size: 32px;
@@ -280,28 +354,12 @@
   }
 }
 
-.sectionSubtitle {
-  flex: 1 0 0;
-  color: colors.$gray-800;
-  text-align: center;
-  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 120%;
-  margin: 0;
-  padding: 0 32px;
-  
-  @media (max-width: 480px) {
-    font-size: 14px;
-    padding: 0 16px;
-  }
-}
-
 .problemCards {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  
+  position: relative;
+
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
@@ -309,67 +367,113 @@
   }
 }
 
-.problemCard {
+.guestProblem,
+.staffProblem {
   display: flex;
   width: 300px;
-  min-height: 350px;
+  height: 350px;
   padding: 16px 0;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
   border-radius: 9.5px;
   background: #fff;
-  
+  position: relative;
+
   @media (max-width: 768px) {
     width: 100%;
     max-width: 400px;
   }
 }
 
-.cardTitle {
-  flex: 1 0 0;
-  color: colors.$gray-800;
-  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 120%;
-  margin: 0;
-  padding: 0 16px;
-}
-
-.cardDescription {
-  align-self: stretch;
-  color: colors.$gray-700;
-  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 120%;
-  margin: 0;
-  padding: 0 32px;
-}
-
-.questionsSection {
+.containerTextProblem {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 8px;
   align-self: stretch;
+  position: relative;
 }
 
-.questionsTitle {
-  color: colors.$primary-purple;
-  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 120%;
-  margin: 0;
+.problemCardTitle {
+  display: flex;
   padding: 0 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  position: relative;
 
-  .problemCard:last-child & {
+  h3 {
+    flex: 1 0 0;
+    color: colors.$gray-800;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 120%;
+    margin: 0;
+  }
+}
+
+.item {
+  display: flex;
+  padding: 0 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 9.5px;
+  position: relative;
+
+  p {
+    align-self: stretch;
+    color: colors.$gray-700;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+  }
+}
+
+.textSection {
+  display: flex;
+  padding: 0 16px;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
+  h4 {
+    color: colors.$primary-purple;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 120%;
+    margin: 0;
+  }
+
+  .staffProblem & h4 {
     color: colors.$black-dark;
   }
 }
 
+.containerQuestions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  position: relative;
+}
+
 .questionsCards {
+  height: 214px;
+  align-self: stretch;
+  aspect-ratio: 150/107;
+  position: relative;
+}
+
+.questionCardsWrapper {
   display: flex;
   height: 200px;
   flex-direction: column;
@@ -377,132 +481,140 @@
   align-items: center;
   align-self: stretch;
   position: relative;
-  padding: 0 16px;
 }
 
-.questionCard {
+.groupCards {
+  width: 284px;
+  height: 214px;
+  flex-shrink: 0;
+  aspect-ratio: 142/107;
+  position: relative;
+}
+
+.problemText {
   display: flex;
-  min-height: 48px;
-  padding: 4px 8px;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border-radius: 9.5px;
-  border: 1px solid #fff;
-  box-shadow: -5px 10px 15px 0 rgba(0, 0, 0, 0.05);
-  margin: 4px 0;
-  width: 100%;
-  max-width: 250px;
-  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 120%;
+  align-self: stretch;
+  position: relative;
 
-  &.orange {
-    background: #FFF4ED;
-    color: #EB9A10;
-  }
-
-  &.purple {
-    background: #EFEAFE;
-    color: #9B46EB;
-  }
-
-  &.cyan {
-    background: #E5F3FE;
-    color: #07A5EB;
-  }
-
-  &.green {
-    background: #EDFFEF;
-    color: #37C057;
-  }
-}
-
-.questionImage {
-  width: 100%;
-  height: 100%;
-  max-width: 250px;
-  max-height: 100px;
-  border-radius: 9.5px;
-  object-fit: cover;
-}
-
-.problemStaffCard {
-  display: flex;
-  min-height: 48px;
-  padding: 4px 16px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 4px;
-  border-radius: 9.5px;
-  border: 1px solid colors.$black-dark;
-  background: #fff;
-  box-shadow: -5px 10px 15px 0 rgba(0, 0, 0, 0.05);
-  margin: 4px 0;
-  width: 100%;
-  max-width: 250px;
-
-  strong {
-    color: colors.$black-dark;
-    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 120%;
-  }
-
-  span {
+  p {
+    flex: 1 0 0;
     color: colors.$gray-800;
+    text-align: center;
     font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 120%;
+    margin: 0;
   }
-}
-
-.problemImage {
-  width: 100%;
-  height: 100%;
-  max-width: 250px;
-  max-height: 100px;
-  border-radius: 9.5px;
-  object-fit: cover;
-}
-
-.problemNote {
-  flex: 1 0 0;
-  color: colors.$gray-800;
-  text-align: center;
-  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 120%;
-  margin: 0;
 }
 
 // Channels Section
-.channelsSection {
+.channels {
   display: flex;
   padding: 32px 0;
   flex-direction: column;
   align-items: center;
   gap: 16px;
   align-self: stretch;
+  position: relative;
 }
 
-.channelButtons {
+.channelsHeader {
+  display: flex;
+  max-width: 628px;
+  padding-bottom: 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
+.channelsHeading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
+  h2 {
+    flex: 1 0 0;
+    color: colors.$black-dark;
+    text-align: center;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 120%;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 32px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 28px;
+    }
+  }
+}
+
+.channelsText {
+  display: flex;
+  padding: 0 32px;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 480px) {
+    padding: 0 16px;
+  }
+
+  p {
+    flex: 1 0 0;
+    color: colors.$gray-800;
+    text-align: center;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.seeItInAction {
+  display: flex;
+  padding-bottom: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  position: relative;
+}
+
+.buttonsContainer {
   display: flex;
   align-items: center;
   gap: 8px;
-  
+  position: relative;
+
   @media (max-width: 480px) {
     flex-wrap: wrap;
     justify-content: center;
   }
 }
 
-.channelBtn {
+.buttonPillChannels {
   display: flex;
   padding: 8px 16px;
   justify-content: center;
@@ -514,82 +626,182 @@
   text-align: center;
   font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 120%;
   cursor: pointer;
   transition: background 0.2s;
-  
+
   &.active {
     background: linear-gradient(180deg, #4E4D54 0%, #1C1A24 91.03%);
     color: #fff;
     border-color: transparent;
   }
-  
+
   &:hover:not(.active) {
     background: rgba(255, 255, 255, 0.5);
   }
 }
 
 .moreText {
-  color: colors.$gray-600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  color: colors.$gray-400;
   text-align: center;
   font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 120%;
+  position: relative;
 }
 
-.conversationDemo {
-  width: 100%;
-  min-height: 400px;
+.channelContainer {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 9.5px;
-  
+  gap: 32px;
+  position: relative;
+
   @media (max-width: 768px) {
-    min-height: 300px;
+    flex-direction: column;
   }
 }
 
-.placeholder {
-  color: colors.$gray-600;
-  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 16px;
+.conversationSamples {
+  display: flex;
+  width: 289px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+.minichatCards {
+  display: flex;
+  width: 289px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.minichatHeading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
+  h3 {
+    flex: 1 0 0;
+    text-align: center;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 120%;
+    margin: 0;
+    white-space: pre-line;
+  }
+}
+
+.gradientInstagram {
+  background: linear-gradient(91deg, #805DD7 5.94%, #F83B84 61.26%, #E3BA50 99.62%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradientBlue {
+  background: linear-gradient(97deg, #07A5EB -30.96%, #3214F0 107.21%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.conversationCard {
+  width: 290px;
+  height: 188px;
+  aspect-ratio: 145/94;
+  position: relative;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.screenshots {
+  width: 300px;
+  height: 618px;
+  aspect-ratio: 50/103;
+  position: relative;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
 }
 
 // Timeline Section
-.timelineSection {
+.timeline {
   display: flex;
   padding: 32px 0;
   flex-direction: column;
   align-items: center;
   gap: 32px;
   align-self: stretch;
+  position: relative;
+}
+
+.timelineHeading {
+  display: flex;
+  max-width: 628px;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 }
 
 .timelineCards {
   display: flex;
+  height: 245px;
   justify-content: center;
   align-items: center;
   gap: 16px;
   align-self: stretch;
-  
+  position: relative;
+
   @media (max-width: 768px) {
     flex-wrap: wrap;
+    height: auto;
   }
 }
 
 .timelineCard {
   display: flex;
   width: 199px;
+  height: 245px;
   padding: 8px;
   flex-direction: column;
   align-items: center;
   gap: 16px;
   border-radius: 9.5px;
   background: #fff;
+  position: relative;
 
   @media (max-width: 768px) {
     width: calc(50% - 8px);
@@ -599,6 +811,36 @@
   @media (max-width: 480px) {
     width: 100%;
   }
+}
+
+.timelinePhotos {
+  display: flex;
+  height: 110px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: 9.5px;
+  background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+  position: relative;
+}
+
+.timelineContent {
+  display: flex;
+  padding: 0 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  position: relative;
+}
+
+.timelineTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
 
   h3 {
     flex: 1 0 0;
@@ -609,66 +851,130 @@
     line-height: 120%;
     margin: 0;
   }
-  
+}
+
+.timelineCaption {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
   p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    flex: 1 0 0;
+    overflow: hidden;
     color: colors.$gray-700;
+    text-overflow: ellipsis;
     font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
     font-size: 13px;
     font-weight: 400;
     line-height: 120%;
     margin: 0;
-    text-align: center;
   }
 }
 
-.timelineImage {
-  height: 110px;
-  align-self: stretch;
-  border-radius: 9.5px;
-  background: colors.$gray-200;
-}
-
 // Benefits Section
-.benefitsSection {
+.benefits {
   display: flex;
   padding: 32px 64px;
   flex-direction: column;
   align-items: center;
   gap: 32px;
   align-self: stretch;
-  
+  position: relative;
+
   @media (max-width: 768px) {
     padding: 32px 0;
   }
 }
 
-.benefitsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 266px);
-  gap: 16px;
+.benefitsHeading {
+  display: flex;
+  max-width: 628px;
   justify-content: center;
-  
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 266px);
-  }
-  
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
   }
-  
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+}
+
+.benefitsCards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  position: relative;
+}
+
+.benefitsRow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
   }
 }
 
 .benefitCard {
   display: flex;
+  width: 266px;
+  height: 312px;
   padding: 8px;
   flex-direction: column;
   align-items: center;
   gap: 16px;
   border-radius: 9.5px;
   background: #fff;
+  position: relative;
+
+  @media (max-width: 768px) {
+    width: calc(50% - 8px);
+    min-width: 250px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.benefitImage {
+  display: flex;
+  width: 250px;
+  height: 200px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 9.5px;
+  background: linear-gradient(180deg, #FFF 0%, #F2F2FA 100%);
+  position: relative;
+}
+
+.benefitContent {
+  display: flex;
+  padding: 0 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  position: relative;
+}
+
+.benefitTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
 
   h3 {
     flex: 1 0 0;
@@ -679,27 +985,32 @@
     line-height: 120%;
     margin: 0;
   }
-  
+}
+
+.benefitCaption {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
   p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    flex: 1 0 0;
+    overflow: hidden;
     color: colors.$gray-700;
+    text-overflow: ellipsis;
     font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
     font-size: 13px;
     font-weight: 400;
     line-height: 120%;
     margin: 0;
-    text-align: center;
   }
 }
 
-.benefitImage {
-  width: 250px;
-  height: 200px;
-  border-radius: 9.5px;
-  background: linear-gradient(180deg, #FFF 0%, #F2F2FA 100%);
-}
-
 // Features Section
-.featuresSection {
+.features {
   display: flex;
   padding: 32px 0;
   flex-direction: column;
@@ -707,6 +1018,7 @@
   align-items: center;
   gap: 32px;
   align-self: stretch;
+  position: relative;
 }
 
 .featuresHeader {
@@ -716,9 +1028,64 @@
   align-items: center;
   gap: 16px;
   align-self: stretch;
+  position: relative;
 
   @media (max-width: 768px) {
     max-width: 100%;
+  }
+}
+
+.featuresHeading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  h2 {
+    color: colors.$black-dark;
+    text-align: center;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 120%;
+    margin: 0;
+    white-space: pre-line;
+
+    @media (max-width: 768px) {
+      font-size: 32px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 28px;
+    }
+  }
+}
+
+.featuresSubheading {
+  display: flex;
+  padding: 0 32px;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 480px) {
+    padding: 0 16px;
+  }
+
+  p {
+    flex: 1 0 0;
+    color: colors.$gray-800;
+    text-align: center;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
   }
 }
 
@@ -728,14 +1095,10 @@
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
+  position: relative;
 
   @media (max-width: 768px) {
     flex-wrap: wrap;
-  }
-
-  @media (max-width: 600px) {
-    flex-direction: column;
-    align-items: center;
   }
 }
 
@@ -749,17 +1112,15 @@
   gap: 16px;
   border-radius: 9.5px;
   background: #fff;
+  position: relative;
 
   @media (max-width: 768px) {
-    width: calc(50% - 8px);
+    width: calc(33.33% - 11px);
     min-width: 180px;
-    height: auto;
-    min-height: 200px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 480px) {
     width: 100%;
-    max-width: 300px;
   }
 }
 
@@ -770,70 +1131,179 @@
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  position: relative;
 
   img {
     width: auto;
     height: auto;
-    max-width: 56px;
+    max-width: 91px;
     max-height: 56px;
     object-fit: contain;
   }
 }
 
+.featureContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  position: relative;
+}
+
 .featureTitle {
-  flex: 1 0 0;
-  color: colors.$black-dark;
-  text-align: center;
-  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 120%;
-  margin: 0;
-  white-space: pre-line;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
+  h3 {
+    flex: 1 0 0;
+    color: colors.$black-dark;
+    text-align: center;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 120%;
+    margin: 0;
+    white-space: pre-line;
+  }
 }
 
-.featureDescription {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  flex: 1 0 0;
-  overflow: hidden;
-  color: colors.$gray-800;
-  text-align: center;
-  text-overflow: ellipsis;
-  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 120%;
-  margin: 0;
+.featureCaption {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
+  p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    flex: 1 0 0;
+    overflow: hidden;
+    color: colors.$gray-800;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+  }
 }
 
-// FAQ Section
-.faqSection {
+// Setup Section
+.setup {
   display: flex;
   padding: 32px 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 32px;
   align-self: stretch;
+  position: relative;
 }
 
-.faqList {
+.setupHeading {
   display: flex;
-  max-width: 846px;
+  height: 96px;
+  max-width: 628px;
   flex-direction: column;
   align-items: center;
   align-self: stretch;
+  position: relative;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h2 {
+    display: flex;
+    width: 628px;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 0;
+    color: colors.$black-dark;
+    text-align: center;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 120%;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      font-size: 32px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 28px;
+    }
+  }
 }
 
-.faqItem {
+.setupCards {
   display: flex;
-  padding-bottom: 8px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+}
+
+.setupCard {
+  display: flex;
+  width: 200px;
+  height: 155px;
+  padding: 16px;
   flex-direction: column;
   align-items: flex-start;
+  gap: 8px;
+  border-radius: 9.5px;
+  background: #fff;
+  position: relative;
+
+  @media (max-width: 768px) {
+    width: calc(50% - 8px);
+    min-width: 180px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.setupIcon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+
+  img {
+    height: 40px;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    border-radius: 200px;
+    background: #3214F0;
+  }
+}
+
+.setupTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   align-self: stretch;
-  border-bottom: 1px solid rgba(217, 216, 218, 0.5);
+  position: relative;
 
   h3 {
     flex: 1 0 0;
@@ -842,9 +1312,128 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 120%;
-    margin: 8px 0 4px 0;
+    margin: 0;
   }
-  
+}
+
+.setupCaption {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
+  p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    flex: 1 0 0;
+    overflow: hidden;
+    color: colors.$gray-800;
+    text-overflow: ellipsis;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+  }
+}
+
+.setupText {
+  display: flex;
+  max-width: 628px;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+
+  p {
+    flex: 1 0 0;
+    color: colors.$gray-800;
+    text-align: center;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+}
+
+// FAQs Section
+.faqs {
+  display: flex;
+  padding: 32px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+  position: relative;
+}
+
+.qAndA {
+  display: flex;
+  max-width: 846px;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
+.qAndAFrame {
+  display: flex;
+  padding-bottom: 8px;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  border-bottom: 1px solid rgba(217, 216, 218, 0.5);
+  position: relative;
+}
+
+.qAndAContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  position: relative;
+}
+
+.question {
+  display: flex;
+  padding: 8px 0 4px 0;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+
+  h3 {
+    flex: 1 0 0;
+    color: colors.$black-dark;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 120%;
+    margin: 0;
+  }
+}
+
+.answer {
+  display: flex;
+  padding-left: 32px;
+  align-items: flex-start;
+  align-self: stretch;
+  position: relative;
+
   p {
     flex: 1 0 0;
     color: colors.$gray-800;
@@ -853,12 +1442,11 @@
     font-weight: 400;
     line-height: 120%;
     margin: 0;
-    padding-left: 32px;
   }
 }
 
-// CTA Banner
-.ctaBanner {
+// Final CTA Banner
+.finalCta {
   display: flex;
   padding: 32px 0;
   flex-direction: column;
@@ -866,27 +1454,62 @@
   align-items: center;
   gap: 10px;
   align-self: stretch;
+  position: relative;
 }
 
-.bannerContent {
+.bannerFrame {
   display: flex;
   width: 850px;
   max-width: 100%;
+  height: 250px;
   padding: 32px 64px;
   align-items: center;
   border-radius: 9.5px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   background: linear-gradient(83deg, #FFF 48.52%, rgba(54, 235, 255, 0.2) 101.25%);
-  gap: 16px;
+  position: relative;
 
   @media (max-width: 768px) {
     flex-direction: column;
+    height: auto;
     padding: 32px;
   }
 
   @media (max-width: 480px) {
     padding: 24px 16px;
   }
+}
+
+.logoAndText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    align-items: center;
+  }
+}
+
+.logoButton {
+  width: 150px;
+  height: 24px;
+  aspect-ratio: 25/4;
+  position: relative;
+}
+
+.bannerTextContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  position: relative;
 
   h2 {
     align-self: stretch;
@@ -899,13 +1522,14 @@
 
     @media (max-width: 768px) {
       font-size: 28px;
+      text-align: center;
     }
 
     @media (max-width: 480px) {
       font-size: 24px;
     }
   }
-  
+
   p {
     align-self: stretch;
     color: colors.$gray-800;
@@ -914,18 +1538,33 @@
     font-weight: 400;
     line-height: 120%;
     margin: 0;
-    
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+
     @media (max-width: 480px) {
       font-size: 14px;
     }
   }
-  
-  button {
-    flex-shrink: 0;
-    
-    @media (max-width: 768px) {
-      width: 100%;
-    }
+}
+
+.containerButton {
+  display: flex;
+  width: 240px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  .buttonPrimary {
+    width: 100%;
   }
 }
 
@@ -938,7 +1577,7 @@
   padding: 80px 0;
   gap: 16px;
   align-self: stretch;
-  
+
   h1 {
     color: colors.$black-dark;
     font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
@@ -946,7 +1585,7 @@
     font-weight: 600;
     margin: 0;
   }
-  
+
   p {
     color: colors.$gray-800;
     font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
