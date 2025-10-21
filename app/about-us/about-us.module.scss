@@ -1,0 +1,661 @@
+@use '../styles/colors' as colors;
+
+.page {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background: colors.$gray-100;
+  position: relative;
+}
+
+.mainContainer {
+  display: flex;
+  padding: 32px 0 80px 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 80px;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 24px 0 64px 0;
+    gap: 64px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px 0 48px 0;
+    gap: 48px;
+  }
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 16px;
+  }
+}
+
+.sectionContent {
+  display: flex;
+  max-width: 1055px;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  position: relative;
+  padding: 0 32px;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+    padding: 0 24px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 16px;
+    padding: 0 16px;
+  }
+}
+
+.sectionContentNarrow {
+  display: flex;
+  max-width: 1055px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+  position: relative;
+  padding: 0 32px;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+    padding: 0 24px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 16px;
+    padding: 0 16px;
+  }
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: stretch;
+  position: relative;
+}
+
+.title {
+  flex: 1 0 0;
+  color: colors.$black-dark;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: stretch;
+  position: relative;
+}
+
+.descriptionText {
+  flex: 1 0 0;
+  color: colors.$gray-800;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
+}
+
+.brandContainer {
+  display: flex;
+  max-width: 1055px;
+  width: 100%;
+  align-items: flex-start;
+  gap: 32px;
+  align-self: stretch;
+  position: relative;
+  padding: 0 32px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 24px;
+    gap: 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 16px;
+    gap: 16px;
+  }
+}
+
+.brandInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+  position: relative;
+
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  padding: 0 64px 0 16px;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  position: relative;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 32px 0 8px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 16px 0 0;
+    
+    svg {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.brandDescription {
+  flex: 1 0 0;
+  color: colors.$gray-600;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.underline {
+  color: colors.$gray-800;
+  text-decoration: underline;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  max-width: 1055px;
+  width: 100%;
+  padding: 0 32px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 24px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+}
+
+.serviceCard {
+  display: flex;
+  width: 265px;
+  height: 190px;
+  padding: 16px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0;
+  position: relative;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    height: auto;
+    min-height: 180px;
+  }
+}
+
+.serviceIcon {
+  display: flex;
+  width: 50px;
+  height: 55px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+
+  svg {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.serviceTitle {
+  color: colors.$black-dark;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+}
+
+.serviceCaption {
+  flex: 1 0 0;
+  overflow: hidden;
+  color: colors.$gray-600;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin: 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.serviceLink {
+  color: colors.$primary-purple;
+  text-align: right;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-decoration: none;
+  position: relative;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.buildSteps {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  position: relative;
+  max-width: 1055px;
+  padding: 0 32px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+    padding: 0 24px;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    padding: 0 16px;
+    width: 100%;
+  }
+}
+
+.buildCard {
+  display: flex;
+  width: 200px;
+  height: 155px;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  border-radius: 9.5px;
+  background: colors.$white;
+  position: relative;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.numberIcon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 200px;
+  background: colors.$primary-purple;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.buildTitle {
+  flex: 1 0 0;
+  color: colors.$black-dark;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+}
+
+.buildCaption {
+  flex: 1 0 0;
+  overflow: hidden;
+  color: colors.$gray-800;
+  text-overflow: ellipsis;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  margin: 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.approachGrid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  position: relative;
+  max-width: 1055px;
+  padding: 0 32px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+    padding: 0 24px;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    padding: 0 16px;
+    width: 100%;
+  }
+}
+
+.approachCard {
+  display: flex;
+  width: 200px;
+  padding: 16px 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border-radius: 9.5px;
+  background: colors.$white;
+  position: relative;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.approachIcon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  svg {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.approachTitle {
+  color: colors.$black-dark;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+}
+
+.approachCaption {
+  flex: 1 0 0;
+  overflow: hidden;
+  color: colors.$gray-800;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  margin: 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.complianceGrid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  position: relative;
+  max-width: 1055px;
+  padding: 0 32px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+    padding: 0 24px;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    padding: 0 16px;
+    width: 100%;
+  }
+}
+
+.complianceCard {
+  display: flex;
+  width: 200px;
+  height: 214px;
+  padding: 16px 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border-radius: 9.5px;
+  position: relative;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+  }
+}
+
+.complianceIcon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+
+  svg {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.complianceTitle {
+  color: colors.$black-dark;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+}
+
+.complianceCaption {
+  flex: 1 0 0;
+  color: colors.$gray-800;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.primaryButton {
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9.5px;
+  background: linear-gradient(97deg, #07A5EB -30.96%, colors.$primary-purple 107.21%);
+  color: colors.$white;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
+}
