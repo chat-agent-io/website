@@ -764,15 +764,10 @@
 
 .timelineHeading {
   display: flex;
-  max-width: 628px;
   justify-content: center;
   align-items: center;
   align-self: stretch;
   position: relative;
-
-  @media (max-width: 768px) {
-    max-width: 100%;
-  }
 }
 
 .timelineCards {
@@ -891,15 +886,10 @@
 
 .benefitsHeading {
   display: flex;
-  max-width: 628px;
   justify-content: center;
   align-items: center;
   align-self: stretch;
   position: relative;
-
-  @media (max-width: 768px) {
-    max-width: 100%;
-  }
 }
 
 .benefitsCards {
@@ -1022,16 +1012,13 @@
 
 .featuresHeader {
   display: flex;
-  max-width: 628px;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   align-self: stretch;
   position: relative;
-
-  @media (max-width: 768px) {
-    max-width: 100%;
-  }
+  width: 100%;
 }
 
 .featuresHeading {
@@ -1208,14 +1195,14 @@
 .setupHeading {
   display: flex;
   height: 96px;
-  max-width: 628px;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   align-self: stretch;
   position: relative;
+  width: 100%;
 
   @media (max-width: 768px) {
-    max-width: 100%;
     height: auto;
   }
 
