@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Layout from '../components/UI/Layout/Layout';
 import styles from './about-us.module.scss';
 
@@ -108,7 +109,7 @@ export default function AboutUsPage() {
               {buildSteps.map((step, index) => (
                 <div key={index} className={styles.buildCard}>
                   <div className={styles.numberIcon}>
-                    <img src={step.icon} alt="" />
+                    <Image src={step.icon} alt="" width={40} height={40} />
                   </div>
                   <h3 className={styles.buildTitle}>{step.title}</h3>
                   <p className={styles.buildCaption}>{step.caption}</p>
