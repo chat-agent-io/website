@@ -20,7 +20,7 @@ const caseStudyData: Record<string, any> = {
       title: 'Guests Expect',
       description: 'Instant answers, friendly recommendations, today\'s details, and help in their language.',
       questions: [
-        { text: 'What\'s on today?', color: 'orange' },
+        { text: 'What\'s on today?', color: 'orange', isImage: true },
         { text: 'Send the cocktail menu', color: 'purple' },
         { text: 'Dress code for tonight?', color: 'cyan' },
         { text: 'Best time to arrive for sunset?', color: 'green' }
@@ -30,7 +30,7 @@ const caseStudyData: Record<string, any> = {
       title: 'The Bottleneck',
       description: 'Spiky DM volume, busy floor, constantly changing info — replies lag and valuable opportunities slip.',
       problems: [
-        { role: 'Reception', issue: 'seating walk-ins + phones' },
+        { role: 'Reception', issue: 'seating walk-ins + phones', isImage: true },
         { role: 'Hosts', issue: 'greeting & managing flow' },
         { role: 'Managers', issue: 'running the floor & VIPs' },
         { role: 'DJs', issue: 'don\'t answer DMs' }
