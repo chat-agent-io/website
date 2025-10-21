@@ -10,6 +10,7 @@ import { LanguageDropdown } from '../../LanguageSelection';
 import { UpArrowIcon } from '@/app/assets/icons/UpArrowIcon';
 
 const linkRoutes: Record<string, string> = {
+  'About Us': '/about-us',
   Careers: '/careers',
   FAQs: '/faq',
   Pricing: '/pricing',

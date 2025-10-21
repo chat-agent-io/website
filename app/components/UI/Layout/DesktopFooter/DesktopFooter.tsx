@@ -17,6 +17,7 @@ export const DesktopFooter = (): React.ReactElement => {
   );
 
   const linkRoutes: Record<string, string> = {
+    'About Us': '/about-us',
     Careers: '/careers',
     FAQs: '/faq',
     Pricing: '/pricing',
