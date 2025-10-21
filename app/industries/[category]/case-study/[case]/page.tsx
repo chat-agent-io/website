@@ -5,7 +5,112 @@ import { useParams } from 'next/navigation';
 import Layout from '../../../../components/UI/Layout/Layout';
 import styles from './case.module.scss';
 
-const caseStudyData: Record<string, any> = {
+interface Stat {
+  icon: string;
+  value: string;
+  label: string;
+  caption: string;
+}
+
+interface GuestExpect {
+  title: string;
+  description: string;
+  subtitle: string;
+  image: string;
+}
+
+interface TeamBottleneck {
+  title: string;
+  description: string;
+  subtitle: string;
+  image: string;
+}
+
+interface Channel {
+  title: string;
+  subtitle: string;
+  buttons: string[];
+  conversationTitle1: string;
+  conversationImage1: string;
+  conversationTitle2: string;
+  conversationImage2: string;
+  screenshot: string;
+}
+
+interface TimelineCard {
+  title: string;
+  description: string;
+}
+
+interface Timeline {
+  title: string;
+  cards: TimelineCard[];
+}
+
+interface BenefitCard {
+  title: string;
+  description: string;
+}
+
+interface Benefits {
+  title: string;
+  cards: BenefitCard[];
+}
+
+interface FeatureCard {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Features {
+  title: string;
+  subtitle: string;
+  cards: FeatureCard[];
+}
+
+interface SetupCard {
+  number: string;
+  title: string;
+  description: string;
+}
+
+interface Setup {
+  title: string;
+  cards: SetupCard[];
+  subtitle: string;
+}
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface FinalCTA {
+  logo: string;
+  title: string;
+  subtitle: string;
+  buttonText: string;
+}
+
+interface CaseStudy {
+  breadcrumb: string;
+  title: string;
+  subtitle: string;
+  stats: Stat[];
+  problemTitle: string;
+  guestExpect: GuestExpect;
+  teamBottleneck: TeamBottleneck;
+  channels: Channel;
+  timeline: Timeline;
+  benefits: Benefits;
+  features: Features;
+  setup: Setup;
+  faqs: FAQ[];
+  finalCta: FinalCTA;
+}
+
+const caseStudyData: Record<string, CaseStudy> = {
   'beach-clubs': {
     breadcrumb: 'Industries\\Hospitality & Leisure\\Beach Clubs',
     title: 'Beach Club Guests Don\'t Wait — Neither Should Your Replies',
@@ -204,7 +309,7 @@ export default function CaseStudyPage() {
 
             {/* Stats Cards */}
             <div className={styles.cards}>
-              {data.stats.map((stat: any, index: number) => (
+              {data.stats.map((stat: Stat, index: number) => (
                 <div key={index} className={styles.card}>
                   <div className={styles.statIconContainer}>
                     <img src={stat.icon} alt="" className={styles.statIconImg} />
@@ -295,7 +400,7 @@ export default function CaseStudyPage() {
 
             <div className={styles.seeItInAction}>
               <div className={styles.buttonsContainer}>
-                {data.channels.buttons.map((btn: string, i: number) => (
+                {data.channels.buttons.map((btn: string, i: number): React.ReactElement => (
                   <button 
                     key={i} 
                     className={`${styles.buttonPillChannels} ${i === 0 ? styles.active : ''}`}
@@ -335,7 +440,7 @@ export default function CaseStudyPage() {
             </div>
             
             <div className={styles.timelineCards}>
-              {data.timeline.cards.map((card: any, i: number) => (
+              {data.timeline.cards.map((card: TimelineCard, i: number): React.ReactElement => (
                 <div key={i} className={styles.timelineCard}>
                   <div className={styles.timelinePhotos}></div>
                   <div className={styles.timelineContent}>
@@ -359,7 +464,7 @@ export default function CaseStudyPage() {
             
             <div className={styles.benefitsCards}>
               <div className={styles.benefitsRow}>
-                {data.benefits.cards.slice(0, 3).map((card: any, i: number) => (
+                {data.benefits.cards.slice(0, 3).map((card: BenefitCard, i: number): React.ReactElement => (
                   <div key={i} className={styles.benefitCard}>
                     <div className={styles.benefitImage}></div>
                     <div className={styles.benefitContent}>
@@ -374,7 +479,7 @@ export default function CaseStudyPage() {
                 ))}
               </div>
               <div className={styles.benefitsRow}>
-                {data.benefits.cards.slice(3, 6).map((card: any, i: number) => (
+                {data.benefits.cards.slice(3, 6).map((card: BenefitCard, i: number): React.ReactElement => (
                   <div key={i} className={styles.benefitCard}>
                     <div className={styles.benefitImage}></div>
                     <div className={styles.benefitContent}>
@@ -403,7 +508,7 @@ export default function CaseStudyPage() {
             </div>
 
             <div className={styles.featuresCards}>
-              {data.features.cards.map((card: any, i: number) => (
+              {data.features.cards.map((card: FeatureCard, i: number): React.ReactElement => (
                 <div key={i} className={styles.featureCard}>
                   <div className={styles.featureIcon}>
                     <img src={card.icon} alt="" />
@@ -428,7 +533,7 @@ export default function CaseStudyPage() {
             </div>
 
             <div className={styles.setupCards}>
-              {data.setup.cards.map((card: any, i: number) => (
+              {data.setup.cards.map((card: SetupCard, i: number): React.ReactElement => (
                 <div key={i} className={styles.setupCard}>
                   <div className={styles.setupIcon}>
                     <img src={card.number} alt="" />
@@ -455,7 +560,7 @@ export default function CaseStudyPage() {
             </div>
             
             <div className={styles.qAndA}>
-              {data.faqs.map((faq: any, i: number) => (
+              {data.faqs.map((faq: FAQ, i: number): React.ReactElement => (
                 <div key={i} className={styles.qAndAFrame}>
                   <div className={styles.qAndAContent}>
                     <div className={styles.question}>
