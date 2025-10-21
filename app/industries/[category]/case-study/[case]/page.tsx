@@ -118,7 +118,15 @@ export default function CaseStudyPage() {
                   <div className={styles.questionsCards}>
                     {data.guestExpect.questions.map((q: any, i: number) => (
                       <div key={i} className={`${styles.questionCard} ${styles[q.color]}`}>
-                        <span>{q.text}</span>
+                        {q.isImage ? (
+                          <img
+                            src="https://dummyimage.com/300x300/c9c9c9/696969.jpg"
+                            alt={q.text}
+                            className={styles.questionImage}
+                          />
+                        ) : (
+                          <span>{q.text}</span>
+                        )}
                       </div>
                     ))}
                   </div>
