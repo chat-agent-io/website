@@ -205,6 +205,57 @@ export default function CaseStudyPage() {
             </div>
           </section>
 
+          {/* Features Section */}
+          <section className={styles.featuresSection}>
+            <div className={styles.featuresHeader}>
+              <h2 className={styles.sectionTitle}>Why Beach Clubs Love This — Even If They Don&apos;t Know It Yet</h2>
+              <p className={styles.sectionSubtitle}>
+                This isn&apos;t a chatbot. This is an upgrade to your guest experience.
+              </p>
+            </div>
+
+            <div className={styles.featuresCards}>
+              <div className={styles.featureCard}>
+                <div className={styles.featureIcon}>
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/b691ca61d5fd834b549f8c3cefd5a22b8e25875e?width=112"
+                    alt="Trained to Think"
+                  />
+                </div>
+                <h3 className={styles.featureTitle}>Trained to Think{'\n'}Like You</h3>
+                <p className={styles.featureDescription}>
+                  Upload your menu, services, pricing, tone of voice, FAQs, and hashtags. ChatAgent learns fast
+                </p>
+              </div>
+
+              <div className={styles.featureCard}>
+                <div className={styles.featureIcon}>
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/fae5055a0ffe003f7f0bd52b40a2aa0762b64a8d?width=182"
+                    alt="Quick Launch"
+                  />
+                </div>
+                <h3 className={styles.featureTitle}>Quick Launch,{'\n'}Zero Stress</h3>
+                <p className={styles.featureDescription}>
+                  Go live the same day. No dev team needed. No weeks of setup
+                </p>
+              </div>
+
+              <div className={styles.featureCard}>
+                <div className={styles.featureIcon}>
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/6ff380cf795e0a7efec20d3b73e761c0ab7c69d6?width=102"
+                    alt="Staff Time Reclaimed"
+                  />
+                </div>
+                <h3 className={styles.featureTitle}>Staff Time{'\n'}Reclaimed</h3>
+                <p className={styles.featureDescription}>
+                  Save 30–40 hrs/mo and let your team focus on the floor — not the inbox
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* FAQ Section */}
           <section className={styles.faqSection}>
             <h2 className={styles.sectionTitle}>But What If...</h2>
