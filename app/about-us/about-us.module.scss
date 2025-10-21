@@ -393,6 +393,22 @@
   }
 }
 
+.stepNumber {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: colors.$primary-purple;
+  color: colors.$white;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  position: relative;
+}
+
 .buildTitle {
   flex: 1 0 0;
   color: colors.$black-dark;
