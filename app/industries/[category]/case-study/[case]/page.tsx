@@ -191,12 +191,14 @@ export default function CaseStudyPage() {
 
           {/* Hero Section */}
           <section className={styles.hero}>
-            <div className={styles.containerText}>
-              <div className={styles.heading}>
-                <h1 className={styles.heroTitle}>{data.title}</h1>
-              </div>
-              <div className={styles.subheading}>
-                <p className={styles.heroSubtitle}>{data.subtitle}</p>
+            <div className={styles.heroContentWrapper}>
+              <div className={styles.containerText}>
+                <div className={styles.heading}>
+                  <h1 className={styles.heroTitle}>{data.title}</h1>
+                </div>
+                <div className={styles.subheading}>
+                  <p className={styles.heroSubtitle}>{data.subtitle}</p>
+                </div>
               </div>
             </div>
 
