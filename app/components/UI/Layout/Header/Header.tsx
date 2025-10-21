@@ -36,6 +36,11 @@ export const Header = (): React.ReactElement => {
       description: 'Frequently asked questions about our service',
     },
     {
+      label: 'Industries',
+      href: '/industries',
+      description: 'Solutions for different industries',
+    },
+    {
       label: 'Customer Stories',
       href: '/customers',
       description: 'Success stories from our clients',
