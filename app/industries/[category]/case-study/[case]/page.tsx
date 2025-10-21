@@ -71,7 +71,7 @@ interface Features {
 }
 
 interface SetupCard {
-  number: string;
+  number: number;
   title: string;
   description: string;
 }
@@ -206,22 +206,22 @@ const caseStudyData: Record<string, CaseStudy> = {
       subtitle: 'No waiting 7 days to see results — go live today',
       cards: [
         {
-          number: '/setup-step-1.png',
+          number: 1,
           title: 'Load Your Content',
           description: 'Menus, event details, flyers, FAQs, house rules, location & parking'
         },
         {
-          number: '/setup-step-2.png',
+          number: 2,
           title: 'Set the Voice',
           description: 'Choose tone & phrasing — we align replies to your brand'
         },
         {
-          number: '/setup-step-3.png',
+          number: 3,
           title: 'Connect Channels',
           description: 'Instagram, WhatsApp Business, drop-in website widget'
         },
         {
-          number: '/setup-step-4.png',
+          number: 4,
           title: 'Guarded Launch',
           description: 'Start in review mode, then go full auto with escalation triggers'
         }
@@ -538,7 +538,7 @@ export default function CaseStudyPage() {
               {data.setup.cards.map((card: SetupCard, i: number): React.ReactElement => (
                 <div key={i} className={styles.setupCard}>
                   <div className={styles.setupIcon}>
-                    <Image src={card.number} alt="" width={60} height={60} />
+                    <span className={styles.setupNumber}>{card.number}</span>
                   </div>
                   <div className={styles.setupTitle}>
                     <h3>{card.title}</h3>
