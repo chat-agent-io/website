@@ -218,27 +218,27 @@ const buildSteps = [
   {
     title: 'Clarity First',
     caption: 'Responses that feel like they were crafted by a skilled human',
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/a6502f81d08899283e6bc857107b1cc1da47460b?width=80'
+    icon: '/build-step-1.png'
   },
   {
     title: 'Safety By Design',
     caption: 'Guardrails, allow/deny lists, and escalation to human support',
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/5818e4fb94c1b47b2db4407eaf7a3a345fa9c290?width=80'
+    icon: '/build-step-2.png'
   },
   {
     title: 'Reliability',
     caption: 'Clear SLAs for higher tiers; transparent communication about status and incidents',
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/dd50c5b24f7cbfd4add034d5d6bf91f4a0b7ac99?width=80'
+    icon: '/build-step-3.png'
   },
   {
     title: 'Control',
     caption: 'Your data, your style, your workflows — with settings tailored for each tenant',
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/5aa2cf86543e463bf1a9634978e9719b6cfbd6bb?width=80'
+    icon: '/build-step-4.png'
   },
   {
     title: 'Privacy',
     caption: 'No selling your data or using your content for training without consent',
-    icon: 'https://api.builder.io/api/v1/image/assets/TEMP/cc92e3b15aabf91644fe68973144292ca34d34bc?width=80'
+    icon: '/build-step-5.png'
   }
 ];
 

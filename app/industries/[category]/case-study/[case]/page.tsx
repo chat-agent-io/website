@@ -246,11 +246,11 @@ const caseStudyData: Record<string, CaseStudy> = {
       }
     ],
     finalCta: {
-      logo: 'https://api.builder.io/api/v1/image/assets/TEMP/0b4768191c965e62aac3a96d78ab484f707fec83?width=300',
+      logo: '/case-study-logo.png',
       title: 'Every Missed Message Is a Missed Guest on the Beach.',
       subtitle: 'Let your team focus on the vibe. ChatAgent handles messages — instantly, on brand, across every channel.',
       buttonText: 'Start 14-Day Free Trial',
-      background: 'https://api.builder.io/api/v1/image/assets/TEMP/36cf94c30090f066a3c60121d2de3eb62aac9c9f?width=1700'
+      background: '/case-study-background.jpg'
     }
   }
 };
