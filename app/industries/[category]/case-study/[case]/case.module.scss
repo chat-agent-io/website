@@ -1,0 +1,828 @@
+@use '../../../../styles/colors' as colors;
+
+.page {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background: colors.$gray-100;
+  position: relative;
+}
+
+.mainContainer {
+  display: flex;
+  padding: 0 64px 32px 64px;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  align-self: stretch;
+  
+  @media (max-width: 768px) {
+    padding: 0 32px 32px 32px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 16px 32px 16px;
+  }
+}
+
+// Breadcrumb
+.headerBar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  position: relative;
+}
+
+.breadcrumb {
+  display: flex;
+  padding: 16px 0;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+  border-bottom: 1px solid colors.$gray-300;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 120%;
+  
+  .inactive {
+    color: colors.$gray-700;
+  }
+  
+  .active {
+    color: colors.$black-darker;
+  }
+}
+
+// Hero Section
+.hero {
+  display: flex;
+  padding: 32px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+  position: relative;
+}
+
+.heroContent {
+  display: flex;
+  max-width: 628px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  position: relative;
+}
+
+.heroTitle {
+  flex: 1 0 0;
+  color: colors.$black-dark;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+  
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
+}
+
+.heroSubtitle {
+  flex: 1 0 0;
+  color: colors.$gray-800;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+  padding: 0 32px;
+  
+  @media (max-width: 480px) {
+    padding: 0 16px;
+    font-size: 14px;
+  }
+}
+
+.statsCards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+}
+
+.statCard {
+  display: flex;
+  width: 200px;
+  padding: 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-radius: 9.5px;
+  background: #fff;
+  
+  @media (max-width: 768px) {
+    width: calc(50% - 8px);
+    min-width: 180px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.statValue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statIcon {
+  font-size: 25px;
+}
+
+.statNumber {
+  color: #14AD14;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.statLabel {
+  flex: 1 0 0;
+  color: colors.$black-dark;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+}
+
+.statCaption {
+  color: colors.$gray-800;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  
+  @media (max-width: 480px) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.primaryBtn {
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9.5px;
+  background: linear-gradient(97deg, #07A5EB -30.96%, #3214F0 107.21%);
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+  
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.secondaryBtn {
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9.5px;
+  border: 1px solid transparent;
+  background: #fff;
+  color: colors.$black-dark;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background: colors.$gray-100;
+  }
+  
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+// Problem Section
+.problemSection {
+  display: flex;
+  padding: 32px 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+}
+
+.sectionTitle {
+  flex: 1 0 0;
+  color: colors.$black-dark;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+  
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
+}
+
+.sectionSubtitle {
+  flex: 1 0 0;
+  color: colors.$gray-800;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+  padding: 0 32px;
+  
+  @media (max-width: 480px) {
+    font-size: 14px;
+    padding: 0 16px;
+  }
+}
+
+.problemCards {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.problemCard {
+  display: flex;
+  width: 300px;
+  min-height: 350px;
+  padding: 16px 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  border-radius: 9.5px;
+  background: #fff;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+.cardTitle {
+  flex: 1 0 0;
+  color: colors.$gray-800;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+  padding: 0 16px;
+}
+
+.cardDescription {
+  align-self: stretch;
+  color: colors.$gray-700;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+  padding: 0 32px;
+}
+
+.questionsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.questionsTitle {
+  color: colors.$primary-purple;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+  padding: 0 16px;
+  
+  .problemCard:last-child & {
+    color: colors.$black-dark;
+  }
+}
+
+.questionsCards {
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+  padding: 0 16px;
+}
+
+.questionCard {
+  display: flex;
+  min-height: 48px;
+  padding: 4px 8px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 9.5px;
+  border: 1px solid #fff;
+  box-shadow: -5px 10px 15px 0 rgba(0, 0, 0, 0.05);
+  margin: 4px 0;
+  width: 100%;
+  max-width: 250px;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 120%;
+  
+  &.orange {
+    background: #FFF4ED;
+    color: #EB9A10;
+  }
+  
+  &.purple {
+    background: #EFEAFE;
+    color: #9B46EB;
+  }
+  
+  &.cyan {
+    background: #E5F3FE;
+    color: #07A5EB;
+  }
+  
+  &.green {
+    background: #EDFFEF;
+    color: #37C057;
+  }
+}
+
+.problemStaffCard {
+  display: flex;
+  min-height: 48px;
+  padding: 4px 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+  border-radius: 9.5px;
+  border: 1px solid colors.$black-dark;
+  background: #fff;
+  box-shadow: -5px 10px 15px 0 rgba(0, 0, 0, 0.05);
+  margin: 4px 0;
+  width: 100%;
+  max-width: 250px;
+  
+  strong {
+    color: colors.$black-dark;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 120%;
+  }
+  
+  span {
+    color: colors.$gray-800;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 120%;
+  }
+}
+
+.problemNote {
+  flex: 1 0 0;
+  color: colors.$gray-800;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+}
+
+// Channels Section
+.channelsSection {
+  display: flex;
+  padding: 32px 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.channelButtons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  @media (max-width: 480px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.channelBtn {
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: colors.$black-dark;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 120%;
+  cursor: pointer;
+  transition: background 0.2s;
+  
+  &.active {
+    background: linear-gradient(180deg, #4E4D54 0%, #1C1A24 91.03%);
+    color: #fff;
+    border-color: transparent;
+  }
+  
+  &:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.moreText {
+  color: colors.$gray-600;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.conversationDemo {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 9.5px;
+  
+  @media (max-width: 768px) {
+    min-height: 300px;
+  }
+}
+
+.placeholder {
+  color: colors.$gray-600;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+// Timeline Section
+.timelineSection {
+  display: flex;
+  padding: 32px 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+}
+
+.timelineCards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+}
+
+.timelineCard {
+  display: flex;
+  width: 199px;
+  padding: 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border-radius: 9.5px;
+  background: #fff;
+  
+  @media (max-width: 768px) {
+    width: calc(50% - 8px);
+    min-width: 180px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+  
+  h3 {
+    flex: 1 0 0;
+    color: colors.$black-dark;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
+  }
+  
+  p {
+    color: colors.$gray-700;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.timelineImage {
+  height: 110px;
+  align-self: stretch;
+  border-radius: 9.5px;
+  background: colors.$gray-200;
+}
+
+// Benefits Section
+.benefitsSection {
+  display: flex;
+  padding: 32px 64px;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+  
+  @media (max-width: 768px) {
+    padding: 32px 0;
+  }
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 266px);
+  gap: 16px;
+  justify-content: center;
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 266px);
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.benefitCard {
+  display: flex;
+  padding: 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border-radius: 9.5px;
+  background: #fff;
+  
+  h3 {
+    flex: 1 0 0;
+    color: colors.$black-dark;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
+  }
+  
+  p {
+    color: colors.$gray-700;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.benefitImage {
+  width: 250px;
+  height: 200px;
+  border-radius: 9.5px;
+  background: linear-gradient(180deg, #FFF 0%, #F2F2FA 100%);
+}
+
+// FAQ Section
+.faqSection {
+  display: flex;
+  padding: 32px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.faqList {
+  display: flex;
+  max-width: 846px;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+}
+
+.faqItem {
+  display: flex;
+  padding-bottom: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  border-bottom: 1px solid rgba(217, 216, 218, 0.5);
+  
+  h3 {
+    flex: 1 0 0;
+    color: colors.$black-dark;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 8px 0 4px 0;
+  }
+  
+  p {
+    flex: 1 0 0;
+    color: colors.$gray-800;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+    padding-left: 32px;
+  }
+}
+
+// CTA Banner
+.ctaBanner {
+  display: flex;
+  padding: 32px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+
+.bannerContent {
+  display: flex;
+  width: 850px;
+  max-width: 100%;
+  padding: 32px 64px;
+  align-items: center;
+  border-radius: 9.5px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(83deg, #FFF 48.52%, rgba(54, 235, 255, 0.2) 101.25%);
+  gap: 16px;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 32px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 24px 16px;
+  }
+  
+  h2 {
+    align-self: stretch;
+    color: colors.$black-dark;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 33px;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
+    
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 24px;
+    }
+  }
+  
+  p {
+    align-self: stretch;
+    color: colors.$gray-800;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+    
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+  
+  button {
+    flex-shrink: 0;
+    
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}
+
+// Not Found
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  gap: 16px;
+  align-self: stretch;
+  
+  h1 {
+    color: colors.$black-dark;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  p {
+    color: colors.$gray-800;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0;
+  }
+}
