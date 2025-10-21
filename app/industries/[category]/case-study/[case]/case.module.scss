@@ -821,7 +821,7 @@
   flex-shrink: 0;
   align-self: stretch;
   border-radius: 9.5px;
-  background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+  background: colors.$gray-200;
   position: relative;
 }
 
