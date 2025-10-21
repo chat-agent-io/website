@@ -143,8 +143,18 @@ export default function CaseStudyPage() {
                   <div className={styles.questionsCards}>
                     {data.teamBottleneck.problems.map((p: any, i: number) => (
                       <div key={i} className={styles.problemStaffCard}>
-                        <strong>{p.role}</strong>
-                        <span>{p.issue}</span>
+                        {p.isImage ? (
+                          <img
+                            src="https://dummyimage.com/300x300/c9c9c9/696969.jpg"
+                            alt={p.role}
+                            className={styles.problemImage}
+                          />
+                        ) : (
+                          <>
+                            <strong>{p.role}</strong>
+                            <span>{p.issue}</span>
+                          </>
+                        )}
                       </div>
                     ))}
                   </div>
