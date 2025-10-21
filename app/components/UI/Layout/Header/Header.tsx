@@ -16,6 +16,7 @@ export const Header = (): React.ReactElement => {
     { label: 'Home', href: '/' },
     { label: 'Pricing', href: '/pricing' },
     { label: 'FAQs', href: '/faq' },
+    { label: 'Industries', href: '/industries' },
   ];
 
   const mobileNavItems = [
