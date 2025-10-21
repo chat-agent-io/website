@@ -679,6 +679,116 @@
   background: linear-gradient(180deg, #FFF 0%, #F2F2FA 100%);
 }
 
+// Features Section
+.featuresSection {
+  display: flex;
+  padding: 32px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+}
+
+.featuresHeader {
+  display: flex;
+  max-width: 628px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
+.featuresCards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.featureCard {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  padding: 16px 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border-radius: 9.5px;
+  background: #fff;
+
+  @media (max-width: 768px) {
+    width: calc(50% - 8px);
+    min-width: 180px;
+    height: auto;
+    min-height: 200px;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.featureIcon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: 56px;
+    max-height: 56px;
+    object-fit: contain;
+  }
+}
+
+.featureTitle {
+  flex: 1 0 0;
+  color: colors.$black-dark;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 120%;
+  margin: 0;
+  white-space: pre-line;
+}
+
+.featureDescription {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  flex: 1 0 0;
+  overflow: hidden;
+  color: colors.$gray-800;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 0;
+}
+
 // FAQ Section
 .faqSection {
   display: flex;
