@@ -8,7 +8,7 @@ export default function AboutUsPage() {
   return (
     <Layout>
       <main className={styles.page}>
-        <div className={styles.mainContainer}>
+   
           
           {/* Who We Are Section */}
           <section className={styles.sectionContainer}>
@@ -164,7 +164,6 @@ export default function AboutUsPage() {
             </div>
           </section>
 
-        </div>
       </main>
     </Layout>
   );
