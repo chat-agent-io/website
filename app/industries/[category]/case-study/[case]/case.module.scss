@@ -77,6 +77,14 @@
   position: relative;
 }
 
+.heroContentWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 .containerText {
   display: flex;
   max-width: 628px;
@@ -88,6 +96,7 @@
 
   @media (max-width: 768px) {
     max-width: 100%;
+    padding: 0 16px;
   }
 }
 
