@@ -109,7 +109,7 @@ export default function AboutUsPage() {
               {buildSteps.map((step, index) => (
                 <div key={index} className={styles.buildCard}>
                   <div className={styles.numberIcon}>
-                    <Image src={step.icon} alt="" width={40} height={40} />
+                    <span className={styles.stepNumber}>{step.number}</span>
                   </div>
                   <h3 className={styles.buildTitle}>{step.title}</h3>
                   <p className={styles.buildCaption}>{step.caption}</p>
@@ -216,29 +216,29 @@ const industries = [
 
 const buildSteps = [
   {
+    number: 1,
     title: 'Clarity First',
-    caption: 'Responses that feel like they were crafted by a skilled human',
-    icon: '/build-step-1.png'
+    caption: 'Responses that feel like they were crafted by a skilled human'
   },
   {
+    number: 2,
     title: 'Safety By Design',
-    caption: 'Guardrails, allow/deny lists, and escalation to human support',
-    icon: '/build-step-2.png'
+    caption: 'Guardrails, allow/deny lists, and escalation to human support'
   },
   {
+    number: 3,
     title: 'Reliability',
-    caption: 'Clear SLAs for higher tiers; transparent communication about status and incidents',
-    icon: '/build-step-3.png'
+    caption: 'Clear SLAs for higher tiers; transparent communication about status and incidents'
   },
   {
+    number: 4,
     title: 'Control',
-    caption: 'Your data, your style, your workflows — with settings tailored for each tenant',
-    icon: '/build-step-4.png'
+    caption: 'Your data, your style, your workflows — with settings tailored for each tenant'
   },
   {
+    number: 5,
     title: 'Privacy',
-    caption: 'No selling your data or using your content for training without consent',
-    icon: '/build-step-5.png'
+    caption: 'No selling your data or using your content for training without consent'
   }
 ];
 
