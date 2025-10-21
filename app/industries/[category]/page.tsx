@@ -102,18 +102,34 @@ export default function IndustryCategoryPage() {
           </div>
 
           <div className={styles.subcategoriesGrid}>
-            {data.subcategories.map((subcategory) => (
-              <div key={subcategory.id} className={styles.card}>
-                <div className={styles.cardHeader}>
-                  <div className={styles.iconWrapper}>{subcategory.icon}</div>
-                  <h2 className={styles.cardTitle}>{subcategory.title}</h2>
+            <div className={styles.row}>
+              {data.subcategories.slice(0, 3).map((subcategory) => (
+                <div key={subcategory.id} className={styles.card}>
+                  <div className={styles.cardHeader}>
+                    <div className={styles.iconWrapper}>{subcategory.icon}</div>
+                    <h2 className={styles.cardTitle}>{subcategory.title}</h2>
+                  </div>
+                  <p className={styles.cardDescription}>{subcategory.description}</p>
+                  <a href="#" className={styles.seeHowLink}>
+                    See How It Works ↗
+                  </a>
                 </div>
-                <p className={styles.cardDescription}>{subcategory.description}</p>
-                <a href="#" className={styles.seeHowLink}>
-                  See How It Works ↗
-                </a>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className={styles.row}>
+              {data.subcategories.slice(3).map((subcategory) => (
+                <div key={subcategory.id} className={styles.card}>
+                  <div className={styles.cardHeader}>
+                    <div className={styles.iconWrapper}>{subcategory.icon}</div>
+                    <h2 className={styles.cardTitle}>{subcategory.title}</h2>
+                  </div>
+                  <p className={styles.cardDescription}>{subcategory.description}</p>
+                  <a href="#" className={styles.seeHowLink}>
+                    See How It Works ↗
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </main>
