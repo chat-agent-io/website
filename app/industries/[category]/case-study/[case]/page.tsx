@@ -118,23 +118,23 @@ const caseStudyData: Record<string, CaseStudy> = {
     title: 'Beach Club Guests Don\'t Wait — Neither Should Your Replies',
     subtitle: 'From lazy brunch to sunset party, ChatAgent answers every message in seconds — with human-quality recommendations that feel like they\'re from your most experienced host.',
     stats: [
-      { 
-        icon: 'https://api.builder.io/api/v1/image/assets/TEMP/3a41cb072b5ee98e0acee938b2f36b967745bcb1?width=74', 
-        value: '38 sec', 
-        label: 'Avg. Reply Time', 
-        caption: 'instead of hours' 
+      {
+        icon: '/stat-icon-1.png',
+        value: '38 sec',
+        label: 'Avg. Reply Time',
+        caption: 'instead of hours'
       },
-      { 
-        icon: 'https://api.builder.io/api/v1/image/assets/TEMP/b505eb2cdf42549b481296254a7377c82abccc14?width=70', 
-        value: '+25%', 
-        label: 'Engagement Uplift', 
-        caption: 'on event posts' 
+      {
+        icon: '/stat-icon-2.png',
+        value: '+25%',
+        label: 'Engagement Uplift',
+        caption: 'on event posts'
       },
-      { 
-        icon: 'https://api.builder.io/api/v1/image/assets/TEMP/fb0886daa9ed09b6bda3ecc55ebd63d6bc937d8c?width=120', 
-        value: '+40/mo', 
-        label: 'Staff Hours Saved', 
-        caption: 'in season' 
+      {
+        icon: '/stat-icon-3.png',
+        value: '+40/mo',
+        label: 'Staff Hours Saved',
+        caption: 'in season'
       }
     ],
     problemTitle: 'Beach Club Reality\n— Fast, Loud, Full-On',
@@ -142,13 +142,13 @@ const caseStudyData: Record<string, CaseStudy> = {
       title: 'Guests Expect',
       description: 'Instant answers, friendly recommendations, today\'s details, and help in their language.',
       subtitle: 'What Guests Ask',
-      image: 'https://api.builder.io/api/v1/image/assets/TEMP/5d8884493fd099859b3740a9c5d70adf422185c4?width=600'
+      image: '/guest-expect-image.jpg'
     },
     teamBottleneck: {
       title: 'The Bottleneck',
       description: 'Spiky DM volume, busy floor, constantly changing info — replies lag and valuable opportunities slip.',
       subtitle: 'What Your Team Is Doing',
-      image: 'https://api.builder.io/api/v1/image/assets/TEMP/e3a51180b88f2721b89ba59b05fea1a8b9d23036?width=568'
+      image: '/team-bottleneck-image.jpg'
     },
     channels: {
       title: 'One Voice, All Platforms',
@@ -156,9 +156,9 @@ const caseStudyData: Record<string, CaseStudy> = {
       buttons: ['WhatsApp', 'Instagram', 'Website'],
       conversationTitle1: 'Conversations\nThat Feel Human',
       conversationTitle2: 'Recommendations,\nNot Lists',
-      conversationImage1: 'https://api.builder.io/api/v1/image/assets/TEMP/55cb404fbd7e627a9a4a5496609cb5491f4c313f?width=580',
-      conversationImage2: 'https://api.builder.io/api/v1/image/assets/TEMP/f719f08ed7cf7ca84a2fdff9b2b96081e1db4dee?width=580',
-      screenshot: 'https://api.builder.io/api/v1/image/assets/TEMP/373c4d2f7b1b5512af3b8fd1157c8e017ea0328d?width=600'
+      conversationImage1: '/conversation-1.jpg',
+      conversationImage2: '/conversation-2.jpg',
+      screenshot: '/mobile-screenshot.jpg'
     },
     timeline: {
       title: 'A Beach Club Day\n— Covered End to End',
@@ -184,18 +184,18 @@ const caseStudyData: Record<string, CaseStudy> = {
       title: 'Why Beach Clubs Love This\n— Even If They Don\'t Know It Yet',
       subtitle: 'This isn\'t a chatbot. This is an upgrade to your guest experience.',
       cards: [
-        { 
-          icon: 'https://api.builder.io/api/v1/image/assets/TEMP/b691ca61d5fd834b549f8c3cefd5a22b8e25875e?width=112',
+        {
+          icon: '/feature-icon-1.png',
           title: 'Trained to Think\nLike You',
           description: 'Upload your menu, services, pricing, tone of voice, FAQs, and hashtags. ChatAgent learns fast'
         },
-        { 
-          icon: 'https://api.builder.io/api/v1/image/assets/TEMP/fae5055a0ffe003f7f0bd52b40a2aa0762b64a8d?width=182',
+        {
+          icon: '/feature-icon-2.png',
           title: 'Quick Launch,\nZero Stress',
           description: 'Go live the same day. No dev team needed. No weeks of setup'
         },
-        { 
-          icon: 'https://api.builder.io/api/v1/image/assets/TEMP/6ff380cf795e0a7efec20d3b73e761c0ab7c69d6?width=102',
+        {
+          icon: '/feature-icon-3.png',
           title: 'Staff Time\nReclaimed',
           description: 'Save 30–40 hrs/mo and let your team focus on the floor — not the inbox'
         }
@@ -206,22 +206,22 @@ const caseStudyData: Record<string, CaseStudy> = {
       subtitle: 'No waiting 7 days to see results — go live today',
       cards: [
         {
-          number: 'https://api.builder.io/api/v1/image/assets/TEMP/a6502f81d08899283e6bc857107b1cc1da47460b?width=80',
+          number: '/setup-step-1.png',
           title: 'Load Your Content',
           description: 'Menus, event details, flyers, FAQs, house rules, location & parking'
         },
         {
-          number: 'https://api.builder.io/api/v1/image/assets/TEMP/5818e4fb94c1b47b2db4407eaf7a3a345fa9c290?width=80',
+          number: '/setup-step-2.png',
           title: 'Set the Voice',
           description: 'Choose tone & phrasing — we align replies to your brand'
         },
         {
-          number: 'https://api.builder.io/api/v1/image/assets/TEMP/dd50c5b24f7cbfd4add034d5d6bf91f4a0b7ac99?width=80',
+          number: '/setup-step-3.png',
           title: 'Connect Channels',
           description: 'Instagram, WhatsApp Business, drop-in website widget'
         },
         {
-          number: 'https://api.builder.io/api/v1/image/assets/TEMP/5aa2cf86543e463bf1a9634978e9719b6cfbd6bb?width=80',
+          number: '/setup-step-4.png',
           title: 'Guarded Launch',
           description: 'Start in review mode, then go full auto with escalation triggers'
         }
