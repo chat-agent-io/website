@@ -325,13 +325,24 @@
 
 .problemHeading,
 .timelineHeading,
-.benefitsHeading,
-.faqsHeading {
+.benefitsHeading {
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: stretch;
   position: relative;
+}
+
+.faqsHeading {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .sectionTitle {
+    max-width: 628px;
+  }
 }
 
 .sectionTitle {
@@ -1365,14 +1376,14 @@
 
 .qAndA {
   display: flex;
+  width: 100%;
   max-width: 846px;
   flex-direction: column;
   align-items: center;
-  align-self: stretch;
   position: relative;
 
   @media (max-width: 768px) {
-    max-width: 100%;
+    padding: 0 16px;
   }
 }
 
