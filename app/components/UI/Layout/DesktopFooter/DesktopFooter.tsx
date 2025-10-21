@@ -20,6 +20,7 @@ export const DesktopFooter = (): React.ReactElement => {
     'About Us': '/about-us',
     Careers: '/careers',
     FAQs: '/faq',
+    Industries: '/industries',
     Pricing: '/pricing',
     'Privacy Policy': '/legal/privacy-policy',
     'Terms & Conditions': '/legal/terms-conditions',
