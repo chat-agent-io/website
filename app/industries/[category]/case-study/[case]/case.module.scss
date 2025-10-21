@@ -484,11 +484,10 @@
 }
 
 .groupCards {
-  width: 284px;
-  height: 214px;
+  width: 100%;
   flex-shrink: 0;
-  aspect-ratio: 142/107;
   position: relative;
+  padding: 0 16px 16px 16px;
 }
 
 .problemText {
