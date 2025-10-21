@@ -313,7 +313,7 @@ export default function CaseStudyPage() {
               {data.stats.map((stat: Stat, index: number) => (
                 <div key={index} className={styles.card}>
                   <div className={styles.statIconContainer}>
-                    <img src={stat.icon} alt="" className={styles.statIconImg} />
+                    <Image src={stat.icon} alt="" width={74} height={74} className={styles.statIconImg} />
                     <span className={styles.statNumber}>{stat.value}</span>
                   </div>
                   <div className={styles.titleSection}>
@@ -358,7 +358,7 @@ export default function CaseStudyPage() {
                   <h4>{data.guestExpect.subtitle}</h4>
                 </div>
                 <div className={styles.containerQuestions}>
-                  <img src={data.guestExpect.image} alt="What Guests Ask" className={styles.questionsCards} />
+                  <Image src={data.guestExpect.image} alt="What Guests Ask" width={600} height={400} className={styles.questionsCards} />
                 </div>
               </div>
 
@@ -377,7 +377,7 @@ export default function CaseStudyPage() {
                 </div>
                 <div className={styles.containerQuestions}>
                   <div className={styles.questionCardsWrapper}>
-                    <img src={data.teamBottleneck.image} alt="What Your Team Is Doing" className={styles.groupCards} />
+                    <Image src={data.teamBottleneck.image} alt="What Your Team Is Doing" width={568} height={400} className={styles.groupCards} />
                   </div>
                 </div>
               </div>
@@ -418,18 +418,18 @@ export default function CaseStudyPage() {
                     <div className={styles.minichatHeading}>
                       <h3 className={styles.gradientInstagram}>{data.channels.conversationTitle1}</h3>
                     </div>
-                    <img src={data.channels.conversationImage1} alt="Conversation sample" className={styles.conversationCard} />
+                    <Image src={data.channels.conversationImage1} alt="Conversation sample" width={300} height={400} className={styles.conversationCard} />
                   </div>
 
                   <div className={styles.minichatCards}>
                     <div className={styles.minichatHeading}>
                       <h3 className={styles.gradientBlue}>{data.channels.conversationTitle2}</h3>
                     </div>
-                    <img src={data.channels.conversationImage2} alt="Conversation sample" className={styles.conversationCard} />
+                    <Image src={data.channels.conversationImage2} alt="Conversation sample" width={300} height={400} className={styles.conversationCard} />
                   </div>
                 </div>
 
-                <img src={data.channels.screenshot} alt="Mobile screenshot" className={styles.screenshots} />
+                <Image src={data.channels.screenshot} alt="Mobile screenshot" width={400} height={600} className={styles.screenshots} />
               </div>
             </div>
           </section>
@@ -512,7 +512,7 @@ export default function CaseStudyPage() {
               {data.features.cards.map((card: FeatureCard, i: number): React.ReactElement => (
                 <div key={i} className={styles.featureCard}>
                   <div className={styles.featureIcon}>
-                    <img src={card.icon} alt="" />
+                    <Image src={card.icon} alt="" width={50} height={50} />
                   </div>
                   <div className={styles.featureContent}>
                     <div className={styles.featureTitle}>
@@ -537,7 +537,7 @@ export default function CaseStudyPage() {
               {data.setup.cards.map((card: SetupCard, i: number): React.ReactElement => (
                 <div key={i} className={styles.setupCard}>
                   <div className={styles.setupIcon}>
-                    <img src={card.number} alt="" />
+                    <Image src={card.number} alt="" width={60} height={60} />
                   </div>
                   <div className={styles.setupTitle}>
                     <h3>{card.title}</h3>
@@ -580,7 +580,7 @@ export default function CaseStudyPage() {
           <section className={styles.finalCta}>
             <div className={styles.bannerFrame}>
               <div className={styles.logoAndText}>
-                <img src={data.finalCta.logo} alt="ChatAgent" className={styles.logoButton} />
+                <Image src={data.finalCta.logo} alt="ChatAgent" width={120} height={120} className={styles.logoButton} />
                 <div className={styles.bannerTextContent}>
                   <h2>{data.finalCta.title}</h2>
                   <p>{data.finalCta.subtitle}</p>
