@@ -1303,6 +1303,22 @@
   }
 }
 
+.setupNumber {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #3214F0;
+  color: colors.$white;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  position: relative;
+}
+
 .setupTitle {
   display: flex;
   justify-content: center;
