@@ -385,6 +385,7 @@
   min-height: 48px;
   padding: 4px 8px;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   border-radius: 9.5px;
   border: 1px solid #fff;
@@ -396,26 +397,35 @@
   font-size: 13px;
   font-weight: 400;
   line-height: 120%;
-  
+
   &.orange {
     background: #FFF4ED;
     color: #EB9A10;
   }
-  
+
   &.purple {
     background: #EFEAFE;
     color: #9B46EB;
   }
-  
+
   &.cyan {
     background: #E5F3FE;
     color: #07A5EB;
   }
-  
+
   &.green {
     background: #EDFFEF;
     color: #37C057;
   }
+}
+
+.questionImage {
+  width: 100%;
+  height: 100%;
+  max-width: 250px;
+  max-height: 100px;
+  border-radius: 9.5px;
+  object-fit: cover;
 }
 
 .problemStaffCard {
