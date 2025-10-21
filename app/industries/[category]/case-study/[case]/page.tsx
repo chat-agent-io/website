@@ -92,6 +92,7 @@ interface FinalCTA {
   title: string;
   subtitle: string;
   buttonText: string;
+  background: string;
 }
 
 interface CaseStudy {
