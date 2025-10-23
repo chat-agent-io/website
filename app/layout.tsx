@@ -8,8 +8,23 @@ import {QueryProvider} from './providers/QueryProvider';
 import './globals.css';
 
 export const metadata: Metadata = {
-    title: 'ChatAgent - Start replying smarter',
-    description: "ChatAgent replies to every Instagram, WhatsApp, or website message — so you don't have to."
+    title: 'ChatAgent - AI Customer Service Automation | Instant Replies 24/7',
+    description: 'Automate customer service on Instagram, WhatsApp & website chat with ChatAgent\'s AI assistant. Instant replies, smart conversations, 14-day free trial. No credit card needed.',
+    keywords: 'AI customer service, chatbot, Instagram automation, WhatsApp business, customer support automation, AI messaging',
+    openGraph: {
+        title: 'ChatAgent - AI Customer Service Automation',
+        description: 'Automate customer service across all channels. Instant replies, smarter conversations. Try free for 14 days.',
+        url: 'https://chatagent.io',
+        siteName: 'ChatAgent',
+        locale: 'en_US',
+        type: 'website'
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'ChatAgent - AI Customer Service Automation',
+        description: 'Automate customer service on Instagram, WhatsApp & website with AI-powered replies. 14-day free trial.',
+        creator: '@ChatAgent'
+    }
 };
 
 export default function RootLayout({children}: Readonly<{
