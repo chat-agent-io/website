@@ -42,7 +42,7 @@ export const RealResults = (): React.ReactElement => {
     {
       title: (
         <>
-          <b>95%</b> of questions answered instantly
+          <b>100%</b> of questions answered instantly
         </>
       ),
       icon: <Clock2Icon className={styles.icon} />,
