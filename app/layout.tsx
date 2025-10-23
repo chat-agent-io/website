@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         locale: 'en_US',
         type: 'website',
         images: [{
-            url: '/seo.png',
+            url: 'https://chatagent.io/seo.png',
             width: 1200,
             height: 630,
             alt: 'ChatAgent - AI Customer Service Automation'
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         title: 'ChatAgent - AI Customer Service Automation',
         description: 'Automate customer service on Instagram, WhatsApp & website with AI-powered replies. 14-day free trial.',
         creator: '@ChatAgent',
-        images: ['/seo.png']
+        images: ['https://chatagent.io/seo.png']
     }
 };
 
