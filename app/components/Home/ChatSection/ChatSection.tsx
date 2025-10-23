@@ -94,141 +94,141 @@ export const ChatSetupSection = (): React.ReactElement => {
         </p>
       </div>
 
-      <div className={styles.contentWrapper}>
-        <div className={styles.cardWrapper}>
-          {/* Onboarding Header */}
-          <div className={styles.onboardingHeader}>
-            <div className={styles.headerPart}>
-              <h2 className={styles.onboardingTitle}>
-                Let&apos;s Get Your
-                <br />
-                AI Agent Set Up.
-              </h2>
-            </div>
-          </div>
+      // <div className={styles.contentWrapper}>
+      //   <div className={styles.cardWrapper}>
+      //     {/* Onboarding Header */}
+      //     <div className={styles.onboardingHeader}>
+      //       <div className={styles.headerPart}>
+      //         <h2 className={styles.onboardingTitle}>
+      //           Let&apos;s Get Your
+      //           <br />
+      //           AI Agent Set Up.
+      //         </h2>
+      //       </div>
+      //     </div>
 
-          {/* Steps Indicator */}
-          <div className={styles.stepsIndicator}>
-            <div className={styles.stepCount}>0/3</div>
-            <div className={styles.progressDots}>
-              <div className={styles.progressDot}></div>
-              <div className={styles.progressDot}></div>
-              <div className={styles.progressDot}></div>
-            </div>
-          </div>
+      //     {/* Steps Indicator */}
+      //     <div className={styles.stepsIndicator}>
+      //       <div className={styles.stepCount}>0/3</div>
+      //       <div className={styles.progressDots}>
+      //         <div className={styles.progressDot}></div>
+      //         <div className={styles.progressDot}></div>
+      //         <div className={styles.progressDot}></div>
+      //       </div>
+      //     </div>
 
-          {/* New Onboarding Chat */}
-          <div className={styles.newOnboardingChat}>
-            {/* Messages Container */}
-            <div className={styles.messagesContainer}>
-              {messages.map((chat, index) => (
-                <div
-                  key={index}
-                  className={
-                    chat.isUser
-                      ? styles.userMessageContainer
-                      : styles.chatAgentMessageContainer
-                  }
-                >
-                  <div className={styles.messageContainer}>
-                    {!chat.isUser && (
-                      /* Profile Image Container */
-                      <div className={styles.profileImageContainer}>
-                        <div className={styles.profileImage}>
-                          {isMobile ? (
-                            <Image
-                              src="/imgs/chat-icon.png"
-                              alt="Chat Icon"
-                              width={24}
-                              height={21}
-                            />
-                          ) : (
-                            <ChatIcon />
-                          )}
-                        </div>
-                      </div>
-                    )}
+      //     {/* New Onboarding Chat */}
+      //     <div className={styles.newOnboardingChat}>
+      //       {/* Messages Container */}
+      //       <div className={styles.messagesContainer}>
+      //         {messages.map((chat, index) => (
+      //           <div
+      //             key={index}
+      //             className={
+      //               chat.isUser
+      //                 ? styles.userMessageContainer
+      //                 : styles.chatAgentMessageContainer
+      //             }
+      //           >
+      //             <div className={styles.messageContainer}>
+      //               {!chat.isUser && (
+      //                 /* Profile Image Container */
+      //                 <div className={styles.profileImageContainer}>
+      //                   <div className={styles.profileImage}>
+      //                     {isMobile ? (
+      //                       <Image
+      //                         src="/imgs/chat-icon.png"
+      //                         alt="Chat Icon"
+      //                         width={24}
+      //                         height={21}
+      //                       />
+      //                     ) : (
+      //                       <ChatIcon />
+      //                     )}
+      //                   </div>
+      //                 </div>
+      //               )}
 
-                    {/* Pill and Time */}
-                    <div className={styles.pillAndTime}>
-                      <div className={styles.textPill}>
-                        <div
-                          className={
-                            chat.isUser
-                              ? styles.userMessageText
-                              : styles.messageText
-                          }
-                        >
-                          {chat.message}
-                        </div>
-                      </div>
-                      <div className={styles.timeContainer}>
-                        <div className={styles.timestamp}>{chat.timestamp}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+      //               {/* Pill and Time */}
+      //               <div className={styles.pillAndTime}>
+      //                 <div className={styles.textPill}>
+      //                   <div
+      //                     className={
+      //                       chat.isUser
+      //                         ? styles.userMessageText
+      //                         : styles.messageText
+      //                     }
+      //                   >
+      //                     {chat.message}
+      //                   </div>
+      //                 </div>
+      //                 <div className={styles.timeContainer}>
+      //                   <div className={styles.timestamp}>{chat.timestamp}</div>
+      //                 </div>
+      //               </div>
+      //             </div>
+      //           </div>
+      //         ))}
+      //       </div>
 
-            {/* Container Text Box */}
-            <div className={styles.containerTextBox}>
-              {!isStarted ? (
-                <div className={styles.textBox} onClick={handleStartClick}>
-                  <div className={styles.stepsContainer}>
-                    <div className={styles.letStart}>Let&apos;s Start</div>
-                  </div>
-                </div>
-              ) : (
-                <div className={styles.inputContainer}>
-                  {!isMobile && (
-                    <button className={styles.startOverButton}>
-                      <StartOverIcon />
-                      Start Over
-                    </button>
-                  )}
-                  <div className={styles.chatInputBox}>
-                    <div className={styles.chatInput}>
-                      <div className={styles.attachmentIcon}>
-                        <ChatAttachmentIcon />
-                      </div>
-                      <input
-                        type="text"
-                        placeholder="Write a message..."
-                        className={styles.messageInput}
-                      />
-                      <button className={styles.sendButton}>
-                        <span className={styles.sendButtonText}>Send</span>
-                        <ChatSendIcon />
-                      </button>
-                    </div>
-                  </div>
-                  {!isMobile && (
-                    <button className={styles.needHelpButton}>
-                      <NeedHelpIcon />
-                      Need Help?
-                    </button>
-                  )}
-                </div>
-              )}
-            </div>
-          </div>
+      //       {/* Container Text Box */}
+      //       <div className={styles.containerTextBox}>
+      //         {!isStarted ? (
+      //           <div className={styles.textBox} onClick={handleStartClick}>
+      //             <div className={styles.stepsContainer}>
+      //               <div className={styles.letStart}>Let&apos;s Start</div>
+      //             </div>
+      //           </div>
+      //         ) : (
+      //           <div className={styles.inputContainer}>
+      //             {!isMobile && (
+      //               <button className={styles.startOverButton}>
+      //                 <StartOverIcon />
+      //                 Start Over
+      //               </button>
+      //             )}
+      //             <div className={styles.chatInputBox}>
+      //               <div className={styles.chatInput}>
+      //                 <div className={styles.attachmentIcon}>
+      //                   <ChatAttachmentIcon />
+      //                 </div>
+      //                 <input
+      //                   type="text"
+      //                   placeholder="Write a message..."
+      //                   className={styles.messageInput}
+      //                 />
+      //                 <button className={styles.sendButton}>
+      //                   <span className={styles.sendButtonText}>Send</span>
+      //                   <ChatSendIcon />
+      //                 </button>
+      //               </div>
+      //             </div>
+      //             {!isMobile && (
+      //               <button className={styles.needHelpButton}>
+      //                 <NeedHelpIcon />
+      //                 Need Help?
+      //               </button>
+      //             )}
+      //           </div>
+      //         )}
+      //       </div>
+      //     </div>
 
-          {/* Mobile Buttons Outside Chat */}
-          {isMobile && isStarted && (
-            <div className={styles.mobileButtonsContainer}>
-              <button className={styles.startOverButton}>
-                <StartOverIcon />
-                Start Over
-              </button>
-              <button className={styles.needHelpButton}>
-                <NeedHelpIcon />
-                Need Help?
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
+      //     {/* Mobile Buttons Outside Chat */}
+      //     {isMobile && isStarted && (
+      //       <div className={styles.mobileButtonsContainer}>
+      //         <button className={styles.startOverButton}>
+      //           <StartOverIcon />
+      //           Start Over
+      //         </button>
+      //         <button className={styles.needHelpButton}>
+      //           <NeedHelpIcon />
+      //           Need Help?
+      //         </button>
+      //       </div>
+      //     )}
+      //   </div>
+      // </div>
     </section>
   );
 };
