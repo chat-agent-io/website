@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from "next/image"
 import Layout from '../components/UI/Layout/Layout';
 import { useIndustries, type IndustriesResponse } from '../services/industries/useIndustries';
 import { getAssetCloud } from '../utils/assets';
@@ -50,7 +51,7 @@ export default function IndustriesPage() {
                 <div key={industry.id} className={styles.industryCard}>
                   <div className={styles.cardHeader}>
                     <div className={styles.iconWrapper}>
-                      <img
+                      <Image
                         src={getAssetCloud(industry.icon)}
                         alt={industry.name}
                         onError={(e) => {
