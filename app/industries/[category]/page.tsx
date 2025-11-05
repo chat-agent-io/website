@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import Layout from '../../components/UI/Layout/Layout';
 import { useIndustryCategoryBySlug } from '../../services/industries/useIndustries';
