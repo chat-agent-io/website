@@ -23,7 +23,7 @@ const fetchIndustries = async (): Promise<IndustriesResponse> => {
   return data;
 };
 
-export const useIndustries = () => {
+export const useIndustries = (): UseQueryResult<IndustriesResponse, Error> => {
   return useQuery({
     queryKey: INDUSTRIES_QUERY_KEY,
     queryFn: fetchIndustries,
