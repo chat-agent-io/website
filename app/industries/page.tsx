@@ -7,19 +7,11 @@ import { useIndustries } from '../services/industries/useIndustries';
 import { getAssetCloud } from '../utils/assets';
 import styles from './industries.module.scss';
 
-function LoadingSkeletons() {
+function LoadingIndicator() {
   return (
-    <div className={styles.industriesGrid}>
-      {Array.from({ length: 8 }).map((_, index) => (
-        <div key={index} className={styles.industryCard + ' ' + styles.skeletonCard}>
-          <div className={styles.cardHeader}>
-            <div className={styles.iconSkeleton}></div>
-            <div className={styles.titleSkeleton}></div>
-          </div>
-          <div className={styles.descriptionSkeleton}></div>
-          <div className={styles.linkSkeleton}></div>
-        </div>
-      ))}
+    <div className={styles.loadingContainer}>
+      <div className={styles.spinner}></div>
+      <p className={styles.loadingText}>Loading industries...</p>
     </div>
   );
 }
