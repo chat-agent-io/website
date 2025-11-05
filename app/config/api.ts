@@ -1,4 +1,5 @@
 const defaultNocoUrl = 'https://app.nocodb.com/api/v2';
+const defaultChatAgentUrl = 'https://cms.chatagent.io';
 
 export const Config = {
   noco: {
@@ -8,6 +9,14 @@ export const Config = {
     },
     resources: {
       careers: '/tables/m52917yyvdgr163/records',
+    },
+  },
+  chatAgent: {
+    config: {
+      url: process.env.NEXT_PUBLIC_API_CHATAGENT_URL ?? defaultChatAgentUrl,
+    },
+    resources: {
+      industries: '/items/industries',
     },
   },
 } as const;
