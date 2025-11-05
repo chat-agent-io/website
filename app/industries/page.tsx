@@ -56,9 +56,7 @@ export default function IndustriesPage() {
                         alt={industry.name}
                         width={50}
                         height={50}
-                        onError={() => {
-                          // Image component handles errors internally
-                        }}
+                        unoptimized
                       />
                     </div>
                     <h2 className={styles.industryTitle}>{industry.name}</h2>
