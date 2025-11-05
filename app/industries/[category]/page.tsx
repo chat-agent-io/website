@@ -3,88 +3,68 @@
 import React from 'react';
 import { useParams } from 'next/navigation';
 import Layout from '../../components/UI/Layout/Layout';
+import { useIndustryCategoryBySlug, type IndustryCategoriesResponse } from '../../services/industries/useIndustries';
+import { getAssetCloud } from '../../utils/assets';
 import styles from './category.module.scss';
 
-interface Subcategory {
-  id: number;
-  title: string;
-  description: string;
-  icon: React.ReactNode;
+function LoadingIndicator() {
+  return (
+    <div className={styles.loadingContainer}>
+      <div className={styles.spinner}></div>
+      <p className={styles.loadingText}>Loading category...</p>
+    </div>
+  );
 }
 
-const categoryData: Record<string, { title: string; subtitle: string; subcategories: Subcategory[] }> = {
-  'wellness-beauty': {
-    title: 'Wellness & Beauty',
-    subtitle: 'Deliver great care while ChatAgent manages appointments, reminders, and client messages 24/7',
-    subcategories: [
-      {
-        id: 1,
-        title: 'Spas',
-        description: '24/7 AI replies for bookings treatments packages and wellness inquiries',
-        icon: (
-          <svg width="50" height="51" viewBox="0 0 50 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M44.2824 31.175C43.7728 30.6767 43.0883 30.435 42.3755 30.515C40.2156 30.76 38.2704 31.4267 36.5868 32.4217C36.332 29.0267 35.1229 26.16 32.6748 23.0683C31.7672 21.9217 29.8554 21.9217 28.9478 23.0683C26.4797 26.185 25.304 28.9867 25.0758 32.415C23.3905 31.4117 21.4437 30.74 19.2787 30.495C18.5793 30.41 17.8832 30.655 17.3736 31.155C16.8573 31.66 16.5992 32.3617 16.6658 33.0767C17.3686 40.74 22.7893 45.5 30.8113 45.5C38.8333 45.5 44.289 40.7467 44.9901 33.0967C45.0551 32.38 44.7986 31.68 44.2824 31.175ZM30.2534 24.1033C30.5265 23.76 31.0994 23.76 31.3725 24.1033C33.8639 27.2517 34.9114 30.0133 34.9664 33.55C33.0729 35.0933 31.6457 37.14 30.8163 39.5483C29.9936 37.1467 28.5831 35.1067 26.7112 33.5633C26.7429 30.0067 27.777 27.235 30.2551 24.1033H30.2534ZM18.3262 32.9233C18.3062 32.71 18.3844 32.4983 18.541 32.345C18.6193 32.2667 18.7825 32.145 19.0156 32.145C19.0406 32.145 19.0672 32.145 19.0939 32.1483C25.329 32.855 29.6039 37.495 29.9553 43.8117C23.2506 43.4983 18.9257 39.4767 18.3262 32.9217V32.9233ZM31.6706 43.8133C32.0254 37.5117 36.312 32.8783 42.5654 32.17C42.592 32.1683 42.617 32.1667 42.6437 32.1667C42.8768 32.1667 43.0383 32.2883 43.1183 32.3667C43.2748 32.52 43.3531 32.73 43.3331 32.945C42.7336 39.49 38.397 43.5017 31.6706 43.8133ZM18.3145 44.4883C18.3795 44.9433 18.063 45.3667 17.6084 45.4317C17.297 45.475 16.9806 45.5 16.6575 45.5H11.6614C7.98764 45.5 5 42.51 5 38.8333V25.5C5 21.8233 7.98764 18.8333 11.6614 18.8333H16.6575C20.3312 18.8333 23.3189 21.8233 23.3189 25.5V26.3333C23.3189 26.7933 22.9459 27.1667 22.4862 27.1667C22.0266 27.1667 21.6535 26.7933 21.6535 26.3333V25.5C21.6535 22.7433 19.412 20.5 16.6575 20.5H11.6614C8.90692 20.5 6.66535 22.7433 6.66535 25.5V38.8333C6.66535 41.59 8.90692 43.8333 11.6614 43.8333H16.6575C16.9006 43.8333 17.1388 43.8167 17.3719 43.7817C17.8299 43.7117 18.2496 44.0333 18.3145 44.4883ZM14.1594 17.1667C16.7224 17.1667 18.8074 15.08 18.8074 12.515C18.8074 12.0933 18.8074 10.8067 16.3361 6.72667C15.8698 5.95833 15.0571 5.5 14.1594 5.5C13.2618 5.5 12.4491 5.95833 11.9828 6.72667C9.51144 10.8067 9.51144 12.0933 9.51144 12.515C9.51144 15.08 11.5965 17.1667 14.1594 17.1667ZM13.4067 7.59C13.6382 7.20833 14.0096 7.16667 14.1594 7.16667C14.3093 7.16667 14.679 7.20833 14.9122 7.59C16.9256 10.9117 17.1421 12.14 17.1421 12.515C17.1421 14.1617 15.8048 15.5 14.1594 15.5C12.5141 15.5 11.1768 14.1617 11.1768 12.515C11.1768 12.1417 11.3933 10.9133 13.4067 7.59Z" fill="#03010C"/>
-          </svg>
-        ),
-      },
-      {
-        id: 2,
-        title: 'Salons',
-        description: 'Instant replies for appointments stylists availability beauty services and products',
-        icon: (
-          <svg width="50" height="51" viewBox="0 0 50 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M43.1858 7.845C42.0525 7.11333 40.6409 7.00667 39.4127 7.56333L33.9114 10.0467C28.4784 7.88167 21.7589 5.5 16.6659 5.5C10.233 5.5 5 10.7333 5 17.1667C5 22.28 8.31311 26.6267 12.9011 28.1967L18.7174 42.42C19.4557 44.2583 21.2389 45.5 23.3321 45.5C23.9837 45.5 24.6353 45.37 25.2553 45.1133C27.7985 44.0533 29.0067 41.12 27.9468 38.5733L23.3971 27.695C26.6669 26.76 30.2216 25.3617 33.9064 23.8817L39.296 26.755C39.8526 27.03 40.4493 27.165 41.0459 27.165C43.1558 27.2033 45.0506 25.3367 44.999 23.2067V11.1683C44.999 9.81833 44.3223 8.57667 43.1891 7.845H43.1858ZM6.66655 17.1667C6.66655 11.6517 11.1513 7.16667 16.6659 7.16667C21.4872 7.16667 28.0318 9.49333 33.3314 11.605V22.315C27.0502 24.8383 21.1389 27.1633 16.6659 27.1633C11.1513 27.1633 6.66655 22.6783 6.66655 17.1633V17.1667ZM26.4069 39.215C27.1135 40.9117 26.3069 42.8667 24.612 43.575C22.9138 44.2833 20.9589 43.475 20.2556 41.785L14.8993 28.685C15.476 28.7733 16.0626 28.8333 16.6642 28.8333C18.2341 28.8333 19.9523 28.5567 21.7655 28.1217L26.4069 39.215ZM43.3291 23.2067C43.3291 24.0033 42.9258 24.73 42.2492 25.1483C41.5742 25.57 40.7459 25.6133 40.0526 25.27L34.9963 22.5733V11.385L40.0976 9.08167C40.8209 8.75667 41.6159 8.81333 42.2808 9.245C42.9458 9.675 43.3274 10.3767 43.3274 11.1683V23.2067H43.3291Z" fill="#03010C"/>
-          </svg>
-        ),
-      },
-      {
-        id: 3,
-        title: 'Gyms',
-        description: 'Support for classes trainers schedules equipment availability and memberships',
-        icon: (
-          <svg width="50" height="51" viewBox="0 0 50 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M43.5695 18.6444L38.287 13.394L41.4259 10.2554C41.7509 9.93037 41.7509 9.40199 41.4259 9.07696C41.1008 8.75194 40.5724 8.75194 40.2473 9.07696L37.1052 12.2189L31.831 6.97846C30.8958 6.03004 29.6473 5.505 28.3171 5.5C26.9569 5.50833 25.73 6.01171 24.7882 6.95345C22.8795 8.86028 22.8579 11.9872 24.7465 13.929L30.0557 19.2711L18.7806 30.5438L13.5364 25.3C11.5861 23.3498 8.41555 23.3498 6.46524 25.3C5.52175 26.2434 5 27.5002 5 28.8353C5 30.1704 5.52008 31.4272 6.46524 32.3706L11.7094 37.6143L8.57724 40.7463C8.25219 41.0713 8.25219 41.5997 8.57724 41.9247C8.7406 42.0881 8.95397 42.1681 9.16734 42.1681C9.3807 42.1681 9.59407 42.0864 9.75743 41.9247L12.8896 38.7928L18.1354 44.0382C19.1106 45.0133 20.3908 45.5 21.671 45.5C22.9512 45.5 24.2314 45.0133 25.2066 44.0382C26.1501 43.0948 26.6718 41.838 26.6718 40.5029C26.6718 39.1678 26.1501 37.911 25.2066 36.9676L19.9607 31.7222L31.2326 20.4529L36.4134 25.6667C37.3485 26.6268 38.6004 27.1601 39.939 27.1685H39.9723C41.2992 27.1685 42.5427 26.6518 43.5529 25.6417C45.4732 23.7215 45.4848 20.5846 43.5729 18.6428L43.5695 18.6444ZM24.9999 40.5029C24.9999 41.393 24.6532 42.2297 24.0231 42.8598C22.7245 44.1582 20.6075 44.1582 19.309 42.8598L7.64042 31.1921C7.01032 30.5621 6.6636 29.7254 6.6636 28.8353C6.6636 27.9452 7.01032 27.1085 7.64042 26.4784C8.29053 25.8284 9.144 25.5033 9.99747 25.5033C10.8509 25.5033 11.7044 25.8284 12.3545 26.4784L18.1821 32.3056C18.1821 32.3056 18.1855 32.3106 18.1871 32.3122C18.1888 32.3139 18.1921 32.3156 18.1938 32.3172L24.0231 38.1461C24.6532 38.7761 24.9999 39.6128 24.9999 40.5029ZM42.2977 24.5366C41.6742 25.16 40.8491 25.5017 39.969 25.5017H39.9456C39.0571 25.4967 38.2253 25.1416 37.5986 24.4966L25.9334 12.7589C24.6832 11.4738 24.6982 9.39866 25.9667 8.13189C26.5901 7.5085 27.4169 7.16681 28.2971 7.16681H28.3104C29.1939 7.17014 30.0224 7.5185 30.6491 8.15522L42.3877 19.8212C43.6545 21.1063 43.6479 23.1898 42.2977 24.5383V24.5366Z" fill="#03010C"/>
-          </svg>
-        ),
-      },
-      {
-        id: 4,
-        title: 'Fitness Clubs',
-        description: 'Consultations treatment info pricing aftercare support and patient follow-ups',
-        icon: (
-          <svg width="50" height="51" viewBox="0 0 50 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M45.5979 21.5708C44.5146 21.4104 43.2292 21.3333 41.6667 21.3333C36.15 21.3333 31.7792 26.4208 30.325 28.3437C29.1042 27.8396 27.6833 27.4917 26.0167 27.5354C21.9312 27.6271 18.2958 29.6687 15.8708 31.4646C16.2917 29.7437 16.5562 27.775 16.6771 25.5C23.5646 25.4937 29.1646 19.8896 29.1646 13C29.1646 6.11042 23.5604 0.5 16.6667 0.5C9.77292 0.5 4.16667 6.10625 4.16667 13C4.16667 14.6 4.47917 16.125 5.03125 17.5333C2.03542 23.7146 0.00416667 30.6979 0 35.3979C0 37.9167 1.03542 40.3562 2.84792 42.0896C6.90625 45.9687 15.1417 50.5 25 50.5C34.6104 50.5 41.6875 48.0083 45.9313 45.9188C48.4417 44.6833 50 42.175 50 39.3729V26.7188C50 24.1521 48.1062 21.9396 45.5979 21.5687V21.5708ZM16.6667 2.58333C22.4104 2.58333 27.0833 7.25625 27.0833 13C27.0833 18.7437 22.4104 23.4167 16.6667 23.4167C10.9229 23.4167 6.25 18.7437 6.25 13C6.25 7.25625 10.9229 2.58333 16.6667 2.58333ZM47.9167 39.375C47.9167 41.3771 46.8042 43.1687 45.0104 44.05C40.9646 46.0437 34.2083 48.4167 25 48.4167C15.7917 48.4167 8.06667 44.1979 4.2875 40.5833C2.86458 39.2229 2.08125 37.3812 2.08333 35.4C2.0875 31.3458 3.69375 25.35 6.20833 19.825C8.07917 22.6833 11.0896 24.7229 14.5896 25.3125C14.3854 29.2292 13.7646 32.1646 12.6167 34.3979C12.6062 34.4187 12.5125 34.7937 12.5125 34.8562C12.5125 35.4375 12.8687 35.9104 13.5229 35.9104C13.5292 35.9104 14.0042 35.9146 14.3104 35.5812C14.3646 35.5229 19.7708 29.7583 26.0687 29.6167C30.8771 29.5062 33.4062 33.2125 33.5125 33.3708C33.8312 33.8479 34.4812 33.9708 34.9562 33.6562C35.4333 33.3375 35.5646 32.6937 35.2479 32.2167C35.1729 32.1062 34.1271 30.6125 32.2021 29.3375C33.65 27.5042 37.3563 23.4167 41.6708 23.4167C43.1083 23.4167 44.3292 23.4896 45.2958 23.6312C46.7938 23.85 47.9208 25.1792 47.9208 26.7188V39.3729L47.9167 39.375ZM16.6667 17.1667C18.9646 17.1667 20.8333 15.2979 20.8333 13C20.8333 10.7021 18.9646 8.83333 16.6667 8.83333C14.3687 8.83333 12.5 10.7021 12.5 13C12.5 15.2979 14.3687 17.1667 16.6667 17.1667ZM16.6667 10.9167C17.8146 10.9167 18.75 11.8521 18.75 13C18.75 14.1479 17.8146 15.0833 16.6667 15.0833C15.5187 15.0833 14.5833 14.1479 14.5833 13C14.5833 11.8521 15.5187 10.9167 16.6667 10.9167Z" fill="#03010C"/>
-          </svg>
-        ),
-      },
-      {
-        id: 5,
-        title: 'Aesthetic Clinics',
-        description: '24/7 support for memberships personal training schedules events and renewals',
-        icon: (
-          <svg width="50" height="51" viewBox="0 0 50 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M34.375 4.66667H33.2292C32.7458 2.29167 30.6417 0.5 28.125 0.5H21.875C19.3583 0.5 17.2563 2.29167 16.7708 4.66667H15.625C10.4562 4.66667 6.25 8.87292 6.25 14.0417V41.125C6.25 46.2937 10.4562 50.5 15.625 50.5H34.375C39.5437 50.5 43.75 46.2937 43.75 41.125V14.0417C43.75 8.87292 39.5437 4.66667 34.375 4.66667ZM41.6667 41.125C41.6667 45.1458 38.3958 48.4167 34.375 48.4167H15.625C11.6042 48.4167 8.33333 45.1458 8.33333 41.125V14.0417C8.33333 10.0208 11.6042 6.75 15.625 6.75H17.7083C18.2833 6.75 18.75 6.28333 18.75 5.70833C18.75 3.98542 20.1521 2.58333 21.875 2.58333H28.125C29.8479 2.58333 31.25 3.98542 31.25 5.70833C31.25 6.28333 31.7167 6.75 32.2917 6.75H34.375C38.3958 6.75 41.6667 10.0208 41.6667 14.0417V41.125ZM16.6667 18.2083C16.6667 17.6333 17.1333 17.1667 17.7083 17.1667H23.9583V10.9167C23.9583 10.3417 24.425 9.875 25 9.875C25.575 9.875 26.0417 10.3417 26.0417 10.9167V17.1667H32.2917C32.8667 17.1667 33.3333 17.6333 33.3333 18.2083C33.3333 18.7833 32.8667 19.25 32.2917 19.25H26.0417V25.5C26.0417 26.075 25.575 26.5417 25 26.5417C24.425 26.5417 23.9583 26.075 23.9583 25.5V19.25H17.7083C17.1333 19.25 16.6667 18.7833 16.6667 18.2083ZM35.4167 32.7917C35.4167 33.3667 34.95 33.8333 34.375 33.8333H15.625C15.05 33.8333 14.5833 33.3667 14.5833 32.7917C14.5833 32.2167 15.05 31.75 15.625 31.75H34.375C34.95 31.75 35.4167 32.2167 35.4167 32.7917ZM29.1667 41.125C29.1667 41.7 28.7 42.1667 28.125 42.1667H15.625C15.05 42.1667 14.5833 41.7 14.5833 41.125C14.5833 40.55 15.05 40.0833 15.625 40.0833H28.125C28.7 40.0833 29.1667 40.55 29.1667 41.125Z" fill="#03010C"/>
-          </svg>
-        ),
-      },
-    ],
-  },
-};
+function ErrorState({ error }: { error: Error }) {
+  return (
+    <div className={styles.errorContainer}>
+      <p className={styles.errorMessage}>Failed to load this category. Please try again later.</p>
+      {process.env.NODE_ENV === 'development' && (
+        <p className={styles.errorDetails}>{error.message}</p>
+      )}
+    </div>
+  );
+}
 
 export default function IndustryCategoryPage() {
   const params = useParams();
   const category = params.category as string;
 
-  const data = categoryData[category];
+  const { data, isLoading, error } = useIndustryCategoryBySlug(category) as {
+    data: IndustryCategoriesResponse | undefined;
+    isLoading: boolean;
+    error: Error | null;
+  };
 
-  if (!data) {
+  if (isLoading) {
+    return (
+      <Layout>
+        <main className={styles.page}>
+          <LoadingIndicator />
+        </main>
+      </Layout>
+    );
+  }
+
+  if (error) {
+    return (
+      <Layout>
+        <main className={styles.page}>
+          <ErrorState error={error} />
+        </main>
+      </Layout>
+    );
+  }
+
+  if (!data?.data || data.data.length === 0) {
     return (
       <Layout>
         <main className={styles.page}>
           <div className={styles.container}>
             <div className={styles.notFound}>
               <h1>Category not found</h1>
-              <p>The industry category you&apos;re looking for doesn&apos;t exist.</p>
+              <p>The industry category you're looking for doesn't exist.</p>
             </div>
           </div>
         </main>
@@ -92,22 +72,35 @@ export default function IndustryCategoryPage() {
     );
   }
 
+  const categories = data.data;
+
   return (
     <Layout>
       <main className={styles.page}>
         <div className={styles.container}>
           <div className={styles.hero}>
-            <h1 className={styles.title}>{data.title}</h1>
-            <p className={styles.subtitle}>{data.subtitle}</p>
+            <h1 className={styles.title}>Industry Categories</h1>
+            <p className={styles.subtitle}>
+              See how ChatAgent supports real-world messaging across different business types
+            </p>
           </div>
 
           <div className={styles.subcategoriesGrid}>
             <div className={styles.row}>
-              {data.subcategories.slice(0, 3).map((subcategory) => (
+              {categories.slice(0, 3).map((subcategory) => (
                 <div key={subcategory.id} className={styles.card}>
                   <div className={styles.cardHeader}>
-                    <div className={styles.iconWrapper}>{subcategory.icon}</div>
-                    <h2 className={styles.cardTitle}>{subcategory.title}</h2>
+                    <div className={styles.iconWrapper}>
+                      <img
+                        src={getAssetCloud(subcategory.icon)}
+                        alt={subcategory.name}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                    <h2 className={styles.cardTitle}>{subcategory.name}</h2>
                   </div>
                   <p className={styles.cardDescription}>{subcategory.description}</p>
                   <a href="#" className={styles.seeHowLink}>
@@ -117,11 +110,20 @@ export default function IndustryCategoryPage() {
               ))}
             </div>
             <div className={styles.row}>
-              {data.subcategories.slice(3).map((subcategory) => (
+              {categories.slice(3).map((subcategory) => (
                 <div key={subcategory.id} className={styles.card}>
                   <div className={styles.cardHeader}>
-                    <div className={styles.iconWrapper}>{subcategory.icon}</div>
-                    <h2 className={styles.cardTitle}>{subcategory.title}</h2>
+                    <div className={styles.iconWrapper}>
+                      <img
+                        src={getAssetCloud(subcategory.icon)}
+                        alt={subcategory.name}
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                    <h2 className={styles.cardTitle}>{subcategory.name}</h2>
                   </div>
                   <p className={styles.cardDescription}>{subcategory.description}</p>
                   <a href="#" className={styles.seeHowLink}>
