@@ -7,3 +7,10 @@ export const httpClient = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
+export const clientChatAgent = axios.create({
+  baseURL: Config.chatAgent.config.url,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
