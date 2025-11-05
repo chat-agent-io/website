@@ -1,7 +1,7 @@
 import type { Metadata, ReactNode } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Industries We Serve - ChatAgent | AI Customer Service',
+  title: 'Industries We Serve - ChatAgent,
   description: 'See how ChatAgent supports real-world messaging across different business types. Explore industries including Hospitality, Medical, Retail, and more.',
   keywords: 'industries, business solutions, customer service automation, ChatAgent',
   openGraph: {
