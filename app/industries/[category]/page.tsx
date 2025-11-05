@@ -31,11 +31,7 @@ export default function IndustryCategoryPage() {
   const params = useParams();
   const category = params.category as string;
 
-  const { data, isLoading, error } = useIndustryCategoryBySlug(category) as {
-    data: IndustryCategoriesResponse | undefined;
-    isLoading: boolean;
-    error: Error | null;
-  };
+  const { data, isLoading, error } = useIndustryCategoryBySlug(category)
 
   if (isLoading) {
     return (
