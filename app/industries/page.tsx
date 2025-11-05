@@ -55,6 +55,7 @@ export default function IndustriesPage() {
                         src={getAssetCloud(industry.icon)}
                         alt={industry.name}
                         width={50}
+                        height={50}
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';
