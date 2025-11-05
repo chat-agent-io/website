@@ -62,7 +62,7 @@ export default function IndustriesPage() {
                     <h2 className={styles.industryTitle}>{industry.name}</h2>
                   </div>
                   <p className={styles.industryDescription}>{industry.description}</p>
-                  <a href="#" className={styles.useCasesLink}>
+                  <a href={`/industries/${industry.slug}`} className={styles.useCasesLink}>
                     Use Cases ↗
                   </a>
                 </div>
