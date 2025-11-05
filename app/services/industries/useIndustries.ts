@@ -52,7 +52,9 @@ export const useIndustryCategoryBySlug = (
         Config.chatAgent.resources.industryCategories,
         {
           params: {
-            industry: { slug: { _eq: slug } },
+            filter: {
+              industry: { slug: { _eq: slug } },
+            },
           },
         }
       );
