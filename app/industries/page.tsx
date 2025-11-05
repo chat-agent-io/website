@@ -42,7 +42,7 @@ export default function IndustriesPage() {
           </div>
 
           {isLoading ? (
-            <LoadingSkeletons />
+            <LoadingIndicator />
           ) : error ? (
             <ErrorState error={error} />
           ) : data?.data ? (
