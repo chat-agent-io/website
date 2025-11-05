@@ -27,11 +27,7 @@ function ErrorState({ error }: { error: Error }) {
 }
 
 export default function IndustriesPage() {
-  const { data, isLoading, error } = useIndustries() as {
-    data: IndustriesResponse | undefined;
-    isLoading: boolean;
-    error: Error | null;
-  };
+  const { data, isLoading, error } = useIndustries();
 
   return (
     <Layout>
