@@ -50,7 +50,7 @@ export async function generateMetadata(
 
   // Fallback metadata
   return {
-    title: 'Industry Category - ChatAgent | AI Customer Service',
+    title: 'Industry Category - ChatAgent',
     description: 'Explore ChatAgent solutions for your industry.',
   };
 }
