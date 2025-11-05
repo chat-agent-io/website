@@ -3,7 +3,7 @@
 import React from 'react';
 import { useParams } from 'next/navigation';
 import Layout from '../../components/UI/Layout/Layout';
-import { useIndustryCategoryBySlug, type IndustryCategoriesResponse } from '../../services/industries/useIndustries';
+import { useIndustryCategoryBySlug } from '../../services/industries/useIndustries';
 import { getAssetCloud } from '../../utils/assets';
 import styles from './category.module.scss';
 
