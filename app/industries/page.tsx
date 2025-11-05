@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Layout from '../components/UI/Layout/Layout';
 import { useIndustries, type IndustriesResponse } from '../services/industries/useIndustries';
 import { getAssetCloud } from '../utils/assets';
