@@ -18,7 +18,7 @@ export interface IndustriesResponse {
 export const useIndustries = (): UseQueryResult<IndustriesResponse, Error> => {
   return useQuery({
     queryKey: INDUSTRIES_QUERY_KEY,
-    queryFn: () => {
+    queryFn: async () => {
       const { data } = await clientChatAgent.get<IndustriesResponse>(
         Config.chatAgent.resources.industries
       );
