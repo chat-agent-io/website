@@ -60,7 +60,7 @@ export default function IndustryCategoryPage() {
           <div className={styles.container}>
             <div className={styles.notFound}>
               <h1>Category not found</h1>
-              <p>The industry category you're looking for doesn't exist.</p>
+              <p>The industry category you&apos;re looking for doesn&apos;t exist.</p>
             </div>
           </div>
         </main>
