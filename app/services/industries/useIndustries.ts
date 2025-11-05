@@ -24,7 +24,7 @@ const fetchIndustries = async (): Promise<IndustriesResponse> => {
 };
 
 export const useIndustries = () => {
-  return useQuery({
+  return useQuery<IndustriesResponse>({
     queryKey: INDUSTRIES_QUERY_KEY,
     queryFn: fetchIndustries,
   });
