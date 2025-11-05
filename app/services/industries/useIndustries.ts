@@ -1,8 +1,8 @@
-import { useQuery, UseQueryResult } from '@tanstack/react-query';
-import { Config } from '@/app/config/api';
-import { clientChatAgent } from '../httpClient';
+import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import { Config } from "@/app/config/api";
+import { clientChatAgent } from "../httpClient";
 
-const INDUSTRIES_QUERY_KEY = ['industries'] as const;
+const INDUSTRIES_QUERY_KEY = ["industries"] as const;
 
 export interface IndustryItem {
   id: number;
@@ -15,17 +15,15 @@ export interface IndustriesResponse {
   data: IndustryItem[];
 }
 
-const fetchIndustries = async (): Promise<IndustriesResponse> => {
-  const { data } = await clientChatAgent.get<IndustriesResponse>(
-    Config.chatAgent.resources.industries
-  );
-
-  return data;
-};
-
 export const useIndustries = (): UseQueryResult<IndustriesResponse, Error> => {
   return useQuery({
     queryKey: INDUSTRIES_QUERY_KEY,
-    queryFn: fetchIndustries,
+    queryFn: () => {
+      const { data } = await clientChatAgent.get<IndustriesResponse>(
+        Config.chatAgent.resources.industries
+      );
+
+      return data;
+    },
   });
 };
