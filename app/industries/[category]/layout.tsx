@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (categoryData) {
       return {
-        title: `${categoryData.name} - ChatAgent=`,
+        title: `${categoryData.name} - ChatAgent`,
         description: categoryData.description,
         keywords: `${categoryData.name}, customer service automation, ChatAgent`,
         openGraph: {
