@@ -9,6 +9,7 @@ export interface IndustryItem {
   name: string;
   description: string;
   icon: string;
+  slug: string;
 }
 
 export interface IndustriesResponse {
