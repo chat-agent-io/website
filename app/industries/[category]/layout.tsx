@@ -18,7 +18,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       Config.chatAgent.resources.industryCategories,
       {
         params: {
-          "deep[industry][_filter][slug][_eq]": category,
+          filter: {
+            industry: { slug: { _eq: category } },
+          },
         },
       }
     );
