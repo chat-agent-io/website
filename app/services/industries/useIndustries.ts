@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { Config } from '@/app/config/api';
 import { clientChatAgent } from '../httpClient';
 
@@ -11,7 +11,7 @@ export interface IndustryItem {
   icon: string;
 }
 
-interface IndustriesResponse {
+export interface IndustriesResponse {
   data: IndustryItem[];
 }
 
