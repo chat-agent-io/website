@@ -93,6 +93,7 @@ export default function IndustryCategoryPage() {
                         alt={subcategory.name}
                         width={50}
                         height={55}
+                        unoptimized
                       />
                     </div>
                     <h2 className={styles.cardTitle}>{subcategory.name}</h2>
@@ -114,6 +115,7 @@ export default function IndustryCategoryPage() {
                         alt={subcategory.name}
                         width={50}
                         height={55}
+                        unoptimized
                       />
                     </div>
                     <h2 className={styles.cardTitle}>{subcategory.name}</h2>
