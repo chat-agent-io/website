@@ -18,9 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       Config.chatAgent.resources.industryCategories,
       {
         params: {
-          filter: {
-            industry: { slug: { _eq: slug } },
-          },
+          "deep[industry][_filter][slug][_eq]": category,
         },
       }
     );
@@ -29,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (categoryData) {
       return {
-        title: `${categoryData.name} - ChatAgent`,
+        title: `${categoryData.name} - ChatAgent | AI Customer Service`,
         description: categoryData.description,
         keywords: `${categoryData.name}, customer service automation, ChatAgent`,
         openGraph: {
@@ -51,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // Fallback metadata
   return {
-    title: "Industry Category - ChatAgent",
+    title: "Industry Category - ChatAgent | AI Customer Service",
     description: "Explore ChatAgent solutions for your industry.",
   };
 }
