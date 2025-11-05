@@ -9,8 +9,8 @@ import './globals.css';
 
 export const metadata: Metadata = {
     title: 'ChatAgent - AI Customer Service Automation | Instant Replies 24/7',
-    description: 'Automate customer service on Instagram, WhatsApp & website chat with ChatAgent\'s AI assistant. Instant replies, smart conversations, 14-day free trial. No credit card needed.',
-    keywords: 'AI customer service, chatbot, Instagram automation, WhatsApp business, customer support automation, AI messaging',
+    description: 'Automate customer service on Instagram, WhatsApp & website chat with ChatAgent AI assistant. Instant replies, smart conversations, 14-day free trial',
+    keywords: 'AI customer service, Instagram automation, WhatsApp business, customer support automation, AI messaging',
     openGraph: {
         title: 'ChatAgent - AI Customer Service Automation',
         description: 'Automate customer service across all channels. Instant replies, smarter conversations. Try free for 14 days.',
