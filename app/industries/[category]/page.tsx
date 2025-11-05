@@ -88,13 +88,11 @@ export default function IndustryCategoryPage() {
                 <div key={subcategory.id} className={styles.card}>
                   <div className={styles.cardHeader}>
                     <div className={styles.iconWrapper}>
-                      <img
+                      <Image
                         src={getAssetCloud(subcategory.icon)}
                         alt={subcategory.name}
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                        }}
+                        width={50}
+                        height={55}
                       />
                     </div>
                     <h2 className={styles.cardTitle}>{subcategory.name}</h2>
@@ -111,13 +109,11 @@ export default function IndustryCategoryPage() {
                 <div key={subcategory.id} className={styles.card}>
                   <div className={styles.cardHeader}>
                     <div className={styles.iconWrapper}>
-                      <img
+                      <Image
                         src={getAssetCloud(subcategory.icon)}
                         alt={subcategory.name}
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                        }}
+                        width={50}
+                        height={55}
                       />
                     </div>
                     <h2 className={styles.cardTitle}>{subcategory.name}</h2>
