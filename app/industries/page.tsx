@@ -51,12 +51,13 @@ export default function IndustriesPage() {
                 <div key={industry.id} className={styles.industryCard}>
                   <div className={styles.cardHeader}>
                     <div className={styles.iconWrapper}>
-                      <img
+                      <Image
                         src={getAssetCloud(industry.icon)}
                         alt={industry.name}
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
+                        width={50}
+                        height={50}
+                        onError={() => {
+                          // Image component handles errors internally
                         }}
                       />
                     </div>
