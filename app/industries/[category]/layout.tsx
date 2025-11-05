@@ -28,7 +28,7 @@ export async function generateMetadata(
 
     if (categoryData) {
       return {
-        title: `${categoryData.name} - ChatAgent | AI Customer Service`,
+        title: `${categoryData.name} - ChatAgent=`,
         description: categoryData.description,
         keywords: `${categoryData.name}, customer service automation, ChatAgent`,
         openGraph: {
