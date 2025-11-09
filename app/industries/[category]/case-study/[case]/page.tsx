@@ -21,10 +21,11 @@ export default function CaseStudyPage() {
   }, [categoryResponse]);
 
   const { data: studyResponse, isLoading, error } = useStudyBySlug(
-    caseStudySlug || ''
+    caseStudySlug || '',
+    !!caseStudySlug
   );
 
-  if (isLoading) {
+  if (categoryLoading || isLoading) {
     return (
       <Layout>
         <main className={styles.page}>
