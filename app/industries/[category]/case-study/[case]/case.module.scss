@@ -1255,10 +1255,15 @@
 
 .qAndA {
   display: flex;
-  max-width: 628px;
   flex-direction: column;
   align-items: center;
+  align-self: stretch;
+  padding: 0 32px;
   position: relative;
+
+  @media (max-width: 480px) {
+    padding: 0 16px;
+  }
 }
 
 .qAndAFrame {
