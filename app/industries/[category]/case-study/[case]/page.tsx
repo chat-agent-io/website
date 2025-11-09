@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import Layout from '../../../../components/UI/Layout/Layout';
 import { useStudyBySlug } from '../../../../services/studies/useStudies';
 import { getAssetCloud } from '../../../../utils/assets';
+import { HeaderSection } from '../../../../components/CaseStudy/HeaderSection';
 import styles from './case.module.scss';
 
 interface Section {
