@@ -111,8 +111,28 @@ export const useStudyBySlug = (
     queryKey: STUDY_BY_SLUG_QUERY_KEY(slug),
     queryFn: async () => {
       const { data } = await clientChatAgent.get<StudyResponse>(
-        `${Config.chatAgent.resources.studies}?fields=*&fields=sections.*&fields=sections.blocks.*&fields=sections.blocks.item.*&filter[slug]=${slug}`
+        Config.chatAgent.resources.studies,
+        {
+          params: {
+            fields: [
+              "*",
+              "sections.*",
+              "sections.blocks.*",
+              "sections.blocks.item.*",
+            ],
+            filter: {
+              slug: {
+                _eq: slug,
+              },
+            },
+          },
+        }
       );
+
+      // If the API returns an array, get the first item
+      if (Array.isArray(data)) {
+        return { data: data[0] || null } as StudyResponse;
+      }
 
       return data;
     },
