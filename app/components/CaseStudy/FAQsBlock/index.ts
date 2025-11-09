@@ -1,0 +1,1 @@
+export { FAQsBlock } from './FAQsBlock';
