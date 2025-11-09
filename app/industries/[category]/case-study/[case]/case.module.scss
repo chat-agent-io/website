@@ -1045,8 +1045,6 @@
 
 .featureIcon {
   display: flex;
-  width: 40px;
-  height: 40px;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
@@ -1054,8 +1052,6 @@
 
   img {
     width: 56px;
-    height: 56px;
-    aspect-ratio: 1/1;
     position: relative;
   }
 }
