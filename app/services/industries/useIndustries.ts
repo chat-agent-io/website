@@ -57,6 +57,7 @@ export const useIndustryCategoryBySlug = (
         Config.chatAgent.resources.industryCategories,
         {
           params: {
+            fields: ["*", "studies.slug"],
             filter: {
               industry: { slug: { _eq: slug } },
             },
