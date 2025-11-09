@@ -1,0 +1,65 @@
+@use '@/app/styles/colors';
+
+.statistics {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.statisticCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.icon {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  padding: 12px;
+  background: colors.$gray-100;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.count {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 120%;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 120%;
+  color: colors.$black-dark;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%;
+  color: colors.$gray-700;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+}

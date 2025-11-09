@@ -1,0 +1,90 @@
+@use '@/app/styles/colors';
+
+.bannerContainer {
+  display: flex;
+  width: 100%;
+  padding: 48px;
+  background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+  border-radius: 16px;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 32px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 24px;
+  }
+}
+
+.bannerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bannerTitle {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 130%;
+  color: colors.$black-dark;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
+}
+
+.bannerDescription {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: colors.$gray-700;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  margin: 0;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
+}
+
+.bannerButton {
+  padding: 12px 32px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 24px;
+    font-size: 13px;
+  }
+}
