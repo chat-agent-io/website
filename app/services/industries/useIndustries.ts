@@ -18,10 +18,8 @@ export interface IndustriesResponse {
   data: IndustryItem[];
 }
 
-export interface CaseStudyRef {
-  id: number;
+export interface StudyRef {
   slug: string;
-  title?: string;
 }
 
 export interface IndustryCategoryItem {
@@ -29,7 +27,7 @@ export interface IndustryCategoryItem {
   name: string;
   description: string;
   icon: string;
-  case_study?: CaseStudyRef;
+  studies?: StudyRef[];
 }
 
 export interface IndustryCategoriesResponse {
