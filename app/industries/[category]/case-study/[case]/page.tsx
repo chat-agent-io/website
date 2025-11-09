@@ -95,13 +95,11 @@ export default function CaseStudyPage() {
               {/* Hero Section - identified by having block_statistics */}
               {section.blocks.some(b => b.collection === 'block_statistics') && (
                 <section className={styles.hero}>
-                  <div className={styles.containerText}>
-                    <div className={styles.sectionHeading}>
+                  <div className={styles.sectionHeading}>
                     <h2 className={styles.sectionTitle}>{section.title}</h2>
                   </div>
-                    <div className={styles.subheading}>
-                      <p className={styles.heroSubtitle}>{study.description}</p>
-                    </div>
+                  <div className={styles.subheading}>
+                    <p className={styles.heroSubtitle}>{study.description}</p>
                   </div>
 
                   {/* Stats Cards */}
