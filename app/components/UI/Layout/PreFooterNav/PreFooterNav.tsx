@@ -57,11 +57,19 @@ export const PreFooterNav = (): React.ReactElement => {
         <Navigation items={navItems} className={styles.navigation} />
 
         <div className={styles.buttonContainer}>
-          <Button variant="gradient" size="sm">
+          <Button
+            variant="gradient"
+            size="sm"
+            onClick={() => window.location.href = 'https://portal.chatagent.io/auth/signup'}
+          >
             Start Free Trial
           </Button>
 
-          <Button variant="black" size="sm">
+          <Button
+            variant="black"
+            size="sm"
+            onClick={() => window.location.href = 'https://portal.chatagent.io/'}
+          >
             Sign in
           </Button>
         </div>

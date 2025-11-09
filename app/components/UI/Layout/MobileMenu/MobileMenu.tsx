@@ -183,10 +183,26 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           </div>
 
           <div className={styles.actionSection}>
-            <Button variant="outline" size="lg" full onClick={closeMenu}>
+            <Button
+              variant="outline"
+              size="lg"
+              full
+              onClick={() => {
+                closeMenu();
+                window.location.href = 'https://portal.chatagent.io/';
+              }}
+            >
               Sign in
             </Button>
-            <Button variant="black" size="lg" full onClick={closeMenu}>
+            <Button
+              variant="black"
+              size="lg"
+              full
+              onClick={() => {
+                closeMenu();
+                window.location.href = 'https://portal.chatagent.io/auth/signup';
+              }}
+            >
               Get Started
             </Button>
           </div>
