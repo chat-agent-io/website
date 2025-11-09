@@ -139,9 +139,7 @@ export default function CaseStudyPage() {
               {/* Problem Section - identified by title and card blocks with section_image */}
               {section.title.toLowerCase().includes('problem') && section.blocks.some(b => b.collection === 'block_card') && (
                 <section className={styles.problem}>
-                  <div className={styles.sectionHeading}>
-                    <h2 className={styles.sectionTitle}>{section.title}</h2>
-                  </div>
+                  <HeaderSection title={section.title} />
 
                   <div className={styles.problemCards}>
                     {getBlocksByCollection(section, 'block_card').map((card, index) => (
