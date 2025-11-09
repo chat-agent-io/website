@@ -1,39 +1,19 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useParams } from 'next/navigation';
 import Layout from '../../../../components/UI/Layout/Layout';
 import { Section } from '../../../../components/CaseStudy/Section/Section';
 import { useStudyBySlug } from '../../../../services/studies/useStudies';
-import { useIndustryCategoryBySlug } from '../../../../services/industries/useIndustries';
 import styles from './case.module.scss';
 
 export default function CaseStudyPage() {
   const params = useParams();
-  const categorySlug = params.category as string;
+  const caseSlug = params.case as string;
 
-  const { data: categoryResponse, isLoading: categoryLoading } =
-    useIndustryCategoryBySlug(categorySlug);
+  const { data: studyResponse, isLoading, error } = useStudyBySlug(caseSlug);
 
-  const caseStudySlug = useMemo(() => {
-    const slug = categoryResponse?.data?.[0]?.studies?.[0]?.slug || null;
-    console.log('Category response:', categoryResponse);
-    console.log('Extracted slug:', slug);
-    return slug;
-  }, [categoryResponse]);
-
-  const { data: studyResponse, isLoading, error } = useStudyBySlug(
-    caseStudySlug || '',
-    !!caseStudySlug
-  );
-
-  React.useEffect(() => {
-    console.log('Study response:', studyResponse);
-    console.log('Study loading:', isLoading);
-    console.log('Study error:', error);
-  }, [studyResponse, isLoading, error]);
-
-  if (categoryLoading || isLoading) {
+  if (isLoading) {
     return (
       <Layout>
         <main className={styles.page}>
