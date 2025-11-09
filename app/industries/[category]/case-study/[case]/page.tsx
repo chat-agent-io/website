@@ -179,16 +179,7 @@ export default function CaseStudyPage() {
               {/* Channels Section - identified by title and multiple card blocks */}
               {section.title.toLowerCase().includes('channel') && section.blocks.some(b => b.collection === 'block_card') && (
                 <section className={styles.channels}>
-                  <div className={styles.channelsHeader}>
-                    <div className={styles.sectionHeading}>
-                      <h2 className={styles.sectionTitle}>{section.title}</h2>
-                    </div>
-                    {section.description && (
-                      <div className={styles.sectionText}>
-                        <p>{section.description}</p>
-                      </div>
-                    )}
-                  </div>
+                  <HeaderSection title={section.title} description={section.description} />
 
                   <div className={styles.seeItInAction}>
                     {/* Channel Pills */}
