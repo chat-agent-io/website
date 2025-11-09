@@ -65,6 +65,24 @@
   }
 }
 
+// Loading/Error States
+.loadingContainer,
+.errorContainer {
+  display: flex;
+  width: 100%;
+  padding: 64px 32px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    color: colors.$gray-700;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  }
+}
+
 // Hero Section
 .hero {
   display: flex;
@@ -75,6 +93,55 @@
   gap: 32px;
   align-self: stretch;
   position: relative;
+}
+
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid colors.$gray-300;
+  text-align: center;
+}
+
+.statValue {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 120%;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.statTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 120%;
+  color: colors.$black-dark;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.statSubtitle {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%;
+  color: colors.$gray-700;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
 .heroContentWrapper {
