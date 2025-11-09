@@ -39,6 +39,20 @@ export default function CaseStudyPage() {
     );
   }
 
+  if (!caseStudySlug) {
+    return (
+      <Layout>
+        <main className={styles.page}>
+          <div className={styles.mainContainer}>
+            <div className={styles.errorContainer}>
+              <p>Case study not found for this category.</p>
+            </div>
+          </div>
+        </main>
+      </Layout>
+    );
+  }
+
   if (error || !studyResponse?.data) {
     return (
       <Layout>
