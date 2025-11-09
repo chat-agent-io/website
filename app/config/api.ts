@@ -18,6 +18,7 @@ export const Config = {
     resources: {
       industries: '/items/industries',
       industryCategories: '/items/industry_categories',
+      studies: '/items/studies',
     },
   },
 } as const;
