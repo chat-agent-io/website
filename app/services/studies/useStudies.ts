@@ -105,14 +105,12 @@ export const useStudies = (): UseQueryResult<StudiesResponse, Error> => {
 };
 
 export const useStudyBySlug = (
-  slug: string,
-  enabled: boolean = true
+  slug: string
 ): UseQueryResult<StudyResponse, Error> => {
   return useQuery({
     queryKey: STUDY_BY_SLUG_QUERY_KEY(slug),
     queryFn: async () => {
-      console.log('Fetching study with slug:', slug);
-      const { data } = await clientChatAgent.get<Study[] | StudyResponse>(
+      const { data } = await clientChatAgent.get<{ data: Study[] } | Study[]>(
         Config.chatAgent.resources.studies,
         {
           params: {
@@ -131,26 +129,18 @@ export const useStudyBySlug = (
         }
       );
 
-      console.log('Raw API response:', data);
+      // Handle the case where API returns { data: [...] }
+      let studiesArray: Study[] = [];
 
-      // If the API returns an array, get the first item
-      if (Array.isArray(data)) {
-        const result = { data: data[0] || null } as StudyResponse;
-        console.log('Returning array first item:', result);
-        return result;
-      }
-
-      // If it's wrapped in a data property, use it as is
       if (data && 'data' in data) {
-        console.log('Returning wrapped data:', data);
-        return data as StudyResponse;
+        studiesArray = (data as { data: Study[] }).data;
+      } else if (Array.isArray(data)) {
+        studiesArray = data;
       }
 
-      // Fallback: wrap the single object
-      const result = { data: data as Study } as StudyResponse;
-      console.log('Returning wrapped single:', result);
-      return result;
+      const firstStudy = studiesArray[0] || null;
+      return { data: firstStudy } as StudyResponse;
     },
-    enabled: enabled && !!slug,
+    enabled: !!slug,
   });
 };
