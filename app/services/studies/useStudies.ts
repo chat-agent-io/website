@@ -105,7 +105,8 @@ export const useStudies = (): UseQueryResult<StudiesResponse, Error> => {
 };
 
 export const useStudyBySlug = (
-  slug: string
+  slug: string,
+  enabled: boolean = true
 ): UseQueryResult<StudyResponse, Error> => {
   return useQuery({
     queryKey: STUDY_BY_SLUG_QUERY_KEY(slug),
@@ -136,6 +137,6 @@ export const useStudyBySlug = (
 
       return data;
     },
-    enabled: !!slug,
+    enabled: enabled && !!slug,
   });
 };
