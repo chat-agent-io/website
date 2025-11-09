@@ -1,18 +1,28 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useParams } from 'next/navigation';
 import Layout from '../../../../components/UI/Layout/Layout';
 import { Section } from '../../../../components/CaseStudy/Section/Section';
 import { useStudyBySlug } from '../../../../services/studies/useStudies';
+import { useIndustryCategoryBySlug } from '../../../../services/industries/useIndustries';
 import styles from './case.module.scss';
 
 export default function CaseStudyPage() {
   const params = useParams();
-  const caseParam = params.case as string;
-  const caseSlug = `${caseParam}-case-study`;
+  const categorySlug = params.category as string;
 
-  const { data: studyResponse, isLoading, error } = useStudyBySlug(caseSlug);
+  const { data: categoryResponse, isLoading: categoryLoading } =
+    useIndustryCategoryBySlug(categorySlug);
+
+  const caseStudySlug = useMemo(() => {
+    if (!categoryResponse?.data?.[0]) return null;
+    return categoryResponse.data[0].case_study?.slug || null;
+  }, [categoryResponse]);
+
+  const { data: studyResponse, isLoading, error } = useStudyBySlug(
+    caseStudySlug || ''
+  );
 
   if (isLoading) {
     return (
