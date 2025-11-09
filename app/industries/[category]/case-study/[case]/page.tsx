@@ -369,9 +369,7 @@ export default function CaseStudyPage() {
               {/* FAQs Section - identified by block_faqs collection */}
               {section.blocks.some(b => b.collection === 'block_faqs') && (
                 <section className={styles.faqs}>
-                  <div className={styles.sectionHeading}>
-                    <h2 className={styles.sectionTitle}>{section.title}</h2>
-                  </div>
+                  <HeaderSection title={section.title} />
 
                   <div className={styles.qAndA}>
                     {getBlocksByCollection(section, 'block_faqs').map((faq) => (
