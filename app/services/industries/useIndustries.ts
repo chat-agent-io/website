@@ -18,11 +18,18 @@ export interface IndustriesResponse {
   data: IndustryItem[];
 }
 
+export interface CaseStudyRef {
+  id: number;
+  slug: string;
+  title?: string;
+}
+
 export interface IndustryCategoryItem {
   id: number;
   name: string;
   description: string;
   icon: string;
+  case_study?: CaseStudyRef;
 }
 
 export interface IndustryCategoriesResponse {
