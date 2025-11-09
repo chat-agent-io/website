@@ -329,7 +329,10 @@ export default function CaseStudyPage() {
 
             {/* CTA Buttons */}
             <div className={styles.containerCta}>
-              <button className={styles.buttonPrimary}>
+              <button
+                className={styles.buttonPrimary}
+                onClick={() => window.location.href = 'https://portal.chatagent.io/auth/signup'}
+              >
                 Start 14-Day Free Trial
               </button>
               <button className={styles.buttonSecondary}>
@@ -588,7 +591,10 @@ export default function CaseStudyPage() {
                 </div>
               </div>
               <div className={styles.containerButton}>
-                <button className={styles.buttonPrimary}>
+                <button
+                  className={styles.buttonPrimary}
+                  onClick={() => window.location.href = 'https://portal.chatagent.io/auth/signup'}
+                >
                   {data.finalCta.buttonText}
                 </button>
               </div>
