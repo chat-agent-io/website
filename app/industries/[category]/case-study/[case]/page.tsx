@@ -131,7 +131,7 @@ export default function CaseStudyPage() {
           {/* Problem Section */}
           {problemSection && (
             <section className={styles.problem}>
-              <div className={styles.problemHeading}>
+              <div className={styles.sectionHeading}>
                 <h2 className={styles.sectionTitle}>{problemSection.title}</h2>
               </div>
               
@@ -236,7 +236,7 @@ export default function CaseStudyPage() {
           {/* Timeline Section */}
           {timelineSection && (
             <section className={styles.timeline}>
-              <div className={styles.timelineHeading}>
+              <div className={styles.sectionHeading}>
                 <h2 className={styles.sectionTitle}>{timelineSection.title}</h2>
               </div>
               
@@ -265,7 +265,7 @@ export default function CaseStudyPage() {
           {/* Benefits Section */}
           {benefitsSection && (
             <section className={styles.benefits}>
-              <div className={styles.benefitsHeading}>
+              <div className={styles.sectionHeading}>
                 <h2 className={styles.sectionTitle}>{benefitsSection.title}</h2>
               </div>
               
@@ -387,7 +387,7 @@ export default function CaseStudyPage() {
           {/* FAQs Section */}
           {faqSection && (
             <section className={styles.faqs}>
-              <div className={styles.faqsHeading}>
+              <div className={styles.sectionHeading}>
                 <h2 className={styles.sectionTitle}>{faqSection.title}</h2>
               </div>
               
