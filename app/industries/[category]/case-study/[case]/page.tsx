@@ -307,16 +307,7 @@ export default function CaseStudyPage() {
               {/* Features Section - identified by title and card blocks with icons */}
               {section.title.toLowerCase().match(/feature|why|love/) && section.blocks.some(b => b.collection === 'block_card') && (
                 <section className={styles.features}>
-                  <div className={styles.featuresHeader}>
-                    <div className={styles.sectionHeading}>
-                      <h2 className={styles.sectionTitle}>{section.title}</h2>
-                    </div>
-                    {section.description && (
-                      <div className={styles.featuresSubheading}>
-                        <p>{section.description}</p>
-                      </div>
-                    )}
-                  </div>
+                  <HeaderSection title={section.title} description={section.description} />
 
                   <div className={styles.featuresCards}>
                     {getBlocksByCollection(section, 'block_card').map((card) => (
