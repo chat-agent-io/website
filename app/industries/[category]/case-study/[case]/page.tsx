@@ -17,7 +17,7 @@ export default function CaseStudyPage() {
 
   const caseStudySlug = useMemo(() => {
     if (!categoryResponse?.data?.[0]) return null;
-    return categoryResponse.data[0].case_study?.slug || null;
+    return categoryResponse.data[0].studies?.[0]?.slug || null;
   }, [categoryResponse]);
 
   const { data: studyResponse, isLoading, error } = useStudyBySlug(
