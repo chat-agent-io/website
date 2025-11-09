@@ -27,22 +27,7 @@ export default function CaseStudyPage() {
     );
   }
 
-  if (!caseStudySlug) {
-    return (
-      <Layout>
-        <main className={styles.page}>
-          <div className={styles.mainContainer}>
-            <div className={styles.errorContainer}>
-              <p>Case study not found for this category.</p>
-            </div>
-          </div>
-        </main>
-      </Layout>
-    );
-  }
-
   if (error) {
-    console.error('Case study fetch error:', error);
     return (
       <Layout>
         <main className={styles.page}>
@@ -59,7 +44,6 @@ export default function CaseStudyPage() {
   const study = studyResponse?.data;
 
   if (!study) {
-    console.warn('No study data available', { studyResponse, caseStudySlug });
     return (
       <Layout>
         <main className={styles.page}>
