@@ -233,9 +233,7 @@ export default function CaseStudyPage() {
               {/* Timeline Section - identified by title and card blocks */}
               {section.title.toLowerCase().includes('timeline') && section.blocks.some(b => b.collection === 'block_card') && (
                 <section className={styles.timeline}>
-                  <div className={styles.sectionHeading}>
-                    <h2 className={styles.sectionTitle}>{section.title}</h2>
-                  </div>
+                  <HeaderSection title={section.title} />
 
                   <div className={styles.timelineCards}>
                     {getBlocksByCollection(section, 'block_card').map((card) => (
