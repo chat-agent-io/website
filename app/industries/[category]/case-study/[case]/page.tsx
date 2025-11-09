@@ -350,8 +350,8 @@ export default function CaseStudyPage() {
           {/* Setup Section */}
           {setupSection && (
             <section className={styles.setup}>
-              <div className={styles.setupHeading}>
-                <h2>{setupSection.title}</h2>
+              <div className={styles.sectionHeading}>
+                <h2 className={styles.sectionTitle}>{setupSection.title}</h2>
               </div>
 
               <div className={styles.setupCards}>
