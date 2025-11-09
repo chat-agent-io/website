@@ -16,14 +16,22 @@ export default function CaseStudyPage() {
     useIndustryCategoryBySlug(categorySlug);
 
   const caseStudySlug = useMemo(() => {
-    if (!categoryResponse?.data?.[0]) return null;
-    return categoryResponse.data[0].studies?.[0]?.slug || null;
+    const slug = categoryResponse?.data?.[0]?.studies?.[0]?.slug || null;
+    console.log('Category response:', categoryResponse);
+    console.log('Extracted slug:', slug);
+    return slug;
   }, [categoryResponse]);
 
   const { data: studyResponse, isLoading, error } = useStudyBySlug(
     caseStudySlug || '',
     !!caseStudySlug
   );
+
+  React.useEffect(() => {
+    console.log('Study response:', studyResponse);
+    console.log('Study loading:', isLoading);
+    console.log('Study error:', error);
+  }, [studyResponse, isLoading, error]);
 
   if (categoryLoading || isLoading) {
     return (
