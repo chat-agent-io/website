@@ -111,6 +111,7 @@ export const useStudyBySlug = (
   return useQuery({
     queryKey: STUDY_BY_SLUG_QUERY_KEY(slug),
     queryFn: async () => {
+      console.log('Fetching study with slug:', slug);
       const { data } = await clientChatAgent.get<Study[] | StudyResponse>(
         Config.chatAgent.resources.studies,
         {
@@ -130,18 +131,25 @@ export const useStudyBySlug = (
         }
       );
 
+      console.log('Raw API response:', data);
+
       // If the API returns an array, get the first item
       if (Array.isArray(data)) {
-        return { data: data[0] || null } as StudyResponse;
+        const result = { data: data[0] || null } as StudyResponse;
+        console.log('Returning array first item:', result);
+        return result;
       }
 
       // If it's wrapped in a data property, use it as is
       if (data && 'data' in data) {
+        console.log('Returning wrapped data:', data);
         return data as StudyResponse;
       }
 
       // Fallback: wrap the single object
-      return { data: data as Study } as StudyResponse;
+      const result = { data: data as Study } as StudyResponse;
+      console.log('Returning wrapped single:', result);
+      return result;
     },
     enabled: enabled && !!slug,
   });
