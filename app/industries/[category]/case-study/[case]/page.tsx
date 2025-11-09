@@ -174,8 +174,8 @@ export default function CaseStudyPage() {
           {channelsSection && (
             <section className={styles.channels}>
               <div className={styles.channelsHeader}>
-                <div className={styles.channelsHeading}>
-                  <h2>{channelsSection.title}</h2>
+                <div className={styles.sectionHeading}>
+                  <h2 className={styles.sectionTitle}>{channelsSection.title}</h2>
                 </div>
                 {channelsSection.description && (
                   <div className={styles.channelsText}>
@@ -315,8 +315,8 @@ export default function CaseStudyPage() {
           {featuresSection && (
             <section className={styles.features}>
               <div className={styles.featuresHeader}>
-                <div className={styles.featuresHeading}>
-                  <h2>{featuresSection.title}</h2>
+                <div className={styles.sectionHeading}>
+                  <h2 className={styles.sectionTitle}>{featuresSection.title}</h2>
                 </div>
                 {featuresSection.description && (
                   <div className={styles.featuresSubheading}>
