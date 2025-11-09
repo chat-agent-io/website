@@ -334,9 +334,7 @@ export default function CaseStudyPage() {
               {/* Setup Section - identified by title and card blocks */}
               {section.title.toLowerCase().match(/setup|go live/) && section.blocks.some(b => b.collection === 'block_card') && (
                 <section className={styles.setup}>
-                  <div className={styles.sectionHeading}>
-                    <h2 className={styles.sectionTitle}>{section.title}</h2>
-                  </div>
+                  <HeaderSection title={section.title} />
 
                   <div className={styles.setupCards}>
                     {getBlocksByCollection(section, 'block_card').map((card, index) => (
