@@ -9,7 +9,8 @@ import styles from './case.module.scss';
 
 export default function CaseStudyPage() {
   const params = useParams();
-  const caseSlug = params.case as string;
+  const caseParam = params.case as string;
+  const caseSlug = `${caseParam}-case-study`;
 
   const { data: studyResponse, isLoading, error } = useStudyBySlug(caseSlug);
 
