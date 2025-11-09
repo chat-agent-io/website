@@ -1,0 +1,58 @@
+.headerSection {
+  display: flex;
+  max-width: 628px;
+  padding-bottom: 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  position: relative;
+}
+
+.sectionHeading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+}
+
+.sectionTitle {
+  flex: 1 0 0;
+  color: #03010C;
+  text-align: center;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 120%;
+  margin: 0;
+  white-space: pre-line;
+  max-width: 628px;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
+}
+
+.sectionText {
+  display: flex;
+  max-width: 628px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  p {
+    flex: 1 0 0;
+    color: #4E4D54;
+    text-align: center;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+  }
+}
