@@ -95,9 +95,9 @@ export default function CaseStudyPage() {
               {section.blocks.some(b => b.collection === 'block_statistics') && (
                 <section className={styles.hero}>
                   <div className={styles.containerText}>
-                    <div className={styles.heading}>
-                      <h1 className={styles.heroTitle}>{study.title}</h1>
-                    </div>
+                    <div className={styles.sectionHeading}>
+                    <h2 className={styles.sectionTitle}>{section.title}</h2>
+                  </div>
                     <div className={styles.subheading}>
                       <p className={styles.heroSubtitle}>{study.description}</p>
                     </div>
