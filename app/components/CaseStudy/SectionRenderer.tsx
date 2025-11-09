@@ -1,33 +1,56 @@
 import React from 'react';
+import classNames from 'classnames';
 import { HeaderSection } from './HeaderSection';
-import { BlockRenderer } from './blocks/BlockRenderer';
+import { BlockRenderer, Block } from './BlockRenderer';
+import styles from './SectionRenderer.module.scss';
 
-interface Block {
-  id: number;
-  studies_sections_id: number;
-  collection: string;
-  item: Record<string, any>;
-}
-
-interface Section {
+export interface Section {
   id: number;
   title: string;
   description: string | null;
   notice: string | null;
-  study: number;
-  type: 'simple' | 'grid' | string;
+  type: 'simple' | 'grid';
   blocks: Block[];
 }
 
-export const SectionRenderer: React.FC<{ section: Section }> = ({ section }) => {
-  const layout = (section.type === 'grid' ? 'grid' : 'simple') as 'simple' | 'grid';
+interface SectionRendererProps {
+  section: Section;
+}
+
+export const SectionRenderer: React.FC<SectionRendererProps> = ({ section }) => {
+  // Check if all blocks are FAQs
+  const allFaqs = section.blocks.every(block => block.collection === 'block_faqs');
+
+  // Determine layout class based on section type
+  const layoutClass = classNames({
+    [styles.faqLayout]: allFaqs,
+    [styles.gridLayout]: !allFaqs && section.type === 'grid',
+    [styles.simpleLayout]: !allFaqs && section.type === 'simple',
+  });
 
   return (
-    <section>
-      <HeaderSection title={section.title} description={section.description || undefined} />
-      <BlockRenderer blocks={section.blocks} layout={layout} sectionTitle={section.title} />
+    <section className={styles.section}>
+      {/* Header - Title and Description */}
+      <HeaderSection
+        title={section.title}
+        description={section.description}
+      />
+
+      {/* Blocks - Rendered dynamically based on collection type */}
+      <div className={layoutClass}>
+        {section.blocks.map((block, index) => (
+          <BlockRenderer
+            key={block.id}
+            block={block}
+            layout={section.type === 'grid' ? 'grid' : 'row'}
+            isFirstCard={index === 0}
+          />
+        ))}
+      </div>
+
+      {/* Notice - Shown at the bottom if present */}
       {section.notice && (
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className={styles.notice}>
           <p>{section.notice}</p>
         </div>
       )}

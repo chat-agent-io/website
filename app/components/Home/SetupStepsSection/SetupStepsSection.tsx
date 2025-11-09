@@ -1,4 +1,4 @@
-import { Card, CardContent } from '../../../components/UI/Card';
+import { Card, CardContent } from '@/app/components/UI/Card';
 import styles from './SetupStepsSection.module.scss';
 
 export const SetupStepsSection: React.FC = () => {

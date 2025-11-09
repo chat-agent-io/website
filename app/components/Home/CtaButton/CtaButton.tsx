@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../../components/UI/Button/Button';
+import { Button } from '@/app/components/UI/Button/Button';
 import styles from './CtaButton.module.scss';
 
 export const CtaButton: React.FC = () => {

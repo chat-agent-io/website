@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from '../../Button';
-import { Navigation } from '../../Navigation';
+import { Button } from '@/app/components/UI/Button';
+import { Navigation } from '@/app/components/UI/Navigation';
 import styles from './PreFooterNav.module.scss';
 import { Logo } from '@/app/assets/icons/Logo';
 import Link from 'next/link';
 import { HamburgerIcon } from '@/app/assets/icons/HamburgerIcon';
-import { MobileMenu } from '../MobileMenu';
+import { MobileMenu } from '@/app/components/UI/Layout/MobileMenu';
 
 export const PreFooterNav = (): React.ReactElement => {
   const [isOpen, setIsOpen] = useState(false);

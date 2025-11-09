@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { Button } from '../../Button';
+import { Button } from '@/app/components/UI/Button';
 import styles from './MobileMenu.module.scss';
 import { Logo } from '@/app/assets/icons/Logo';
 

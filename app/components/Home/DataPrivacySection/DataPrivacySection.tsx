@@ -1,4 +1,4 @@
-import { Card, CardContent } from '../../../components/UI/Card';
+import { Card, CardContent } from '@/app/components/UI/Card';
 import styles from './DataPrivacySection.module.scss';
 import { GDPRIcon } from '@/app/assets/icons/GDPRIcon';
 import { EncryptionIcon } from '@/app/assets/icons/EncryptionIcon';

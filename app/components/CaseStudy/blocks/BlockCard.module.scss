@@ -1,0 +1,231 @@
+@use '../../../styles/colors' as colors;
+
+/* ============================================================================
+   BASE CARD STYLES
+   ============================================================================ */
+
+.defaultCard,
+.iconCard,
+.numberCard {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  gap:            16px;
+  border-radius:  9.5px;
+  background:     #FFF;
+  position:       relative;
+  padding:        16px;
+}
+
+/* Layout variants */
+.gridLayout {
+  width: 100%;
+
+  @media (max-width: 768px) {
+    width:     calc(50% - 8px);
+    min-width: 180px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.rowLayout {
+  width:     100%;
+  max-width: 400px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
+/* Card type-specific overrides */
+.iconCard {
+  gap: 10px;
+
+  @media (max-width: 768px) {
+    width:     calc(33.33% - 11px);
+    min-width: 180px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.numberCard {
+  align-items: flex-start;
+  gap:         8px;
+
+  @media (max-width: 768px) {
+    width:     calc(50% - 8px);
+    min-width: 180px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+/* ============================================================================
+   TYPE: SECTION
+   ============================================================================ */
+
+.sectionTitle {
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  align-self:      stretch;
+
+  h3 {
+    flex:        1 0 0;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size:   16px;
+    font-weight: 600;
+    line-height: 120%;
+    margin:      0;
+  }
+}
+
+.firstCard h3 {
+  color: colors.$primary-purple;
+}
+
+.otherCard h3 {
+  color: #03010C;
+}
+
+.sectionImage {
+  display:        flex;
+  flex-direction: column;
+  align-items:    flex-start;
+  align-self:     stretch;
+  position:       relative;
+
+  .fullWidthImage {
+    width:      100%;
+    height:     auto;
+    align-self: stretch;
+    position:   relative;
+  }
+}
+
+/* ============================================================================
+   TYPE: IMAGE
+   ============================================================================ */
+
+.imageContainer {
+  display:         flex;
+  flex-direction:  column;
+  border-radius:   9.5px;
+  justify-content: center;
+  background:      linear-gradient(180deg, #FFF 0%, #F2F2FA 100%);
+  position:        relative;
+
+  .cardImage {
+    object-fit:    cover;
+    border-radius: 9.5px;
+  }
+}
+
+/* ============================================================================
+   TYPE: ICON
+   ============================================================================ */
+
+.iconContainer {
+  display:         flex;
+  width:           100px;
+  justify-content: center;
+  align-items:     center;
+  flex-shrink:     0;
+  position:        relative;
+
+  .cardIcon {
+    object-fit: fill;
+    position:   relative;
+  }
+}
+
+/* ============================================================================
+   TYPE: NUMBER
+   ============================================================================ */
+
+.numberBadgeWrapper {
+  display:    flex;
+  align-self: stretch;
+  position:   relative;
+
+  .numberBadge {
+    display:         inline-flex;
+    width:           40px;
+    height:          40px;
+    justify-content: center;
+    align-items:     center;
+    border-radius:   50%;
+    background:      colors.$primary-purple;
+    flex-shrink:     0;
+    position:        relative;
+
+    span {
+      color:       #FFF;
+      font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+      font-size:   19px;
+      font-weight: 600;
+      line-height: 120%;
+    }
+  }
+}
+
+/* ============================================================================
+   SHARED: CONTENT STYLES
+   ============================================================================ */
+
+.content {
+  display:        flex;
+  flex-direction: column;
+  align-items:    flex-start;
+  gap:            8px;
+  align-self:     stretch;
+  position:       relative;
+}
+
+.title {
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  align-self:      stretch;
+  position:        relative;
+
+  h3 {
+    flex:        1 0 0;
+    color:       #03010C;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size:   16px;
+    font-weight: 600;
+    line-height: 120%;
+    margin:      0;
+  }
+}
+
+.description {
+  display:     flex;
+  align-items: center;
+  align-self:  stretch;
+  position:    relative;
+
+  p {
+    display:            -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    flex:               1 0 0;
+    overflow:           hidden;
+    color:              #818085;
+    text-overflow:      ellipsis;
+    font-family:        Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size:          13px;
+    font-weight:        400;
+    line-height:        120%;
+    margin:             0;
+  }
+}

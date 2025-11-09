@@ -1,6 +1,6 @@
 'use client';
 
-import { Card, CardContent } from '../../../components/UI/Card';
+import { Card, CardContent } from '@/app/components/UI/Card';
 import styles from './WhatDoesntSection.module.scss';
 import { YesIcon } from '@/app/assets/icons/YesIcon';
 import { CtaButton } from '../CtaButton/CtaButton';

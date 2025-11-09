@@ -7,7 +7,7 @@ import { InstagramIcon } from '@/app/assets/icons/InstagramIcon';
 import { YoutubeIcon } from '@/app/assets/icons/YoutubeIcon';
 import { TranslateIcon } from '@/app/assets/icons/TranslateIcon';
 import { UpArrowIcon } from '@/app/assets/icons/UpArrowIcon';
-import { LanguageDropdown } from '../../LanguageSelection';
+import { LanguageDropdown } from '@/app/components/UI/LanguageSelection';
 
 export const DesktopFooter = (): React.ReactElement => {
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);

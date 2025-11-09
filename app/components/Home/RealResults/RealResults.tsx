@@ -2,12 +2,12 @@
 
 import { useEffect, useRef } from 'react';
 import styles from './RealResults.module.scss';
-import animationData from '../../../../public/animations/phone/phone.json';
+import animationData from '@/public/animations/phone/phone.json';
 import Lottie, { LottieRefCurrentProps } from 'lottie-react';
-import mobileHeadingAnimationData from '../../../../public/animations/phoneheadingmob/phoneheadingmob.json';
-import mobileAnimationData from '../../../../public/animations/phonemob/phonemob.json';
+import mobileHeadingAnimationData from '@/public/animations/phoneheadingmob/phoneheadingmob.json';
+import mobileAnimationData from '@/public/animations/phonemob/phonemob.json';
 import { useIntersectionObserver } from '@/app/hooks/useIntersectionObserver';
-import { Card, CardContent } from '../../../components/UI/Card';
+import { Card, CardContent } from '@/app/components/UI/Card';
 import { Clock2Icon } from '@/app/assets/icons/Clock2Icon';
 import { ChatBubblesIcon } from '@/app/assets/icons/ChatBubblesIcon';
 import { EarthIcon } from '@/app/assets/icons/EarthIcon';

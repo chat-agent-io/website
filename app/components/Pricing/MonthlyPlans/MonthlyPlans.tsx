@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from '../../UI/Button';
-import { Card, CardContent } from '../../UI/Card';
-import { Separator } from '../../UI/Separator/Separator';
+import { Button } from '@/app/components/UI/Button';
+import { Card, CardContent } from '@/app/components/UI/Card';
+import { Separator } from '@/app/components/UI/Separator/Separator';
 import { CheckIcon } from '@/app/assets/icons/CheckIcon';
 import styles from './MonthlyPlans.module.scss';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';

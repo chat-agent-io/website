@@ -3,9 +3,9 @@
 import React from 'react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import Layout from '../../components/UI/Layout/Layout';
-import { useIndustryCategoryBySlug } from '../../services/industries/useIndustries';
-import { getAssetCloud } from '../../utils/assets';
+import Layout from '@/app/components/UI/Layout/Layout';
+import { useIndustryCategoryBySlug } from '@/app/services/industries/useIndustries';
+import { getAssetCloud } from '@/app/utils/assets';
 import styles from './category.module.scss';
 
 function LoadingIndicator() {

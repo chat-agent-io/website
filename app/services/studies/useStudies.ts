@@ -51,6 +51,7 @@ export interface Block {
   id: number;
   studies_sections_id: number;
   collection: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   item: Record<string, any>;
 }
 

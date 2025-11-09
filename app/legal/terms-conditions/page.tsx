@@ -1,6 +1,6 @@
 'use client';
 
-import Layout from '../../components/UI/Layout/Layout';
+import Layout from '@/app/components/UI/Layout/Layout';
 import { TermsConditionsContent } from './TermsConditionsContent';
 
 export default function TermsConditionsPage() {

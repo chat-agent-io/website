@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { AccordionSimple } from '../../components/UI/AccordionSimple';
+import { AccordionSimple } from '@/app/components/UI/AccordionSimple';
 import styles from './TermsConditionsContent.module.scss';
 
 interface TermsSection {

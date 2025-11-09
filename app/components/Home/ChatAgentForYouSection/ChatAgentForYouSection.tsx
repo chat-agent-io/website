@@ -1,14 +1,14 @@
 'use client';
 
-import { Card, CardContent } from '../../../components/UI/Card';
+import { Card, CardContent } from '@/app/components/UI/Card';
 import styles from './ChatAgentForYouSection.module.scss';
 import { useAutoSwipe } from '@/app/hooks/useAutoSwipe';
 import Lottie from 'lottie-react';
-import tooManyMessagesAnimation from '../../../../public/animations/icons/toomanymessages/toomanymessages.json';
-import missedMessagesAnimation from '../../../../public/animations/icons/missedmessages/missedmessages.json';
-import youDontWantToAnimation from '../../../../public/animations/icons/youdontwantto/youdontwantto.json';
-import youTiredOfAnimation from '../../../../public/animations/icons/youretiredof/youretiredof.json';
-import youWantAnimation from '../../../../public/animations/icons/youwant/youwant.json';
+import tooManyMessagesAnimation from '@/public/animations/icons/toomanymessages/toomanymessages.json';
+import missedMessagesAnimation from '@/public/animations/icons/missedmessages/missedmessages.json';
+import youDontWantToAnimation from '@/public/animations/icons/youdontwantto/youdontwantto.json';
+import youTiredOfAnimation from '@/public/animations/icons/youretiredof/youretiredof.json';
+import youWantAnimation from '@/public/animations/icons/youwant/youwant.json';
 
 interface Scenario {
   header: string;

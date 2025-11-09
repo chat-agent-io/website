@@ -1,0 +1,76 @@
+@use '../../styles/colors' as colors;
+
+/* Section wrapper */
+.section {
+  display: flex;
+  padding: 32px 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+  position: relative;
+}
+
+/* Simple layout - horizontal row */
+.simpleLayout {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Grid layout - responsive grid with 3 columns */
+.gridLayout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  justify-items: center;
+  position: relative;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FAQ layout - single column stacked */
+.faqLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  align-self: center;
+  position: relative;
+}
+
+/* Notice at bottom */
+.notice {
+  display: flex;
+  max-width: 628px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  p {
+    flex: 1 0 0;
+    color: #4E4D54;
+    text-align: center;
+    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 0;
+  }
+}

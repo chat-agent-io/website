@@ -13,7 +13,6 @@ const Layout = ({ children, showPreFooterNav = false }: LayoutProps) => {
     <>
       <Header />
       {children}
-      {showPreFooterNav && <PreFooterNav />}
       <Footer />
     </>
   );

@@ -6,7 +6,7 @@ import { LinkedInIcon } from '@/app/assets/icons/LinkedInIcon';
 import { FacebookIcon } from '@/app/assets/icons/FacebookIcon';
 import { InstagramIcon } from '@/app/assets/icons/InstagramIcon';
 import { YoutubeIcon } from '@/app/assets/icons/YoutubeIcon';
-import { LanguageDropdown } from '../../LanguageSelection';
+import { LanguageDropdown } from '@/app/components/UI/LanguageSelection';
 import { UpArrowIcon } from '@/app/assets/icons/UpArrowIcon';
 
 const linkRoutes: Record<string, string> = {

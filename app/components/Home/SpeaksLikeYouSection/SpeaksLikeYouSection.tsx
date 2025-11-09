@@ -4,8 +4,8 @@ import { useEffect, useRef } from 'react';
 import styles from './SpeaksLikeYouSection.module.scss';
 import { CtaButton } from '../CtaButton/CtaButton';
 import Lottie, { LottieRefCurrentProps } from 'lottie-react';
-import animationData from '../../../../public/animations/chat/chat.json';
-import mobileAnimationData from '../../../../public/animations/chatmob/chatmob.json';
+import animationData from '@/public/animations/chat/chat.json';
+import mobileAnimationData from '@/public/animations/chatmob/chatmob.json';
 import { useIntersectionObserver } from '@/app/hooks/useIntersectionObserver';
 
 export const SpeaksLikeYouSection: React.FC = () => {

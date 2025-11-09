@@ -1,8 +1,8 @@
 import styles from './WhatDoesSection.module.scss';
 import Lottie from 'lottie-react';
-import brainAnimation from '../../../../public/animations/icons/brain/brain.json';
-import alwaysAvailableAnimation from '../../../../public/animations/icons/alwaysavailable/alwaysavailable.json';
-import worksEverywhereAnimation from '../../../../public/animations/icons/workseverywhere/workseverywhere.json';
+import brainAnimation from '@/public/animations/icons/brain/brain.json';
+import alwaysAvailableAnimation from '@/public/animations/icons/alwaysavailable/alwaysavailable.json';
+import worksEverywhereAnimation from '@/public/animations/icons/workseverywhere/workseverywhere.json';
 
 export const WhatDoesSection: React.FC = () => {
   const features = [
