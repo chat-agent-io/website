@@ -163,7 +163,7 @@ export default function CaseStudyPage() {
               </div>
 
               {problemSection.notice && (
-                <div className={styles.problemText}>
+                <div className={styles.sectionText}>
                   <p>{problemSection.notice}</p>
                 </div>
               )}
@@ -178,7 +178,7 @@ export default function CaseStudyPage() {
                   <h2 className={styles.sectionTitle}>{channelsSection.title}</h2>
                 </div>
                 {channelsSection.description && (
-                  <div className={styles.channelsText}>
+                  <div className={styles.sectionText}>
                     <p>{channelsSection.description}</p>
                   </div>
                 )}
@@ -377,7 +377,7 @@ export default function CaseStudyPage() {
               </div>
 
               {setupSection.notice && (
-                <div className={styles.setupText}>
+                <div className={styles.sectionText}>
                   <p>{setupSection.notice}</p>
                 </div>
               )}
