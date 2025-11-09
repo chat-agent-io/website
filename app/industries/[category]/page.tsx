@@ -84,26 +84,33 @@ export default function IndustryCategoryPage() {
 
           <div className={styles.subcategoriesGrid}>
             <div className={styles.row}>
-              {categories.slice(0, 3).map((subcategory) => (
-                <div key={subcategory.id} className={styles.card}>
-                  <div className={styles.cardHeader}>
-                    <div className={styles.iconWrapper}>
-                      <Image
-                        src={getAssetCloud(subcategory.icon)}
-                        alt={subcategory.name}
-                        width={50}
-                        height={55}
-                        unoptimized
-                      />
+              {categories.slice(0, 3).map((subcategory) => {
+                const caseSlug = subcategory.studies?.[0]?.slug;
+                const caseStudyUrl = caseSlug
+                  ? `/industries/${category}/case-study/${caseSlug}`
+                  : '#';
+
+                return (
+                  <div key={subcategory.id} className={styles.card}>
+                    <div className={styles.cardHeader}>
+                      <div className={styles.iconWrapper}>
+                        <Image
+                          src={getAssetCloud(subcategory.icon)}
+                          alt={subcategory.name}
+                          width={50}
+                          height={55}
+                          unoptimized
+                        />
+                      </div>
+                      <h2 className={styles.cardTitle}>{subcategory.name}</h2>
                     </div>
-                    <h2 className={styles.cardTitle}>{subcategory.name}</h2>
+                    <p className={styles.cardDescription}>{subcategory.description}</p>
+                    <a href={caseStudyUrl} className={styles.seeHowLink}>
+                      See How It Works ↗
+                    </a>
                   </div>
-                  <p className={styles.cardDescription}>{subcategory.description}</p>
-                  <a href="#" className={styles.seeHowLink}>
-                    See How It Works ↗
-                  </a>
-                </div>
-              ))}
+                );
+              })}
             </div>
             <div className={styles.row}>
               {categories.slice(3).map((subcategory) => (
