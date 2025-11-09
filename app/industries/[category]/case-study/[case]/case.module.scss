@@ -74,13 +74,23 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  min-height: 400px;
+}
 
-  p {
-    font-size: 16px;
-    font-weight: 400;
-    color: colors.$gray-700;
-    font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
-  }
+.loadingText,
+.errorMessage {
+  font-size: 16px;
+  font-weight: 400;
+  color: colors.$gray-700;
+  font-family: Onest, -apple-system, Roboto, Helvetica, sans-serif;
+  margin: 0;
+}
+
+// Section Wrapper
+.sectionWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 // Hero Section
