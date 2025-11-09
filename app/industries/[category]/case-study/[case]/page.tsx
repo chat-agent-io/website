@@ -1,56 +1,167 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams } from 'next/navigation';
-import Image from 'next/image';
 import Layout from '../../../../components/UI/Layout/Layout';
-import { useStudyBySlug } from '../../../../services/studies/useStudies';
-import { getAssetCloud } from '../../../../utils/assets';
 import styles from './case.module.scss';
+
+const caseStudyData: Record<string, any> = {
+  'beach-clubs': {
+    breadcrumb: 'Industries\\Hospitality & Leisure\\Beach Clubs',
+    title: 'Beach Club Guests Don\'t Wait — Neither Should Your Replies',
+    subtitle: 'From lazy brunch to sunset party, ChatAgent answers every message in seconds — with human-quality recommendations that feel like they\'re from your most experienced host.',
+    stats: [
+      { 
+        icon: 'https://api.builder.io/api/v1/image/assets/TEMP/3a41cb072b5ee98e0acee938b2f36b967745bcb1?width=74', 
+        value: '38 sec', 
+        label: 'Avg. Reply Time', 
+        caption: 'instead of hours' 
+      },
+      { 
+        icon: 'https://api.builder.io/api/v1/image/assets/TEMP/b505eb2cdf42549b481296254a7377c82abccc14?width=70', 
+        value: '+25%', 
+        label: 'Engagement Uplift', 
+        caption: 'on event posts' 
+      },
+      { 
+        icon: 'https://api.builder.io/api/v1/image/assets/TEMP/fb0886daa9ed09b6bda3ecc55ebd63d6bc937d8c?width=120', 
+        value: '+40/mo', 
+        label: 'Staff Hours Saved', 
+        caption: 'in season' 
+      }
+    ],
+    problemTitle: 'Beach Club Reality\n— Fast, Loud, Full-On',
+    guestExpect: {
+      title: 'Guests Expect',
+      description: 'Instant answers, friendly recommendations, today\'s details, and help in their language.',
+      subtitle: 'What Guests Ask',
+      image: 'https://api.builder.io/api/v1/image/assets/TEMP/5d8884493fd099859b3740a9c5d70adf422185c4?width=600'
+    },
+    teamBottleneck: {
+      title: 'The Bottleneck',
+      description: 'Spiky DM volume, busy floor, constantly changing info — replies lag and valuable opportunities slip.',
+      subtitle: 'What Your Team Is Doing',
+      image: 'https://api.builder.io/api/v1/image/assets/TEMP/e3a51180b88f2721b89ba59b05fea1a8b9d23036?width=568'
+    },
+    channels: {
+      title: 'One Voice, All Platforms',
+      subtitle: 'Clear answers, timely suggestions, tone that matches your brand — in any language.',
+      buttons: ['WhatsApp', 'Instagram', 'Website'],
+      conversationTitle1: 'Conversations\nThat Feel Human',
+      conversationTitle2: 'Recommendations,\nNot Lists',
+      conversationImage1: 'https://api.builder.io/api/v1/image/assets/TEMP/55cb404fbd7e627a9a4a5496609cb5491f4c313f?width=580',
+      conversationImage2: 'https://api.builder.io/api/v1/image/assets/TEMP/f719f08ed7cf7ca84a2fdff9b2b96081e1db4dee?width=580',
+      screenshot: 'https://api.builder.io/api/v1/image/assets/TEMP/373c4d2f7b1b5512af3b8fd1157c8e017ea0328d?width=600'
+    },
+    timeline: {
+      title: 'A Beach Club Day\n— Covered End to End',
+      cards: [
+        { title: 'Morning', description: 'Opening hours, towel policy, shaded spots,  and tasty brunch highlights.' },
+        { title: 'Afternoon', description: 'Instant drinks and shisha menus, poolside snacks, multilingual support.' },
+        { title: 'Sunset', description: 'Promotes tonight\'s DJ, answers dress code, recommends best arrival time' },
+        { title: 'Late Night', description: 'Answers next-day questions across time zones, covering Friday, vegan options, parking' }
+      ]
+    },
+    benefits: {
+      title: 'Turn DMs Into Revenue\nWithout Lifting a Finger',
+      cards: [
+        { title: '24/7 Instant Replies', description: 'Instant answers on Instagram & WhatsApp — even when your team\'s offline' },
+        { title: 'Menu & Content Brain', description: 'Ingests menus, event flyers, house rules, FAQs, location & parking notes' },
+        { title: 'Brand-Tuned Voice', description: 'Relaxed & friendly, premium & minimal, or party-forward — you choose' },
+        { title: 'Human Handoff', description: 'Escalates edge cases (VIPs, complaints, lost items) to staff with context' },
+        { title: 'Contextual Recommender', description: 'Recommends tables, bottles, shisha, and events based on time, vibe, and guest cues' },
+        { title: 'Multilingual Support', description: 'Auto-detects and replies in the guest\'s language with on-brand tone' }
+      ]
+    },
+    features: {
+      title: 'Why Beach Clubs Love This\n— Even If They Don\'t Know It Yet',
+      subtitle: 'This isn\'t a chatbot. This is an upgrade to your guest experience.',
+      cards: [
+        { 
+          icon: 'https://api.builder.io/api/v1/image/assets/TEMP/b691ca61d5fd834b549f8c3cefd5a22b8e25875e?width=112',
+          title: 'Trained to Think\nLike You',
+          description: 'Upload your menu, services, pricing, tone of voice, FAQs, and hashtags. ChatAgent learns fast'
+        },
+        { 
+          icon: 'https://api.builder.io/api/v1/image/assets/TEMP/fae5055a0ffe003f7f0bd52b40a2aa0762b64a8d?width=182',
+          title: 'Quick Launch,\nZero Stress',
+          description: 'Go live the same day. No dev team needed. No weeks of setup'
+        },
+        { 
+          icon: 'https://api.builder.io/api/v1/image/assets/TEMP/6ff380cf795e0a7efec20d3b73e761c0ab7c69d6?width=102',
+          title: 'Staff Time\nReclaimed',
+          description: 'Save 30–40 hrs/mo and let your team focus on the floor — not the inbox'
+        }
+      ]
+    },
+    setup: {
+      title: 'Go Live Fast — No Engineering Required',
+      subtitle: 'No waiting 7 days to see results — go live today',
+      cards: [
+        {
+          number: 'https://api.builder.io/api/v1/image/assets/TEMP/a6502f81d08899283e6bc857107b1cc1da47460b?width=80',
+          title: 'Load Your Content',
+          description: 'Menus, event details, flyers, FAQs, house rules, location & parking'
+        },
+        {
+          number: 'https://api.builder.io/api/v1/image/assets/TEMP/5818e4fb94c1b47b2db4407eaf7a3a345fa9c290?width=80',
+          title: 'Set the Voice',
+          description: 'Choose tone & phrasing — we align replies to your brand'
+        },
+        {
+          number: 'https://api.builder.io/api/v1/image/assets/TEMP/dd50c5b24f7cbfd4add034d5d6bf91f4a0b7ac99?width=80',
+          title: 'Connect Channels',
+          description: 'Instagram, WhatsApp Business, drop-in website widget'
+        },
+        {
+          number: 'https://api.builder.io/api/v1/image/assets/TEMP/5aa2cf86543e463bf1a9634978e9719b6cfbd6bb?width=80',
+          title: 'Guarded Launch',
+          description: 'Start in review mode, then go full auto with escalation triggers'
+        }
+      ]
+    },
+    faqs: [
+      { 
+        question: 'We already reply to DMs ourselves?', 
+        answer: 'ChatAgent works alongside your team, handles overflow, and ensures no guest is left waiting' 
+      },
+      { 
+        question: 'We don\'t want it to sound robotic?', 
+        answer: 'It won\'t — replies use your brand tone and feel like your team' 
+      },
+      { 
+        question: 'Our bookings are done manually?', 
+        answer: 'No problem — ChatAgent guides guests and collects the info your team needs' 
+      },
+      { 
+        question: 'We\'ve never used anything like this before?', 
+        answer: 'Perfect — no technical knowledge needed, just your brand info' 
+      }
+    ],
+    finalCta: {
+      logo: 'https://api.builder.io/api/v1/image/assets/TEMP/0b4768191c965e62aac3a96d78ab484f707fec83?width=300',
+      title: 'Every Missed Message Is a Missed Guest on the Beach.',
+      subtitle: 'Let your team focus on the vibe. ChatAgent handles messages — instantly, on brand, across every channel.',
+      buttonText: 'Start 14-Day Free Trial',
+      background: 'https://api.builder.io/api/v1/image/assets/TEMP/36cf94c30090f066a3c60121d2de3eb62aac9c9f?width=1700'
+    }
+  }
+};
 
 export default function CaseStudyPage() {
   const params = useParams();
   const caseSlug = params.case as string;
+  
+  const data = caseStudyData[caseSlug];
 
-  const { data: studyResponse, isLoading, error } = useStudyBySlug(caseSlug);
-
-  if (isLoading) {
+  if (!data) {
     return (
       <Layout>
         <main className={styles.page}>
           <div className={styles.mainContainer}>
-            <div className={styles.loadingContainer}>
-              <p className={styles.loadingText}>Loading case study...</p>
-            </div>
-          </div>
-        </main>
-      </Layout>
-    );
-  }
-
-  if (error) {
-    return (
-      <Layout>
-        <main className={styles.page}>
-          <div className={styles.mainContainer}>
-            <div className={styles.errorContainer}>
-              <p className={styles.errorMessage}>Failed to load case study. Please try again later.</p>
-            </div>
-          </div>
-        </main>
-      </Layout>
-    );
-  }
-
-  const study = studyResponse?.data;
-
-  if (!study) {
-    return (
-      <Layout>
-        <main className={styles.page}>
-          <div className={styles.mainContainer}>
-            <div className={styles.errorContainer}>
-              <p className={styles.errorMessage}>Case study not found.</p>
+            <div className={styles.notFound}>
+              <h1>Case Study Not Found</h1>
+              <p>The case study you&apos;re looking for doesn&apos;t exist.</p>
             </div>
           </div>
         </main>
@@ -66,228 +177,316 @@ export default function CaseStudyPage() {
           <div className={styles.headerBar}>
             <div className={styles.heroSection}>
               <div className={styles.breadcrumb}>
-                <span className={styles.inactive}>Industries</span>
-                <span className={styles.inactive}>\</span>
-                <span className={styles.inactive}>Hospitality & Leisure</span>
-                <span className={styles.inactive}>\</span>
-                <span className={styles.active}>{study.title}</span>
+                {data.breadcrumb.split('\\').map((part: string, index: number, arr: string[]) => (
+                  <React.Fragment key={index}>
+                    <span className={index === arr.length - 1 ? styles.active : styles.inactive}>
+                      {part}
+                    </span>
+                    {index < arr.length - 1 && '\\'}
+                  </React.Fragment>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Render sections */}
-          {study.sections?.map((section) => (
-            <SectionRenderer key={section.id} section={section} />
-          ))}
+          {/* Hero Section */}
+          <section className={styles.hero}>
+            <div className={styles.containerText}>
+              <div className={styles.heading}>
+                <h1 className={styles.heroTitle}>{data.title}</h1>
+              </div>
+              <div className={styles.subheading}>
+                <p className={styles.heroSubtitle}>{data.subtitle}</p>
+              </div>
+            </div>
+
+            {/* Stats Cards */}
+            <div className={styles.cards}>
+              {data.stats.map((stat: any, index: number) => (
+                <div key={index} className={styles.card}>
+                  <div className={styles.statIconContainer}>
+                    <img src={stat.icon} alt="" className={styles.statIconImg} />
+                    <span className={styles.statNumber}>{stat.value}</span>
+                  </div>
+                  <div className={styles.titleSection}>
+                    <h3 className={styles.statLabel}>{stat.label}</h3>
+                  </div>
+                  <div className={styles.captionSection}>
+                    <p className={styles.statCaption}>{stat.caption}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className={styles.containerCta}>
+              <button className={styles.buttonPrimary}>
+                Start 14-Day Free Trial
+              </button>
+              <button className={styles.buttonSecondary}>
+                See It In Action
+              </button>
+            </div>
+          </section>
+
+          {/* Problem Section */}
+          <section className={styles.problem}>
+            <div className={styles.problemHeading}>
+              <h2 className={styles.sectionTitle}>{data.problemTitle}</h2>
+            </div>
+            
+            <div className={styles.problemCards}>
+              {/* Guest Expectations Card */}
+              <div className={styles.guestProblem}>
+                <div className={styles.containerTextProblem}>
+                  <div className={styles.problemCardTitle}>
+                    <h3>{data.guestExpect.title}</h3>
+                  </div>
+                  <div className={styles.item}>
+                    <p>{data.guestExpect.description}</p>
+                  </div>
+                </div>
+                <div className={styles.textSection}>
+                  <h4>{data.guestExpect.subtitle}</h4>
+                </div>
+                <div className={styles.containerQuestions}>
+                  <img src={data.guestExpect.image} alt="What Guests Ask" className={styles.questionsCards} />
+                </div>
+              </div>
+
+              {/* Team Bottleneck Card */}
+              <div className={styles.staffProblem}>
+                <div className={styles.containerTextProblem}>
+                  <div className={styles.problemCardTitle}>
+                    <h3>{data.teamBottleneck.title}</h3>
+                  </div>
+                  <div className={styles.item}>
+                    <p>{data.teamBottleneck.description}</p>
+                  </div>
+                </div>
+                <div className={styles.textSection}>
+                  <h4>{data.teamBottleneck.subtitle}</h4>
+                </div>
+                <div className={styles.containerQuestions}>
+                  <div className={styles.questionCardsWrapper}>
+                    <img src={data.teamBottleneck.image} alt="What Your Team Is Doing" className={styles.groupCards} />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.problemText}>
+              <p>ChatAgent covers the channels so your team can cover the floor — it doesn&apos;t take reservations or payments.</p>
+            </div>
+          </section>
+
+          {/* Channels Section */}
+          <section className={styles.channels}>
+            <div className={styles.channelsHeader}>
+              <div className={styles.channelsHeading}>
+                <h2>{data.channels.title}</h2>
+              </div>
+              <div className={styles.channelsText}>
+                <p>{data.channels.subtitle}</p>
+              </div>
+            </div>
+
+            <div className={styles.seeItInAction}>
+              <div className={styles.buttonsContainer}>
+                {data.channels.buttons.map((btn: string, i: number) => (
+                  <button 
+                    key={i} 
+                    className={`${styles.buttonPillChannels} ${i === 0 ? styles.active : ''}`}
+                  >
+                    {btn}
+                  </button>
+                ))}
+                <div className={styles.moreText}>& More</div>
+              </div>
+
+              <div className={styles.channelContainer}>
+                <div className={styles.conversationSamples}>
+                  <div className={styles.minichatCards}>
+                    <div className={styles.minichatHeading}>
+                      <h3 className={styles.gradientInstagram}>{data.channels.conversationTitle1}</h3>
+                    </div>
+                    <img src={data.channels.conversationImage1} alt="Conversation sample" className={styles.conversationCard} />
+                  </div>
+
+                  <div className={styles.minichatCards}>
+                    <div className={styles.minichatHeading}>
+                      <h3 className={styles.gradientBlue}>{data.channels.conversationTitle2}</h3>
+                    </div>
+                    <img src={data.channels.conversationImage2} alt="Conversation sample" className={styles.conversationCard} />
+                  </div>
+                </div>
+
+                <img src={data.channels.screenshot} alt="Mobile screenshot" className={styles.screenshots} />
+              </div>
+            </div>
+          </section>
+
+          {/* Timeline Section */}
+          <section className={styles.timeline}>
+            <div className={styles.timelineHeading}>
+              <h2 className={styles.sectionTitle}>{data.timeline.title}</h2>
+            </div>
+            
+            <div className={styles.timelineCards}>
+              {data.timeline.cards.map((card: any, i: number) => (
+                <div key={i} className={styles.timelineCard}>
+                  <div className={styles.timelinePhotos}></div>
+                  <div className={styles.timelineContent}>
+                    <div className={styles.timelineTitle}>
+                      <h3>{card.title}</h3>
+                    </div>
+                    <div className={styles.timelineCaption}>
+                      <p>{card.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Benefits Section */}
+          <section className={styles.benefits}>
+            <div className={styles.benefitsHeading}>
+              <h2 className={styles.sectionTitle}>{data.benefits.title}</h2>
+            </div>
+            
+            <div className={styles.benefitsCards}>
+              <div className={styles.benefitsRow}>
+                {data.benefits.cards.slice(0, 3).map((card: any, i: number) => (
+                  <div key={i} className={styles.benefitCard}>
+                    <div className={styles.benefitImage}></div>
+                    <div className={styles.benefitContent}>
+                      <div className={styles.benefitTitle}>
+                        <h3>{card.title}</h3>
+                      </div>
+                      <div className={styles.benefitCaption}>
+                        <p>{card.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className={styles.benefitsRow}>
+                {data.benefits.cards.slice(3, 6).map((card: any, i: number) => (
+                  <div key={i} className={styles.benefitCard}>
+                    <div className={styles.benefitImage}></div>
+                    <div className={styles.benefitContent}>
+                      <div className={styles.benefitTitle}>
+                        <h3>{card.title}</h3>
+                      </div>
+                      <div className={styles.benefitCaption}>
+                        <p>{card.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Features Section */}
+          <section className={styles.features}>
+            <div className={styles.featuresHeader}>
+              <div className={styles.featuresHeading}>
+                <h2>{data.features.title}</h2>
+              </div>
+              <div className={styles.featuresSubheading}>
+                <p>{data.features.subtitle}</p>
+              </div>
+            </div>
+
+            <div className={styles.featuresCards}>
+              {data.features.cards.map((card: any, i: number) => (
+                <div key={i} className={styles.featureCard}>
+                  <div className={styles.featureIcon}>
+                    <img src={card.icon} alt="" />
+                  </div>
+                  <div className={styles.featureContent}>
+                    <div className={styles.featureTitle}>
+                      <h3>{card.title}</h3>
+                    </div>
+                    <div className={styles.featureCaption}>
+                      <p>{card.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Setup Section */}
+          <section className={styles.setup}>
+            <div className={styles.setupHeading}>
+              <h2>{data.setup.title}</h2>
+            </div>
+
+            <div className={styles.setupCards}>
+              {data.setup.cards.map((card: any, i: number) => (
+                <div key={i} className={styles.setupCard}>
+                  <div className={styles.setupIcon}>
+                    <img src={card.number} alt="" />
+                  </div>
+                  <div className={styles.setupTitle}>
+                    <h3>{card.title}</h3>
+                  </div>
+                  <div className={styles.setupCaption}>
+                    <p>{card.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.setupText}>
+              <p>{data.setup.subtitle}</p>
+            </div>
+          </section>
+
+          {/* FAQs Section */}
+          <section className={styles.faqs}>
+            <div className={styles.faqsHeading}>
+              <h2 className={styles.sectionTitle}>But What If...</h2>
+            </div>
+            
+            <div className={styles.qAndA}>
+              {data.faqs.map((faq: any, i: number) => (
+                <div key={i} className={styles.qAndAFrame}>
+                  <div className={styles.qAndAContent}>
+                    <div className={styles.question}>
+                      <h3>{faq.question}</h3>
+                    </div>
+                    <div className={styles.answer}>
+                      <p>{faq.answer}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Final CTA Banner */}
+          <section className={styles.finalCta}>
+            <div className={styles.bannerFrame}>
+              <div className={styles.logoAndText}>
+                <img src={data.finalCta.logo} alt="ChatAgent" className={styles.logoButton} />
+                <div className={styles.bannerTextContent}>
+                  <h2>{data.finalCta.title}</h2>
+                  <p>{data.finalCta.subtitle}</p>
+                </div>
+              </div>
+              <div className={styles.containerButton}>
+                <button className={styles.buttonPrimary}>
+                  {data.finalCta.buttonText}
+                </button>
+              </div>
+            </div>
+          </section>
         </div>
       </main>
     </Layout>
-  );
-}
-
-interface SectionProps {
-  section: any;
-}
-
-function SectionRenderer({ section }: SectionProps) {
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-
-  // Separate blocks by collection type
-  const statsBlocks = section.blocks?.filter((b) => b.collection === 'block_statistics') || [];
-  const cardBlocks = section.blocks?.filter((b) => b.collection === 'block_card') || [];
-  const faqBlocks = section.blocks?.filter((b) => b.collection === 'block_faqs') || [];
-  const bannerBlocks = section.blocks?.filter((b) => b.collection === 'block_banner') || [];
-
-  return (
-    <section className={styles.sectionWrapper}>
-      {/* Statistics Section */}
-      {statsBlocks.length > 0 && (
-        <div className={styles.hero}>
-          <div className={styles.heroContentWrapper}>
-            <div className={styles.containerText}>
-              <h1 className={styles.heroTitle}>{section.title}</h1>
-              {section.description && (
-                <p className={styles.heroSubtitle}>{section.description}</p>
-              )}
-            </div>
-          </div>
-          <div className={styles.statsContainer}>
-            {statsBlocks.map((block) => (
-              <div key={block.id} className={styles.card}>
-                {block.item.icon && (
-                  <div className={styles.statIconContainer}>
-                    <Image
-                      src={getAssetCloud(block.item.icon)}
-                      alt={block.item.title}
-                      width={37}
-                      height={37}
-                      unoptimized
-                      className={styles.statIconImg}
-                    />
-                  </div>
-                )}
-                <div className={styles.titleSection}>
-                  <h3 className={styles.statNumber} style={{ color: block.item.color }}>
-                    {block.item.count}
-                  </h3>
-                </div>
-                <div className={styles.titleSection}>
-                  <h3 className={styles.statLabel}>{block.item.title}</h3>
-                </div>
-                <div className={styles.captionSection}>
-                  <p className={styles.statCaption}>{block.item.subtitle}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Card Blocks Section */}
-      {cardBlocks.length > 0 && (
-        <div className={styles.problem}>
-          {section.title && (
-            <div className={styles.problemHeading}>
-              <h2 className={styles.sectionTitle}>{section.title}</h2>
-            </div>
-          )}
-
-          {section.type === 'grid' ? (
-            <div className={styles.featuresCards}>
-              {cardBlocks.map((block) => (
-                <div key={block.id} className={styles.featureCard}>
-                  {block.item.image && (
-                    <div className={styles.benefitImage}>
-                      <Image
-                        src={getAssetCloud(block.item.image)}
-                        alt={block.item.title}
-                        width={250}
-                        height={200}
-                        unoptimized
-                      />
-                    </div>
-                  )}
-                  {block.item.type === 'number' && block.item.value && (
-                    <div className={styles.setupIcon}>
-                      <span className={styles.setupNumber}>{block.item.value}</span>
-                    </div>
-                  )}
-                  <div className={styles.featureContent}>
-                    <div className={styles.featureTitle}>
-                      <h3>{block.item.title}</h3>
-                    </div>
-                    <div className={styles.featureCaption}>
-                      <p>{block.item.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className={styles.problemCards}>
-              {cardBlocks.map((block) => (
-                <div
-                  key={block.id}
-                  className={
-                    block.item.section_title === 'What Guests Ask'
-                      ? styles.guestProblem
-                      : styles.staffProblem
-                  }
-                >
-                  {block.item.section_image && (
-                    <Image
-                      src={getAssetCloud(block.item.section_image)}
-                      alt={block.item.title}
-                      width={250}
-                      height={150}
-                      unoptimized
-                    />
-                  )}
-                  {block.item.section_title && (
-                    <div className={styles.textSection}>
-                      <h4>{block.item.section_title}</h4>
-                    </div>
-                  )}
-                  <div className={styles.containerTextProblem}>
-                    <div className={styles.problemCardTitle}>
-                      <h3>{block.item.title}</h3>
-                    </div>
-                    <div className={styles.item}>
-                      <p>{block.item.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {section.notice && (
-            <div className={styles.problemText}>
-              <p>{section.notice}</p>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* FAQs Section */}
-      {faqBlocks.length > 0 && (
-        <div className={styles.faqs}>
-          <div className={styles.faqsHeading}>
-            <h2 className={styles.sectionTitle}>{section.title}</h2>
-          </div>
-          <div className={styles.qAndA}>
-            {faqBlocks.map((block) => (
-              <div key={block.id} className={styles.qAndAFrame}>
-                <div className={styles.qAndAContent}>
-                  <div className={styles.question}>
-                    <h3>{block.item.question}</h3>
-                  </div>
-                  {expandedFaq === block.id && (
-                    <div className={styles.answer}>
-                      <p>{block.item.answer}</p>
-                    </div>
-                  )}
-                </div>
-                <button
-                  onClick={() =>
-                    setExpandedFaq(expandedFaq === block.id ? null : block.id)
-                  }
-                  className={styles.expandButton}
-                  aria-expanded={expandedFaq === block.id}
-                >
-                  {expandedFaq === block.id ? '−' : '+'}
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Banner Section */}
-      {bannerBlocks.length > 0 && (
-        <div className={styles.finalCta}>
-          <div className={styles.bannerFrame}>
-            <div className={styles.logoAndText}>
-              <div className={styles.bannerTextContent}>
-                <h2>{bannerBlocks[0].item.title}</h2>
-                <p>{bannerBlocks[0].item.description}</p>
-              </div>
-            </div>
-            <div className={styles.containerButton}>
-              <button
-                className={styles.buttonPrimary}
-                onClick={() =>
-                  (window.location.href =
-                    bannerBlocks[0].item.button_link ||
-                    'https://portal.chatagent.io/auth/signup')
-                }
-              >
-                {bannerBlocks[0].item.button_name}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </section>
   );
 }
