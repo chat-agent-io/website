@@ -111,7 +111,7 @@ export const useStudyBySlug = (
   return useQuery({
     queryKey: STUDY_BY_SLUG_QUERY_KEY(slug),
     queryFn: async () => {
-      const { data } = await clientChatAgent.get<StudyResponse>(
+      const { data } = await clientChatAgent.get<Study[] | StudyResponse>(
         Config.chatAgent.resources.studies,
         {
           params: {
@@ -135,7 +135,13 @@ export const useStudyBySlug = (
         return { data: data[0] || null } as StudyResponse;
       }
 
-      return data;
+      // If it's wrapped in a data property, use it as is
+      if (data && 'data' in data) {
+        return data as StudyResponse;
+      }
+
+      // Fallback: wrap the single object
+      return { data: data as Study } as StudyResponse;
     },
     enabled: enabled && !!slug,
   });
