@@ -260,9 +260,7 @@ export default function CaseStudyPage() {
               {/* Benefits Section - identified by title and card blocks */}
               {section.title.toLowerCase().includes('benefit') && section.blocks.some(b => b.collection === 'block_card') && (
                 <section className={styles.benefits}>
-                  <div className={styles.sectionHeading}>
-                    <h2 className={styles.sectionTitle}>{section.title}</h2>
-                  </div>
+                  <HeaderSection title={section.title} />
 
                   <div className={styles.benefitsCards}>
                     {/* First Row - 3 cards */}
