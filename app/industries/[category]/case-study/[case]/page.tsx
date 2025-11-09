@@ -102,7 +102,7 @@ export default function CaseStudyPage() {
                   {getBlocksByCollection(heroSection, 'block_statistics').map((stat: any) => (
                     <div key={stat.id} className={styles.card}>
                       <div className={styles.statIconContainer}>
-                        {stat.icon && <img src={stat.icon} alt="" className={styles.statIcon} />}
+                        {stat.icon && <img src={getAssetCloud(stat.icon)} alt="" className={styles.statIcon} />}
                         <span className={styles.statNumber}>{stat.count}</span>
                       </div>
                       <div className={styles.titleSection}>
@@ -151,10 +151,10 @@ export default function CaseStudyPage() {
                     </div>
                     <div className={styles.containerQuestions}>
                       {card.section_image && (
-                        <img 
-                          src={card.section_image} 
-                          alt={card.title} 
-                          className={styles.questionsCards} 
+                        <img
+                          src={getAssetCloud(card.section_image)}
+                          alt={card.title}
+                          className={styles.questionsCards}
                         />
                       )}
                     </div>
@@ -210,10 +210,10 @@ export default function CaseStudyPage() {
                           </h3>
                         </div>
                         {card.image && (
-                          <img 
-                            src={card.image} 
-                            alt={card.title} 
-                            className={styles.conversationCard} 
+                          <img
+                            src={getAssetCloud(card.image)}
+                            alt={card.title}
+                            className={styles.conversationCard}
                           />
                         )}
                       </div>
@@ -222,10 +222,10 @@ export default function CaseStudyPage() {
 
                   {/* Phone Screenshot */}
                   {getBlocksByCollection(channelsSection, 'block_card')[2]?.image && (
-                    <img 
-                      src={getBlocksByCollection(channelsSection, 'block_card')[2].image} 
-                      alt="Mobile app" 
-                      className={styles.screenshots} 
+                    <img
+                      src={getAssetCloud(getBlocksByCollection(channelsSection, 'block_card')[2].image)}
+                      alt="Mobile app"
+                      className={styles.screenshots}
                     />
                   )}
                 </div>
@@ -245,7 +245,7 @@ export default function CaseStudyPage() {
                   <div key={card.id} className={styles.timelineCard}>
                     <div className={styles.timelinePhotos}>
                       {card.image && (
-                        <img src={card.image} alt={card.title} className={styles.timelineImage} />
+                        <img src={getAssetCloud(card.image)} alt={card.title} className={styles.timelineImage} />
                       )}
                     </div>
                     <div className={styles.timelineContent}>
@@ -275,7 +275,7 @@ export default function CaseStudyPage() {
                   {getBlocksByCollection(benefitsSection, 'block_card').slice(0, 3).map((card: any) => (
                     <div key={card.id} className={styles.benefitCard}>
                       <div className={styles.benefitImage}>
-                        {card.image && <img src={card.image} alt={card.title} />}
+                        {card.image && <img src={getAssetCloud(card.image)} alt={card.title} />}
                       </div>
                       <div className={styles.benefitContent}>
                         <div className={styles.benefitTitle}>
@@ -294,7 +294,7 @@ export default function CaseStudyPage() {
                   {getBlocksByCollection(benefitsSection, 'block_card').slice(3, 6).map((card: any) => (
                     <div key={card.id} className={styles.benefitCard}>
                       <div className={styles.benefitImage}>
-                        {card.image && <img src={card.image} alt={card.title} />}
+                        {card.image && <img src={getAssetCloud(card.image)} alt={card.title} />}
                       </div>
                       <div className={styles.benefitContent}>
                         <div className={styles.benefitTitle}>
@@ -330,7 +330,7 @@ export default function CaseStudyPage() {
                   <div key={card.id} className={styles.featureCard}>
                     {card.icon && (
                       <div className={styles.featureIcon}>
-                        <img src={card.icon} alt="" />
+                        <img src={getAssetCloud(card.icon)} alt="" />
                       </div>
                     )}
                     <div className={styles.featureContent}>
@@ -359,7 +359,7 @@ export default function CaseStudyPage() {
                   <div key={card.id} className={styles.setupCard}>
                     <div className={styles.setupIconWrapper}>
                       {card.icon ? (
-                        <img src={card.icon} alt="" className={styles.setupNumberImage} />
+                        <img src={getAssetCloud(card.icon)} alt="" className={styles.setupNumberImage} />
                       ) : (
                         <div className={styles.setupIconCircle}>
                           <span className={styles.setupNumber}>{index + 1}</span>
