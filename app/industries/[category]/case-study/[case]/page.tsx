@@ -305,9 +305,9 @@ export default function CaseStudyPage() {
                   <div className={styles.featuresCards}>
                     {getBlocksByCollection(section, 'block_card').map((card) => (
                       <div key={card.id} className={styles.featureCard}>
-                        {card.icon && (
+                        {card.image && (
                           <div className={styles.featureIcon}>
-                            <img src={getAssetCloud(card.icon)} alt="" />
+                            <img src={getAssetCloud(card.image)} alt="" />
                           </div>
                         )}
                         <div className={styles.featureContent}>
