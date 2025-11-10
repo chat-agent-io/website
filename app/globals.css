@@ -17,15 +17,9 @@
   --color-foreground: var(--foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html {
   font-family: 'Onest', sans-serif;
+  color-scheme: light;
 }
 
 body {
