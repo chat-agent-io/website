@@ -8,13 +8,7 @@ import { CheckIcon } from '@/app/assets/icons/CheckIcon';
 import styles from './AnnualPlans.module.scss';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 
-interface AnnualPlansProps {
-  onSwitchToMonthly: () => void;
-}
-
-export const AnnualPlans: React.FC<AnnualPlansProps> = ({
-  onSwitchToMonthly,
-}) => {
+export const AnnualPlans: React.FC = () => {
   const isMobile = useMediaQuery('768');
   const [expandedPlans, setExpandedPlans] = useState<number[]>([]);
   const [selectedPlan, setSelectedPlan] = useState<number | null>(null);
@@ -107,11 +101,6 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
     },
   ];
 
-  const MonthlyPlansToggle = () => (
-    <div className={styles.monthlyPlans} onClick={onSwitchToMonthly}>
-      <span className={styles.monthlyText}>Monthly Plans ↗</span>
-    </div>
-  );
 
   const togglePlanExpansion = (planIndex: number) => {
     setExpandedPlans((prev) =>
@@ -128,15 +117,6 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.header}>
-          <div className={styles.titleSection}>
-            <span className={styles.breadcrumb}>Pricing\</span>
-            <h2 className={styles.title}>Annual Plans</h2>
-          </div>
-          <div className={styles.toggleSection}>
-            <MonthlyPlansToggle />
-          </div>
-        </div>
         <div className={styles.headerSeparator}>
           <Separator />
         </div>
@@ -313,7 +293,6 @@ export const AnnualPlans: React.FC<AnnualPlansProps> = ({
             <Button variant="gradient" size="lg" full>
               Subscribe
             </Button>
-            <MonthlyPlansToggle />
           </div>
         </section>
       </div>

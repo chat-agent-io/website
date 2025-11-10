@@ -1,9 +1,7 @@
 @use '../../../styles/colors' as colors;
 
 .container {
-  background: colors.$background-section;
   min-height: 90vh;
-  padding: 40px 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;

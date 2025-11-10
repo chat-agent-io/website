@@ -98,20 +98,20 @@ export const MobileFooter = (): React.ReactElement => {
               <DarkLogo className={styles.logo} />
               <span>ChatAgent</span>
             </div>
-            <div style={{ position: 'relative' }}>
-              <button
-                className={styles.translateButton}
-                onClick={toggleLanguageDropdown}
-              >
-                <TranslateIcon />
-              </button>
-              <LanguageDropdown
-                isOpen={isLanguageDropdownOpen}
-                onClose={() => setIsLanguageDropdownOpen(false)}
-                selectedLanguage={selectedLanguage}
-                onLanguageSelect={handleLanguageSelect}
-              />
-            </div>
+            {/*<div style={{ position: 'relative' }}>*/}
+            {/*  <button*/}
+            {/*    className={styles.translateButton}*/}
+            {/*    onClick={toggleLanguageDropdown}*/}
+            {/*  >*/}
+            {/*    <TranslateIcon />*/}
+            {/*  </button>*/}
+            {/*  <LanguageDropdown*/}
+            {/*    isOpen={isLanguageDropdownOpen}*/}
+            {/*    onClose={() => setIsLanguageDropdownOpen(false)}*/}
+            {/*    selectedLanguage={selectedLanguage}*/}
+            {/*    onLanguageSelect={handleLanguageSelect}*/}
+            {/*  />*/}
+            {/*</div>*/}
           </div>
 
           <div className={styles.linksContainer}>
@@ -162,7 +162,7 @@ export const MobileFooter = (): React.ReactElement => {
           <p className={styles.copyrightText}>
             © 2025 ChatAgent | All rights reserved.
           </p>
-          <p className={styles.poweredByText}>Powered by InstaReply</p>
+          <p className={styles.poweredByText}>Powered by INSTAREPLY W.L.L</p>
         </div>
       </div>
     </footer>

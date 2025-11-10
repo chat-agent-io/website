@@ -120,20 +120,20 @@ export const DesktopFooter = (): React.ReactElement => {
             <InstagramIcon />
             <YoutubeIcon />
           </div>
-          <div style={{ position: 'relative' }}>
-            <button
-              className={styles.translateButton}
-              onClick={toggleLanguageDropdown}
-            >
-              <TranslateIcon />
-            </button>
-            <LanguageDropdown
-              isOpen={isLanguageDropdownOpen}
-              onClose={() => setIsLanguageDropdownOpen(false)}
-              selectedLanguage={selectedLanguage}
-              onLanguageSelect={handleLanguageSelect}
-            />
-          </div>
+          {/*<div style={{ position: 'relative' }}>*/}
+          {/*  <button*/}
+          {/*    className={styles.translateButton}*/}
+          {/*    onClick={toggleLanguageDropdown}*/}
+          {/*  >*/}
+          {/*    <TranslateIcon />*/}
+          {/*  </button>*/}
+          {/*  <LanguageDropdown*/}
+          {/*    isOpen={isLanguageDropdownOpen}*/}
+          {/*    onClose={() => setIsLanguageDropdownOpen(false)}*/}
+          {/*    selectedLanguage={selectedLanguage}*/}
+          {/*    onLanguageSelect={handleLanguageSelect}*/}
+          {/*  />*/}
+          {/*</div>*/}
         </div>
       </div>
 
@@ -141,7 +141,7 @@ export const DesktopFooter = (): React.ReactElement => {
         <div className={styles.copyrightText}>
           © 2025 ChatAgent | All rights reserved.
         </div>
-        <div className={styles.poweredBy}>Powered by InstaReply</div>
+        <div className={styles.poweredBy}>Powered by INSTAREPLY W.L.L</div>
       </div>
     </footer>
   );

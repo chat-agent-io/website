@@ -8,13 +8,7 @@ import { CheckIcon } from '@/app/assets/icons/CheckIcon';
 import styles from './MonthlyPlans.module.scss';
 import { useMediaQuery } from '@/app/hooks/useMediaQuery';
 
-interface MonthlyPlansProps {
-  onSwitchToAnnual: () => void;
-}
-
-export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
-  onSwitchToAnnual,
-}) => {
+export const MonthlyPlans: React.FC = () => {
   const isMobile = useMediaQuery('768');
   const [expandedPlans, setExpandedPlans] = useState<number[]>([]);
   const [selectedPlan, setSelectedPlan] = useState<number | null>(null);
@@ -103,15 +97,6 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
     },
   ];
 
-  const AnnualPlansToggle = () => (
-    <div>
-      <div className={styles.annualPlans} onClick={onSwitchToAnnual}>
-        <span className={styles.annualText}>
-          Save 1 Month with Annual Plans ↗
-        </span>
-      </div>
-    </div>
-  );
 
   const togglePlanExpansion = (planIndex: number) => {
     setExpandedPlans((prev) =>
@@ -128,18 +113,6 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.header}>
-          <div className={styles.titleSection}>
-            <span className={styles.breadcrumb}>Pricing\</span>
-            <h2 className={styles.title}>Monthly Plans</h2>
-          </div>
-          <div className={styles.subtitleContainer}>
-            <span className={styles.subtitle}>
-              Choose a plan to unlock your Free Trial
-            </span>
-            <AnnualPlansToggle />
-          </div>
-        </div>
         <div className={styles.headerSeparator}>
           <Separator />
         </div>
@@ -283,7 +256,6 @@ export const MonthlyPlans: React.FC<MonthlyPlansProps> = ({
             ))}
           </div>
           <div className={styles.annualPlansBottom}>
-            <AnnualPlansToggle />
             <Button variant="gradient" size="lg" full>
               Subscribe
             </Button>

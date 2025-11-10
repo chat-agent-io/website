@@ -1,0 +1,86 @@
+@use '../../../styles/colors' as colors;
+
+.container {
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  gap:             16px;
+  padding:         0 24px;
+  width:           100%;
+  margin-bottom:   22px;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items:    center;
+    gap:            12px;
+    padding:        0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 16px;
+  }
+}
+
+.breadcrumb {
+  font-family: inherit;
+  color:       colors.$gray-500;
+  font-size:   13px;
+  white-space: nowrap;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.toggleWrapper {
+  display:       flex;
+  align-items:   center;
+  background:    colors.$gray-100;
+  border-radius: 8px;
+  padding:       4px;
+  gap:           4px;
+
+  @media (max-width: 900px) {
+    width:     100%;
+    max-width: 400px;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 100%;
+  }
+}
+
+.toggleOption {
+  font-family:   inherit;
+  font-size:     13px;
+  font-weight:   500;
+  padding:       8px 24px;
+  border-radius: 6px;
+  border:        none;
+  background:    transparent;
+  color:         colors.$gray-600;
+  cursor:        pointer;
+  transition:    all 0.2s ease;
+  white-space:   nowrap;
+
+  @media (max-width: 480px) {
+    flex:      1;
+    padding:   10px 16px;
+    font-size: 12px;
+  }
+
+  &:hover:not(:disabled) {
+    color: colors.$black-dark;
+  }
+
+  &.active {
+    background: white;
+    color:      colors.$black-dark;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor:     default;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}

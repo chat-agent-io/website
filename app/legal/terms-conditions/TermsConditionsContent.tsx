@@ -68,7 +68,7 @@ const termsSections: TermsSection[] = [
   },
   {
     title: "Data Protection; Roles; DPA",
-    content: "For Customer Content, you are the Controller (or equivalent) and InstaReply is the Processor (or PDPL Data Manager). For Account Data, InstaReply is the Controller.\n\nIf you process personal data through the Service, our DPA applies and is incorporated into these Terms. The DPA sets out Processor obligations, sub‑processor conditions, security measures, assistance with data subject rights, international transfers (e.g., SCCs with UK addendum/IDTA), and audits.\n\nSub‑processors: We maintain a current list at [Insert Sub‑processor URL] and will provide notice of material changes as specified."
+    content: "For Customer Content, you are the Controller (or equivalent) and InstaReply is the Processor (or PDPL Data Manager). For Account Data, InstaReply is the Controller.\n\nIf you process personal data through the Service, our DPA applies and is incorporated into these Terms. The DPA sets out Processor obligations, sub‑processor conditions, security measures, assistance with data subject rights, international transfers (e.g., SCCs with UK addendum/IDTA), and audits."
   },
   {
     title: "Service Levels and Support",
@@ -148,7 +148,7 @@ export const TermsConditionsContent: React.FC = () => {
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>ChatAgent Terms & Conditions</h1>
           <p className={styles.heroSubtitle}>Updated September 14, 2025</p>
-          
+
           <div className={styles.heroDescription}>
             <p>
               These Terms &amp; Conditions (&quot;Terms&quot;) govern your access to and use of Chat Agent and all related websites, dashboards, APIs, SDKs, plugins, and support channels (collectively referred to as the &quot;Service&quot;) provided by InstaReply W.L.L., a company based in the Kingdom of Bahrain (&quot;InstaReply,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;).
