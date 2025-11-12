@@ -1,0 +1,362 @@
+@use '../../../styles/colors' as colors;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: colors.$background-section;
+  padding: 32px 16px;
+
+  @media (max-width: 768px) {
+    padding: 32px 16px;
+  }
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.title {
+  font-family: 'Onest', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 120%;
+  text-align: center;
+  color: colors.$black-dark;
+  margin: 0;
+  max-width: 628px;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
+}
+
+.channelSelector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 16px;
+  width: 100%;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media (max-width: 480px) {
+    gap: 6px;
+  }
+}
+
+.channelButton {
+  font-family: 'Onest', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid colors.$white;
+  background: transparent;
+  color: colors.$black-dark;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  &.active {
+    background: linear-gradient(to bottom, colors.$gray-800 0%, #1c1a24 91.03%);
+    color: colors.$white;
+    border: none;
+  }
+}
+
+.moreLabel {
+  font-family: 'Onest', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: colors.$gray-400;
+  padding: 8px 0;
+}
+
+.channelContent {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.conversationSamples {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 289px;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+.miniChatCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.cardHeading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardTitle {
+  font-family: 'Onest', sans-serif;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 120%;
+  text-align: center;
+  background: colors.$gradient-primary-angled;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 19px;
+  }
+}
+
+.conversationCard {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 9.5px;
+  min-height: 131px;
+  width: 100%;
+  background: transparent;
+}
+
+.messagesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+}
+
+.message {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+
+  &.userMessage {
+    justify-content: flex-end;
+  }
+
+  &.agentMessage {
+    justify-content: flex-start;
+  }
+}
+
+.agentIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8px;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: colors.$white;
+  border: 1px solid colors.$gray-300;
+  overflow: hidden;
+  position: relative;
+  --fill-0: #{colors.$white};
+  --stroke-0: #{colors.$gray-300};
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.messagePill {
+  display: flex;
+  align-items: start;
+  padding: 8px 16px;
+  border-radius: 9.5px;
+  max-width: 200px;
+
+  p {
+    font-family: 'Onest', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 120%;
+    margin: 0;
+    white-space: pre-wrap;
+  }
+
+  &.userPill {
+    background: colors.$primary-blue;
+    color: colors.$white;
+    border-radius: 9.5px 9.5px 0 9.5px;
+  }
+
+  &.agentPill {
+    background: linear-gradient(to right, colors.$gray-100 0%, rgba(255, 255, 255, 0.5) 100%);
+    border: 1px solid colors.$white;
+    color: colors.$black-dark;
+    flex: 1;
+    max-width: 300px;
+  }
+
+  &.handoffPill {
+    background: transparent;
+    border: none;
+    padding: 8px 0;
+    max-width: 100%;
+
+    p {
+      font-size: 11px;
+      color: colors.$gray-800;
+    }
+  }
+}
+
+.handoffText {
+  font-size: 11px;
+  color: colors.$gray-800;
+}
+
+.indicator {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: colors.$gray-300;
+  transition: background 0.3s ease;
+
+  &.active {
+    background: colors.$gray-800;
+  }
+}
+
+.phoneContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 1024px) {
+    order: -1;
+  }
+}
+
+.phoneImage {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+
+  @media (max-width: 480px) {
+    max-width: 280px;
+  }
+}
+
+// Mobile Carousel
+.mobileCarousel {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.carouselContainer {
+  width: 100%;
+  max-width: 320px;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.carouselSlide {
+  flex: 0 0 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+}
+
+// Custom pagination styles
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.paginationDot {
+  width: 8px;
+  height: 8px;
+  background: colors.$gray-300;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.paginationDotActive {
+  background: colors.$primary-purple;
+  transform: scale(1.2);
+}
+
+.phoneContainerMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 8px;
+}

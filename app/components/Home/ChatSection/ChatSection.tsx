@@ -61,20 +61,20 @@ export const ChatSetupSection = (): React.ReactElement => {
     <section className={styles.section}>
       <div className={styles.headerSection}>
         <h1 className={styles.mainHeading}>
-          Your DMs Answered Instantly. <br /> Without Lifting a Finger.
+          Your AI assistant that replies <br /> to every message — instantly
         </h1>
 
         <h1 className={styles.mainHeadingMobile}>
-          Your DMs
+          Your AI assistant
           <br />
-          Answered Instantly.
+          that replies
           <br />
-          Without Lifting a Finger.
+          to every message — instantly
         </h1>
 
         <p className={styles.subHeading}>
-          ChatAgent replies to every Instagram, WhatsApp, <br />
-          {"or website message — so you don't have to."}
+          No missed chats, no late replies. ChatAgent answers your customers <br />
+          in seconds — so you can focus on your business
         </p>
         <CtaButton />
       </div>

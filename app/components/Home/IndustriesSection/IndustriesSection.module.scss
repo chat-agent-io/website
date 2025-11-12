@@ -1,0 +1,224 @@
+@use '../../../styles/colors' as colors;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: colors.$background-section;
+  padding: 64px 16px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 48px 16px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 32px 16px;
+  }
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+
+  @media (max-width: 768px) {
+    gap: 24px;
+  }
+}
+
+.industriesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 1000px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 650px;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+}
+
+.industryCard {
+  display: flex;
+  width: 100%;
+  height: 150px;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 9.5px;
+  border: 1px solid colors.$white;
+  background: linear-gradient(180deg, rgba(242, 242, 242, 0) 0%, rgba(255, 255, 255, 0.5) 100%);
+  position: relative;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 480px) {
+    height: auto;
+    min-height: 150px;
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  position: relative;
+
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  height: 50px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+
+  svg,
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 480px) {
+    height: 42px;
+  }
+}
+
+.industryTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  color: colors.$black-dark;
+  font-family: 'Onest', sans-serif;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  margin: 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
+}
+
+.industryDescription {
+  flex: 1 0 0;
+  color: colors.$gray-700;
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  margin: 16px 0 0 0;
+  position: relative;
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
+}
+
+.useCasesLink {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: colors.$primary-blue;
+  text-align: right;
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-decoration: underline;
+  position: relative;
+  margin-top: auto;
+  align-self: flex-end;
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
+}
+
+.ctaSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding-top: 16px;
+
+  @media (max-width: 768px) {
+    gap: 12px;
+    padding-top: 8px;
+  }
+}
+
+.ctaTitle {
+  font-family: 'Onest', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 120%;
+  text-align: center;
+  color: colors.$black-dark;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: 9.5px;
+  overflow: hidden;
+  background: linear-gradient(
+    151deg,
+    colors.$rgba-primary-blue 0%,
+    colors.$rgba-primary-purple 100%
+  );
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

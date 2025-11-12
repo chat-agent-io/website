@@ -12,6 +12,8 @@ import { SpeaksLikeYouSection } from './components/Home/SpeaksLikeYouSection/Spe
 import { WhatDoesntSection } from './components/Home/WhatDoesntSection/WhatDoesntSection';
 import { WhatDoesSection } from './components/Home/WhatDoesSection/WhatDoesSection';
 import { ChatAgentForYouSection } from './components/Home/ChatAgentForYouSection/ChatAgentForYouSection';
+import { ChannelsSection } from './components/Home/ChannelsSection';
+import { IndustriesSection } from './components/Home/IndustriesSection';
 
 export default function HomePage() {
   return (
@@ -22,6 +24,8 @@ export default function HomePage() {
           <ChatSetupSection />
           <ChatAgentForYouSection />
           <WhatDoesSection />
+          <ChannelsSection />
+          <IndustriesSection />
           <WhatDoesntSection />
           <SpeaksLikeYouSection />
           <RealResults />
@@ -34,6 +38,8 @@ export default function HomePage() {
           <ChatSetupSection />
           <ChatAgentForYouSection />
           <WhatDoesSection />
+          <ChannelsSection />
+          <IndustriesSection />
           <SpeaksLikeYouSection />
           <RealResults />
           <SetupStepsSection />

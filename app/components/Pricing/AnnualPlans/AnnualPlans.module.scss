@@ -1,6 +1,7 @@
 @use '../../../styles/colors' as colors;
 
 .container {
+  background: colors.$background-section;
   min-height: 90vh;
   display: flex;
   justify-content: center;
