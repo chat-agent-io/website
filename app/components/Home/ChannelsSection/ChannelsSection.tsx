@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import {useState} from 'react';
 import styles from './ChannelsSection.module.scss';
 import Image from 'next/image';
-import { useAutoSwipe } from '@/app/hooks/useAutoSwipe';
+import {useAutoSwipe} from '@/app/hooks/useAutoSwipe';
 
 type Channel = 'whatsapp' | 'instagram' | 'website';
 
@@ -99,7 +99,7 @@ export const ChannelsSection: React.FC = () => {
                         {
                             type: 'agent',
                             text: 'Hi, I\'m at the front desk. I\'ve alerted security. What color is the wallet, and whose name is on the ID?',
-                            icon: '/images/channels/agent-icon-2.png',
+                            icon: '/images/channels/agent-icon.png',
                         },
                     ],
                     indicator: 2,
@@ -155,7 +155,7 @@ export const ChannelsSection: React.FC = () => {
                         {
                             type: 'agent',
                             text: 'Hi, I\'m at the front desk. I\'ve alerted security. What color is the wallet, and whose name is on the ID?',
-                            icon: '/images/channels/agent-icon-2.png',
+                            icon: '/images/channels/agent-icon.png',
                         },
                     ],
                     indicator: 2,
@@ -211,7 +211,7 @@ export const ChannelsSection: React.FC = () => {
                         {
                             type: 'agent',
                             text: 'Hi, I\'m at the front desk. I\'ve alerted security. What color is the wallet, and whose name is on the ID?',
-                            icon: '/images/channels/agent-icon-2.png',
+                            icon: '/images/channels/agent-icon.png',
                         },
                     ],
                     indicator: 2,
@@ -338,7 +338,7 @@ export const ChannelsSection: React.FC = () => {
                             onMouseMove={handleMouseMove}
                             onMouseUp={handleMouseUp}
                             onMouseLeave={handleMouseLeave}
-                            style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+                            style={{cursor: isDragging ? 'grabbing' : 'grab'}}
                         >
                             <div
                                 className={styles.carouselTrack}
