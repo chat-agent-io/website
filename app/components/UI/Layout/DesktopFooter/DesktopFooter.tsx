@@ -114,12 +114,12 @@ export const DesktopFooter = (): React.ReactElement => {
         </div>
 
         <div className={styles.socialSection}>
-          <div className={styles.socialIcons}>
-            <LinkedInIcon />
-            <FacebookIcon />
-            <InstagramIcon />
-            <YoutubeIcon />
-          </div>
+          {/*<div className={styles.socialIcons}>*/}
+          {/*  <LinkedInIcon />*/}
+          {/*  <FacebookIcon />*/}
+          {/*  <InstagramIcon />*/}
+          {/*  <YoutubeIcon />*/}
+          {/*</div>*/}
           {/*<div style={{ position: 'relative' }}>*/}
           {/*  <button*/}
           {/*    className={styles.translateButton}*/}
@@ -141,7 +141,7 @@ export const DesktopFooter = (): React.ReactElement => {
         <div className={styles.copyrightText}>
           © 2025 ChatAgent | All rights reserved.
         </div>
-        <div className={styles.poweredBy}>Powered by INSTAREPLY W.L.L</div>
+        <div className={styles.poweredBy}>Powered by INSTAREPLY W.L.L.</div>
       </div>
     </footer>
   );

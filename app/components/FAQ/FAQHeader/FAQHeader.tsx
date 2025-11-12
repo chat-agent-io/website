@@ -11,11 +11,12 @@ export const FAQHeader: React.FC = () => {
         <h1 className={styles.title}>Frequently Asked Questions</h1>
         {/* Desktop version - single paragraph */}
         <p className={styles.descriptionDesktop}>
-          These are the most asked questions about ChatAgent. Can&apos;t find
-          what you&apos;re looking for?{' '}
-          <a href="#" className={styles.link}>
-            Chat with our friendly team ↗
-          </a>
+          These are the most asked questions about ChatAgent.
+            {/*  Can&apos;t find*/}
+            {/*what you&apos;re looking for?{' '}*/}
+            {/*<a href="#" className={styles.link}>*/}
+            {/*  Chat with our friendly team ↗*/}
+            {/*</a>*/}
         </p>
         {/* Mobile version - separate paragraphs */}
         <div className={styles.mobileContent}>
