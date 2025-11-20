@@ -189,28 +189,35 @@ export const AnnualPlans: React.FC = () => {
                         </div>
                       </div>
                       <div className={styles.mobileFeaturesSection}>
-                        {!expandedPlans.includes(index) && (
+                        {!expandedPlans.includes(index) ? (
                           <div
                             className={styles.viewBenefitsText}
                             onClick={() => togglePlanExpansion(index)}
                           >
                             <span>View benefits ↓</span>
                           </div>
-                        )}
-                        {expandedPlans.includes(index) && (
-                          <div className={styles.mobileFeaturesList}>
-                            {plan.features.map((feature, featureIndex) => (
-                              <div
-                                key={featureIndex}
-                                className={styles.feature}
-                              >
-                                <CheckIcon className={styles.checkIcon} />
-                                <div className={styles.featureText}>
-                                  {feature}
+                        ) : (
+                          <>
+                            <div className={styles.mobileFeaturesList}>
+                              {plan.features.map((feature, featureIndex) => (
+                                <div
+                                  key={featureIndex}
+                                  className={styles.feature}
+                                >
+                                  <CheckIcon className={styles.checkIcon} />
+                                  <div className={styles.featureText}>
+                                    {feature}
+                                  </div>
                                 </div>
-                              </div>
-                            ))}
-                          </div>
+                              ))}
+                            </div>
+                            <div
+                              className={styles.viewBenefitsText}
+                              onClick={() => togglePlanExpansion(index)}
+                            >
+                              <span>Hide benefits ↑</span>
+                            </div>
+                          </>
                         )}
                       </div>
                     </>
@@ -268,9 +275,18 @@ export const AnnualPlans: React.FC = () => {
                         </div>
                       </div>
                       <div className={styles.buttonSection}>
-                        <Button full variant={plan.buttonVariant}>
-                          {plan.buttonText}
-                        </Button>
+                        <a
+                          href={
+                            plan.buttonText === 'Subscribe'
+                              ? 'https://portal.chatagent.io/auth/signup'
+                              : '#'
+                          }
+                          style={{ textDecoration: 'none', display: 'block' }}
+                        >
+                          <Button full variant={plan.buttonVariant}>
+                            {plan.buttonText}
+                          </Button>
+                        </a>
                         <div className={styles.separatorContainer}>
                           <Separator />
                         </div>
@@ -290,9 +306,14 @@ export const AnnualPlans: React.FC = () => {
             ))}
           </div>
           <div className={styles.annualPlansBottom}>
-            <Button variant="gradient" size="lg" full>
-              Subscribe
-            </Button>
+            <a
+              href="https://portal.chatagent.io/auth/signup"
+              style={{ textDecoration: 'none', display: 'block' }}
+            >
+              <Button variant="gradient" size="lg" full>
+                Subscribe
+              </Button>
+            </a>
           </div>
         </section>
       </div>

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Layout from '../components/UI/Layout/Layout';
 import styles from './about-us.module.scss';
 
@@ -161,7 +162,7 @@ export default function AboutUsPage() {
                   Per-seat pricing with monthly or annual billing All plans include a 14-day free trial Annual plans offer a pay-for-10, get-12 discount Enterprise plans start at $999 per seat per month with advanced integrations and SLAs Full details are in our Terms & Conditions and Order Forms.
                 </p>
               </div>
-              <button className={styles.primaryButton}>View Pricing</button>
+              <Link href="/pricing" className={styles.primaryButton}>View Pricing</Link>
             </div>
           </section>
 
