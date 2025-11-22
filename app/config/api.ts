@@ -19,6 +19,7 @@ export const Config = {
       industries: '/items/industries',
       industryCategories: '/items/industry_categories',
       studies: '/items/studies',
+      jobs: '/items/jobs',
     },
   },
 } as const;

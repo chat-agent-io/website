@@ -1,54 +1,29 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { Config } from '@/app/config/api';
-import { httpClient } from '../httpClient';
+import { clientChatAgent } from '../httpClient';
 
 const CAREERS_QUERY_KEY = ['careers'] as const;
 
-export interface CareerRecord {
-  Id: number;
-  Title: string;
-  Time: string;
-  Location: string;
-  Status: string;
-  Apply: string | null;
+export interface Job {
+  id: number;
+  title: string;
+  description: string;
+  tags: string[];
+  action_text: string;
+  action_link: string;
 }
 
-interface PageInfo {
-  totalRows: number;
-  page: number;
-  pageSize: number;
-  isFirstPage: boolean;
-  isLastPage: boolean;
+interface JobsApiResponse {
+  data: Job[];
 }
 
-interface CareersResponse {
-  list: CareerRecord[];
-  pageInfo: PageInfo;
-  stats: {
-    dbQueryTime: string;
-  };
-}
-
-const defaultParams = {
-  offset: 0,
-  limit: 25,
-  where: '(Status,eq,open)',
-  viewId: 'vw9c8ps2xl8lus0b',
-};
-
-const fetchCareers = async (): Promise<CareersResponse> => {
-  const { data } = await httpClient.get<CareersResponse>(
-    Config.noco.resources.careers,
-    {
-      params: defaultParams,
-      headers: Config.noco.config.key
-        ? { 'xc-token': Config.noco.config.key }
-        : undefined,
-    }
+const fetchCareers = async (): Promise<Job[]> => {
+  const { data } = await clientChatAgent.get<JobsApiResponse>(
+    Config.chatAgent.resources.jobs
   );
 
-  return data;
+  return data.data;
 };
 
 export const useCareers = () => {

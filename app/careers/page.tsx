@@ -10,14 +10,20 @@ import {useCareers} from '../services/careers/useCareers';
 export default function CareersPage() {
     const {data, isLoading, isError} = useCareers();
 
-    const careers = data?.list ?? [];
+    const careers = data ?? [];
 
     const handleApplyClick = (url: string | null) => {
         if (!url) {
             return;
         }
 
-        window.open(url, '_blank', 'noopener,noreferrer');
+        // Handle mailto: links by setting window.location
+        if (url.startsWith('mailto:')) {
+            window.location.href = url;
+        } else {
+            // Open regular URLs in a new tab
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
     };
 
     return (
@@ -54,30 +60,32 @@ export default function CareersPage() {
                         )}
 
                         {careers.map((job) => (
-                            <div key={job.Id} className={styles.jobItem}>
-                                <div className={styles.jobContent}>
+                            <div key={job.id} className={styles.jobItem}>
+                                <div className={styles.jobHeader}>
                                     <div className={styles.jobTitle}>
-                                        <h3 className={styles.jobName}>{job.Title}</h3>
+                                        <h3 className={styles.jobName}>{job.title}</h3>
                                     </div>
                                     <div className={styles.jobDetails}>
                                         <div className={styles.jobInfo}>
-                                            <div className={styles.jobType}>
-                                                <span className={styles.jobTypeText}>{job.Time}</span>
-                                            </div>
-                                            <div className={styles.jobLocation}>
-                                                <span className={styles.jobLocationText}>{job.Location}</span>
-                                            </div>
+                                            {job.tags.map((tag, index) => (
+                                                <div key={index} className={styles.jobTag}>
+                                                    <span className={styles.jobTagText}>{tag}</span>
+                                                </div>
+                                            ))}
                                         </div>
                                         <Button
                                             variant="black"
                                             size="sm"
-                                            onClick={() => handleApplyClick(job.Apply)}
-                                            disabled={!job.Apply}
+                                            onClick={() => handleApplyClick(job.action_link)}
+                                            disabled={!job.action_link}
                                         >
-                                            Apply
+                                            {job.action_text}
                                         </Button>
                                     </div>
                                 </div>
+                                {job.description && (
+                                    <p className={styles.jobDescription}>{job.description}</p>
+                                )}
                             </div>
                         ))}
                     </div>
