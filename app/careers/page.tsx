@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 import Layout from '../components/UI/Layout/Layout';
 import {Button} from '../components/UI/Button/Button';
@@ -11,20 +12,6 @@ export default function CareersPage() {
     const {data, isLoading, isError} = useCareers();
 
     const careers = data ?? [];
-
-    const handleApplyClick = (url: string | null) => {
-        if (!url) {
-            return;
-        }
-
-        // Handle mailto: links by setting window.location
-        if (url.startsWith('mailto:')) {
-            window.location.href = url;
-        } else {
-            // Open regular URLs in a new tab
-            window.open(url, '_blank', 'noopener,noreferrer');
-        }
-    };
 
     return (
         <Layout>
@@ -73,19 +60,16 @@ export default function CareersPage() {
                                                 </div>
                                             ))}
                                         </div>
-                                        <Button
-                                            variant="black"
-                                            size="sm"
-                                            onClick={() => handleApplyClick(job.action_link)}
-                                            disabled={!job.action_link}
-                                        >
-                                            {job.action_text}
-                                        </Button>
+                                        <Link href={`/careers/${job.id}`}>
+                                            <Button
+                                                variant="black"
+                                                size="sm"
+                                            >
+                                                Details
+                                            </Button>
+                                        </Link>
                                     </div>
                                 </div>
-                                {job.description && (
-                                    <p className={styles.jobDescription}>{job.description}</p>
-                                )}
                             </div>
                         ))}
                     </div>
