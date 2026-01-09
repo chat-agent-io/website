@@ -27,6 +27,7 @@ export const AnnualPlans: React.FC = () => {
       features: [
         '14-Day Free Trial (live from day one)',
         'Up to 600 unique customer conversations/month',
+        'Standard support (1 business day)',
         'Supports 1 user',
         'Supports 2 languages',
         'Instagram & WhatsApp auto-reply',
@@ -47,6 +48,7 @@ export const AnnualPlans: React.FC = () => {
       features: [
         '14-Day Free Trial (live from day one)',
         'Up to 1,500 unique customer conversations/month',
+        'Priority support (8–12 hours)',
         'Supports up to 5 users',
         'Full multilingual support',
         'Instagram, WhatsApp & Facebook Messenger',
@@ -68,6 +70,7 @@ export const AnnualPlans: React.FC = () => {
       features: [
         '14-Day Free Trial (live from day one)',
         'Up to 3,000 unique customer conversations/month',
+        'Premium support (4–6 hours)',
         'Supports up to 10 users',
         'Full multilingual & dialect support',
         'All major messaging platforms',
@@ -91,6 +94,7 @@ export const AnnualPlans: React.FC = () => {
       features: [
         '14-Day Free Trial (live from day one)',
         'Up to 3,000 unique customer conversations/month',
+        '24/7 dedicated support (SLA-based)',
         'Unlimited messaging platforms',
         'Supports custom user limits',
         'POS, PMS, CRM & booking integrations',
@@ -100,7 +104,6 @@ export const AnnualPlans: React.FC = () => {
       ],
     },
   ];
-
 
   const togglePlanExpansion = (planIndex: number) => {
     setExpandedPlans((prev) =>
